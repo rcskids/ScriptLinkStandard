@@ -1,12 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Objects;
 using System;
 
 namespace ScriptLinkStandard.Test.HelperTests
 {
     [TestClass]
-    public class OptionObjectTransformTests
+    public class TransformToOptionObjectTests
     {
         private OptionObject newOptionObject;
 

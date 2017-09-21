@@ -52,8 +52,8 @@
     <Compile Include="HelpersTests\GetFieldValuesTests.cs" />
     <Compile Include="HelpersTests\GetOptionObjectHeadersTests.cs" />
     <Compile Include="HelpersTests\IsFieldPresentTests.cs" />
-    <Compile Include="HelpersTests\OptionObject2TransformTests.cs" />
-    <Compile Include="HelpersTests\OptionObjectTransformTests.cs" />
+    <Compile Include="HelpersTests\TransformToOptionObject2Tests.cs" />
+    <Compile Include="HelpersTests\TransformToOptionObjectTests.cs" />
     <Compile Include="HelpersTests\GetReturnOptionObjectTests.cs" />
     <Compile Include="HelpersTests\SetFieldValuesTests.cs" />
     <Compile Include="HelpersTests\IsValidErrorCodeTests.cs" />

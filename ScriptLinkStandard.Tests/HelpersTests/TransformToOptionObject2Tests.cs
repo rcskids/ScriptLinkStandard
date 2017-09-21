@@ -6,7 +6,7 @@ using System;
 namespace ScriptLinkStandard.Test.HelperTests
 {
     [TestClass]
-    public class OptionObject2TransformTests
+    public class TransformToOptionObject2Tests
     {
         private OptionObject2 newOptionObject;
 
