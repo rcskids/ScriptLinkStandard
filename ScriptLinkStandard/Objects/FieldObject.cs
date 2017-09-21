@@ -164,6 +164,7 @@ namespace ScriptLinkStandard.Objects
         {
             _isModified = true;
             this.Enabled = "0";
+            this.Required = "0";
         }
         /// <summary>
         /// Sets the <see cref="FieldObject"/> as enabled and marks the <see cref="FieldObject"/> as modified.
@@ -194,6 +195,7 @@ namespace ScriptLinkStandard.Objects
         public void SetAsOptional()
         {
             _isModified = true;
+            this.Enabled = "1";
             this.Required = "0";
         }
         /// <summary>
@@ -202,6 +204,7 @@ namespace ScriptLinkStandard.Objects
         public void SetAsRequired()
         {
             _isModified = true;
+            this.Enabled = "1";
             this.Required = "1";
         }
         /// <summary>
