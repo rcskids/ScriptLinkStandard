@@ -172,6 +172,7 @@ namespace ScriptLinkStandard.Test.ObjectsTests
 
         [TestMethod]
         [TestCategory("RowObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
         public void RowObject_AddFieldObject_DoesNotDuplicate()
         {
             string fieldNumber = "123";

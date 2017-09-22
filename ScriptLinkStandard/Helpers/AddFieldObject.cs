@@ -10,10 +10,14 @@ namespace ScriptLinkStandard.Helpers
     {
         public static RowObject AddFieldObject(IRowObject rowObject, IFieldObject fieldObject)
         {
-            if (rowObject == null || fieldObject == null)
-                return (RowObject)rowObject;                 // This should probably throw an exception
+            if (rowObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
+            if (fieldObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "fieldObject");
             if (rowObject.Fields.Contains((FieldObject)fieldObject))
-                return (RowObject)rowObject;                 // This should probably throw an exception
+                throw new System.ArgumentException("The RowObject already contains this FieldObject.");
+            if (rowObject.Fields.Exists(f => f.FieldNumber == fieldObject.FieldNumber))
+                throw new System.ArgumentException("The RowObject already contains a FieldObject with this FieldNumber.");
             rowObject.Fields.Add((FieldObject)fieldObject);
             return (RowObject)rowObject;
         }
@@ -21,18 +25,18 @@ namespace ScriptLinkStandard.Helpers
         public static RowObject AddFieldObject(IRowObject rowObject, string fieldNumber, string fieldValue)
         {
             if (rowObject == null)
-                return (RowObject)rowObject;                 // This should probably throw an exception
+                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
             if (fieldNumber == null || fieldNumber == "")
-                return (RowObject)rowObject;                 // This should probably throw an exception
+                throw new System.ArgumentException("The FieldNumber cannot be null or blank.");
             return AddFieldObject(rowObject, fieldNumber, fieldValue, false, false, false);
         }
 
         public static RowObject AddFieldObject(IRowObject rowObject, string fieldNumber, string fieldValue, string enabledValue, string lockedValue, string requiredValue)
         {
             if (rowObject == null)
-                return (RowObject)rowObject;                 // This should probably throw an exception
+                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
             if (fieldNumber == null || fieldNumber == "")
-                return (RowObject)rowObject;                 // This should probably throw an exception
+                throw new System.ArgumentException("The FieldNumber cannot be null or blank.");
             bool enabled = enabledValue == "1" ? true : false;
             bool locked = lockedValue == "1" ? true : false;
             bool required = requiredValue == "1" ? true : false;
@@ -42,9 +46,9 @@ namespace ScriptLinkStandard.Helpers
         public static RowObject AddFieldObject(IRowObject rowObject, string fieldNumber, string fieldValue, bool enabled, bool locked, bool required)
         {
             if (rowObject == null)
-                return (RowObject)rowObject;                 // This should probably throw an exception
+                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
             if (fieldNumber == null || fieldNumber == "")
-                return (RowObject)rowObject;                 // This should probably throw an exception
+                throw new System.ArgumentException("The FieldNumber cannot be null or blank.");
             FieldObject fieldObject = new FieldObject
             {
                 Enabled = enabled ? "1" : "0",
