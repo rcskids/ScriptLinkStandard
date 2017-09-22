@@ -7,25 +7,19 @@ namespace ScriptLinkStandard.Test.EntitiesTests
     [TestClass]
     public class FormObjectTests
     {
-        private FormObject formObject;
-
-        [TestInitialize]
-        public void TestInitialize()
-        {
-            this.formObject = new FormObject();
-        }
-
         [TestMethod]
         [TestCategory("FormObject")]
-        public void NewFormObjectHasOtherRowsObject()
+        public void FormObject_HasOtherRowsObject()
         {
+            FormObject formObject = new FormObject();
             Assert.IsNotNull(formObject.OtherRows);
         }
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void NewFormObjectOtherRowsObjectIsNotEmpty()
+        public void FormObject_OtherRowsObject_IsNotEmpty()
         {
+            FormObject formObject = new FormObject();
             List<RowObject> expected = new List<RowObject>();
             var actual = formObject.OtherRows;
             Assert.AreNotEqual(expected, actual);
@@ -33,50 +27,486 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void NewFormObjectDefaultMultipleIterationIsFalse()
+        public void FormObject_Default_MultipleIteration_IsFalse()
         {
+            FormObject formObject = new FormObject();
             Assert.IsFalse(formObject.MultipleIteration);
         }
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void NewFormObjectCanSetMultipleIterationToTrue()
+        public void FormObject_CanSetMultipleIteration()
         {
-            var modifiedFormObject = new FormObject();
-            modifiedFormObject.MultipleIteration = true;
-            Assert.IsTrue(modifiedFormObject.MultipleIteration);
+            var formObject = new FormObject
+            {
+                MultipleIteration = true
+            };
+            Assert.IsTrue(formObject.MultipleIteration);
+            formObject.MultipleIteration = false;
+            Assert.IsFalse(formObject.MultipleIteration);
         }
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void NewFormObject_CanGetHtmlString_WithoutHtmlHeaders()
+        public void FormObject_AddRowObject_NoMI_RowObject()
         {
+            RowObject rowObject1 = new RowObject
+            {
+                RowId = "1||1"
+            };
+            RowObject rowObject2 = new RowObject
+            {
+                RowId = "1||2"
+            };
+            FormObject formObject = new FormObject
+            {
+                MultipleIteration = false
+            };
+
+            formObject.AddRowObject(rowObject1);
+            Assert.AreEqual(rowObject1, formObject.CurrentRow);
+            Assert.IsFalse(formObject.OtherRows.Contains(rowObject1));
+
+            formObject.AddRowObject(rowObject2);
+            Assert.AreNotEqual(rowObject2, formObject.CurrentRow);
+            Assert.IsFalse(formObject.OtherRows.Contains(rowObject2));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_AddRowObject_MI_RowObject()
+        {
+            RowObject rowObject1 = new RowObject
+            {
+                RowId = "1||1"
+            };
+            RowObject rowObject2 = new RowObject
+            {
+                RowId = "1||2"
+            };
+            FormObject formObject = new FormObject
+            {
+                MultipleIteration = true
+            };
+
+            formObject.AddRowObject(rowObject1);
+            Assert.AreEqual(rowObject1, formObject.CurrentRow);
+            Assert.IsFalse(formObject.OtherRows.Contains(rowObject1));
+
+            formObject.AddRowObject(rowObject2);
+            Assert.AreNotEqual(rowObject2, formObject.CurrentRow);
+            Assert.IsTrue(formObject.OtherRows.Contains(rowObject2));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_AddRowObject_Properties_NoRowAction()
+        {
+            FormObject formObject = new FormObject
+            {
+                MultipleIteration = false
+            };
+
+            formObject.AddRowObject("1||1", "");
+            Assert.AreEqual("1||1", formObject.CurrentRow.RowId);
+            Assert.AreEqual("", formObject.CurrentRow.ParentRowId);
+            Assert.AreEqual("ADD", formObject.CurrentRow.RowAction);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_AddRowObject_Properties_with_RowAction()
+        {
+            FormObject formObject = new FormObject
+            {
+                MultipleIteration = false
+            };
+
+            formObject.AddRowObject("1||1", "", "");
+            Assert.AreEqual("1||1", formObject.CurrentRow.RowId);
+            Assert.AreEqual("", formObject.CurrentRow.ParentRowId);
+            Assert.AreEqual("", formObject.CurrentRow.RowAction);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_CanGetHtmlString_WithoutHtmlHeaders()
+        {
+            FormObject formObject = new FormObject();
             var actual = formObject.ToHtmlString(false);
             Assert.IsNotNull(actual);
         }
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void NewFormObject_CanGetHtmlString_WithHtmlHeaders()
+        public void FormObject_CanGetHtmlString_WithHtmlHeaders()
         {
+            FormObject formObject = new FormObject();
             var actual = formObject.ToHtmlString(false);
             Assert.IsNotNull(actual);
         }
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void NewFormObject_GetCurrentRowId()
+        public void FormObject_GetCurrentRowId_IsNull()
         {
+            FormObject formObject = new FormObject();
             var actual = formObject.GetCurrentRowId();
             Assert.AreEqual(null, actual);
         }
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void NewFormObject_GetParentRowId()
+        public void FormObject_GetCurrentRowId_AreEqual()
         {
+            string expected = "1||1";
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = new RowObject()
+            };
+            formObject.CurrentRow.RowId = expected;
+            var actual = formObject.GetCurrentRowId();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_GetParentRowId_IsNull()
+        {
+            FormObject formObject = new FormObject();
             var actual = formObject.GetParentRowId();
             Assert.AreEqual(null, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_GetParentRowId_AreEqual()
+        {
+            string expected = "1||1";
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = new RowObject()
+            };
+            formObject.CurrentRow.ParentRowId = expected;
+            var actual = formObject.GetParentRowId();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldEnabled_IsTrue()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "1",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsTrue(formObject.IsFieldEnabled("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldEnabled_IsFalse()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsFalse(formObject.IsFieldEnabled("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldEnabled_NotPresent_IsFalse()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "1",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsFalse(formObject.IsFieldEnabled("124"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldLocked_IsTrue()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "1",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsTrue(formObject.IsFieldLocked("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldLocked_IsFalse()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsFalse(formObject.IsFieldLocked("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldLocked_NotPresent_IsFalse()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "1",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsFalse(formObject.IsFieldLocked("124"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldPresent_IsTrue()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsTrue(formObject.IsFieldPresent("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldPresent_IsFalse()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsFalse(formObject.IsFieldPresent("124"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldRequired_IsTrue()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "1"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsTrue(formObject.IsFieldRequired("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldRequired_IsFalse()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsFalse(formObject.IsFieldRequired("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_IsFieldRequired_NotPresent_IsFalse()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "1"
+            };
+            RowObject rowObject = new RowObject();
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
+
+            Assert.IsFalse(formObject.IsFieldRequired("124"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_SetFieldValue_NoMI_AreEqual()
+        {
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "1",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject
+            {
+                RowId = "1||1"
+            };
+            rowObject.Fields.Add(fieldObject);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject,
+                MultipleIteration = false
+            };
+
+            formObject.SetFieldValue("123", "MODIFIED");
+            Assert.AreEqual("MODIFIED", formObject.GetFieldValue("123"));
+            formObject.SetFieldValue("1||1", "123", "MODIFIED AGAIN");
+            Assert.AreEqual("MODIFIED AGAIN", formObject.GetFieldValue("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_SetFieldValue_MI_AreEqual()
+        {
+            FieldObject fieldObject1 = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject1 = new RowObject
+            {
+                RowId = "1||1"
+            };
+            rowObject1.Fields.Add(fieldObject1);
+            FieldObject fieldObject2 = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST2",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject2 = new RowObject
+            {
+                RowId = "1||2"
+            };
+            rowObject2.Fields.Add(fieldObject2);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject1,
+                MultipleIteration = true
+            };
+            formObject.OtherRows.Add(rowObject2);
+
+            formObject.SetFieldValue("123", "MODIFIED");
+            Assert.AreNotEqual("MODIFIED", formObject.GetFieldValue("123"));
+
+            formObject.SetFieldValue("1||2", "123", "MODIFIED");
+            Assert.AreNotEqual("MODIFIED", formObject.GetFieldValue("123"));
+            Assert.AreNotEqual("MODIFIED", formObject.GetFieldValue("1||1", "123"));
+            Assert.AreEqual("MODIFIED", formObject.GetFieldValue("1||2", "123"));
         }
     }
 }

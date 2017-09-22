@@ -58,7 +58,7 @@
     <Compile Include="HelpersTests\TransformToOptionObject2Tests.cs" />
     <Compile Include="HelpersTests\TransformToOptionObjectTests.cs" />
     <Compile Include="HelpersTests\GetReturnOptionObjectTests.cs" />
-    <Compile Include="HelpersTests\SetFieldValuesTests.cs" />
+    <Compile Include="HelpersTests\SetFieldValueTests.cs" />
     <Compile Include="HelpersTests\IsValidErrorCodeTests.cs" />
     <Compile Include="HelpersTests\SafeGetIntTests.cs" />
     <Compile Include="HelpersTests\SplitDelimitedParameterTests.cs" />

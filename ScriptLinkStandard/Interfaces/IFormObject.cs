@@ -10,6 +10,9 @@ namespace ScriptLinkStandard.Interfaces
         bool MultipleIteration { get; set; }
         List<RowObject> OtherRows { get; set; }
 
+        void AddRowObject(RowObject rowObject);
+        void AddRowObject(string rowId, string parentRowId);
+        void AddRowObject(string rowId, string parentRowId, string rowAction);
         string GetCurrentRowId();
         string GetFieldValue(string fieldNumber);
         string GetFieldValue(string rowId, string fieldNumber);
@@ -19,6 +22,7 @@ namespace ScriptLinkStandard.Interfaces
         bool IsFieldLocked(string fieldNumber);
         bool IsFieldPresent(string fieldNumber);
         bool IsFieldRequired(string fieldNumber);
+        void SetFieldValue(string fieldNumber, string fieldValue);
         void SetFieldValue(string rowId, string fieldNumber, string fieldValue);
         string ToHtmlString(bool includeHtmlHeaders);
     }

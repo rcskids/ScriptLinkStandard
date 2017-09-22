@@ -23,6 +23,8 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 return (OptionObject2)optionObject;
+            if (optionObject.Forms.Count > 0 && optionObject.Forms[0].MultipleIteration)
+                return (OptionObject2)optionObject;
             string formId = optionObject.Forms.Count > 0 ? optionObject.Forms[0].FormId : null;
             string rowId = optionObject.Forms.Count > 0 ? optionObject.Forms[0].GetCurrentRowId() : null;
             return SetFieldValue(optionObject, formId, rowId, fieldNumber, fieldValue);
@@ -30,7 +32,7 @@ namespace ScriptLinkStandard.Helpers
 
         public static OptionObject2 SetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
-            if (optionObject == null)
+            if (optionObject == null || formId == null || rowId == null)
                 return (OptionObject2)optionObject;
             for (int i = 0; i < optionObject.Forms.Count; i++)
             {
@@ -43,6 +45,8 @@ namespace ScriptLinkStandard.Helpers
         public static FormObject SetFieldValue(IFormObject formObject, string fieldNumber, string fieldValue)
         {
             if (formObject == null)
+                return (FormObject)formObject;
+            if (formObject.MultipleIteration)
                 return (FormObject)formObject;
             return SetFieldValue(formObject, formObject.CurrentRow.RowId, fieldNumber, fieldValue);
         }

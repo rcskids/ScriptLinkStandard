@@ -152,6 +152,41 @@ namespace ScriptLinkStandard.Objects
         //
 
         /// <summary>
+        /// Adds a <see cref="RowObject"/> to a <see cref="FormObject"/>.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        public void AddRowObject(RowObject rowObject)
+        {
+            if (rowObject == null)
+                return;
+            FormObject tempFormObject = ScriptLinkHelpers.AddRowObject(this, rowObject);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
+        /// Adds a <see cref="RowObject"/> to the <see cref="CurrentRow"/> of a <see cref="FormObject"/>.
+        /// </summary>
+        /// <param name="rowId"></param>
+        /// <param name="parentRowId"></param>
+        public void AddRowObject(string rowId, string parentRowId)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.AddRowObject(this, rowId, parentRowId);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
+        /// Adds a <see cref="RowObject"/> to a <see cref="FormObject"/>.
+        /// </summary>
+        /// <param name="rowId"></param>
+        /// <param name="parentRowId"></param>
+        /// <param name="rowAction"></param>
+        public void AddRowObject(string rowId, string parentRowId, string rowAction)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.AddRowObject(this, rowId, parentRowId, rowAction);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
         /// Returns the RowId of the <see cref="CurrentRow"/>.
         /// </summary>
         /// <returns></returns>
@@ -230,6 +265,17 @@ namespace ScriptLinkStandard.Objects
         public bool IsFieldRequired(string fieldNumber)
         {
             return ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
+        }
+        /// <summary>
+        /// Sets the value of a <see cref="FieldObject"/> in the <see cref="CurrentRow"/> of a <see cref="FormObject"/>.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        public void SetFieldValue(string fieldNumber, string fieldValue)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.SetFieldValue(this, fieldNumber, fieldValue);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
         }
         /// <summary>
         /// Sets the value of a <see cref="FieldObject"/> in a <see cref="FormObject"/>.
