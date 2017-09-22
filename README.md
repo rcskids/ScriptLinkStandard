@@ -37,6 +37,7 @@ To be written
 Scott Olson Jr
 * https://twitter.com/scottolsonjr
 * https://github.com/scottolsonjr
+
 Luis Quicano
 * https://github.com/luivis07
 
