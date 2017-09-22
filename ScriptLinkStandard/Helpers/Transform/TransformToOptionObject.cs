@@ -9,6 +9,10 @@ namespace ScriptLinkStandard.Helpers
     {
         public static OptionObject TransformToOptionObject(IOptionObject2 optionObject2)
         {
+            if (optionObject2 == null)
+                throw new System.ArgumentException("Parameter cannot be null", "optionObject2");
+            if (!ScriptLinkHelpers.IsValidErrorCode(optionObject2.ErrorCode))
+                throw new System.ArgumentException("Error Code is invalid.");
             var optionObject = new OptionObject
             {
                 EntityID = optionObject2.EntityID,

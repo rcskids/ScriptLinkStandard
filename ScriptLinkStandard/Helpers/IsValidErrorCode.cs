@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="errorCode"></param>
         /// <returns></returns>
-        public static bool IsValidErrorCode(int errorCode)
+        public static bool IsValidErrorCode(double errorCode)
         {
             if (errorCode >= 0 && errorCode <= 5)
             {

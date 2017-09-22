@@ -6,103 +6,179 @@ using System.Collections.Generic;
 namespace ScriptLinkStandard.Test.EntitiesTests
 {
     [TestClass]
-    public class OptionObject2Tests
+    public class OptionObject22Tests
     {
-        private OptionObject2 optionObject;
-        private OptionObject2 configuredOptionObject;
+        private OptionObject2 configuredOptionObject2;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            this.optionObject = new OptionObject2();
-            this.configuredOptionObject = new OptionObject2();
+            this.configuredOptionObject2 = new OptionObject2();
 
-            FieldObject addField = new FieldObject();
-            addField.FieldNumber = "123";
-            addField.FieldValue = "Value";
-            addField.Enabled = "1";
-            RowObject addRow = new RowObject();
+            FieldObject addField = new FieldObject
+            {
+                FieldNumber = "123",
+                FieldValue = "Value",
+                Enabled = "1",
+                Lock = "1",
+                Required = "1"
+            };
+            RowObject addRow = new RowObject
+            {
+                RowId = "1||1"
+            };
             addRow.Fields.Add(addField);
-            FormObject addForm = new FormObject();
-            addForm.CurrentRow = addRow;
+            FormObject addForm = new FormObject
+            {
+                FormId = "1",
+                CurrentRow = addRow
+            };
+            configuredOptionObject2.Forms.Add(addForm);
 
-            FieldObject addMiField = new FieldObject();
-            addMiField.FieldNumber = "234";
-            addMiField.FieldValue = "MI Value";
-            addMiField.Enabled = "1";
-            RowObject addMiRow = new RowObject();
-            addMiRow.Fields.Add(addMiField);
-            FormObject addMiForm = new FormObject();
-            addMiForm.OtherRows.Add(addMiRow);
-            addMiForm.MultipleIteration = true;
-
-            configuredOptionObject.Forms.Add(addForm);
-            configuredOptionObject.Forms.Add(addMiForm);
+            FieldObject addMiField01 = new FieldObject
+            {
+                FieldNumber = "234",
+                FieldValue = "MI Value"
+            };
+            FieldObject addMiField02 = new FieldObject
+            {
+                FieldNumber = "234",
+                FieldValue = "MI Value 2"
+            };
+            RowObject addMiRow01 = new RowObject
+            {
+                RowId = "2||1"
+            };
+            addMiRow01.Fields.Add(addMiField01);
+            RowObject addMiRow02 = new RowObject
+            {
+                RowId = "2||2"
+            };
+            addMiRow02.Fields.Add(addMiField01);
+            FormObject addMiForm = new FormObject
+            {
+                FormId = "2",
+                CurrentRow = addMiRow01,
+                MultipleIteration = true
+            };
+            addMiForm.OtherRows.Add(addMiRow02);
+            configuredOptionObject2.Forms.Add(addMiForm);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void NewOptionObjectHasFormObject()
+        public void OptionObject2_HasFormObject()
         {
+            OptionObject2 optionObject = new OptionObject2();
             Assert.IsNotNull(optionObject.Forms);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void NewOptionObjectFormObjectIsNotEmpty()
+        public void OptionObject2_Forms_IsNotEmpty()
         {
-            OptionObject2 testOptionObject = new OptionObject2();
+            OptionObject2 optionObject = new OptionObject2();
             var expected = new List<FormObject>();
-            var actual = testOptionObject.Forms;
+            var actual = optionObject.Forms;
             Assert.AreNotEqual(expected, actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void NewOptionObject2_CanGetHtmlString_WithoutHtmlHeaders()
+        public void OptionObject2_CanGetHtmlString_WithoutHtmlHeaders()
         {
+            OptionObject2 optionObject = new OptionObject2();
             var actual = optionObject.ToHtmlString(false);
             Assert.IsNotNull(actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void NewOptionObject2_CanGetHtmlString_WithHtmlHeaders()
+        public void OptionObject2_CanGetHtmlString_WithHtmlHeaders()
         {
+            OptionObject2 optionObject = new OptionObject2();
             var actual = optionObject.ToHtmlString(false);
             Assert.IsNotNull(actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void NewOptionObject2_GetCurrentRowId()
+        public void OptionObject2_AddFormObject_FormObject()
         {
+            FormObject formObject1 = new FormObject
+            {
+                FormId = "1",
+                MultipleIteration = false
+            };
+            FormObject formObject2 = new FormObject
+            {
+                FormId = "2",
+                MultipleIteration = true
+            };
+            OptionObject2 optionObject = new OptionObject2();
+            optionObject.AddFormObject(formObject1);
+            Assert.AreEqual(1, optionObject.Forms.Count);
+            optionObject.AddFormObject(formObject1);
+            Assert.AreEqual(1, optionObject.Forms.Count);
+            optionObject.AddFormObject(formObject2);
+            Assert.AreEqual(2, optionObject.Forms.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_AddFormObject_Properties()
+        {
+            OptionObject2 optionObject = new OptionObject2();
+            optionObject.AddFormObject("1", false);
+            Assert.AreEqual(1, optionObject.Forms.Count);
+            optionObject.AddFormObject("1", false);
+            Assert.AreEqual(1, optionObject.Forms.Count);
+            optionObject.AddFormObject("2", true);
+            Assert.AreEqual(2, optionObject.Forms.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_GetCurrentRowId_Null()
+        {
+            OptionObject2 optionObject = new OptionObject2();
             var actual = optionObject.GetCurrentRowId("1");
             Assert.AreEqual(null, actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_GetFieldValue_AreEqual()
+        public void OptionObject2_GetCurrentRowId_AreEqual()
+        {
+            RowObject rowObject = new RowObject
+            {
+                RowId = "1||1"
+            };
+            FormObject formObject = new FormObject
+            {
+                FormId = "1",
+                CurrentRow = rowObject
+            };
+            OptionObject2 optionObject = new OptionObject2();
+            optionObject.Forms.Add(formObject);
+            var actual = optionObject.GetCurrentRowId("1");
+            Assert.AreEqual("1||1", actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_GetFieldValue_AreEqual()
         {
             var expected = "Value";
-            var actual = configuredOptionObject.GetFieldValue("123");
+            var actual = configuredOptionObject2.GetFieldValue("123");
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_GetFieldValue_MI_AreEqual()
+        public void OptionObject2_GetFieldValue_AreNotEqual()
         {
-            var expected = "MI Value";
-            var actual = configuredOptionObject.GetFieldValue("234");
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("OptionObject2")]
-        public void NewOptionObject2_GetFieldValue_AreNotEqual()
-        {
+            OptionObject2 optionObject = new OptionObject2();
             var expected = "Value";
             var actual = optionObject.GetFieldValue("123");
             Assert.AreNotEqual(expected, actual);
@@ -110,195 +186,207 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_GetFieldValue_AreNotEqual()
-        {
-            var expected = "Value";
-            var actual = configuredOptionObject.GetFieldValue("456");
-            Assert.AreNotEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_GetFieldValues_AreEqual()
-        {
-            var expected = "Value";
-            var values = configuredOptionObject.GetFieldValues("123");
-            var actual = values.Count > 0 ? values[0] : null;
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_GetFieldValues_MI_AreEqual()
+        public void OptionObject2_GetFieldValue_MI_AreEqual()
         {
             var expected = "MI Value";
-            var values = configuredOptionObject.GetFieldValues("234");
+            var actual = configuredOptionObject2.GetFieldValue("234");
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_GetFieldValue_MI_AreNotEqual()
+        {
+            var expected = "Value";
+            var actual = configuredOptionObject2.GetFieldValue("456");
+            Assert.AreNotEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_GetFieldValues_AreEqual()
+        {
+            var expected = "Value";
+            var values = configuredOptionObject2.GetFieldValues("123");
             var actual = values.Count > 0 ? values[0] : null;
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_GetFieldValues_AreNotEqual()
+        public void OptionObject2_GetFieldValues_MI_AreEqual()
+        {
+            var expected = "MI Value";
+            var values = configuredOptionObject2.GetFieldValues("234");
+            var actual = values.Count > 0 ? values[0] : null;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_GetFieldValues_AreNotEqual()
         {
             var expected = "Value";
-            var values = configuredOptionObject.GetFieldValues("456");
+            var values = configuredOptionObject2.GetFieldValues("456");
             var actual = values.Count > 0 ? values[0] : null;
             Assert.AreNotEqual(expected, actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void NewOptionObject2_GetMultipleIterationStatus()
+        public void OptionObject2_GetMultipleIterationStatus_IsFalse()
         {
+            OptionObject2 optionObject = new OptionObject2();
             var actual = optionObject.GetMultipleIterationStatus("1");
-            Assert.AreEqual(false, actual);
+            Assert.IsFalse(actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void NewOptionObject2_GetParentRowId()
+        public void OptionObject2_GetMultipleIterationStatus_IsTrue()
         {
+            var actual = configuredOptionObject2.GetMultipleIterationStatus("2");
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_GetParentRowId_Null()
+        {
+            OptionObject2 optionObject = new OptionObject2();
             var actual = optionObject.GetParentRowId("1");
             Assert.AreEqual(null, actual);
         }
-        
+
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_IsFieldPresent_AreEqual()
+        public void OptionObject2_GetParentRowId_AreEqual()
         {
-            var expected = true;
-            var actual = configuredOptionObject.IsFieldPresent("123");
-            Assert.AreEqual(expected, actual);
+            RowObject rowObject = new RowObject
+            {
+                ParentRowId = "1||1"
+            };
+            FormObject formObject = new FormObject
+            {
+                FormId = "1",
+                CurrentRow = rowObject
+            };
+            OptionObject2 optionObject = new OptionObject2();
+            optionObject.Forms.Add(formObject);
+            var actual = optionObject.GetParentRowId("1");
+            Assert.AreEqual(rowObject.ParentRowId, actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_IsFieldPresent_AreNotEqual()
+        public void OptionObject2_IsFieldPresent_IsTrue()
         {
-            var expected = true;
-            var actual = configuredOptionObject.IsFieldPresent("456");
-            Assert.AreNotEqual(expected, actual);
+            var actual = configuredOptionObject2.IsFieldPresent("123");
+            Assert.IsTrue(actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_IsFieldEnabled_AreEqual()
+        public void OptionObject2_IsFieldPresent_IsFalse()
         {
-            var expected = true;
-            var actual = configuredOptionObject.IsFieldEnabled("123");
-            Assert.AreEqual(expected, actual);
+            var actual = configuredOptionObject2.IsFieldPresent("456");
+            Assert.IsFalse(actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_IsFieldEnabled_AreNotEqual()
+        public void OptionObject2_IsFieldEnabled_IsTrue()
         {
-            var expected = true;
-            var actual = configuredOptionObject.IsFieldEnabled("456");
-            Assert.AreNotEqual(expected, actual);
+            var actual = configuredOptionObject2.IsFieldEnabled("123");
+            Assert.IsTrue(actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_SetDisabledFields_AreEqual()
+        public void OptionObject2_IsFieldEnabled_IsFalse()
         {
-            var expected = false;
+            var actual = configuredOptionObject2.IsFieldEnabled("456");
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_SetDisabledFields_IsTrue()
+        {
             List<string> requiredFields = new List<string> { "123" };
-            configuredOptionObject.SetDisabledFields(requiredFields);
-            var actual = configuredOptionObject.IsFieldEnabled("123");
-            Assert.AreEqual(expected, actual);
+            configuredOptionObject2.SetDisabledFields(requiredFields);
+            var actual = configuredOptionObject2.IsFieldEnabled("123");
+            Assert.IsTrue(actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_IsFieldLocked_AreEqual()
+        public void OptionObject2_IsFieldLocked_IsTrue()
         {
-            var expected = true;
-            var actual = configuredOptionObject.IsFieldLocked("123");
-            Assert.AreNotEqual(expected, actual);
+            var actual = configuredOptionObject2.IsFieldLocked("123");
+            Assert.IsTrue(actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_IsFieldLocked_AreNotEqual()
+        public void OptionObject2_IsFieldLocked_IsFalse()
         {
-            var expected = true;
-            var actual = configuredOptionObject.IsFieldLocked("456");
-            Assert.AreNotEqual(expected, actual);
+            var actual = configuredOptionObject2.IsFieldLocked("456");
+            Assert.IsFalse(actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_SetLockedFields_AreEqual()
+        public void OptionObject2_SetUnlockedFields_IsTrue()
         {
-            var expected = true;
             List<string> requiredFields = new List<string> { "123" };
-            configuredOptionObject.SetLockedFields(requiredFields);
-            var actual = configuredOptionObject.IsFieldLocked("123");
-            Assert.AreEqual(expected, actual);
+            configuredOptionObject2.SetUnlockedFields(requiredFields);
+            Assert.IsTrue(!configuredOptionObject2.IsFieldLocked("123"));
         }
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_SetUnlockedFields_AreEqual()
+        public void OptionObject2_SetLockedFields_IsTrue()
         {
-            var expected = false;
+            List<string> lockedFields = new List<string> { "123" };
+            configuredOptionObject2.SetLockedFields(lockedFields);
+            Assert.IsTrue(configuredOptionObject2.IsFieldLocked("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_IsFieldRequired_IsTrue()
+        {
+            var actual = configuredOptionObject2.IsFieldRequired("123");
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_IsFieldRequired_AreNotEqual()
+        {
+            var actual = configuredOptionObject2.IsFieldRequired("456");
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_SetOptionalFields_IsTrue()
+        {
+            List<string> optionalFields = new List<string> { "123" };
+            configuredOptionObject2.SetOptionalFields(optionalFields);
+            Assert.IsTrue(configuredOptionObject2.IsFieldEnabled("123"));
+            Assert.IsFalse(configuredOptionObject2.IsFieldRequired("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_SetRequiredFields_AreEqual()
+        {
             List<string> requiredFields = new List<string> { "123" };
-            configuredOptionObject.SetUnlockedFields(requiredFields);
-            var actual = configuredOptionObject.IsFieldLocked("123");
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_IsFieldRequired_AreEqual()
-        {
-            var expected = true;
-            var actual = configuredOptionObject.IsFieldRequired("123");
-            Assert.AreNotEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_IsFieldRequired_AreNotEqual()
-        {
-            var expected = true;
-            var actual = configuredOptionObject.IsFieldRequired("456");
-            Assert.AreNotEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_SetOptionalFields_Enabled_AreEqual()
-        {
-            var expected = true;
-            List<string> requiredFields = new List<string> { "123" };
-            configuredOptionObject.SetOptionalFields(requiredFields);
-            var actual = configuredOptionObject.IsFieldEnabled("123");
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_SetOptionalFields_Required_AreEqual()
-        {
-            var expected = false;
-            List<string> requiredFields = new List<string> { "123" };
-            configuredOptionObject.SetOptionalFields(requiredFields);
-            var actual = configuredOptionObject.IsFieldRequired("123");
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        [TestCategory("OptionObject2")]
-        public void ConfiguredOptionObject2_SetRequiredFields_AreEqual()
-        {
-            var expected = true;
-            List<string> requiredFields = new List<string> { "123" };
-            configuredOptionObject.SetRequiredFields(requiredFields);
-            var actual = configuredOptionObject.IsFieldRequired("123");
-            Assert.AreEqual(expected, actual);
+            configuredOptionObject2.SetRequiredFields(requiredFields);
+            Assert.IsTrue(configuredOptionObject2.IsFieldEnabled("123"));
+            Assert.IsTrue(configuredOptionObject2.IsFieldRequired("123"));
         }
 
     }

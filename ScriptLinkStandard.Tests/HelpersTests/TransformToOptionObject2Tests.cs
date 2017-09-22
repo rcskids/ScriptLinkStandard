@@ -42,13 +42,15 @@ namespace ScriptLinkStandard.Test.HelperTests
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        //[ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void ModifiedOptionObjectInvalidValueErrorCodeTransform()
         {
-            OptionObject modifiedOptionObject = new OptionObject();
-            modifiedOptionObject.ErrorCode = 6;
-            OptionObject transformedOptionObject = newOptionObject.ToOptionObject();
-            Assert.AreEqual(newOptionObject.ErrorCode, (int)transformedOptionObject.ErrorCode);
+            OptionObject2 modifiedOptionObject = new OptionObject2
+            {
+                ErrorCode = 6
+            };
+            OptionObject transformedOptionObject = modifiedOptionObject.ToOptionObject();
+            Assert.AreEqual(modifiedOptionObject.ErrorCode, (int)transformedOptionObject.ErrorCode);
         }
 
         [TestMethod]

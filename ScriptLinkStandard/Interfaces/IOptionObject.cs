@@ -16,6 +16,8 @@ namespace ScriptLinkStandard.Interfaces
         string OptionUserId { get; set; }
         string SystemCode { get; set; }
 
+        void AddFormObject(FormObject formObject);
+        void AddFormObject(string formId, bool multipleIteration);
         string GetCurrentRowId(string formId);
         string GetFieldValue(string fieldNumber);
         string GetFieldValue(string formId, string rowId, string fieldNumber);
