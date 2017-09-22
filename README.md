@@ -44,4 +44,4 @@ Luis Quicano
 ## Copyright and license
 [myAvatar](https://www.ntst.com/Solutions-We-Offer/products/myavatar.aspx) is a trademark of [Netsmart Technologies, Inc.](http://www.ntst.com)
 
-ScriptLinkStandard is released under the MIT License.
+ScriptLinkStandard is released under the [MIT License](https://github.com/rcskids/ScriptLinkStandard/blob/master/LICENSE.md).
