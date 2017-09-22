@@ -153,6 +153,58 @@ namespace ScriptLinkStandard.Objects
         //
 
         /// <summary>
+        /// Adds a <see cref="FieldObject"/> to a <see cref="RowObject"/>.
+        /// </summary>
+        /// <param name="fieldObject"></param>
+        public void AddFieldObject(FieldObject fieldObject)
+        {
+            if (fieldObject == null)
+                return;
+            this.Fields = ScriptLinkHelpers.AddFieldObject(this, fieldObject).Fields;
+        }
+        /// <summary>
+        /// Adds a <see cref="FieldObject"/> to a <see cref="RowObject"/> with the provided <see cref="FieldObject.FieldNumber"/> and <see cref="FieldObject.FieldValue"/>.
+        /// </summary>
+        /// <param name="fieldNumber">A <see cref="string"/> containing the <see cref="FieldObject.FieldNumber"/> of the <see cref="FieldObject"/>.</param>
+        /// <param name="fieldValue">A <see cref="string"/> containing the <see cref="FieldObject.FieldValue"/> of the <see cref="FieldObject"/>.</param>
+        public void AddFieldObject(string fieldNumber, string fieldValue)
+        {
+            if (fieldNumber == null || fieldNumber == "")
+                return;
+            this.Fields = ScriptLinkHelpers.AddFieldObject(this, fieldNumber, fieldValue).Fields;
+        }
+        /// <summary>
+        /// Adds a <see cref="FieldObject"/> to a <see cref="RowObject"/> with the provided property values.
+        /// </summary>
+        /// <param name="fieldNumber">A <see cref="string"/> containing the <see cref="FieldObject.FieldNumber"/> of the <see cref="FieldObject"/>.</param>
+        /// <param name="fieldValue">A <see cref="string"/> containing the <see cref="FieldObject.FieldValue"/> of the <see cref="FieldObject"/>.</param>
+        /// <param name="enabledValue">A <see cref="string"/> containing the <see cref="FieldObject.Enabled"/> of the <see cref="FieldObject"/>.</param>
+        /// <param name="lockedValue">A <see cref="string"/> containing the <see cref="FieldObject.Lock"/> of the <see cref="FieldObject"/>.</param>
+        /// <param name="requiredValue">A <see cref="string"/> containing the <see cref="FieldObject.Required"/> of the <see cref="FieldObject"/>.</param>
+        public void AddFieldObject(string fieldNumber, string fieldValue, string enabledValue, string lockedValue, string requiredValue)
+        {
+            if (fieldNumber == null || fieldNumber == "")
+                return;                 // This should probably throw an exception
+            this.Fields = ScriptLinkHelpers.AddFieldObject(this, fieldNumber, fieldValue, enabledValue, lockedValue, requiredValue).Fields;
+        }
+        /// <summary>
+        /// Adds a <see cref="FieldObject"/> to a <see cref="RowObject"/> with the provided property values.
+        /// </summary>
+        /// <param name="fieldNumber">A <see cref="string"/> containing the <see cref="FieldObject.FieldNumber"/> of the <see cref="FieldObject"/>.</param>
+        /// <param name="fieldValue">A <see cref="string"/> containing the <see cref="FieldObject.FieldValue"/> of the <see cref="FieldObject"/>.</param>
+        /// <param name="enabled">A <see cref="bool"/> containing the <see cref="FieldObject.Enabled"/> of the <see cref="FieldObject"/>.</param>
+        /// <param name="locked">A <see cref="bool"/> containing the <see cref="FieldObject.Lock"/> of the <see cref="FieldObject"/>.</param>
+        /// <param name="required">A <see cref="bool"/> containing the <see cref="FieldObject.Required"/> of the <see cref="FieldObject"/>.</param>
+        public void AddFieldObject(string fieldNumber, string fieldValue, bool enabled, bool locked, bool required)
+        {
+            if (fieldNumber == null || fieldNumber == "")
+                return;                 // This should probably throw an exception
+            if (fieldValue == null || fieldValue == "")
+                return;                 // This should probably throw an exception
+            this.Fields = ScriptLinkHelpers.AddFieldObject(this, fieldNumber, fieldValue, enabled, locked, required).Fields;
+        }
+
+        /// <summary>
         /// Returns the value of a <see cref="FieldObject"/> in a <see cref="RowObject"/> 
         /// </summary>
         /// <param name="fieldNumber"></param>
@@ -195,6 +247,26 @@ namespace ScriptLinkStandard.Objects
             return ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
         }
         /// <summary>
+        /// Removes a <see cref="FieldObject"/> from a <see cref="RowObject"/>.
+        /// </summary>
+        /// <param name="fieldObject">The <see cref="FieldObject"/> to remove.</param>
+        public void RemoveFieldObject(FieldObject fieldObject)
+        {
+            if (fieldObject == null)
+                return;
+            this.Fields = ScriptLinkHelpers.RemoveFieldObject(this, fieldObject).Fields;
+        }
+        /// <summary>
+        /// Removes a <see cref="FieldObject"/> from a <see cref="RowObject"/> by <see cref="FieldObject.FieldNumber"/>.
+        /// </summary>
+        /// <param name="fieldNumber">A <see cref="string"/> containing the <see cref="FieldObject.FieldNumber"/> to remove.</param>
+        public void RemoveFieldObject(string fieldNumber)
+        {
+            if (fieldNumber == null || fieldNumber == "")
+                return;
+            this.Fields = ScriptLinkHelpers.RemoveFieldObject(this, fieldNumber).Fields;
+        }
+        /// <summary>
         /// Removes any unmodified <see cref="FieldObject"/> from the <see cref="RowObject"/>.
         /// </summary>
         public void RemoveUnmodifiedFieldObjects()
@@ -209,6 +281,8 @@ namespace ScriptLinkStandard.Objects
         /// <returns></returns>
         public void SetFieldValue(string fieldNumber, string fieldValue)
         {
+            if (fieldNumber == null || fieldNumber == "")
+                return;             // Should throw an exception or off load to helper for exception.
             this.Fields = ScriptLinkHelpers.SetFieldValue(this, fieldNumber, fieldValue).Fields;
         }
         /// <summary>

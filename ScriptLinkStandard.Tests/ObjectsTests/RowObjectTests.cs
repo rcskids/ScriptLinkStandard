@@ -116,6 +116,82 @@ namespace ScriptLinkStandard.Test.ObjectsTests
 
         [TestMethod]
         [TestCategory("RowObject")]
+        public void RowObject_AddFieldObject_FieldObject_Succeeds()
+        {
+            string fieldNumber = "123";
+            string expected = "TEST";
+            FieldObject fieldObject = new FieldObject
+            {
+                Enabled = "1",
+                FieldNumber = fieldNumber,
+                FieldValue = expected,
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject = new RowObject
+            {
+                ParentRowId = "",
+                RowAction = "",
+                RowId = "1||1"
+            };
+            rowObject.AddFieldObject(fieldObject);
+            Assert.AreEqual(expected, rowObject.GetFieldValue(fieldNumber));
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_AddFieldObject_Properties_Strings_Succeeds()
+        {
+            string fieldNumber = "123";
+            string expected = "TEST";
+            RowObject rowObject = new RowObject
+            {
+                ParentRowId = "",
+                RowAction = "",
+                RowId = "1||1"
+            };
+            rowObject.AddFieldObject(fieldNumber, expected, "1", "0", "0");
+            Assert.AreEqual(expected, rowObject.GetFieldValue(fieldNumber));
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_AddFieldObject_Properties_Bools_Succeeds()
+        {
+            string fieldNumber = "123";
+            string expected = "TEST";
+            RowObject rowObject = new RowObject
+            {
+                ParentRowId = "",
+                RowAction = "",
+                RowId = "1||1"
+            };
+            rowObject.AddFieldObject(fieldNumber, expected, true, false, false);
+            Assert.AreEqual(expected, rowObject.GetFieldValue(fieldNumber));
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_AddFieldObject_DoesNotDuplicate()
+        {
+            string fieldNumber = "123";
+            int expected = 1;
+            RowObject rowObject = new RowObject
+            {
+                ParentRowId = "",
+                RowAction = "",
+                RowId = "1||1"
+            };
+            rowObject.AddFieldObject(fieldNumber, "TEST", "1", "0", "0");
+            Assert.AreEqual("TEST", rowObject.GetFieldValue(fieldNumber));
+
+            rowObject.AddFieldObject(fieldNumber, "TEST", "1", "0", "0");
+            int actual = rowObject.Fields.FindAll(f => f.FieldNumber == fieldNumber).Count;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
         public void RowObject_IsFieldEnabled_IsFalse()
         {
             FieldObject fieldObject = new FieldObject
@@ -300,7 +376,51 @@ namespace ScriptLinkStandard.Test.ObjectsTests
 
         [TestMethod]
         [TestCategory("RowObject")]
-        public void RowObject_RemoveUnmodifiedFieldObjects()
+        public void RowObject_RemoveFieldObject_ByObject()
+        {
+            FieldObject fieldObject1 = new FieldObject
+            {
+                Enabled = "1",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "1"
+            };
+            FieldObject fieldObject2 = new FieldObject
+            {
+                Enabled = "1",
+                FieldNumber = "124",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "1"
+            };
+            FieldObject fieldObject3 = new FieldObject
+            {
+                Enabled = "1",
+                FieldNumber = "125",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "1"
+            };
+            RowObject rowObject1 = new RowObject
+            {
+                ParentRowId = "1",
+                RowAction = "",
+                RowId = "1"
+            };
+            rowObject1.Fields.Add(fieldObject1);
+            rowObject1.Fields.Add(fieldObject2);
+            rowObject1.Fields.Add(fieldObject3);
+            
+            rowObject1.RemoveFieldObject(fieldObject2);
+
+            Assert.AreEqual(2, rowObject1.Fields.Count);
+            Assert.IsFalse(rowObject1.Fields.Contains(fieldObject2));
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_RemoveFieldObject_ByFieldNumber()
         {
             FieldObject fieldObject1 = new FieldObject
             {
@@ -336,10 +456,10 @@ namespace ScriptLinkStandard.Test.ObjectsTests
             rowObject1.Fields.Add(fieldObject2);
             rowObject1.Fields.Add(fieldObject3);
 
-            rowObject1.SetFieldValue("124", "MODIFIED");
-            rowObject1.RemoveUnmodifiedFieldObjects();
+            rowObject1.RemoveFieldObject(fieldObject2.FieldNumber);
 
-            Assert.AreEqual(1, rowObject1.Fields.Count);
+            Assert.AreEqual(2, rowObject1.Fields.Count);
+            Assert.IsFalse(rowObject1.Fields.Contains(fieldObject2));
         }
 
         [TestMethod]
