@@ -66,7 +66,27 @@ namespace ScriptLinkStandard.Test.EntitiesTests
             formObject.AddRowObject(rowObject1);
             Assert.AreEqual(rowObject1, formObject.CurrentRow);
             Assert.IsFalse(formObject.OtherRows.Contains(rowObject1));
+        }
 
+        [TestMethod]
+        [TestCategory("FormObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FormObject_AddRowObject_NoMI_RowObject_Exception()
+        {
+            RowObject rowObject1 = new RowObject
+            {
+                RowId = "1||1"
+            };
+            RowObject rowObject2 = new RowObject
+            {
+                RowId = "1||2"
+            };
+            FormObject formObject = new FormObject
+            {
+                MultipleIteration = false
+            };
+
+            formObject.AddRowObject(rowObject1);
             formObject.AddRowObject(rowObject2);
             Assert.AreNotEqual(rowObject2, formObject.CurrentRow);
             Assert.IsFalse(formObject.OtherRows.Contains(rowObject2));
