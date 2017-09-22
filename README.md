@@ -2,14 +2,14 @@
 
 ScriptLinkStandard is a Class Library designed to assist developers in creating SOAP web services that can be consumed by Netsmart's myAvatar solution using ScriptLink.
 
-This library is written for [.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This is subject to change based on compatibility testing.
+This library is written for [.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This is subject to change based on initial compatibility testing.
 
 ## Contents
 * [Installation](https://github.com/rcskids/ScriptLinkStandard#Installation)
 * [Documentation](https://github.com/rcskids/ScriptLinkStandard#Documentation)
 * [Contributing](https://github.com/rcskids/ScriptLinkStandard#Contributing)
 * [Creators](https://github.com/rcskids/ScriptLinkStandard#Creators)
-* [Copyright and license](https://github.com/rcskids/ScriptLinkStandard#Copyright)
+* [Copyright and license](https://github.com/rcskids/ScriptLinkStandard#copyright-and-license)
 
 ## Installation
 
