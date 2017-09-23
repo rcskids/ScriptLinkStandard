@@ -94,6 +94,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
 
         [TestMethod]
         [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(System.ArgumentException))]
         public void GetFieldValue_RowObject_IsNotPresent_AreNotEqual()
         {
             string actual = ScriptLinkHelpers.GetFieldValue(rowObject, "234.56");

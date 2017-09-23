@@ -1,7 +1,7 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ScriptLinkStandard.Helpers
 {
@@ -10,20 +10,20 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IOptionObject optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                return null;
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2(), fieldNumber);
         }
         public static string GetFieldValue(IOptionObject optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
-                return null;
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2(), formId, rowId, fieldNumber);
         }
 
         public static string GetFieldValue(IOptionObject2 optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                return null;
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
             List<string> fieldValues = ScriptLinkHelpers.GetFieldValues(optionObject, fieldNumber);
             return fieldValues.Count > 0 ? fieldValues[0] : "";
         }
@@ -31,24 +31,26 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
-                return null;
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
             foreach (var form in optionObject.Forms)
             {
                 if (form.FormId == formId)
                     return GetFieldValue(form, rowId, fieldNumber);
             }
-            return null;
+            throw new ArgumentException("FieldObject could not be found.");
         }
 
         public static string GetFieldValue(IFormObject formObject, string fieldNumber)
         {
+            if (formObject == null)
+                throw new ArgumentException("Parameter cannot be null", "formObject");
             return GetFieldValue(formObject, formObject.CurrentRow.RowId, fieldNumber);
         }
 
         public static string GetFieldValue(IFormObject formObject, string rowId, string fieldNumber)
         {
             if (formObject == null)
-                return null;
+                throw new ArgumentException("Parameter cannot be null", "formObject");
             if (formObject.CurrentRow.RowId == rowId)
                 return ScriptLinkHelpers.GetFieldValue(formObject.CurrentRow, fieldNumber);
             foreach (RowObject rowObject in formObject.OtherRows)
@@ -56,25 +58,25 @@ namespace ScriptLinkStandard.Helpers
                 if (rowObject.RowId == rowId)
                     return ScriptLinkHelpers.GetFieldValue(rowObject, fieldNumber);
             }
-            return null;
+            throw new ArgumentException("FieldObject could not be found.");
         }
 
         public static string GetFieldValue(IRowObject rowObject, string fieldNumber)
         {
             if (rowObject == null)
-                return null;
+                throw new ArgumentException("Parameter cannot be null", "rowObject");
             foreach (FieldObject field in rowObject.Fields)
             {
                 if (field.FieldNumber == fieldNumber)
                     return GetFieldValue(field);
             }
-            return null;
+            throw new ArgumentException("FieldObject could not be found.");
         }
 
         public static string GetFieldValue(IFieldObject fieldObject)
         {
             if (fieldObject == null)
-                return null;
+                throw new ArgumentException("Parameter cannot be null", "fieldObject");
             return fieldObject.FieldValue;
         }
     }

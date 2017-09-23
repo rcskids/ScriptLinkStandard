@@ -1,4 +1,5 @@
 ﻿using ScriptLinkStandard.Interfaces;
+using System;
 
 namespace ScriptLinkStandard.Helpers
 {
@@ -6,13 +7,17 @@ namespace ScriptLinkStandard.Helpers
     {
         public static IOptionObject DisableAllFieldObjects(IOptionObject optionObject)
         {
+            if (optionObject == null)
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject.ToOptionObject2()).ToOptionObject();
         }
 
         public static IOptionObject2 DisableAllFieldObjects(IOptionObject2 optionObject)
         {
-            if (optionObject == null || optionObject.Forms.Count == 0)
-                return optionObject;
+            if (optionObject == null)
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
+            if (optionObject.Forms.Count == 0)
+                throw new ArgumentException("There are no Forms.");
             for (int i = 0; i < optionObject.Forms.Count; i++)
             {
                 if (optionObject.Forms[i].CurrentRow != null)

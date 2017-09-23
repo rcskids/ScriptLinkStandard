@@ -1,5 +1,5 @@
 ﻿using ScriptLinkStandard.Interfaces;
-using ScriptLinkStandard.Objects;
+using System;
 using System.Collections.Generic;
 
 namespace ScriptLinkStandard.Helpers
@@ -8,6 +8,8 @@ namespace ScriptLinkStandard.Helpers
     {
         public static List<string> GetFieldValues(IOptionObject optionObject, string fieldNumber)
         {
+            if (optionObject == null)
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
             foreach (var form in optionObject.Forms)
             {
                 if (ScriptLinkHelpers.IsFieldPresent(form, fieldNumber))
@@ -20,6 +22,8 @@ namespace ScriptLinkStandard.Helpers
 
         public static List<string> GetFieldValues(IOptionObject2 optionObject, string fieldNumber)
         {
+            if (optionObject == null)
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
             foreach (var form in optionObject.Forms)
             {
                 if (ScriptLinkHelpers.IsFieldPresent(form, fieldNumber))
@@ -32,6 +36,8 @@ namespace ScriptLinkStandard.Helpers
 
         public static List<string> GetFieldValues(IFormObject formObject, string fieldNumber)
         {
+            if (formObject == null)
+                throw new ArgumentException("Parameter cannot be null", "formObject");
             List<string> values = new List<string>();
             if (formObject.MultipleIteration == false && ScriptLinkHelpers.IsFieldPresent(formObject, fieldNumber))
             {
