@@ -117,10 +117,30 @@ namespace ScriptLinkStandard.Test.EntitiesTests
             OptionObject optionObject = new OptionObject();
             optionObject.AddFormObject(formObject1);
             Assert.AreEqual(1, optionObject.Forms.Count);
-            optionObject.AddFormObject(formObject1);
-            Assert.AreEqual(1, optionObject.Forms.Count);
             optionObject.AddFormObject(formObject2);
             Assert.AreEqual(2, optionObject.Forms.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void OptionObject_AddFormObject_FormObject_Exception()
+        {
+            FormObject formObject1 = new FormObject
+            {
+                FormId = "1",
+                MultipleIteration = false
+            };
+            FormObject formObject2 = new FormObject
+            {
+                FormId = "2",
+                MultipleIteration = true
+            };
+            OptionObject optionObject = new OptionObject();
+            optionObject.AddFormObject(formObject1);
+            Assert.AreEqual(1, optionObject.Forms.Count);
+            optionObject.AddFormObject(formObject1);
+            Assert.AreEqual(1, optionObject.Forms.Count);
         }
 
         [TestMethod]
@@ -130,10 +150,20 @@ namespace ScriptLinkStandard.Test.EntitiesTests
             OptionObject optionObject = new OptionObject();
             optionObject.AddFormObject("1", false);
             Assert.AreEqual(1, optionObject.Forms.Count);
-            optionObject.AddFormObject("1", false);
-            Assert.AreEqual(1, optionObject.Forms.Count);
             optionObject.AddFormObject("2", true);
             Assert.AreEqual(2, optionObject.Forms.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void OptionObject_AddFormObject_Properties_Exception()
+        {
+            OptionObject optionObject = new OptionObject();
+            optionObject.AddFormObject("1", false);
+            Assert.AreEqual(1, optionObject.Forms.Count);
+            optionObject.AddFormObject("1", false);
+            Assert.AreEqual(1, optionObject.Forms.Count);
         }
 
         [TestMethod]
