@@ -353,6 +353,15 @@ namespace ScriptLinkStandard.Test.EntitiesTests
         [TestCategory("OptionObject2")]
         public void OptionObject2_IsFieldEnabled_IsFalse()
         {
+            var actual = configuredOptionObject2.IsFieldEnabled("234");
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void OptionObject2_IsFieldEnabled_Error()
+        {
             var actual = configuredOptionObject2.IsFieldEnabled("456");
             Assert.IsFalse(actual);
         }

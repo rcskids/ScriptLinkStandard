@@ -260,7 +260,8 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void FormObject_IsFieldEnabled_NotPresent_IsFalse()
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FormObject_IsFieldEnabled_NotPresent_Error()
         {
             FieldObject fieldObject = new FieldObject
             {
