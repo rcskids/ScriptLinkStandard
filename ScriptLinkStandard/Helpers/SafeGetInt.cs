@@ -9,8 +9,8 @@
         /// <returns></returns>
         public static int SafeGetInt(string fieldValue)
         {
-            int integerTest, tempValue = 0;
-            if (int.TryParse(fieldValue, out integerTest))
+            int tempValue = 0;
+            if (int.TryParse(fieldValue, out int integerTest))
             {
                 tempValue = int.Parse(fieldValue);
             }
