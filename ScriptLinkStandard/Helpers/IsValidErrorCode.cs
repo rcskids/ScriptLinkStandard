@@ -9,8 +9,7 @@
         /// <returns></returns>
         public static bool IsValidErrorCode(string errorCode)
         {
-            int convertedErrorCode;
-            if (int.TryParse(errorCode, out convertedErrorCode))
+            if (int.TryParse(errorCode, out int convertedErrorCode))
             {
                 return IsValidErrorCode(convertedErrorCode);
             }
