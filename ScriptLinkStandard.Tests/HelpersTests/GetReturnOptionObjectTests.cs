@@ -153,7 +153,8 @@ namespace ScriptLinkStandard.Test.HelpersTests
 
         [TestMethod]
         [TestCategory("ScriptLinkHelpers")]
-        public void GetReturnOptionObject_ErrorCode_6_AreNotEqual()
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void GetReturnOptionObject_ErrorCode_6_Error()
         {
             int expected = 6;
             IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(optionObject, expected, "test");
@@ -162,7 +163,8 @@ namespace ScriptLinkStandard.Test.HelpersTests
 
         [TestMethod]
         [TestCategory("ScriptLinkHelpers")]
-        public void GetReturnOptionObject_ErrorCode_Negative1_AreNotEqual()
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void GetReturnOptionObject_ErrorCode_Negative1_Error()
         {
             int expected = -1;
             IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(optionObject, expected, "test");

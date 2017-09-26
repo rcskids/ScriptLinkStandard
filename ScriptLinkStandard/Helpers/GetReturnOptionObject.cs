@@ -15,21 +15,30 @@ namespace ScriptLinkStandard.Helpers
         /// <returns></returns>
         public static OptionObject GetReturnOptionObject(IOptionObject optionObject)
         {
-            OptionObject2 returnOptionObject = GetReturnOptionObject(optionObject.ToOptionObject2(), 0, "");
-            return returnOptionObject.ToOptionObject();
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            return GetReturnOptionObject(optionObject.ToOptionObject2(), 0, "").ToOptionObject();
         }
         public static OptionObject GetReturnOptionObject(IOptionObject optionObject, double errorCode, string errorMessage)
         {
-            OptionObject2 returnOptionObject = GetReturnOptionObject(optionObject.ToOptionObject2(), errorCode, errorMessage);
-            return returnOptionObject.ToOptionObject();
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (!IsValidErrorCode(errorCode))
+                throw new System.ArgumentException("Error Code is not valid.");
+            return GetReturnOptionObject(optionObject.ToOptionObject2(), errorCode, errorMessage).ToOptionObject();
         }
         public static OptionObject2 GetReturnOptionObject(IOptionObject2 optionObject)
         {
-            OptionObject2 returnOptionObject = GetReturnOptionObject(optionObject, 0, "");
-            return returnOptionObject;
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            return GetReturnOptionObject(optionObject, 0, "");
         }
         public static OptionObject2 GetReturnOptionObject(IOptionObject2 optionObject, double errorCode, string errorMessage)
         {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (!IsValidErrorCode(errorCode))
+                throw new System.ArgumentException("Error Code is not valid.");
             OptionObject2 returnOptionObject = RemoveUneditedRows(optionObject);
             returnOptionObject = SetErrorCodeAndMessage(returnOptionObject, errorCode, errorMessage);
             return returnOptionObject;
@@ -38,7 +47,7 @@ namespace ScriptLinkStandard.Helpers
         private static OptionObject2 RemoveUneditedRows(IOptionObject2 optionObject)
         {
             if (optionObject == null)
-                return (OptionObject2)optionObject;
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
 
             List<FormObject> formsToRemove = new List<FormObject>();
             foreach (var formObject in optionObject.Forms)
@@ -100,37 +109,17 @@ namespace ScriptLinkStandard.Helpers
 
             return (OptionObject2)optionObject;
         }
-
-        private static OptionObject2 CreateOptionObjectHeader(IOptionObject2 optionObject)
-        {
-            OptionObject2 returnOptionObject = new OptionObject2();
-            returnOptionObject.OptionId = optionObject.OptionId;
-            returnOptionObject.EntityID = optionObject.EntityID;
-            returnOptionObject.EpisodeNumber = optionObject.EpisodeNumber;
-            returnOptionObject.Facility = optionObject.Facility;
-            returnOptionObject.NamespaceName = optionObject.NamespaceName;
-            returnOptionObject.OptionStaffId = optionObject.OptionStaffId;
-            returnOptionObject.OptionUserId = optionObject.OptionUserId;
-            returnOptionObject.ParentNamespace = optionObject.ParentNamespace;
-            returnOptionObject.ServerName = optionObject.ServerName;
-            returnOptionObject.SystemCode = optionObject.SystemCode;
-            return returnOptionObject;
-        }
         
         private static OptionObject2 SetErrorCodeAndMessage(IOptionObject2 optionObject, double errorCode = 0, string errorMessage = "")
         {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (!IsValidErrorCode(errorCode))
+                throw new System.ArgumentException("Error Code is not valid.");
             OptionObject2 returnOptionObject = new OptionObject2();
             returnOptionObject = (OptionObject2)optionObject;
-            if (errorCode >= 0 && errorCode <= 5)
-            {
-                returnOptionObject.ErrorCode = errorCode;
-                returnOptionObject.ErrorMesg = errorMessage;
-            }
-            else
-            {
-                returnOptionObject.ErrorCode = 1;
-                returnOptionObject.ErrorMesg = "Invalid error code selected (" + errorCode.ToString() + "). Please contact your myAvatar administrator.";
-            }
+            returnOptionObject.ErrorCode = errorCode;
+            returnOptionObject.ErrorMesg = errorMessage;
             return returnOptionObject;
         }
     }
