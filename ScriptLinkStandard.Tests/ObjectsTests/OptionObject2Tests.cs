@@ -431,6 +431,15 @@ namespace ScriptLinkStandard.Test.EntitiesTests
         [TestCategory("OptionObject2")]
         public void OptionObject2_IsFieldRequired_AreNotEqual()
         {
+            var actual = configuredOptionObject2.IsFieldRequired("234");
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void OptionObject2_IsFieldRequired_Error()
+        {
             var actual = configuredOptionObject2.IsFieldRequired("456");
             Assert.IsFalse(actual);
         }

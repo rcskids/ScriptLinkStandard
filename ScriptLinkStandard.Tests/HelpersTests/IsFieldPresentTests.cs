@@ -10,24 +10,24 @@ namespace ScriptLinkStandard.Test.HelpersTests
         private OptionObject optionObject;
         private FormObject formObject;
         private RowObject rowObject;
-        private FieldObject fieldObject;
+        private FieldObject fieldObject1;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            this.fieldObject = new FieldObject();
-            fieldObject.Enabled = "1";
-            fieldObject.FieldNumber = "123.45";
-            fieldObject.FieldValue = "Test Value";
-            fieldObject.Lock = "0";
-            fieldObject.Required = "0";
+            this.fieldObject1 = new FieldObject();
+            fieldObject1.Enabled = "1";
+            fieldObject1.FieldNumber = "123.45";
+            fieldObject1.FieldValue = "Test Value";
+            fieldObject1.Lock = "0";
+            fieldObject1.Required = "0";
 
             this.rowObject = new RowObject();
-            rowObject.Fields.Add(fieldObject);
+            rowObject.Fields.Add(fieldObject1);
 
             this.formObject = new FormObject();
             formObject.CurrentRow = rowObject;
-            formObject.OtherRows.Add(rowObject);
+            //formObject.OtherRows.Add(rowObject);
 
             this.optionObject = new OptionObject();
             optionObject.Forms.Add(formObject);

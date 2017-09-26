@@ -438,6 +438,7 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("FormObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
         public void FormObject_IsFieldRequired_NotPresent_IsFalse()
         {
             FieldObject fieldObject = new FieldObject
