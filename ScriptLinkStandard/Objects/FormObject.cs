@@ -267,6 +267,16 @@ namespace ScriptLinkStandard.Objects
             return ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
         }
         /// <summary>
+        /// Sets the specified fields as disabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetDisabledFields(List<string> fieldNumbers)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.SetDisabledFields(this, fieldNumbers);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
         /// Sets the value of a <see cref="FieldObject"/> in the <see cref="CurrentRow"/> of a <see cref="FormObject"/>.
         /// </summary>
         /// <param name="fieldNumber"></param>

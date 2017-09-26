@@ -207,6 +207,7 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("OptionObject2")]
+        [ExpectedException(typeof(System.ArgumentException))]
         public void OptionObject2_GetFieldValue_AreNotEqual()
         {
             OptionObject2 optionObject = new OptionObject2();
@@ -370,10 +371,9 @@ namespace ScriptLinkStandard.Test.EntitiesTests
         [TestCategory("OptionObject2")]
         public void OptionObject2_SetDisabledFields_IsTrue()
         {
-            List<string> requiredFields = new List<string> { "123" };
-            configuredOptionObject2.SetDisabledFields(requiredFields);
-            var actual = configuredOptionObject2.IsFieldEnabled("123");
-            Assert.IsTrue(actual);
+            List<string> disabledFields = new List<string> { "123" };
+            configuredOptionObject2.SetDisabledFields(disabledFields);
+            Assert.IsTrue(!configuredOptionObject2.IsFieldEnabled("123"));
         }
 
         [TestMethod]

@@ -22,6 +22,7 @@ namespace ScriptLinkStandard.Interfaces
         bool IsFieldLocked(string fieldNumber);
         bool IsFieldPresent(string fieldNumber);
         bool IsFieldRequired(string fieldNumber);
+        void SetDisabledFields(List<string> fieldNumbers);
         void SetFieldValue(string fieldNumber, string fieldValue);
         void SetFieldValue(string rowId, string fieldNumber, string fieldValue);
         string ToHtmlString(bool includeHtmlHeaders);

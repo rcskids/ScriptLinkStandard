@@ -274,6 +274,14 @@ namespace ScriptLinkStandard.Objects
             Fields.RemoveAll(f => f.IsModified() == false);
         }
         /// <summary>
+        /// Sets the specified fields as disabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetDisabledFields(List<string> fieldNumbers)
+        {
+            this.Fields = ScriptLinkHelpers.SetDisabledFields(this, fieldNumbers).Fields;
+        }
+        /// <summary>
         /// Sets the value of a <see cref="FieldObject"/> in the <see cref="RowObject"/>.
         /// </summary>
         /// <param name="fieldNumber"></param>

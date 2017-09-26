@@ -53,7 +53,7 @@ namespace ScriptLinkStandard.Test.EntitiesTests
             {
                 RowId = "2||2"
             };
-            addMiRow02.Fields.Add(addMiField01);
+            addMiRow02.Fields.Add(addMiField02);
             FormObject addMiForm = new FormObject
             {
                 FormId = "2",
@@ -206,6 +206,7 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("OptionObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
         public void OptionObject_GetFieldValue_AreNotEqual()
         {
             OptionObject optionObject = new OptionObject();
@@ -369,10 +370,9 @@ namespace ScriptLinkStandard.Test.EntitiesTests
         [TestCategory("OptionObject")]
         public void OptionObject_SetDisabledFields_IsTrue()
         {
-            List<string> requiredFields = new List<string> { "123" };
-            configuredOptionObject.SetDisabledFields(requiredFields);
-            var actual = configuredOptionObject.IsFieldEnabled("123");
-            Assert.IsTrue(actual);
+            List<string> disabledFields = new List<string> { "123" };
+            configuredOptionObject.SetDisabledFields(disabledFields);
+            Assert.IsTrue(!configuredOptionObject.IsFieldEnabled("123"));
         }
 
         [TestMethod]
