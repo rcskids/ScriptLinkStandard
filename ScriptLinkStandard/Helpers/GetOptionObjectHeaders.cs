@@ -7,33 +7,41 @@ namespace ScriptLinkStandard.Helpers
     {
         public static List<string> GetOptionObjectHeaders(IOptionObject optionObject)
         {
-            List<string> headers = new List<string>();
-            headers.Add("Entity ID: " + optionObject.EntityID);
-            headers.Add("Episode Number: " + optionObject.EpisodeNumber);
-            headers.Add("Error Code: " + optionObject.ErrorCode);
-            headers.Add("Error Message: " + optionObject.ErrorMesg);
-            headers.Add("Facility: " + optionObject.Facility);
-            headers.Add("Option ID: " + optionObject.OptionId);
-            headers.Add("Option Staff ID: " + optionObject.OptionStaffId);
-            headers.Add("Option User ID: " + optionObject.OptionUserId);
-            headers.Add("System Code: " + optionObject.SystemCode);
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            List<string> headers = new List<string>
+            {
+                "Entity ID: " + optionObject.EntityID,
+                "Episode Number: " + optionObject.EpisodeNumber,
+                "Error Code: " + optionObject.ErrorCode,
+                "Error Message: " + optionObject.ErrorMesg,
+                "Facility: " + optionObject.Facility,
+                "Option ID: " + optionObject.OptionId,
+                "Option Staff ID: " + optionObject.OptionStaffId,
+                "Option User ID: " + optionObject.OptionUserId,
+                "System Code: " + optionObject.SystemCode
+            };
             return headers;
         }
         public static List<string> GetOptionObjectHeaders(IOptionObject2 optionObject)
         {
-            List<string> headers = new List<string>();
-            headers.Add("Entity ID: " + optionObject.EntityID);
-            headers.Add("Episode Number: " + optionObject.EpisodeNumber);
-            headers.Add("Error Code: " + optionObject.ErrorCode);
-            headers.Add("Error Message: " + optionObject.ErrorMesg);
-            headers.Add("Facility: " + optionObject.Facility);
-            headers.Add("Name Space Name: " + optionObject.NamespaceName);
-            headers.Add("Option ID: " + optionObject.OptionId);
-            headers.Add("Option Staff ID: " + optionObject.OptionStaffId);
-            headers.Add("Option User ID: " + optionObject.OptionUserId);
-            headers.Add("Parent Namepace: " + optionObject.ParentNamespace);
-            headers.Add("Server Name: " + optionObject.ServerName);
-            headers.Add("System Code: " + optionObject.SystemCode);
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            List<string> headers = new List<string>
+            {
+                "Entity ID: " + optionObject.EntityID,
+                "Episode Number: " + optionObject.EpisodeNumber,
+                "Error Code: " + optionObject.ErrorCode,
+                "Error Message: " + optionObject.ErrorMesg,
+                "Facility: " + optionObject.Facility,
+                "Name Space Name: " + optionObject.NamespaceName,
+                "Option ID: " + optionObject.OptionId,
+                "Option Staff ID: " + optionObject.OptionStaffId,
+                "Option User ID: " + optionObject.OptionUserId,
+                "Parent Namepace: " + optionObject.ParentNamespace,
+                "Server Name: " + optionObject.ServerName,
+                "System Code: " + optionObject.SystemCode
+            };
             return headers;
         }
     }
