@@ -266,6 +266,22 @@ namespace ScriptLinkStandard.Test.EntitiesTests
         public void OptionObject_GetMultipleIterationStatus_IsFalse()
         {
             OptionObject optionObject = new OptionObject();
+            FormObject formObject = new FormObject
+            {
+                FormId = "1",
+                MultipleIteration = false
+            };
+            optionObject.Forms.Add(formObject);
+            var actual = optionObject.GetMultipleIterationStatus("1");
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void OptionObject_GetMultipleIterationStatus_IsNotFound()
+        {
+            OptionObject optionObject = new OptionObject();
             var actual = optionObject.GetMultipleIterationStatus("1");
             Assert.IsFalse(actual);
         }
