@@ -168,7 +168,8 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void FormObject_GetCurrentRowId_IsNull()
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FormObject_GetCurrentRowId_IsError()
         {
             FormObject formObject = new FormObject();
             var actual = formObject.GetCurrentRowId();
@@ -191,7 +192,8 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        public void FormObject_GetParentRowId_IsNull()
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FormObject_GetParentRowId_IsError()
         {
             FormObject formObject = new FormObject();
             var actual = formObject.GetParentRowId();

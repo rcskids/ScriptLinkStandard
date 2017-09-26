@@ -169,7 +169,8 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void OptionObject2_GetCurrentRowId_Null()
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void OptionObject2_GetCurrentRowId_Error()
         {
             OptionObject2 optionObject = new OptionObject2();
             var actual = optionObject.GetCurrentRowId("1");
@@ -297,7 +298,8 @@ namespace ScriptLinkStandard.Test.EntitiesTests
 
         [TestMethod]
         [TestCategory("OptionObject2")]
-        public void OptionObject2_GetParentRowId_Null()
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void OptionObject2_GetParentRowId_Error()
         {
             OptionObject2 optionObject = new OptionObject2();
             var actual = optionObject.GetParentRowId("1");

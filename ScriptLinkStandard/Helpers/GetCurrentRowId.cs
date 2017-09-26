@@ -15,27 +15,26 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
-            if (optionObject.Forms != null)
+            if (formId == null || formId == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "formId");
+            if (optionObject.Forms == null)
+                throw new System.ArgumentException("The OptionObject does not contain any Forms.");
+            foreach (var formObject in optionObject.Forms)
             {
-                foreach (var formObject in optionObject.Forms)
+                if (formObject.FormId == formId)
                 {
-                    if (formObject.FormId == formId)
-                    {
-                        return GetCurrentRowId(formObject);
-                    }
+                    return GetCurrentRowId(formObject);
                 }
             }
-            return null;
+            throw new System.ArgumentException("The FormObject with FormId " + formId + " does not exist in this OptionObject.");
         }
         public static string GetCurrentRowId(IFormObject formObject)
         {
             if (formObject == null)
                 throw new ArgumentException("Parameter cannot be null", "formObject");
-            if (formObject != null && formObject.CurrentRow != null)
-            {
-                return formObject.CurrentRow.RowId;
-            }
-            return null;
+            if (formObject.CurrentRow == null)
+                throw new System.ArgumentException("The FormObject does not contain a CurrentRow.");
+            return formObject.CurrentRow.RowId;
         }
     }
 }
