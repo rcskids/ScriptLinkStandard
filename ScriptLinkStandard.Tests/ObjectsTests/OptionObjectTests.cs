@@ -387,6 +387,15 @@ namespace ScriptLinkStandard.Test.EntitiesTests
         [TestCategory("OptionObject")]
         public void OptionObject_IsFieldLocked_IsFalse()
         {
+            var actual = configuredOptionObject.IsFieldLocked("234");
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void OptionObject_IsFieldLocked_Error()
+        {
             var actual = configuredOptionObject.IsFieldLocked("456");
             Assert.IsFalse(actual);
         }

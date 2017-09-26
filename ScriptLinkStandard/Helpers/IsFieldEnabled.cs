@@ -25,9 +25,7 @@ namespace ScriptLinkStandard.Helpers
             foreach (var form in optionObject.Forms)
             {
                 if (IsFieldPresent(form, fieldNumber))
-                {
                     return IsFieldEnabled(form, fieldNumber);
-                }
             }
             throw new System.ArgumentException("The OptionObject does not contain the FieldObject " + fieldNumber + ".");
         }
@@ -47,6 +45,8 @@ namespace ScriptLinkStandard.Helpers
         {
             if (rowObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
+            if (rowObject.Fields == null)
+                throw new System.ArgumentException("The RowObject does not contain any FieldObjects.");
             if (fieldNumber == null || fieldNumber == "")
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             foreach (FieldObject field in rowObject.Fields)
