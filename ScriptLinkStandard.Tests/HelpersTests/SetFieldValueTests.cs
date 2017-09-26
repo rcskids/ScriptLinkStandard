@@ -16,6 +16,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_FieldObject_AreEqual()
         {
             var expected = new FieldObject();
@@ -28,6 +29,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_RowObject_AreEqual()
         {
             string expected = "Test";
@@ -44,16 +46,24 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_FormObject_CurrentRow_NotMI_AreEqual()
         {
             string expected = "Test";
 
-            var fieldObject = new FieldObject();
-            fieldObject.FieldNumber = "123";
-            var rowObject = new RowObject();
+            var fieldObject = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var rowObject = new RowObject
+            {
+                RowId = "1||1"
+            };
             rowObject.Fields.Add(fieldObject);
-            var formObject = new FormObject();
-            formObject.CurrentRow = rowObject;
+            var formObject = new FormObject
+            {
+                CurrentRow = rowObject
+            };
 
             formObject = ScriptLinkHelpers.SetFieldValue(formObject, "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(formObject, "123");
@@ -62,7 +72,55 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_FormObject_CurrentRow_MI_AreEqual()
+        {
+            string expected = "Test";
+
+            var fieldObject01 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject02 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject03 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var rowObject01 = new RowObject
+            {
+                RowId = "2||1"
+            };
+            rowObject01.Fields.Add(fieldObject01);
+            var rowObject02 = new RowObject
+            {
+                RowId = "2||2"
+            };
+            rowObject02.Fields.Add(fieldObject02);
+            var rowObject03 = new RowObject
+            {
+                RowId = "2||3"
+            };
+            rowObject03.Fields.Add(fieldObject03);
+            var formObject = new FormObject
+            {
+                CurrentRow = rowObject01,
+                MultipleIteration = true
+            };
+            formObject.OtherRows.Add(rowObject02);
+            formObject.OtherRows.Add(rowObject03);
+
+            formObject = ScriptLinkHelpers.SetFieldValue(formObject, "2||2", "123", "Test");
+            string actual = ScriptLinkHelpers.GetFieldValue(formObject, "2||2", "123");
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void SetFieldValue_FormObject_CurrentRow_MI_Error()
         {
             string expected = "Test";
 
@@ -104,13 +162,10 @@ namespace ScriptLinkStandard.Test.HelpersTests
             formObject = ScriptLinkHelpers.SetFieldValue(formObject, "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(formObject, "123");
             Assert.AreNotEqual(expected, actual);
-
-            formObject = ScriptLinkHelpers.SetFieldValue(formObject, "2||2", "123", "Test");
-            actual = ScriptLinkHelpers.GetFieldValue(formObject, "2||2", "123");
-            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_FormObject_OtherRow_MI_AreEqual()
         {
             string expected = "Test";
@@ -143,6 +198,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_OptionObject_OtherRow_MI_AreEqual()
         {
             string expected = "Test";
@@ -187,6 +243,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_OptionObject_CurrentRow_MI_AreEqual()
         {
             string expected = "Test";
@@ -231,6 +288,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_OptionObject_CurrentRow_NotMI_AreEqual()
         {
             string expected = "Test";
@@ -275,6 +333,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_OptionObject2_OtherRow_MI_AreEqual()
         {
             string expected = "Test";
@@ -319,6 +378,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_OptionObject2_CurrentRow_MI_AreEqual()
         {
             string expected = "Test";
@@ -363,6 +423,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
         }
 
         [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void SetFieldValue_OptionObject2_CurrentRow_NotMI_AreEqual()
         {
             string expected = "Test";

@@ -525,13 +525,52 @@ namespace ScriptLinkStandard.Test.EntitiesTests
             };
             formObject.OtherRows.Add(rowObject2);
 
-            formObject.SetFieldValue("123", "MODIFIED");
-            Assert.AreNotEqual("MODIFIED", formObject.GetFieldValue("123"));
-
             formObject.SetFieldValue("1||2", "123", "MODIFIED");
             Assert.AreNotEqual("MODIFIED", formObject.GetFieldValue("123"));
             Assert.AreNotEqual("MODIFIED", formObject.GetFieldValue("1||1", "123"));
             Assert.AreEqual("MODIFIED", formObject.GetFieldValue("1||2", "123"));
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FormObject_SetFieldValue_MI_Error()
+        {
+            FieldObject fieldObject1 = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject1 = new RowObject
+            {
+                RowId = "1||1"
+            };
+            rowObject1.Fields.Add(fieldObject1);
+            FieldObject fieldObject2 = new FieldObject
+            {
+                Enabled = "0",
+                FieldNumber = "123",
+                FieldValue = "TEST2",
+                Lock = "0",
+                Required = "0"
+            };
+            RowObject rowObject2 = new RowObject
+            {
+                RowId = "1||2"
+            };
+            rowObject2.Fields.Add(fieldObject2);
+            FormObject formObject = new FormObject
+            {
+                CurrentRow = rowObject1,
+                MultipleIteration = true
+            };
+            formObject.OtherRows.Add(rowObject2);
+
+            formObject.SetFieldValue("123", "MODIFIED");
+            Assert.AreNotEqual("MODIFIED", formObject.GetFieldValue("123"));
         }
     }
 }

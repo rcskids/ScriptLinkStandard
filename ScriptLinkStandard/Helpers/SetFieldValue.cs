@@ -8,32 +8,60 @@ namespace ScriptLinkStandard.Helpers
         public static OptionObject SetFieldValue(IOptionObject optionObject, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
-                return (OptionObject)optionObject;
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return SetFieldValue(optionObject.ToOptionObject2(), fieldNumber, fieldValue).ToOptionObject(); ;
         }
 
         public static OptionObject SetFieldValue(IOptionObject optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
-                return (OptionObject)optionObject;
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (formId == null || formId == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "formId");
+            if (rowId == null || rowId == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "rowId");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return SetFieldValue(optionObject.ToOptionObject2(), formId, rowId, fieldNumber, fieldValue).ToOptionObject();
         }
 
         public static OptionObject2 SetFieldValue(IOptionObject2 optionObject, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
-                return (OptionObject2)optionObject;
-            if (optionObject.Forms.Count > 0 && optionObject.Forms[0].MultipleIteration)
-                return (OptionObject2)optionObject;
-            string formId = optionObject.Forms.Count > 0 ? optionObject.Forms[0].FormId : null;
-            string rowId = optionObject.Forms.Count > 0 ? optionObject.Forms[0].GetCurrentRowId() : null;
-            return SetFieldValue(optionObject, formId, rowId, fieldNumber, fieldValue);
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (optionObject.Forms == null)
+                throw new System.ArgumentException("There are no FormObjects in the OptionObject.", "optionObject");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+            foreach (FormObject formObject in optionObject.Forms)
+            {
+                if (formObject.IsFieldPresent(fieldNumber))
+                {
+                    if (formObject.MultipleIteration && formObject.OtherRows.Count > 0)
+                        throw new System.ArgumentException("Unable to determine which FieldObject to update. Please specify the FormId and RowId associated with the intended FieldObject.", "optionObject");
+
+                    string formId = formObject.FormId;
+                    string rowId = formObject.GetCurrentRowId();
+                    return SetFieldValue(optionObject, formId, rowId, fieldNumber, fieldValue);
+                }
+            }
+            throw new System.ArgumentException("The specified FieldObject was not found in this OptionObject.", "optionObject");
         }
 
         public static OptionObject2 SetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
-            if (optionObject == null || formId == null || rowId == null)
-                return (OptionObject2)optionObject;
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (formId == null || formId == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "formId");
+            if (rowId == null || rowId == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "rowId");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+            if (optionObject.Forms == null)
+                throw new System.ArgumentException("There are no FormObjects in the provided OptionObject.", "optionObject");
             for (int i = 0; i < optionObject.Forms.Count; i++)
             {
                 if (optionObject.Forms[i].FormId == formId)
@@ -45,35 +73,51 @@ namespace ScriptLinkStandard.Helpers
         public static FormObject SetFieldValue(IFormObject formObject, string fieldNumber, string fieldValue)
         {
             if (formObject == null)
-                return (FormObject)formObject;
-            if (formObject.MultipleIteration)
-                return (FormObject)formObject;
+                throw new System.ArgumentException("Parameter cannot be null.", "formObject");
+            if (formObject.CurrentRow == null)
+                throw new System.ArgumentException("The FormObject has no CurrentRow.", "formObject");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+            if (formObject.MultipleIteration && formObject.OtherRows.Count > 0)
+                throw new System.ArgumentException("Unable to determine which FieldObject to update. Please specify the FormId and RowId associated with the intended FieldObject.", "optionObject");
             return SetFieldValue(formObject, formObject.CurrentRow.RowId, fieldNumber, fieldValue);
         }
 
         public static FormObject SetFieldValue(IFormObject formObject, string rowId, string fieldNumber, string fieldValue)
         {
             if (formObject == null)
-                return (FormObject)formObject;
-            if (!formObject.MultipleIteration || formObject.CurrentRow.RowId == rowId)
+                throw new System.ArgumentException("Parameter cannot be null.", "formObject");
+            if (formObject.CurrentRow == null)
+                throw new System.ArgumentException("The FormObject does not have a CurrentRow.", "formObject");
+            if (rowId == null || rowId == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "rowId");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+            if (formObject.CurrentRow.RowId == rowId)
             {
-                formObject.CurrentRow = ScriptLinkHelpers.SetFieldValue(formObject.CurrentRow, fieldNumber, fieldValue);
+                formObject.CurrentRow = SetFieldValue(formObject.CurrentRow, fieldNumber, fieldValue);
+                return (FormObject)formObject;
             }
-            else
+            if (formObject.MultipleIteration)
             {
                 for (int i = 0; i < formObject.OtherRows.Count; i++)
                 {
                     if (formObject.OtherRows[i].RowId == rowId)
-                        formObject.OtherRows[i] = ScriptLinkHelpers.SetFieldValue(formObject.OtherRows[i], fieldNumber, fieldValue);
+                    {
+                        formObject.OtherRows[i] = SetFieldValue(formObject.OtherRows[i], fieldNumber, fieldValue);
+                        return (FormObject)formObject;
+                    }
                 }
             }
-            return (FormObject)formObject;
+            throw new System.ArgumentException("The specified FieldObject was not found in this FormObject.", "formObject");
         }
 
         public static RowObject SetFieldValue(IRowObject rowObject, string fieldNumber, string fieldValue)
         {
             if (rowObject == null)
-                return (RowObject)rowObject;
+                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             for (int i = 0; i < rowObject.Fields.Count; i++)
             {
                 if (rowObject.Fields[i].FieldNumber == fieldNumber)
@@ -88,6 +132,8 @@ namespace ScriptLinkStandard.Helpers
 
         public static FieldObject SetFieldValue(IFieldObject fieldObject, string fieldValue)
         {
+            if (fieldObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "fieldObject");
             fieldObject.FieldValue = fieldValue;
             fieldObject.SetAsModified();
             return (FieldObject)fieldObject;
