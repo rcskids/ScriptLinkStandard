@@ -25,6 +25,10 @@ namespace ScriptLinkStandard.Interfaces
         void SetDisabledFields(List<string> fieldNumbers);
         void SetFieldValue(string fieldNumber, string fieldValue);
         void SetFieldValue(string rowId, string fieldNumber, string fieldValue);
+        void SetLockedFields(List<string> fieldNumbers);
+        void SetOptionalFields(List<string> fieldNumbers);
+        void SetRequiredFields(List<string> fieldNumbers);
+        void SetUnlockedFields(List<string> fieldNumbers);
         string ToHtmlString(bool includeHtmlHeaders);
     }
 }

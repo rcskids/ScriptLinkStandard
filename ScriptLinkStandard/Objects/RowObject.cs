@@ -289,9 +289,39 @@ namespace ScriptLinkStandard.Objects
         /// <returns></returns>
         public void SetFieldValue(string fieldNumber, string fieldValue)
         {
-            if (fieldNumber == null || fieldNumber == "")
-                return;             // Should throw an exception or off load to helper for exception.
             this.Fields = ScriptLinkHelpers.SetFieldValue(this, fieldNumber, fieldValue).Fields;
+        }
+        /// <summary>
+        /// Sets the specified fields as disabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetLockedFields(List<string> fieldNumbers)
+        {
+            this.Fields = ScriptLinkHelpers.SetLockedFields(this, fieldNumbers).Fields;
+        }
+        /// <summary>
+        /// Sets the specified fields as disabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetOptionalFields(List<string> fieldNumbers)
+        {
+            this.Fields = ScriptLinkHelpers.SetOptionalFields(this, fieldNumbers).Fields;
+        }
+        /// <summary>
+        /// Sets the specified fields as disabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetRequiredFields(List<string> fieldNumbers)
+        {
+            this.Fields = ScriptLinkHelpers.SetRequiredFields(this, fieldNumbers).Fields;
+        }
+        /// <summary>
+        /// Sets the specified fields as disabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetUnlockedFields(List<string> fieldNumbers)
+        {
+            this.Fields = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumbers).Fields;
         }
         /// <summary>
         /// Returns a <see cref="string"/> with all of the contents of the <see cref="RowObject"/> formatted in HTML.

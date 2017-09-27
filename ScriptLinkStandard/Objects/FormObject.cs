@@ -301,6 +301,46 @@ namespace ScriptLinkStandard.Objects
             this.OtherRows = tempFormObject.OtherRows;
         }
         /// <summary>
+        /// Sets the specified fields as locked.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetLockedFields(List<string> fieldNumbers)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.SetLockedFields(this, fieldNumbers);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
+        /// Sets the specified fields as enabled and not required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetOptionalFields(List<string> fieldNumbers)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.SetOptionalFields(this, fieldNumbers);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
+        /// Sets the specified fields as enabled and required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetRequiredFields(List<string> fieldNumbers)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.SetRequiredFields(this, fieldNumbers);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
+        /// Sets the specified fields as unlocked.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetUnlockedFields(List<string> fieldNumbers)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumbers);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
         /// Returns a <see cref="string"/> with all of the contents of the <see cref="FormObject"/> formatted in HTML.
         /// </summary>
         /// <param name="includeHtmlHeaders">Determines whether to include the HTML headers in return. False allows for the embedding of the HTML in another HTML document.</param>
