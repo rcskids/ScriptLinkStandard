@@ -10,6 +10,8 @@ namespace ScriptLinkStandard.Helpers
     {
         public static string TransformToHtmlString(IOptionObject optionObject, bool includeHtmlHeaders)
         {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
             html += GetPageHeader(optionObject.GetType().ToString());
@@ -48,6 +50,8 @@ namespace ScriptLinkStandard.Helpers
         }
         public static string TransformToHtmlString(IOptionObject2 optionObject, bool includeHtmlHeaders)
         {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
             html += GetPageHeader(optionObject.GetType().ToString());
@@ -86,10 +90,14 @@ namespace ScriptLinkStandard.Helpers
         }
         public static string TransformToHtmlString(IFormObject formObject)
         {
+            if (formObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "formObject");
             return TransformToHtmlString(formObject, false);
         }
         public static string TransformToHtmlString(IFormObject formObject, bool includeHtmlHeaders)
         {
+            if (formObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "formObject");
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
             html += GetPageHeader(formObject.GetType().ToString());
@@ -126,10 +134,14 @@ namespace ScriptLinkStandard.Helpers
         }
         public static string TransformToHtmlString(IRowObject rowObject)
         {
+            if (rowObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
             return TransformToHtmlString(rowObject, false);
         }
         public static string TransformToHtmlString(IRowObject rowObject, bool includeHtmlHeaders)
         {
+            if (rowObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
             html += GetPageHeader(rowObject.GetType().ToString());
@@ -150,10 +162,14 @@ namespace ScriptLinkStandard.Helpers
         }
         public static string TransformToHtmlString(IFieldObject fieldObject)
         {
+            if (fieldObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "fieldObject");
             return TransformToHtmlString(fieldObject, false);
         }
         public static string TransformToHtmlString(IFieldObject fieldObject, bool includeHtmlHeaders)
         {
+            if (fieldObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "fieldObject");
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
             html += GetPageHeader(fieldObject.GetType().ToString());
