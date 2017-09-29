@@ -13,6 +13,8 @@ namespace ScriptLinkStandard.Interfaces
         void AddRowObject(RowObject rowObject);
         void AddRowObject(string rowId, string parentRowId);
         void AddRowObject(string rowId, string parentRowId, string rowAction);
+        void DeleteRowObject(RowObject rowObject);
+        void DeleteRowObject(string rowId);
         string GetCurrentRowId();
         string GetFieldValue(string fieldNumber);
         string GetFieldValue(string rowId, string fieldNumber);

@@ -187,6 +187,26 @@ namespace ScriptLinkStandard.Objects
             this.OtherRows = tempFormObject.OtherRows;
         }
         /// <summary>
+        /// Marks a <see cref="RowObject"/> for deletion.
+        /// </summary>
+        /// <param name="rowId"></param>
+        public void DeleteRowObject(RowObject rowObject)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.DeleteRowObject(this, rowObject);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
+        /// Marks a <see cref="RowObject"/> for deletion.
+        /// </summary>
+        /// <param name="rowId"></param>
+        public void DeleteRowObject(string rowId)
+        {
+            FormObject tempFormObject = ScriptLinkHelpers.DeleteRowObject(this, rowId);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
         /// Returns the RowId of the <see cref="CurrentRow"/>.
         /// </summary>
         /// <returns></returns>
@@ -265,6 +285,24 @@ namespace ScriptLinkStandard.Objects
         public bool IsFieldRequired(string fieldNumber)
         {
             return ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
+        }
+        /// <summary>
+        /// Determines whether the <see cref="RowObject"/> is marked for deletion in the <see cref="FormObject"/> by RowId.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
+        public bool IsRowMarkedForDeletion(string rowId)
+        {
+            return ScriptLinkHelpers.IsRowMarkedForDeletion(this, rowId);
+        }
+        /// <summary>
+        /// Determines whether the <see cref="RowObject"/> is present in the <see cref="FormObject"/> by RowId.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
+        public bool IsRowPresent(string rowId)
+        {
+            return ScriptLinkHelpers.IsRowPresent(this, rowId);
         }
         /// <summary>
         /// Sets the specified fields as disabled and unrequires if required.

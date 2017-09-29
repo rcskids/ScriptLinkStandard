@@ -218,6 +218,26 @@ namespace ScriptLinkStandard.Objects
             this.Forms = ScriptLinkHelpers.AddFormObject(this, formId, multipleIteration).Forms;
         }
         /// <summary>
+        /// Marks a <see cref="RowObject"/> for deletion.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        public void DeleteRowObject(RowObject rowObject)
+        {
+            if (rowObject == null)
+                throw new ArgumentException("Parameter cannot be null.", "rowObject");
+            this.Forms = ScriptLinkHelpers.DeleteRowObject(this, rowObject).Forms;
+        }
+        /// <summary>
+        /// Marks a <see cref="RowObject"/> for deletion.
+        /// </summary>
+        /// <param name="rowId"></param>
+        public void DeleteRowObject(string rowId)
+        {
+            if (rowId == null || rowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+            this.Forms = ScriptLinkHelpers.DeleteRowObject(this, rowId).Forms;
+        }
+        /// <summary>
         /// Returns the CurrentRow RowId of the form matching the FormId.
         /// </summary>
         /// <param name="formId"></param>
@@ -307,6 +327,24 @@ namespace ScriptLinkStandard.Objects
         public bool IsFieldRequired(string fieldNumber)
         {
             return ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
+        }
+        /// <summary>
+        /// Returns whether the specified <see cref="RowObject"/> is marked for deletion.
+        /// </summary>
+        /// <param name="rowId"></param>
+        /// <returns></returns>
+        public bool IsRowMarkedForDeletion(string rowId)
+        {
+            return ScriptLinkHelpers.IsRowMarkedForDeletion(this, rowId);
+        }
+        /// <summary>
+        /// Returns whether the specified <see cref="RowObject"/> is present.
+        /// </summary>
+        /// <param name="rowId"></param>
+        /// <returns></returns>
+        public bool IsRowPresent(string rowId)
+        {
+            return ScriptLinkHelpers.IsRowPresent(this, rowId);
         }
 
         /// <summary>
