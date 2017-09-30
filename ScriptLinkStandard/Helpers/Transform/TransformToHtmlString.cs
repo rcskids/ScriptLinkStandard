@@ -183,7 +183,10 @@ namespace ScriptLinkStandard.Helpers
             if (rawObject == null) { return ""; }
             string html = "";
             Type type = rawObject.GetType();
-            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public);
+            // For .NET Standard 2.0
+            // PropertyInfo[] properties = type.GetProperties(BindingFlags.Public);
+            // For .NET Standard 1.x
+            PropertyInfo[] properties = type.GetTypeInfo().DeclaredProperties.ToArray();
 
             switch (htmlOutputType)
             {
