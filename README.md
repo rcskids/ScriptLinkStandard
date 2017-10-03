@@ -33,7 +33,7 @@ Initial testing has been completed demonstrating compatibility of the library wi
 4.5.1 | Yes
 4.5 | Yes
 
-Check out the Microsoft Docs for more information on (.NET Standard compatibility)[https://docs.microsoft.com/en-us/dotnet/standard/net-standard].
+Check out the Microsoft Docs for more information on [.NET Standard compatibility](https://docs.microsoft.com/en-us/dotnet/standard/net-standard).
 
 ## Contributing
 To be written
