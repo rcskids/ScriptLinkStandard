@@ -17,10 +17,25 @@ This library is written for [.NET Standard 1.1](https://docs.microsoft.com/en-us
 The goal of this project is to make the library available in NuGet for easy install and update.
 
 ### Manual Installation
-To be written.
+1. Download the [latest release](https://github.com/rcskids/ScriptLinkStandard/releases).
+2. Extract the compressed file.
+3. Open your solution in Visual Studio.
+4. For each project in the solution that will use the library (e.g., your web app and unit test projects)
+	1. Select Project > Add Reference... from the menu bar (or right-click on the project and select Add > Reference...).
+	2. In the Reference Manager, select Browse...
+	3. Navigate the location of the ScriptLinkStandard.dll that you just extracted.
+	4. Select the ScriptLinkStandard.dll file and click Add.
+	5. Select OK.
+5. You can now reference the ScriptLinkStandard library throughout your project with `@using` tags.
+
+```c#
+@using ScriptLinkStandard.Helpers
+@using ScriptLinkStandard.Interfaces
+@using ScriptLinkStandard.Objects
+```
 
 ## Documentation
-To be written.
+
 ### Compatibility
 Initial testing has been completed demonstrating compatibility of the library with various .NET implementations.
 
@@ -34,6 +49,89 @@ Initial testing has been completed demonstrating compatibility of the library wi
 4.5 | Yes
 
 Check out the Microsoft Docs for more information on [.NET Standard compatibility](https://docs.microsoft.com/en-us/dotnet/standard/net-standard).
+
+### ScriptLinkStandard.Objects
+The ScriptLinkStandard.Objects namespace contains the object definitions and will be the most commonly used namespace in your projects.
+
+The objects include:
+* OptionObject2
+* OptionObject (legacy)
+* FormObject
+* RowObject
+* FieldObject
+
+Each object includes a variety of methods designed to help manage or modify the received OptionObject or OptionObject2. For example,
+* To get a FieldValue from an OptionObject without Multiple Iteration tables, you can write `string value = optionObject.GetFieldValue(fieldNumber);`.
+* To set a FieldValue in an OptionObject without Multiple Iteration tables, you can write `optionObject.SetFieldValue(fieldNumber, fieldValue);`.
+* To set a FieldObject as Required in an OptionObject, you can write `optionObject.SetRequiredFields(fieldNumbers);` using a List<string> containing the FieldNumber(s) to require. This also works for enabling, disabling, locking, and unlocking.
+* Using the above method to set the values or other properties of a FieldObject automatically marks the RowObject as edited. This allows you to write `return optionObject.ToReturnOptionObject();` return only the modified contents of the OptionObject.
+* To create the returning OptionObject with an ErrorCode and ErrorMesg, you can use `return optionObject.ToReturnOptionObject(errorCode, errorMessage);`.
+
+### ScriptLinkStandard.Helpers
+The ScriptLinkStandard.Helpers namespace contains a number of common methods used when handling OptionObjects. Many of these helpers are already available on the objects, but some conditions may require the helper instead. Here are some examples of the helpers:
+* To get the FieldValue from an OptionObject without Multiple Iteration tables, you can write `string value = ScriptLinkHelpers.GetFieldValue(fieldNumber);`.
+* To get all the FieldValues from a Multiple Iteration tables, you can write `List<string> values = ScriptLinkHelpers.GetFieldValues(fieldNumber);`.
+* To safely get an integer from the provided OptionObject, you can write `int value = ScriptLinkHelpers.SafeGetInt(optionObject.GetFieldValue(fieldNumber));`.
+* To verify an Error Code is valid, you can write `bool isValid = ScriptLinkHelpers.IsValidErrorCode(errorcode);`.
+
+### ScriptLinkStandard.Interfaces
+The ScriptLinkStandard.Interfaces namespace contains the interfaces used to govern the relationship between the objects and the helpers. These would typically be used in more advanced scenarios and typical usage would not require use of this namespace.
+
+#### Custom Objects
+One of the advanced uses of this namespace would be to create your own objects that work with the ScriptLinkHelpers.
+
+```c#
+public class CustomOptionObject2 : IOptionObject2
+{
+	// Your implementation
+}
+```
+
+#### Separating the API Interface from the Logic
+Another interface has been created to inform the construction of the APIs and the supporting logic. Here is a HelloWorld example.
+
+**HelloWorld.asmx.cs**
+```c#
+public class HelloWorld : System.Web.Services.WebService
+{
+    HelloWorldScript script = new HelloWorldScript();
+
+    [WebMethod]
+    public string GetVersion()
+    {
+        return script.GetVersion();
+    }
+
+    [WebMethod]
+    public OptionObject2 RunScript(OptionObject2 optionObject2, string parameters)
+    {
+        return script.ProcessScript(optionObject2, parameters);
+    }
+}
+```
+
+**HelloWorldScript.cs**
+```c#
+public class HelloWorldScript : IScriptLink
+{
+    public string GetVersion()
+    {
+        return "1.0.0";
+    }
+
+    public OptionObject ProcessScript(IOptionObject optionObject, string parameter)
+    {
+        return ProcessScript(optionObject.ToOptionObject2(), parameter).ToOptionObject();
+    }
+
+    public OptionObject2 ProcessScript(IOptionObject2 optionObject, string parameter)
+    {
+        return optionObject.ToReturnOptionObject(3, "Hello World!");
+    }
+}
+```
+
+By design, the IScriptLink interface requires you to account for both the legacy OptionObject and current OptionObject2. In the example above, the legacy OptionObject is just converted to an OptionObject2 and handled by the OptionObject2 logic to avoid duplicate code. This code design could still be done without the interface allowing you to write for only the OptionObject type you prefer to use.
 
 ## Contributing
 To be written
