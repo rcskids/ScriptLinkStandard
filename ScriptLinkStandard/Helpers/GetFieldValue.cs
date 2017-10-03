@@ -37,7 +37,7 @@ namespace ScriptLinkStandard.Helpers
                 if (form.FormId == formId)
                     return GetFieldValue(form, rowId, fieldNumber);
             }
-            throw new ArgumentException("FieldObject could not be found.");
+            throw new ArgumentException("FieldObject (" + fieldNumber + ") could not be found.");
         }
 
         public static string GetFieldValue(IFormObject formObject, string fieldNumber)
@@ -58,7 +58,7 @@ namespace ScriptLinkStandard.Helpers
                 if (rowObject.RowId == rowId)
                     return ScriptLinkHelpers.GetFieldValue(rowObject, fieldNumber);
             }
-            throw new ArgumentException("FieldObject could not be found.");
+            throw new ArgumentException("FieldObject (" + fieldNumber + ") could not be found.");
         }
 
         public static string GetFieldValue(IRowObject rowObject, string fieldNumber)
@@ -70,7 +70,7 @@ namespace ScriptLinkStandard.Helpers
                 if (field.FieldNumber == fieldNumber)
                     return GetFieldValue(field);
             }
-            throw new ArgumentException("FieldObject could not be found.");
+            throw new ArgumentException("FieldObject (" + fieldNumber + ") could not be found.");
         }
 
         public static string GetFieldValue(IFieldObject fieldObject)
