@@ -22,13 +22,18 @@ To be written.
 ## Documentation
 To be written.
 ### Compatibility
+Initial testing has been completed demonstrating compatibility of the library with various .NET implementations.
+
 .NET Framework | Compatible
 -------------- | ----------
 4.6.2 | Untested
 4.6.1 | Yes
-4.6 | Untested
-4.5.1 | Untested
-4.5 | Untested
+4.6 | Yes
+4.5.2 | Yes
+4.5.1 | Yes
+4.5 | Yes
+
+Check out the Microsoft Docs for more information on (.NET Standard compatibility)[https://docs.microsoft.com/en-us/dotnet/standard/net-standard].
 
 ## Contributing
 To be written
