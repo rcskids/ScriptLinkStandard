@@ -53,7 +53,10 @@ namespace ScriptLinkStandard.Helpers
             foreach (var formObject in optionObject.Forms)
             {
                 // CurrentRow
-                if (formObject.CurrentRow != null && (formObject.CurrentRow.RowAction == null || formObject.CurrentRow.RowAction == ""))
+                if (formObject.CurrentRow != null && 
+                    (formObject.CurrentRow.RowAction == null || 
+                    formObject.CurrentRow.RowAction == "" ||
+                    !ScriptLinkHelpers.IsValidRowAction(formObject.CurrentRow.RowAction)))
                 {
                     formObject.CurrentRow = null;
                 }
@@ -75,7 +78,9 @@ namespace ScriptLinkStandard.Helpers
                 List<RowObject> rowsToRemove = new List<RowObject>();
                 foreach (var rowObject in formObject.OtherRows)
                 {
-                    if (rowObject.RowAction == null || rowObject.RowAction == "")
+                    if (rowObject.RowAction == null || 
+                        rowObject.RowAction == "" ||
+                        !ScriptLinkHelpers.IsValidRowAction(formObject.CurrentRow.RowAction))
                     {
                         rowsToRemove.Add(rowObject);
                     }
