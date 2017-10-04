@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Copyright></Copyright>
+    <PackageProjectUrl>https://github.com/rcskids/ScriptLinkStandard</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/rcskids/ScriptLinkStandard/blob/master/LICENSE.md</PackageLicenseUrl>
+    <Authors>Scott Olson Jr, Luis Quicano</Authors>
+    <Company />
+    <Description>A class Library for Netsmart myAvatar ScriptLink API development.</Description>
   </PropertyGroup>
 
   <ItemGroup>
