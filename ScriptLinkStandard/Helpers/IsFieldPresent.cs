@@ -35,10 +35,10 @@ namespace ScriptLinkStandard.Helpers
         {
             if (formObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");
-            if (formObject.CurrentRow == null)
-                throw new System.ArgumentException("The FormObject does not contain a CurrentRow.");
             if (fieldNumber == null || fieldNumber == "")
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+            if (formObject.CurrentRow == null)
+                return false;
             return IsFieldPresent(formObject.CurrentRow, fieldNumber);
         }
 

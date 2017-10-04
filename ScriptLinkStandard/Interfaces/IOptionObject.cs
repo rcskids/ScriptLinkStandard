@@ -18,6 +18,7 @@ namespace ScriptLinkStandard.Interfaces
 
         void AddFormObject(FormObject formObject);
         void AddFormObject(string formId, bool multipleIteration);
+        void AddRowObject(string formId, RowObject rowObject);
         void DeleteRowObject(RowObject rowObject);
         void DeleteRowObject(string rowId);
         string GetCurrentRowId(string formId);
@@ -31,6 +32,7 @@ namespace ScriptLinkStandard.Interfaces
         bool IsFieldLocked(string fieldNumber);
         bool IsFieldPresent(string fieldNumber);
         bool IsFieldRequired(string fieldNumber);
+        bool IsFormPresent(string formId);
         bool IsRowMarkedForDeletion(string rowId);
         bool IsRowPresent(string rowId);
 

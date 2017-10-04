@@ -236,6 +236,17 @@ namespace ScriptLinkStandard.Objects
             this.Forms = ScriptLinkHelpers.AddFormObject(this, formId, multipleIteration).Forms;
         }
         /// <summary>
+        /// Adds a <see cref="RowObject"/> to a <see cref="FormObject"/> in this <see cref="OptionObject2"/>.
+        /// </summary>
+        /// <param name="formId"></param>
+        /// <param name="rowObject"></param>
+        public void AddRowObject(string formId, RowObject rowObject)
+        {
+            if (formId == null || formId == "")
+                return;
+            this.Forms = ScriptLinkHelpers.AddRowObject(this, formId, rowObject).Forms;
+        }
+        /// <summary>
         /// Marks a <see cref="RowObject"/> for deletion.
         /// </summary>
         /// <param name="rowObject"></param>
@@ -345,6 +356,15 @@ namespace ScriptLinkStandard.Objects
         public bool IsFieldRequired(string fieldNumber)
         {
             return ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
+        }
+        /// <summary>
+        /// Returns whether the specified <see cref="FormObject"/> is present.
+        /// </summary>
+        /// <param name="formId"></param>
+        /// <returns></returns>
+        public bool IsFormPresent(string formId)
+        {
+            return ScriptLinkHelpers.IsFormPresent(this, formId);
         }
         /// <summary>
         /// Returns whether the specified <see cref="RowObject"/> is marked for deletion.

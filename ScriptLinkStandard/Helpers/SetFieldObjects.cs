@@ -55,7 +55,7 @@ namespace ScriptLinkStandard.Helpers
                 {
                     optionObject2.Forms[i] = SetFieldObjects(optionObject2.Forms[i], fieldAction, fieldsToSet);
                 }
-                catch (ArgumentException)
+                catch (Exception)
                 {
                     // The FieldObjects to disable may not be present on each FormObject
                     formErrors++;
