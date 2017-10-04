@@ -80,7 +80,7 @@ namespace ScriptLinkStandard.Helpers
                 {
                     if (rowObject.RowAction == null || 
                         rowObject.RowAction == "" ||
-                        !ScriptLinkHelpers.IsValidRowAction(formObject.CurrentRow.RowAction))
+                        !ScriptLinkHelpers.IsValidRowAction(rowObject.RowAction))
                     {
                         rowsToRemove.Add(rowObject);
                     }
