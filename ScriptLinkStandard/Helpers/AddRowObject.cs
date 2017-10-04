@@ -59,11 +59,13 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");
             if (rowObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
-            if ((formObject.CurrentRow != null && formObject.CurrentRow.RowId == rowObject.RowId) ||
-                (formObject.OtherRows != null && formObject.OtherRows.Exists(r => r.RowId == rowObject.RowId)))
-                throw new System.ArgumentException("A RowObject with this RowId already exists in this FormObject.");
             if (!formObject.MultipleIteration && formObject.CurrentRow != null)
                 throw new System.ArgumentException("Cannot add another RowObject to this FormObject because it is not a Multiple Iteration form.");
+            
+            if ((formObject.CurrentRow != null && formObject.CurrentRow.RowId == rowObject.RowId && rowObject.RowId != null && rowObject.RowId != "") ||
+                (formObject.OtherRows != null && formObject.OtherRows.Exists(r => r.RowId == rowObject.RowId && rowObject.RowId != null && rowObject.RowId != "")))
+                throw new System.ArgumentException("A RowObject with this RowId already exists in this FormObject.");
+
             if (formObject.CurrentRow == null)
             {
                 formObject.CurrentRow = (RowObject)rowObject;
