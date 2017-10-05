@@ -68,13 +68,31 @@ namespace ScriptLinkStandard.Helpers
 
             if (formObject.CurrentRow == null)
             {
+                rowObject.RowId = GetNextRowId(formObject);
                 formObject.CurrentRow = (RowObject)rowObject;
             }
             else
             {
+                if (rowObject.RowId == null || rowObject.RowId == "")
+                    rowObject.RowId = GetNextRowId(formObject);
                 formObject.OtherRows.Add((RowObject)rowObject);
             }
             return (FormObject)formObject;
+        }
+
+        private static string GetNextRowId(IFormObject formObject)
+        {
+            int maximumNumberOfMultipleIterationRows = 15;
+            for (int i = 1; i < maximumNumberOfMultipleIterationRows; i++)
+            {
+                string tempRowId = formObject.FormId + "||" + i.ToString();
+                if (formObject.CurrentRow == null)
+                    return tempRowId;
+                if (formObject.CurrentRow.RowId != tempRowId
+                    && !formObject.OtherRows.Exists(r => r.RowId == tempRowId))
+                    return tempRowId;
+            }
+            return formObject.FormId + "||99";
         }
 
         public static FormObject AddRowObject(IFormObject formObject, string rowId, string parentRowId)

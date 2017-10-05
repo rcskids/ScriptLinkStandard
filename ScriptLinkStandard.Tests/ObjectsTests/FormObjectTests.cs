@@ -124,6 +124,7 @@ namespace ScriptLinkStandard.Test.EntitiesTests
         {
             FormObject formObject = new FormObject
             {
+                FormId = "1",
                 MultipleIteration = false
             };
 
@@ -139,6 +140,7 @@ namespace ScriptLinkStandard.Test.EntitiesTests
         {
             FormObject formObject = new FormObject
             {
+                FormId = "1",
                 MultipleIteration = false
             };
 
