@@ -106,6 +106,10 @@ namespace ScriptLinkStandard.Helpers
                 {
                     formsToRemove.Add(formObject);
                 }
+                else if (formObject.OtherRows.Count == 0)
+                {
+                    formObject.OtherRows = null;
+                }
             }
             foreach (var formObject in formsToRemove)
             {

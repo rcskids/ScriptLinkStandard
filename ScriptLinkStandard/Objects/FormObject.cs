@@ -124,9 +124,12 @@ namespace ScriptLinkStandard.Objects
             string hash = this.FormId
                 + delimiter + this.MultipleIteration.ToString();
             hash += this.CurrentRow != null ? delimiter + this.CurrentRow.GetHashCode().ToString() : "";
-            foreach (RowObject rowObject in this.OtherRows)
+            if (this.OtherRows != null)
             {
-                hash += delimiter + rowObject.GetHashCode();
+                foreach (RowObject rowObject in this.OtherRows)
+                {
+                    hash += delimiter + rowObject.GetHashCode();
+                }
             }
             return hash.GetHashCode();
         }
