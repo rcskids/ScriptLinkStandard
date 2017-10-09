@@ -1,6 +1,7 @@
 ﻿using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Interfaces;
 using System;
+// using System.Xml.Serialization
 
 namespace ScriptLinkStandard.Objects
 {
@@ -40,8 +41,88 @@ namespace ScriptLinkStandard.Objects
         public string Required { get; set; }
 
         //
+        // Begin Test Customizations (public properties requiring [XmlIgnore])
+        // Requires .NET Standard 2.0 or greater
+        //
+
+        /*
+        [XmlIgnore]
+        public bool IsModified
+        {
+            get
+            {
+                return _isModified;
+            }
+        }
+        
+        */
+
+        //
         // Begin Customizations (only methods and private properties)
         //
+
+        //
+        // Constructors
+        //
+
+        /// <summary>
+        /// Creates an empty <see cref="FieldObject"/>.
+        /// </summary>
+        public FieldObject()
+        {
+            Enabled = "0";
+            FieldNumber = "";
+            FieldValue = "";
+            Lock = "0";
+            Required = "0";
+        }
+        /// <summary>
+        /// Creates a <see cref="FieldObject"/> with the specified <see cref="FieldNumber"/>.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public FieldObject(string fieldNumber)
+        {
+            if (fieldNumber == null || fieldNumber == "")
+                throw new ArgumentException("Parameter cannot be null or blank", "fieldNumber");
+            Enabled = "0";
+            FieldNumber = fieldNumber;
+            FieldValue = "";
+            Lock = "0";
+            Required = "0";
+        }
+        /// <summary>
+        /// Creates a <see cref="FieldObject"/> with the specified <see cref="FieldNumber"/> and <see cref="FieldValue"/>.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        public FieldObject(string fieldNumber, string fieldValue)
+        {
+            if (fieldNumber == null || fieldNumber == "")
+                throw new ArgumentException("Parameter cannot be null or blank", "fieldNumber");
+            Enabled = "0";
+            FieldNumber = fieldNumber;
+            FieldValue = fieldValue;
+            Lock = "0";
+            Required = "0";
+        }
+        /// <summary>
+        /// Creates a <see cref="FieldObject"/> with the specified <see cref="FieldNumber"/> and <see cref="FieldValue"/>.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <param name="enabled"></param>
+        /// <param name="locked"></param>
+        /// <param name="required"></param>
+        public FieldObject(string fieldNumber, string fieldValue, bool enabled, bool locked, bool required)
+        {
+            if (fieldNumber == null || fieldNumber == "")
+                throw new ArgumentException("Parameter cannot be null or blank", "fieldNumber");
+            Enabled = enabled ? "1" : "0";
+            FieldNumber = fieldNumber;
+            FieldValue = fieldValue;
+            Lock = locked ? "1" : "0";
+            Required = required ? "1" : "0";
+        }
 
         //
         // Private Properties

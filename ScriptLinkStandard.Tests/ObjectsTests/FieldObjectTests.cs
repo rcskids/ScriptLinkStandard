@@ -394,5 +394,90 @@ namespace ScriptLinkStandard.Test.ObjectsTests
             var actual = newFieldObject.ToHtmlString(true);
             Assert.IsNotNull(actual);
         }
+
+        [TestMethod]
+        [TestCategory("FieldObject")]
+        public void FieldObjects_Constructor_1Parameter_NoError()
+        {
+            string expected = "123.45";
+            FieldObject fieldObject = new FieldObject(expected);
+            Assert.AreEqual(expected, fieldObject.FieldNumber);
+            Assert.AreEqual("", fieldObject.FieldValue);
+            Assert.AreEqual("0", fieldObject.Enabled);
+            Assert.AreEqual("0", fieldObject.Lock);
+            Assert.AreEqual("0", fieldObject.Required);
+        }
+
+        [TestMethod]
+        [TestCategory("FieldObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FieldObjects_Constructor_1Parameter_Error()
+        {
+            string expected = "";
+            FieldObject fieldObject = new FieldObject(expected);
+            Assert.AreEqual(expected, fieldObject.FieldNumber);
+            Assert.AreEqual("", fieldObject.FieldValue);
+            Assert.AreEqual("1", fieldObject.Enabled);
+            Assert.AreEqual("1", fieldObject.Lock);
+            Assert.AreEqual("1", fieldObject.Required);
+        }
+
+        [TestMethod]
+        [TestCategory("FieldObject")]
+        public void FieldObjects_Constructor_2Parameter_NoError()
+        {
+            string fieldNumber = "123.45";
+            string fieldValue = "TEST";
+            FieldObject fieldObject = new FieldObject(fieldNumber, fieldValue);
+            Assert.AreEqual(fieldNumber, fieldObject.FieldNumber);
+            Assert.AreEqual(fieldValue, fieldObject.FieldValue);
+            Assert.AreEqual("0", fieldObject.Enabled);
+            Assert.AreEqual("0", fieldObject.Lock);
+            Assert.AreEqual("0", fieldObject.Required);
+        }
+
+        [TestMethod]
+        [TestCategory("FieldObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FieldObjects_Constructor_2Parameter_Error()
+        {
+            string fieldNumber = "";
+            string fieldValue = "TEST";
+            FieldObject fieldObject = new FieldObject(fieldNumber, fieldValue);
+            Assert.AreEqual(fieldNumber, fieldObject.FieldNumber);
+            Assert.AreEqual(fieldValue, fieldObject.FieldValue);
+            Assert.AreEqual("1", fieldObject.Enabled);
+            Assert.AreEqual("1", fieldObject.Lock);
+            Assert.AreEqual("1", fieldObject.Required);
+        }
+
+        [TestMethod]
+        [TestCategory("FieldObject")]
+        public void FieldObjects_Constructor_5Parameter_NoError()
+        {
+            string fieldNumber = "123.45";
+            string fieldValue = "TEST";
+            FieldObject fieldObject = new FieldObject(fieldNumber, fieldValue, true, true, true);
+            Assert.AreEqual(fieldNumber, fieldObject.FieldNumber);
+            Assert.AreEqual(fieldValue, fieldObject.FieldValue);
+            Assert.AreEqual("1", fieldObject.Enabled);
+            Assert.AreEqual("1", fieldObject.Lock);
+            Assert.AreEqual("1", fieldObject.Required);
+        }
+
+        [TestMethod]
+        [TestCategory("FieldObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FieldObjects_Constructor_5Parameter_Error()
+        {
+            string fieldNumber = "";
+            string fieldValue = "TEST";
+            FieldObject fieldObject = new FieldObject(fieldNumber, fieldValue, true, true, true);
+            Assert.AreEqual(fieldNumber, fieldObject.FieldNumber);
+            Assert.AreEqual(fieldValue, fieldObject.FieldValue);
+            Assert.AreEqual("1", fieldObject.Enabled);
+            Assert.AreEqual("1", fieldObject.Lock);
+            Assert.AreEqual("1", fieldObject.Required);
+        }
     }
 }
