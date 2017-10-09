@@ -52,6 +52,46 @@ namespace ScriptLinkStandard.Objects
             this.OtherRows = new List<RowObject>();
         }
 
+        public FormObject(string formId)
+        {
+            if (formId == null || formId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "formId");
+            this.CurrentRow = null;
+            this.FormId = formId;
+            this.MultipleIteration = false;
+            this.OtherRows = new List<RowObject>();
+        }
+
+        public FormObject(string formId, RowObject currentRow)
+        {
+            if (formId == null || formId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "formId");
+            this.CurrentRow = currentRow ?? throw new ArgumentException("Parameter cannot be null", "currentRow");
+            this.FormId = formId;
+            this.MultipleIteration = false;
+            this.OtherRows = new List<RowObject>();
+        }
+
+        public FormObject(string formId, RowObject currentRow, bool multipleIteration)
+        {
+            if (formId == null || formId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "formId");
+            this.CurrentRow = currentRow ?? throw new ArgumentException("Parameter cannot be null", "currentRow");
+            this.FormId = formId;
+            this.MultipleIteration = multipleIteration;
+            this.OtherRows = new List<RowObject>();
+        }
+
+        public FormObject(string formId, RowObject currentRow, bool multipleIteration, List<RowObject> otherRows)
+        {
+            if (formId == null || formId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "formId");
+            this.CurrentRow = currentRow ?? throw new ArgumentException("Parameter cannot be null", "currentRow");
+            this.FormId = formId;
+            this.MultipleIteration = multipleIteration;
+            this.OtherRows = otherRows ?? throw new ArgumentException("Parameter cannot be null.", "otherRows");
+        }
+
         //
         // Private Properties
         //

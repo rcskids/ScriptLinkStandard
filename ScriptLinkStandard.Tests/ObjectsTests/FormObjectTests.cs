@@ -574,5 +574,125 @@ namespace ScriptLinkStandard.Test.EntitiesTests
             formObject.SetFieldValue("123", "MODIFIED");
             Assert.AreNotEqual("MODIFIED", formObject.GetFieldValue("123"));
         }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_Constructor_1Parameter_NoError()
+        {
+            string formId = "1";
+            FormObject formObject = new FormObject(formId);
+            Assert.AreEqual(formId, formObject.FormId);
+            Assert.AreEqual(null, formObject.CurrentRow);
+            Assert.AreEqual(false, formObject.MultipleIteration);
+            Assert.AreEqual(0, formObject.OtherRows.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FormObject_Constructor_1Parameter_Error()
+        {
+            string formId = "";
+            FormObject formObject = new FormObject(formId);
+            Assert.AreEqual(formId, formObject.FormId);
+            Assert.AreEqual(null, formObject.CurrentRow);
+            Assert.AreEqual(false, formObject.MultipleIteration);
+            Assert.AreEqual(0, formObject.OtherRows.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_Constructor_2Parameter_NoError()
+        {
+            string formId = "1";
+            RowObject currentRow = new RowObject();
+            FormObject formObject = new FormObject(formId, currentRow);
+            Assert.AreEqual(formId, formObject.FormId);
+            Assert.AreEqual(currentRow, formObject.CurrentRow);
+            Assert.AreEqual(false, formObject.MultipleIteration);
+            Assert.AreEqual(0, formObject.OtherRows.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FormObject_Constructor_2Parameter_Error()
+        {
+            string formId = "";
+            RowObject currentRow = new RowObject();
+            FormObject formObject = new FormObject(formId, currentRow);
+            Assert.AreEqual(formId, formObject.FormId);
+            Assert.AreEqual(currentRow, formObject.CurrentRow);
+            Assert.AreEqual(false, formObject.MultipleIteration);
+            Assert.AreEqual(0, formObject.OtherRows.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_Constructor_3Parameter_NoError()
+        {
+            string formId = "1";
+            RowObject currentRow = new RowObject();
+            bool multipleIteration = true;
+            FormObject formObject = new FormObject(formId, currentRow, multipleIteration);
+            Assert.AreEqual(formId, formObject.FormId);
+            Assert.AreEqual(currentRow, formObject.CurrentRow);
+            Assert.AreEqual(multipleIteration, formObject.MultipleIteration);
+            Assert.AreEqual(0, formObject.OtherRows.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FormObject_Constructor_3Parameter_Error()
+        {
+            string formId = "";
+            RowObject currentRow = new RowObject();
+            bool multipleIteration = true;
+            FormObject formObject = new FormObject(formId, currentRow, multipleIteration);
+            Assert.AreEqual(formId, formObject.FormId);
+            Assert.AreEqual(currentRow, formObject.CurrentRow);
+            Assert.AreEqual(multipleIteration, formObject.MultipleIteration);
+            Assert.AreEqual(0, formObject.OtherRows.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObject_Constructor_4Parameter_NoError()
+        {
+            string formId = "1";
+            RowObject currentRow = new RowObject();
+            bool multipleIteration = true;
+            RowObject otherRow = new RowObject();
+            List<RowObject> otherRows = new List<RowObject>
+            {
+                otherRow
+            };
+            FormObject formObject = new FormObject(formId, currentRow, multipleIteration, otherRows);
+            Assert.AreEqual(formId, formObject.FormId);
+            Assert.AreEqual(currentRow, formObject.CurrentRow);
+            Assert.AreEqual(multipleIteration, formObject.MultipleIteration);
+            Assert.AreEqual(otherRows.Count, formObject.OtherRows.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void FormObject_Constructor_4Parameter_Error()
+        {
+            string formId = "";
+            RowObject currentRow = new RowObject();
+            bool multipleIteration = true;
+            RowObject otherRow = new RowObject();
+            List<RowObject> otherRows = new List<RowObject>
+            {
+                otherRow
+            };
+            FormObject formObject = new FormObject(formId, currentRow, multipleIteration, otherRows);
+            Assert.AreEqual(formId, formObject.FormId);
+            Assert.AreEqual(currentRow, formObject.CurrentRow);
+            Assert.AreEqual(multipleIteration, formObject.MultipleIteration);
+            Assert.AreEqual(otherRows.Count, formObject.OtherRows.Count);
+        }
     }
 }
