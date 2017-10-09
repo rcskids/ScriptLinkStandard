@@ -480,5 +480,209 @@ namespace ScriptLinkStandard.Test.ObjectsTests
             var actual = rowObject.ToHtmlString(false);
             Assert.IsNotNull(actual);
         }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_Constructor_1Parameter_NoError()
+        {
+            string rowId = "1||1";
+            RowObject rowObject = new RowObject(rowId);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual("", rowObject.ParentRowId);
+            Assert.AreEqual("", rowObject.RowAction);
+            Assert.AreEqual(0, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void RowObject_Constructor_1Parameter_Error()
+        {
+            string rowId = "";
+            RowObject rowObject = new RowObject(rowId);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual("", rowObject.ParentRowId);
+            Assert.AreEqual("", rowObject.RowAction);
+            Assert.AreEqual(0, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_Constructor_2Parameter_NoError()
+        {
+            string rowId = "1||1";
+            string parentRowId = "2||1";
+            RowObject rowObject = new RowObject(rowId, parentRowId);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual(parentRowId, rowObject.ParentRowId);
+            Assert.AreEqual("", rowObject.RowAction);
+            Assert.AreEqual(0, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void RowObject_Constructor_2Parameter_Error()
+        {
+            string rowId = "";
+            string parentRowId = "2||1";
+            RowObject rowObject = new RowObject(rowId, parentRowId);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual(parentRowId, rowObject.ParentRowId);
+            Assert.AreEqual("", rowObject.RowAction);
+            Assert.AreEqual(0, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_Constructor_3Parameter_NoError()
+        {
+            string rowId = "1||1";
+            string parentRowId = "2||1";
+            string rowAction = "DELETE";
+            RowObject rowObject = new RowObject(rowId, parentRowId, rowAction);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual(parentRowId, rowObject.ParentRowId);
+            Assert.AreEqual(rowAction, rowObject.RowAction);
+            Assert.AreEqual(0, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void RowObject_Constructor_3Parameter_Error()
+        {
+            string rowId = "1||1";
+            string parentRowId = "2||1";
+            string rowAction = "NONE";
+            RowObject rowObject = new RowObject(rowId, parentRowId, rowAction);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual(parentRowId, rowObject.ParentRowId);
+            Assert.AreEqual("", rowObject.RowAction);
+            Assert.AreEqual(0, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_Constructor_2Parameter_List_NoError()
+        {
+            string rowId = "1||1";
+            FieldObject fieldObject1 = new FieldObject("123.45");
+            FieldObject fieldObject2 = new FieldObject("123.46");
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                fieldObject1,
+                fieldObject2
+            };
+            RowObject rowObject = new RowObject(rowId, fieldObjects);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual("", rowObject.ParentRowId);
+            Assert.AreEqual("", rowObject.RowAction);
+            Assert.AreEqual(2, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void RowObject_Constructor_2Parameter_List_Error()
+        {
+            string rowId = "";
+            FieldObject fieldObject1 = new FieldObject("123.45");
+            FieldObject fieldObject2 = new FieldObject("123.46");
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                fieldObject1,
+                fieldObject2
+            };
+            RowObject rowObject = new RowObject(rowId, fieldObjects);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual("", rowObject.ParentRowId);
+            Assert.AreEqual("", rowObject.RowAction);
+            Assert.AreEqual(0, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_Constructor_3Parameter_List_NoError()
+        {
+            string rowId = "1||1";
+            string parentRowId = "2||1";
+            FieldObject fieldObject1 = new FieldObject("123.45");
+            FieldObject fieldObject2 = new FieldObject("123.46");
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                fieldObject1,
+                fieldObject2
+            };
+            RowObject rowObject = new RowObject(rowId, fieldObjects, parentRowId);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual(parentRowId, rowObject.ParentRowId);
+            Assert.AreEqual("", rowObject.RowAction);
+            Assert.AreEqual(2, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void RowObject_Constructor_3Parameter_List_Error()
+        {
+            string rowId = "";
+            string parentRowId = "2||1";
+            FieldObject fieldObject1 = new FieldObject("123.45");
+            FieldObject fieldObject2 = new FieldObject("123.46");
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                fieldObject1,
+                fieldObject2
+            };
+            RowObject rowObject = new RowObject(rowId, fieldObjects, parentRowId);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual(parentRowId, rowObject.ParentRowId);
+            Assert.AreEqual("", rowObject.RowAction);
+            Assert.AreEqual(0, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        public void RowObject_Constructor_4Parameter_List_NoError()
+        {
+            string rowId = "1||1";
+            string parentRowId = "2||1";
+            string rowAction = "DELETE";
+            FieldObject fieldObject1 = new FieldObject("123.45");
+            FieldObject fieldObject2 = new FieldObject("123.46");
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                fieldObject1,
+                fieldObject2
+            };
+            RowObject rowObject = new RowObject(rowId, fieldObjects, parentRowId, rowAction);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual(parentRowId, rowObject.ParentRowId);
+            Assert.AreEqual(rowAction, rowObject.RowAction);
+            Assert.AreEqual(2, rowObject.Fields.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("RowObject")]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void RowObject_Constructor_4Parameter_List_Error()
+        {
+            string rowId = "1||1";
+            string parentRowId = "2||1";
+            string rowAction = "NONE";
+            FieldObject fieldObject1 = new FieldObject("123.45");
+            FieldObject fieldObject2 = new FieldObject("123.46");
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                fieldObject1,
+                fieldObject2
+            };
+            RowObject rowObject = new RowObject(rowId, fieldObjects, parentRowId, rowAction);
+            Assert.AreEqual(rowId, rowObject.RowId);
+            Assert.AreEqual(parentRowId, rowObject.ParentRowId);
+            Assert.AreEqual(rowAction, rowObject.RowAction);
+            Assert.AreEqual(0, rowObject.Fields.Count);
+        }
     }
 }

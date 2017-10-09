@@ -51,6 +51,105 @@ namespace ScriptLinkStandard.Objects
         {
             this.Fields = new List<FieldObject>();
         }
+        /// <summary>
+        /// Creates a new <see cref="RowObject"/> with specified <see cref="RowId"/>.
+        /// </summary>
+        /// <param name="rowId"></param>
+        public RowObject(string rowId)
+        {
+            if (rowId == null || rowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+            this.RowAction = "";
+            this.ParentRowId = "";
+            this.RowId = rowId;
+            this.Fields = new List<FieldObject>();
+        }
+        /// <summary>
+        /// Creates a new <see cref="RowObject"/> with specified <see cref="RowId"/> and <see cref="ParentRowId"/>.
+        /// </summary>
+        /// <param name="rowId"></param>
+        /// <param name="parentRowId"></param>
+        public RowObject(string rowId, string parentRowId)
+        {
+            if (rowId == null || rowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+            if (parentRowId == null || parentRowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "parentRowId");
+            this.RowAction = "";
+            this.ParentRowId = parentRowId;
+            this.RowId = rowId;
+            this.Fields = new List<FieldObject>();
+        }
+        /// <summary>
+        /// Creates a new <see cref="RowObject"/> with specified <see cref="RowId"/>, <see cref="ParentRowId"/>, and <see cref="RowAction"/>.
+        /// </summary>
+        /// <param name="rowId"></param>
+        /// <param name="parentRowId"></param>
+        /// <param name="rowAction"></param>
+        public RowObject(string rowId, string parentRowId, string rowAction)
+        {
+            if (rowId == null || rowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+            if (parentRowId == null || parentRowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "parentRowId");
+            if (!ScriptLinkHelpers.IsValidRowAction(rowAction))
+                throw new ArgumentException("Parameter is not valid.", "rowAction");
+            this.RowAction = rowAction;
+            this.ParentRowId = parentRowId;
+            this.RowId = rowId;
+            this.Fields = new List<FieldObject>();
+        }
+        /// <summary>
+        /// Creates a new <see cref="RowObject"/> with specified <see cref="RowId"/> and <see cref="List{T}"/> of <see cref="FieldObject"/>.
+        /// </summary>
+        /// <param name="rowId"></param>
+        /// <param name="fieldObjects"></param>
+        public RowObject(string rowId, List<FieldObject> fieldObjects)
+        {
+            if (rowId == null || rowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+            this.RowAction = "";
+            this.ParentRowId = "";
+            this.RowId = rowId;
+            this.Fields = fieldObjects ?? throw new ArgumentException("Parameter cannot be null.", "fieldObjects");
+        }
+        /// <summary>
+        /// Creates a new <see cref="RowObject"/> with specified <see cref="RowId"/> and <see cref="List{T}"/> of <see cref="FieldObject"/>.
+        /// </summary>
+        /// <param name="rowId"></param>
+        /// <param name="fieldObjects"></param>
+        /// <param name="parentRowId"></param>
+        public RowObject(string rowId, List<FieldObject> fieldObjects, string parentRowId)
+        {
+            if (rowId == null || rowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+            if (parentRowId == null || parentRowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "parentRowId");
+            this.RowAction = "";
+            this.ParentRowId = parentRowId;
+            this.RowId = rowId;
+            this.Fields = fieldObjects ?? throw new ArgumentException("Parameter cannot be null.", "fieldObjects");
+        }
+        /// <summary>
+        /// Creates a new <see cref="RowObject"/> with specified <see cref="RowId"/> and <see cref="List{T}"/> of <see cref="FieldObject"/>.
+        /// </summary>
+        /// <param name="rowId"></param>
+        /// <param name="fieldObjects"></param>
+        /// <param name="parentRowId"></param>
+        /// <param name="rowAction"></param>
+        public RowObject(string rowId, List<FieldObject> fieldObjects, string parentRowId, string rowAction)
+        {
+            if (rowId == null || rowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+            if (parentRowId == null || parentRowId == "")
+                throw new ArgumentException("Parameter cannot be null or blank.", "parentRowId");
+            if (!ScriptLinkHelpers.IsValidRowAction(rowAction))
+                throw new ArgumentException("Parameter is not valid.", "rowAction");
+            this.RowAction = rowAction;
+            this.ParentRowId = parentRowId;
+            this.RowId = rowId;
+            this.Fields = fieldObjects ?? throw new ArgumentException("Parameter cannot be null.", "fieldObjects");
+        }
 
         //
         // Private Properties
