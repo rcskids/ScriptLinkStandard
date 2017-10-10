@@ -64,6 +64,7 @@
     <Compile Include="HelpersTests\SplitDelimitedParameterTests.cs" />
     <Compile Include="HelpersTests\DeleteRowObjectTests.cs" />
     <Compile Include="HelpersTests\IsValidRowActionTests.cs" />
+    <Compile Include="HelpersTests\IsValidUrlTests.cs" />
     <Compile Include="ObjectsTests\FieldObjectTests.cs" />
     <Compile Include="ObjectsTests\FormObjectTests.cs" />
     <Compile Include="ObjectsTests\OptionObject2Tests.cs" />
