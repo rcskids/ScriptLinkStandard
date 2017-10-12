@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/rcskids/ScriptLinkStandard</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/rcskids/ScriptLinkStandard/blob/master/LICENSE.md</PackageLicenseUrl>
