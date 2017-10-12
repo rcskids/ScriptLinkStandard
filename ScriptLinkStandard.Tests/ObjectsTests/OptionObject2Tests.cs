@@ -464,5 +464,75 @@ namespace ScriptLinkStandard.Test.EntitiesTests
             Assert.IsTrue(configuredOptionObject2.IsFieldRequired("123"));
         }
 
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_Constructor_NoForms_AreEqual()
+        {
+            string entityId = "12345";
+            double episodeNumber = 0;
+            string facility = "1";
+            string namespaceName = "AVPM";
+            string optionId = "USER37";
+            string optionStaffId = "";
+            string optionUserId = "username";
+            string parentNamespace = "AVPM";
+            string serverName = "server";
+            string systemCode = "UAT";
+            int formCount = 0;
+
+            OptionObject2 optionObject = new OptionObject2(optionId, optionUserId, optionStaffId
+                , facility, entityId, episodeNumber
+                , systemCode, namespaceName, parentNamespace, serverName);
+            Assert.AreEqual(entityId, optionObject.EntityID);
+            Assert.AreEqual(episodeNumber, optionObject.EpisodeNumber);
+            Assert.AreEqual(facility, optionObject.Facility);
+            Assert.AreEqual(namespaceName, optionObject.NamespaceName);
+            Assert.AreEqual(optionId, optionObject.OptionId);
+            Assert.AreEqual(optionStaffId, optionObject.OptionStaffId);
+            Assert.AreEqual(optionUserId, optionObject.OptionUserId);
+            Assert.AreEqual(parentNamespace, optionObject.ParentNamespace);
+            Assert.AreEqual(serverName, optionObject.ServerName);
+            Assert.AreEqual(systemCode, optionObject.SystemCode);
+            Assert.AreEqual(formCount, optionObject.Forms.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2")]
+        public void OptionObject2_Constructor_WithForms_AreEqual()
+        {
+            string entityId = "12345";
+            double episodeNumber = 0;
+            string facility = "1";
+            string namespaceName = "AVPM";
+            string optionId = "USER37";
+            string optionStaffId = "";
+            string optionUserId = "username";
+            string parentNamespace = "AVPM";
+            string serverName = "server";
+            string systemCode = "UAT";
+            List<FormObject> forms = new List<FormObject>
+            {
+                new FormObject("1"),
+                new FormObject("2")
+            };
+            int formCount = 2;
+
+            OptionObject2 optionObject = new OptionObject2(optionId, optionUserId, optionStaffId
+                , facility, entityId, episodeNumber
+                , systemCode, namespaceName, parentNamespace, serverName
+                , forms);
+            Assert.AreEqual(entityId, optionObject.EntityID);
+            Assert.AreEqual(episodeNumber, optionObject.EpisodeNumber);
+            Assert.AreEqual(facility, optionObject.Facility);
+            Assert.AreEqual(namespaceName, optionObject.NamespaceName);
+            Assert.AreEqual(optionId, optionObject.OptionId);
+            Assert.AreEqual(optionStaffId, optionObject.OptionStaffId);
+            Assert.AreEqual(optionUserId, optionObject.OptionUserId);
+            Assert.AreEqual(parentNamespace, optionObject.ParentNamespace);
+            Assert.AreEqual(serverName, optionObject.ServerName);
+            Assert.AreEqual(systemCode, optionObject.SystemCode);
+            Assert.AreEqual(formCount, optionObject.Forms.Count);
+        }
+
     }
 }

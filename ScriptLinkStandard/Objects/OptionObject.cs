@@ -81,6 +81,56 @@ namespace ScriptLinkStandard.Objects
         {
             this.Forms = new List<FormObject>();
         }
+        /// <summary>
+        /// Creates a new ScriptLink <see cref="OptionObject"/>.
+        /// </summary>
+        /// <param name="optionId"></param>
+        /// <param name="optionUserId"></param>
+        /// <param name="optionStaffId"></param>
+        /// <param name="facility"></param>
+        /// <param name="entityId"></param>
+        /// <param name="episodeNumber"></param>
+        /// <param name="systemCode"></param>
+        public OptionObject(string optionId, string optionUserId, string optionStaffId
+            , string facility, string entityId, double episodeNumber
+            , string systemCode)
+        {
+            this.EntityID = entityId;
+            this.EpisodeNumber = episodeNumber;
+            this.Facility = facility;
+            this.OptionId = optionId;
+            this.OptionStaffId = optionStaffId;
+            this.OptionUserId = optionUserId;
+            this.SystemCode = systemCode;
+
+            this.Forms = new List<FormObject>();
+        }
+        /// <summary>
+        /// Creates a new ScriptLink <see cref="OptionObject"/>.
+        /// </summary>
+        /// <param name="optionId"></param>
+        /// <param name="optionUserId"></param>
+        /// <param name="optionStaffId"></param>
+        /// <param name="facility"></param>
+        /// <param name="entityId"></param>
+        /// <param name="episodeNumber"></param>
+        /// <param name="systemCode"></param>
+        /// <param name="forms"></param>
+        public OptionObject(string optionId, string optionUserId, string optionStaffId
+            , string facility, string entityId, double episodeNumber
+            , string systemCode
+            , List<FormObject> forms)
+        {
+            this.EntityID = entityId;
+            this.EpisodeNumber = episodeNumber;
+            this.Facility = facility;
+            this.OptionId = optionId;
+            this.OptionStaffId = optionStaffId;
+            this.OptionUserId = optionUserId;
+            this.SystemCode = systemCode;
+
+            this.Forms = forms;
+        }
 
         //
         // Private Properties

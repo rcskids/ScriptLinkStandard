@@ -96,6 +96,68 @@ namespace ScriptLinkStandard.Objects
         {
             this.Forms = new List<FormObject>();
         }
+        /// <summary>
+        /// Creates a new ScriptLink <see cref="OptionObject2"/>.
+        /// </summary>
+        /// <param name="optionId"></param>
+        /// <param name="optionUserId"></param>
+        /// <param name="optionStaffId"></param>
+        /// <param name="facility"></param>
+        /// <param name="entityId"></param>
+        /// <param name="episodeNumber"></param>
+        /// <param name="systemCode"></param>
+        /// <param name="namespaceName"></param>
+        /// <param name="parentNamespace"></param>
+        /// <param name="serverName"></param>
+        public OptionObject2(string optionId, string optionUserId, string optionStaffId
+            , string facility, string entityId, double episodeNumber
+            , string systemCode, string namespaceName, string parentNamespace, string serverName)
+        {
+            this.EntityID = entityId;
+            this.EpisodeNumber = episodeNumber;
+            this.Facility = facility;
+            this.NamespaceName = namespaceName;
+            this.OptionId = optionId;
+            this.OptionStaffId = optionStaffId;
+            this.OptionUserId = optionUserId;
+            this.ParentNamespace = parentNamespace;
+            this.ServerName = serverName;
+            this.SystemCode = systemCode;
+
+            this.Forms = new List<FormObject>();
+        }
+        /// <summary>
+        /// Creates a new ScriptLink <see cref="OptionObject2"/>.
+        /// </summary>
+        /// <param name="optionId"></param>
+        /// <param name="optionUserId"></param>
+        /// <param name="optionStaffId"></param>
+        /// <param name="facility"></param>
+        /// <param name="entityId"></param>
+        /// <param name="episodeNumber"></param>
+        /// <param name="systemCode"></param>
+        /// <param name="namespaceName"></param>
+        /// <param name="parentNamespace"></param>
+        /// <param name="serverName"></param>
+        /// <param name="forms"></param>
+        public OptionObject2(string optionId, string optionUserId, string optionStaffId
+            , string facility, string entityId, double episodeNumber
+            , string systemCode, string namespaceName, string parentNamespace, string serverName
+            , List<FormObject> forms)
+        {
+            this.EntityID = entityId;
+            this.EpisodeNumber = episodeNumber;
+            this.Facility = facility;
+            this.NamespaceName = namespaceName;
+            this.OptionId = optionId;
+            this.OptionStaffId = optionStaffId;
+            this.OptionUserId = optionUserId;
+            this.ParentNamespace = parentNamespace;
+            this.ServerName = serverName;
+            this.SystemCode = systemCode;
+
+            this.Forms = forms;
+        }
 
         //
         // Private Properties

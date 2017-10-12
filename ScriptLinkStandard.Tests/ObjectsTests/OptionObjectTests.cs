@@ -462,5 +462,63 @@ namespace ScriptLinkStandard.Test.EntitiesTests
             Assert.IsTrue(configuredOptionObject.IsFieldEnabled("123"));
             Assert.IsTrue(configuredOptionObject.IsFieldRequired("123"));
         }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        public void OptionObject_Constructor_NoForms_AreEqual()
+        {
+            string entityId = "12345";
+            double episodeNumber = 0;
+            string facility = "1";
+            string optionId = "USER37";
+            string optionStaffId = "";
+            string optionUserId = "username";
+            string systemCode = "UAT";
+            int formCount = 0;
+
+            OptionObject optionObject = new OptionObject(optionId, optionUserId, optionStaffId
+                , facility, entityId, episodeNumber
+                , systemCode);
+            Assert.AreEqual(entityId, optionObject.EntityID);
+            Assert.AreEqual(episodeNumber, optionObject.EpisodeNumber);
+            Assert.AreEqual(facility, optionObject.Facility);
+            Assert.AreEqual(optionId, optionObject.OptionId);
+            Assert.AreEqual(optionStaffId, optionObject.OptionStaffId);
+            Assert.AreEqual(optionUserId, optionObject.OptionUserId);
+            Assert.AreEqual(systemCode, optionObject.SystemCode);
+            Assert.AreEqual(formCount, optionObject.Forms.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        public void OptionObject_Constructor_WithForms_AreEqual()
+        {
+            string entityId = "12345";
+            double episodeNumber = 0;
+            string facility = "1";
+            string optionId = "USER37";
+            string optionStaffId = "";
+            string optionUserId = "username";
+            string systemCode = "UAT";
+            List<FormObject> forms = new List<FormObject>
+            {
+                new FormObject("1"),
+                new FormObject("2")
+            };
+            int formCount = 2;
+
+            OptionObject optionObject = new OptionObject(optionId, optionUserId, optionStaffId
+                , facility, entityId, episodeNumber
+                , systemCode
+                , forms);
+            Assert.AreEqual(entityId, optionObject.EntityID);
+            Assert.AreEqual(episodeNumber, optionObject.EpisodeNumber);
+            Assert.AreEqual(facility, optionObject.Facility);
+            Assert.AreEqual(optionId, optionObject.OptionId);
+            Assert.AreEqual(optionStaffId, optionObject.OptionStaffId);
+            Assert.AreEqual(optionUserId, optionObject.OptionUserId);
+            Assert.AreEqual(systemCode, optionObject.SystemCode);
+            Assert.AreEqual(formCount, optionObject.Forms.Count);
+        }
     }
 }
