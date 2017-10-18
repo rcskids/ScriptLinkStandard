@@ -19,8 +19,8 @@ namespace ScriptLinkStandard.Interfaces
         string OptionUserId { get; set; }
         string ParentNamespace { get; set; }
         string ServerName { get; set; }
-        string SessionToken { get; set; }
         string SystemCode { get; set; }
+        string SessionToken { get; set; }
 
         void AddFormObject(FormObject formObject);
         void AddFormObject(string formId, bool multipleIteration);

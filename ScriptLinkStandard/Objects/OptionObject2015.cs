@@ -77,15 +77,15 @@ namespace ScriptLinkStandard.Objects
         /// <value>The value is a <see cref="string"/> representing the Server Name.</value>
         public string ServerName { get; set; }
         /// <summary>
-        /// Gets or sets the SessionToken object of the <see cref="OptionObject2015"/>.
-        /// </summary>
-        /// <value>The value is a <see cref="string"/> representing the SessionToken.</value>
-        public string SessionToken { get; set; }
-        /// <summary>
         /// Gets or sets the SystemCode object of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> representing the System Code. The value may be SBOX, BLD, UAT, or LIVE.</value>
         public string SystemCode { get; set; }
+        /// <summary>
+        /// Gets or sets the SessionToken object of the <see cref="OptionObject2015"/>.
+        /// </summary>
+        /// <value>The value is a <see cref="string"/> representing the SessionToken.</value>
+        public string SessionToken { get; set; }
 
         //
         // Begin Customizations (only methods and private properties)
