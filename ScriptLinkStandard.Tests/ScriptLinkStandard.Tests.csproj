@@ -70,6 +70,7 @@
     <Compile Include="ObjectsTests\OptionObject2Tests.cs" />
     <Compile Include="ObjectsTests\OptionObjectTests.cs" />
     <Compile Include="ObjectsTests\RowObjectTests.cs" />
+    <Compile Include="ObjectsTests\OptionObject2015Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
