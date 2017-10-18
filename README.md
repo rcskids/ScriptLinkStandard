@@ -56,7 +56,8 @@ ScriptLink APIs based on ScriptLinkStandard can be run on Windows Server 2008 or
 The ScriptLinkStandard.Objects namespace contains the object definitions and will be the most commonly used namespace in your projects.
 
 The objects include:
-* OptionObject2
+* OptionObject2015
+* OptionObject2 (legacy)
 * OptionObject (legacy)
 * FormObject
 * RowObject
@@ -83,7 +84,7 @@ The ScriptLinkStandard.Interfaces namespace contains the interfaces used to gove
 One of the advanced uses of this namespace would be to create your own objects that work with the ScriptLinkHelpers.
 
 ```c#
-public class CustomOptionObject2 : IOptionObject2
+public class CustomOptionObject2015 : IOptionObject2015
 {
 	// Your implementation
 }
@@ -105,9 +106,9 @@ public class HelloWorld : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public OptionObject2 RunScript(OptionObject2 optionObject2, string parameters)
+    public OptionObject2015 RunScript(OptionObject2015 optionObject2015, string parameters)
     {
-        return script.ProcessScript(optionObject2, parameters);
+        return script.ProcessScript(optionObject2015, parameters);
     }
 }
 ```
@@ -123,17 +124,22 @@ public class HelloWorldScript : IScriptLink
 
     public OptionObject ProcessScript(IOptionObject optionObject, string parameter)
     {
-        return ProcessScript(optionObject.ToOptionObject2(), parameter).ToOptionObject();
+        return ProcessScript(optionObject.ToOptionObject2015(), parameter).ToOptionObject();
     }
 
     public OptionObject2 ProcessScript(IOptionObject2 optionObject, string parameter)
+    {
+        return ProcessScript(optionObject.ToOptionObject2015(), parameter).ToOptionObject2();
+    }
+
+    public OptionObject2015 ProcessScript(IOptionObject2015 optionObject, string parameter)
     {
         return optionObject.ToReturnOptionObject(3, "Hello World!");
     }
 }
 ```
 
-By design, the IScriptLink interface requires you to account for both the legacy OptionObject and current OptionObject2. In the example above, the legacy OptionObject is just converted to an OptionObject2 and handled by the OptionObject2 logic to avoid duplicate code. This code design could still be done without the interface allowing you to write for only the OptionObject type you prefer to use.
+By design, the IScriptLink interface requires you to account for both the legacy OptionObject and OptionObject2 as well as the current OptionObject2015. In the example above, the legacy OptionObject and OptionObject2 are converted to an OptionObject2015 and handled by the OptionObject2015 logic to minimize duplicate code. This code design could still be done without the interface allowing you to write for only the OptionObject type you prefer to use.
 
 ## Contributing
 To be written
