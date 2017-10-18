@@ -9,10 +9,16 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
-            return DisableAllFieldObjects(optionObject.ToOptionObject2()).ToOptionObject();
+            return DisableAllFieldObjects(optionObject.ToOptionObject2015()).ToOptionObject();
+        }
+        public static IOptionObject2 DisableAllFieldObjects(IOptionObject2 optionObject)
+        {
+            if (optionObject == null)
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
+            return DisableAllFieldObjects(optionObject.ToOptionObject2015()).ToOptionObject2();
         }
 
-        public static IOptionObject2 DisableAllFieldObjects(IOptionObject2 optionObject)
+        public static IOptionObject2015 DisableAllFieldObjects(IOptionObject2015 optionObject)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");

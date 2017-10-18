@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ScriptLinkStandard.Helpers
+﻿namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
