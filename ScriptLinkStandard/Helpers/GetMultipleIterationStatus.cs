@@ -8,9 +8,15 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
-            return GetMultipleIterationStatus(optionObject.ToOptionObject2(), formId);
+            return GetMultipleIterationStatus(optionObject.ToOptionObject2015(), formId);
         }
         public static bool GetMultipleIterationStatus(IOptionObject2 optionObject, string formId)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            return GetMultipleIterationStatus(optionObject.ToOptionObject2015(), formId);
+        }
+        public static bool GetMultipleIterationStatus(IOptionObject2015 optionObject, string formId)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");

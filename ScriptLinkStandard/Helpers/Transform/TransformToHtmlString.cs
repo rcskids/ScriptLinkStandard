@@ -88,6 +88,46 @@ namespace ScriptLinkStandard.Helpers
             html += includeHtmlHeaders ? GetHtmlFooter() : "";
             return html;
         }
+        public static string TransformToHtmlString(IOptionObject2015 optionObject, bool includeHtmlHeaders)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            string html = "";
+            html += includeHtmlHeaders ? GetHtmlHeader() : "";
+            html += GetPageHeader(optionObject.GetType().ToString());
+            html += "<h2>Forms</h2>";
+            foreach (FormObject formObject in optionObject.Forms)
+            {
+                html += "<h3>Form<h3>";
+                html += GetHtmlForObject(formObject, HtmlOutputType.Table);
+                html += "<h4>CurrentRow</h4>";
+                html += GetHtmlForObject(formObject.CurrentRow, HtmlOutputType.Table);
+                html += "<h5>Fields</h5>";
+                html += "<table>";
+                html += GetHtmlForObject(formObject.CurrentRow.Fields.FirstOrDefault(), HtmlOutputType.TableHeaders);
+                foreach (FieldObject fieldObject in formObject.CurrentRow.Fields)
+                {
+                    html += GetHtmlForObject(fieldObject, HtmlOutputType.TableRow);
+                }
+                html += "</table>";
+                html += "<h4>OtherRows</h4>";
+                foreach (RowObject rowObject in formObject.OtherRows)
+                {
+                    html += "<h5>Row</h5>";
+                    html += GetHtmlForObject(rowObject, HtmlOutputType.Table);
+                    html += "<h6>Fields</h6>";
+                    html += "<table>";
+                    html += GetHtmlForObject(formObject.CurrentRow.Fields.First(), HtmlOutputType.TableHeaders);
+                    foreach (FieldObject fieldObject in formObject.CurrentRow.Fields)
+                    {
+                        html += GetHtmlForObject(fieldObject, HtmlOutputType.TableRow);
+                    }
+                    html += "</table>";
+                }
+            }
+            html += includeHtmlHeaders ? GetHtmlFooter() : "";
+            return html;
+        }
         public static string TransformToHtmlString(IFormObject formObject)
         {
             if (formObject == null)

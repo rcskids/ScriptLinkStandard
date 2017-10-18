@@ -49,6 +49,7 @@ namespace ScriptLinkStandard.Interfaces
         
         string ToHtmlString(bool includeHtmlHeaders);
         OptionObject ToOptionObject();
+        OptionObject2015 ToOptionObject2015();
         OptionObject2 ToReturnOptionObject();
         OptionObject2 ToReturnOptionObject(int errorCode, string errorMessage);
     }

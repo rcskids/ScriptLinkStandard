@@ -10,10 +10,16 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
-            return GetFieldValues(optionObject.ToOptionObject2(), fieldNumber);
+            return GetFieldValues(optionObject.ToOptionObject2015(), fieldNumber);
+        }
+        public static List<string> GetFieldValues(IOptionObject2 optionObject, string fieldNumber)
+        {
+            if (optionObject == null)
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
+            return GetFieldValues(optionObject.ToOptionObject2015(), fieldNumber);
         }
 
-        public static List<string> GetFieldValues(IOptionObject2 optionObject, string fieldNumber)
+        public static List<string> GetFieldValues(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");

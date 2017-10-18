@@ -12,9 +12,17 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             if (fieldNumber == null || fieldNumber == "")
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
-            return IsFieldEnabled(optionObject.ToOptionObject2(), fieldNumber);
+            return IsFieldEnabled(optionObject.ToOptionObject2015(), fieldNumber);
         }
         public static bool IsFieldEnabled(IOptionObject2 optionObject, string fieldNumber)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+            return IsFieldEnabled(optionObject.ToOptionObject2015(), fieldNumber);
+        }
+        public static bool IsFieldEnabled(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");

@@ -11,16 +11,28 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
-            return GetFieldValue(optionObject.ToOptionObject2(), fieldNumber);
+            return GetFieldValue(optionObject.ToOptionObject2015(), fieldNumber);
         }
         public static string GetFieldValue(IOptionObject optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
-            return GetFieldValue(optionObject.ToOptionObject2(), formId, rowId, fieldNumber);
+            return GetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber);
+        }
+        public static string GetFieldValue(IOptionObject2 optionObject, string fieldNumber)
+        {
+            if (optionObject == null)
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
+            return GetFieldValue(optionObject.ToOptionObject2015(), fieldNumber);
+        }
+        public static string GetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber)
+        {
+            if (optionObject == null)
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
+            return GetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber);
         }
 
-        public static string GetFieldValue(IOptionObject2 optionObject, string fieldNumber)
+        public static string GetFieldValue(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
@@ -28,7 +40,7 @@ namespace ScriptLinkStandard.Helpers
             return fieldValues.Count > 0 ? fieldValues[0] : "";
         }
 
-        public static string GetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber)
+        public static string GetFieldValue(IOptionObject2015 optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");

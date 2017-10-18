@@ -15,6 +15,12 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
+            return GetCurrentRowId(optionObject.ToOptionObject2015(), formId);
+        }
+        public static string GetCurrentRowId(IOptionObject2015 optionObject, string formId)
+        {
+            if (optionObject == null)
+                throw new ArgumentException("Parameter cannot be null", "optionObject");
             if (formId == null || formId == "")
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "formId");
             if (optionObject.Forms == null)

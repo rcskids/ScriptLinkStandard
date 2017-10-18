@@ -3,80 +3,86 @@ using ScriptLinkStandard.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace ScriptLinkStandard.Objects
 {
     /// <summary>
-    /// Represents a ScriptLink OptionObject2.
+    /// Represents a ScriptLink OptionObject2015.
     /// </summary>
-    public class OptionObject2 : IEquatable<OptionObject2>, IOptionObject2
+    public class OptionObject2015 : IEquatable<OptionObject2015>, IOptionObject2015
     {
         //
         // Public Properties (DO NOT MODIFY)
         //
 
         /// <summary>
-        /// Gets or sets the EntityID property of the <see cref="OptionObject2"/>.
+        /// Gets or sets the EntityID property of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> and can contain a myAvatar PATID, STAFFID, USERID, or INCID.</value>
         public string EntityID { get; set; }
         /// <summary>
-        /// Gets or sets the Episode Number property of the <see cref="OptionObject2"/>.
+        /// Gets or sets the Episode Number property of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> and is used with episodic, patient OptionObjects.</value>
         public double EpisodeNumber { get; set; }
         /// <summary>
-        /// Gets or sets the ErrorCode property of the <see cref="OptionObject2"/>.
+        /// Gets or sets the ErrorCode property of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> and is used upon return to myAvatar to determine prompted response. Possible values include 0, 1, 2, 3, 4, and 5 as string values.</value>
         public double ErrorCode { get; set; }
         /// <summary>
-        /// Gets or sets the ErrorMesg property of the <see cref="OptionObject2"/>.
+        /// Gets or sets the ErrorMesg property of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> and is used to display a message to the user in myAvatar for ErrorCodes 1-4.</value>
         public string ErrorMesg { get; set; }
         /// <summary>
-        /// Gets or sets the Facility property of the <see cref="OptionObject2"/>.
+        /// Gets or sets the Facility property of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/>. For most organizations, this value is 1, however more complex security configurations will utilize additional values.</value>
         public string Facility { get; set; }
         /// <summary>
-        /// Gets or sets the Forms property of the <see cref="OptionObject2"/>.
+        /// Gets or sets the Forms property of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="List{T}"/> of <see cref="FormObject"/> .</value>
         public List<FormObject> Forms { get; set; }
         /// <summary>
-        /// Gets or sets the NamespaceName property of the <see cref="OptionObject2"/>.
+        /// Gets or sets the NamespaceName property of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> representing the namespace name of the Option in the myAvatar system.</value>
         public string NamespaceName { get; set; }
         /// <summary>
-        /// Gets or sets the OptionId property of the <see cref="OptionObject2"/>.
+        /// Gets or sets the OptionId property of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> representing the unique identifier of the Option in the myAvatar system.</value>
         public string OptionId { get; set; }
         /// <summary>
-        /// Gets or sets the OptionStaffId object of the <see cref="OptionObject2"/>.
+        /// Gets or sets the OptionStaffId object of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> representing the staff Id of the current myAvatar user.</value>
         public string OptionStaffId { get; set; }
         /// <summary>
-        /// Gets or sets the OptionUserId object of the <see cref="OptionObject2"/>.
+        /// Gets or sets the OptionUserId object of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> representing the user id of the current myAvatar user.</value>
         public string OptionUserId { get; set; }
         /// <summary>
-        /// Gets or sets the ParentNamespace object of the <see cref="OptionObject2"/>.
+        /// Gets or sets the ParentNamespace object of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> representing the Parent Namespace.</value>
         public string ParentNamespace { get; set; }
         /// <summary>
-        /// Gets or sets the ServerName object of the <see cref="OptionObject2"/>.
+        /// Gets or sets the ServerName object of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> representing the Server Name.</value>
         public string ServerName { get; set; }
         /// <summary>
-        /// Gets or sets the SystemCode object of the <see cref="OptionObject2"/>.
+        /// Gets or sets the SessionToken object of the <see cref="OptionObject2015"/>.
+        /// </summary>
+        /// <value>The value is a <see cref="string"/> representing the SessionToken.</value>
+        public string SessionToken { get; set; }
+        /// <summary>
+        /// Gets or sets the SystemCode object of the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <value>The value is a <see cref="string"/> representing the System Code. The value may be SBOX, BLD, UAT, or LIVE.</value>
         public string SystemCode { get; set; }
@@ -90,14 +96,14 @@ namespace ScriptLinkStandard.Objects
         //
 
         /// <summary>
-        /// Creates a new ScriptLink <see cref="OptionObject2"/>.
+        /// Creates a new ScriptLink <see cref="OptionObject2015"/>.
         /// </summary>
-        public OptionObject2()
+        public OptionObject2015()
         {
             this.Forms = new List<FormObject>();
         }
         /// <summary>
-        /// Creates a new ScriptLink <see cref="OptionObject2"/>.
+        /// Creates a new ScriptLink <see cref="OptionObject2015"/>.
         /// </summary>
         /// <param name="optionId"></param>
         /// <param name="optionUserId"></param>
@@ -109,9 +115,11 @@ namespace ScriptLinkStandard.Objects
         /// <param name="namespaceName"></param>
         /// <param name="parentNamespace"></param>
         /// <param name="serverName"></param>
-        public OptionObject2(string optionId, string optionUserId, string optionStaffId
+        /// <param name="sessionToken"></param>
+        public OptionObject2015(string optionId, string optionUserId, string optionStaffId
             , string facility, string entityId, double episodeNumber
-            , string systemCode, string namespaceName, string parentNamespace, string serverName)
+            , string systemCode, string namespaceName, string parentNamespace, string serverName
+            , string sessionToken)
         {
             this.EntityID = entityId;
             this.EpisodeNumber = episodeNumber;
@@ -122,12 +130,13 @@ namespace ScriptLinkStandard.Objects
             this.OptionUserId = optionUserId;
             this.ParentNamespace = parentNamespace;
             this.ServerName = serverName;
+            this.SessionToken = sessionToken;
             this.SystemCode = systemCode;
 
             this.Forms = new List<FormObject>();
         }
         /// <summary>
-        /// Creates a new ScriptLink <see cref="OptionObject2"/>.
+        /// Creates a new ScriptLink <see cref="OptionObject2015"/>.
         /// </summary>
         /// <param name="optionId"></param>
         /// <param name="optionUserId"></param>
@@ -139,10 +148,12 @@ namespace ScriptLinkStandard.Objects
         /// <param name="namespaceName"></param>
         /// <param name="parentNamespace"></param>
         /// <param name="serverName"></param>
+        /// <param name="sessionToken"></param>
         /// <param name="forms"></param>
-        public OptionObject2(string optionId, string optionUserId, string optionStaffId
+        public OptionObject2015(string optionId, string optionUserId, string optionStaffId
             , string facility, string entityId, double episodeNumber
             , string systemCode, string namespaceName, string parentNamespace, string serverName
+            , string sessionToken
             , List<FormObject> forms)
         {
             this.EntityID = entityId;
@@ -154,6 +165,7 @@ namespace ScriptLinkStandard.Objects
             this.OptionUserId = optionUserId;
             this.ParentNamespace = parentNamespace;
             this.ServerName = serverName;
+            this.SessionToken = sessionToken;
             this.SystemCode = systemCode;
 
             this.Forms = forms;
@@ -168,11 +180,11 @@ namespace ScriptLinkStandard.Objects
         //
 
         /// <summary>
-        /// Used to compare two <see cref="OptionObject2"/> and determine if they are equal. Returns <see cref="bool"/>.
+        /// Used to compare two <see cref="OptionObject2015"/> and determine if they are equal. Returns <see cref="bool"/>.
         /// </summary>
-        /// <param name="other">The <see cref="OptionObject2"/> to compare.</param>
-        /// <returns>Returns a <see cref="bool"/> indicating whether the two <see cref="OptionObject2"/> are equal.</returns>
-        public bool Equals(OptionObject2 other)
+        /// <param name="other">The <see cref="OptionObject2015"/> to compare.</param>
+        /// <returns>Returns a <see cref="bool"/> indicating whether the two <see cref="OptionObject2015"/> are equal.</returns>
+        public bool Equals(OptionObject2015 other)
         {
             if (other == null)
                 return false;
@@ -218,20 +230,20 @@ namespace ScriptLinkStandard.Objects
         }
 
         /// <summary>
-        /// Used to compare <see cref="OptionObject2"/> to an <see cref="object"/> to determine if they are equal. Returns <see cref="bool"/>.
+        /// Used to compare <see cref="OptionObject2015"/> to an <see cref="object"/> to determine if they are equal. Returns <see cref="bool"/>.
         /// </summary>
         /// <param name="other">The <see cref="object"/> to compare.</param>
-        /// <returns>Returns a <see cref="bool"/> indicating whether <see cref="OptionObject2"/> is equal to an <see cref="object"/>.</returns>
+        /// <returns>Returns a <see cref="bool"/> indicating whether <see cref="OptionObject2015"/> is equal to an <see cref="object"/>.</returns>
         public override bool Equals(object obj)
         {
-            OptionObject2 optionObject = obj as OptionObject2;
+            OptionObject2015 optionObject = obj as OptionObject2015;
             if (optionObject == null)
                 return false;
             return this.Equals(optionObject);
         }
 
         /// <summary>
-        /// Overrides the <see cref="GetHashCode"/> method for a <see cref="OptionObject2"/>.
+        /// Overrides the <see cref="GetHashCode"/> method for a <see cref="OptionObject2015"/>.
         /// </summary>
         /// <returns>Returns an <see cref="int"/> representing the unique hash code for the <see cref="OptionObject"/>.</returns>
         public override int GetHashCode()
@@ -248,6 +260,7 @@ namespace ScriptLinkStandard.Objects
                 + delimiter + this.OptionUserId
                 + delimiter + this.ParentNamespace
                 + delimiter + this.ServerName
+                + delimiter + this.SessionToken
                 + delimiter + this.SystemCode;
             foreach (FormObject formObject in this.Forms)
             {
@@ -256,7 +269,7 @@ namespace ScriptLinkStandard.Objects
             return hash.GetHashCode();
         }
 
-        public static bool operator ==(OptionObject2 optionObject1, OptionObject2 optionObject2)
+        public static bool operator ==(OptionObject2015 optionObject1, OptionObject2015 optionObject2)
         {
             if (((object)optionObject1) == null || ((object)optionObject2) == null)
                 return Object.Equals(optionObject1, optionObject2);
@@ -264,7 +277,7 @@ namespace ScriptLinkStandard.Objects
             return optionObject1.Equals(optionObject2);
         }
 
-        public static bool operator !=(OptionObject2 optionObject1, OptionObject2 optionObject2)
+        public static bool operator !=(OptionObject2015 optionObject1, OptionObject2015 optionObject2)
         {
             if (((object)optionObject1) == null || ((object)optionObject2) == null)
                 return !Object.Equals(optionObject1, optionObject2);
@@ -273,11 +286,11 @@ namespace ScriptLinkStandard.Objects
         }
 
         //
-        // IOptionObject2 Methods
+        // IOptionObject2015 Methods
         //
 
         /// <summary>
-        /// Adds a <see cref="FormObject"/> to an <see cref="OptionObject2"/>.
+        /// Adds a <see cref="FormObject"/> to an <see cref="OptionObject2015"/>.
         /// </summary>
         /// <param name="formObject"></param>
         public void AddFormObject(FormObject formObject)
@@ -287,7 +300,7 @@ namespace ScriptLinkStandard.Objects
             this.Forms = ScriptLinkHelpers.AddFormObject(this, formObject).Forms;
         }
         /// <summary>
-        /// Adds a <see cref="FormObject"/> to an <see cref="OptionObject2"/>.
+        /// Adds a <see cref="FormObject"/> to an <see cref="OptionObject2015"/>.
         /// </summary>
         /// <param name="formId"></param>
         /// <param name="multipleIteration"></param>
@@ -298,7 +311,7 @@ namespace ScriptLinkStandard.Objects
             this.Forms = ScriptLinkHelpers.AddFormObject(this, formId, multipleIteration).Forms;
         }
         /// <summary>
-        /// Adds a <see cref="RowObject"/> to a <see cref="FormObject"/> in this <see cref="OptionObject2"/>.
+        /// Adds a <see cref="RowObject"/> to a <see cref="FormObject"/> in this <see cref="OptionObject2015"/>.
         /// </summary>
         /// <param name="formId"></param>
         /// <param name="rowObject"></param>
@@ -382,7 +395,7 @@ namespace ScriptLinkStandard.Objects
         {
             return ScriptLinkHelpers.GetParentRowId(this, formId);
         }
-        
+
         /// <summary>
         /// Returns whether the specified field is enabled.
         /// </summary>
@@ -507,7 +520,7 @@ namespace ScriptLinkStandard.Objects
         {
             this.Forms = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumbers).Forms;
         }
-        
+
         /// <summary>
         /// Returns a <see cref="string"/> with all of the contents of the <see cref="OptionObject2"/> formatted in HTML.
         /// </summary>
@@ -518,7 +531,7 @@ namespace ScriptLinkStandard.Objects
             return ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
         }
         /// <summary>
-        /// Transforms the <see cref="OptionObject2"/>  to an <see cref="OptionObject"/>.
+        /// Transforms the <see cref="OptionObject2015"/>  to an <see cref="OptionObject"/>.
         /// </summary>
         /// <returns></returns>
         public OptionObject ToOptionObject()
@@ -526,28 +539,28 @@ namespace ScriptLinkStandard.Objects
             return ScriptLinkHelpers.TransformToOptionObject(this);
         }
         /// <summary>
-        /// Transforms the <see cref="OptionObject2"/>  to an <see cref="OptionObject2015"/>.
+        /// Transforms the <see cref="OptionObject2015"/>  to an <see cref="OptionObject2"/>.
         /// </summary>
         /// <returns></returns>
-        public OptionObject2015 ToOptionObject2015()
+        public OptionObject2 ToOptionObject2()
         {
-            return ScriptLinkHelpers.TransformToOptionObject2015(this);
+            return ScriptLinkHelpers.TransformToOptionObject2(this);
         }
         /// <summary>
-        /// Creates an <see cref="OptionObject2"/> with the minimal information required to return.
+        /// Creates an <see cref="OptionObject2015"/> with the minimal information required to return.
         /// </summary>
         /// <returns></returns>
-        public OptionObject2 ToReturnOptionObject()
+        public OptionObject2015 ToReturnOptionObject()
         {
             return ScriptLinkHelpers.GetReturnOptionObject(this);
         }
         /// <summary>
-        /// Creates an <see cref="OptionObject2"/> with the minimal information required to return plus the provide Error Code and Message.
+        /// Creates an <see cref="OptionObject2015"/> with the minimal information required to return plus the provide Error Code and Message.
         /// </summary>
         /// <param name="errorCode"></param>
         /// <param name="errorMessage"></param>
         /// <returns></returns>
-        public OptionObject2 ToReturnOptionObject(int errorCode, string errorMessage)
+        public OptionObject2015 ToReturnOptionObject(int errorCode, string errorMessage)
         {
             return ScriptLinkHelpers.GetReturnOptionObject(this, errorCode, errorMessage);
         }

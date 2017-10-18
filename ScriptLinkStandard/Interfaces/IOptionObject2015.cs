@@ -1,9 +1,11 @@
 ﻿using ScriptLinkStandard.Objects;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace ScriptLinkStandard.Interfaces
 {
-    public interface IOptionObject
+    public interface IOptionObject2015
     {
         string EntityID { get; set; }
         double EpisodeNumber { get; set; }
@@ -11,9 +13,13 @@ namespace ScriptLinkStandard.Interfaces
         string ErrorMesg { get; set; }
         string Facility { get; set; }
         List<FormObject> Forms { get; set; }
+        string NamespaceName { get; set; }
         string OptionId { get; set; }
         string OptionStaffId { get; set; }
         string OptionUserId { get; set; }
+        string ParentNamespace { get; set; }
+        string ServerName { get; set; }
+        string SessionToken { get; set; }
         string SystemCode { get; set; }
 
         void AddFormObject(FormObject formObject);
@@ -27,7 +33,7 @@ namespace ScriptLinkStandard.Interfaces
         List<string> GetFieldValues(string fieldNumber);
         bool GetMultipleIterationStatus(string formId);
         string GetParentRowId(string formId);
-        
+
         bool IsFieldEnabled(string fieldNumber);
         bool IsFieldLocked(string fieldNumber);
         bool IsFieldPresent(string fieldNumber);
@@ -43,11 +49,11 @@ namespace ScriptLinkStandard.Interfaces
         void SetOptionalFields(List<string> fieldNumbers);
         void SetRequiredFields(List<string> fieldNumbers);
         void SetUnlockedFields(List<string> fieldNumbers);
-        
+
         string ToHtmlString(bool includeHtmlHeaders);
+        OptionObject ToOptionObject();
         OptionObject2 ToOptionObject2();
-        OptionObject2015 ToOptionObject2015();
-        OptionObject ToReturnOptionObject();
-        OptionObject ToReturnOptionObject(int errorCode, string errorMessage);
+        OptionObject2015 ToReturnOptionObject();
+        OptionObject2015 ToReturnOptionObject(int errorCode, string errorMessage);
     }
 }

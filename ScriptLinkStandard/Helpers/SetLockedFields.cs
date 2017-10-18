@@ -19,14 +19,26 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject, "LOCKED", fieldNumbers);
         }
-
         public static OptionObject2 SetLockedFields(IOptionObject2 optionObject, List<FieldObject> fieldObjects)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject, "LOCKED", fieldObjects);
         }
-        public static OptionObject2 SetLockedFields(IOptionObject2 optionObject2, List<string> fieldNumbers)
+        public static OptionObject2 SetLockedFields(IOptionObject2 optionObject, List<string> fieldNumbers)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            return SetFieldObjects(optionObject, "LOCKED", fieldNumbers);
+        }
+
+        public static OptionObject2015 SetLockedFields(IOptionObject2015 optionObject, List<FieldObject> fieldObjects)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            return SetFieldObjects(optionObject, "LOCKED", fieldObjects);
+        }
+        public static OptionObject2015 SetLockedFields(IOptionObject2015 optionObject2, List<string> fieldNumbers)
         {
             if (optionObject2 == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject2");

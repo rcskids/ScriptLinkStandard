@@ -11,7 +11,7 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             if (fieldNumber == null || fieldNumber == "")
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
-            return SetFieldValue(optionObject.ToOptionObject2(), fieldNumber, fieldValue).ToOptionObject(); ;
+            return SetFieldValue(optionObject.ToOptionObject2015(), fieldNumber, fieldValue).ToOptionObject(); ;
         }
 
         public static OptionObject SetFieldValue(IOptionObject optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
@@ -24,10 +24,31 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "rowId");
             if (fieldNumber == null || fieldNumber == "")
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
-            return SetFieldValue(optionObject.ToOptionObject2(), formId, rowId, fieldNumber, fieldValue).ToOptionObject();
+            return SetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber, fieldValue).ToOptionObject();
+        }
+        public static OptionObject2 SetFieldValue(IOptionObject2 optionObject, string fieldNumber, string fieldValue)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+            return SetFieldValue(optionObject.ToOptionObject2015(), fieldNumber, fieldValue).ToOptionObject2(); ;
         }
 
-        public static OptionObject2 SetFieldValue(IOptionObject2 optionObject, string fieldNumber, string fieldValue)
+        public static OptionObject2 SetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            if (formId == null || formId == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "formId");
+            if (rowId == null || rowId == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "rowId");
+            if (fieldNumber == null || fieldNumber == "")
+                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+            return SetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber, fieldValue).ToOptionObject2();
+        }
+
+        public static OptionObject2015 SetFieldValue(IOptionObject2015 optionObject, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
@@ -50,7 +71,7 @@ namespace ScriptLinkStandard.Helpers
             throw new System.ArgumentException("The specified FieldObject was not found in this OptionObject.", "optionObject");
         }
 
-        public static OptionObject2 SetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
+        public static OptionObject2015 SetFieldValue(IOptionObject2015 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
@@ -67,7 +88,7 @@ namespace ScriptLinkStandard.Helpers
                 if (optionObject.Forms[i].FormId == formId)
                     optionObject.Forms[i] = SetFieldValue(optionObject.Forms[i], rowId, fieldNumber, fieldValue);
             }
-            return (OptionObject2)optionObject;
+            return (OptionObject2015)optionObject;
         }
 
         public static FormObject SetFieldValue(IFormObject formObject, string fieldNumber, string fieldValue)

@@ -28,5 +28,26 @@ namespace ScriptLinkStandard.Helpers
             };
             return optionObject;
         }
+        public static OptionObject TransformToOptionObject(IOptionObject2015 optionObject2015)
+        {
+            if (optionObject2015 == null)
+                throw new System.ArgumentException("Parameter cannot be null", "optionObject2015");
+            if (!ScriptLinkHelpers.IsValidErrorCode(optionObject2015.ErrorCode))
+                throw new System.ArgumentException("Error Code is invalid.");
+            var optionObject = new OptionObject
+            {
+                EntityID = optionObject2015.EntityID,
+                EpisodeNumber = optionObject2015.EpisodeNumber,
+                ErrorCode = (double)optionObject2015.ErrorCode,
+                ErrorMesg = optionObject2015.ErrorMesg,
+                Facility = optionObject2015.Facility,
+                OptionId = optionObject2015.OptionId,
+                OptionStaffId = optionObject2015.OptionStaffId,
+                OptionUserId = optionObject2015.OptionUserId,
+                SystemCode = optionObject2015.SystemCode,
+                Forms = optionObject2015.Forms.Any() ? optionObject2015.Forms : new List<FormObject>()
+            };
+            return optionObject;
+        }
     }
 }
