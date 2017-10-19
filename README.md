@@ -144,7 +144,7 @@ public class HelloWorldScript : IScriptLink
 By design, the IScriptLink interface requires you to account for both the legacy OptionObject and OptionObject2 as well as the current OptionObject2015. In the example above, the legacy OptionObject and OptionObject2 are converted to an OptionObject2015 and handled by the OptionObject2015 logic to minimize duplicate code. This code design could still be done without the interface allowing you to write for only the OptionObject type you prefer to use.
 
 ## Contributing
-To be written
+Interested in contributing to this project? [Learn more](https://github.com/rcskids/ScriptLinkStandard/blob/master/CONTRIBUTING.md).
 
 ## Creators
 Scott Olson Jr
