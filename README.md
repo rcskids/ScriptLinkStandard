@@ -14,7 +14,7 @@ This library is written for [.NET Standard 1.1](https://docs.microsoft.com/en-us
 ## Installation
 
 ### NuGet
-The goal of this project is to make the library available in NuGet for easy install and update.
+The goal of this project is to make the library available in NuGet for easy install and update. This will be available upon release.
 
 ### Manual Installation
 1. Download the [latest release](https://github.com/rcskids/ScriptLinkStandard/releases).
@@ -63,7 +63,7 @@ The objects include:
 * RowObject
 * FieldObject
 
-Each object includes a variety of methods designed to help manage or modify the received OptionObject or OptionObject2. For example,
+Each object includes a variety of methods designed to help manage or modify the received OptionObject, OptionObject2, or OptionObject2015. For example,
 * To get a FieldValue from an OptionObject without Multiple Iteration tables, you can write `string value = optionObject.GetFieldValue(fieldNumber);`.
 * To set a FieldValue in an OptionObject without Multiple Iteration tables, you can write `optionObject.SetFieldValue(fieldNumber, fieldValue);`.
 * To set a FieldObject as Required in an OptionObject, you can write `optionObject.SetRequiredFields(fieldNumbers);` using a List<string> containing the FieldNumber(s) to require. This also works for enabling, disabling, locking, and unlocking.
