@@ -41,6 +41,8 @@ Initial testing has been completed demonstrating compatibility of the library wi
 
 .NET Framework | Compatible
 -------------- | ----------
+4.7.1 | Untested
+4.7 | Untested
 4.6.2 | Untested
 4.6.1 | Yes
 4.6 | Yes
