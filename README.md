@@ -14,7 +14,7 @@ This library is written for [.NET Standard 1.1](https://docs.microsoft.com/en-us
 ## Installation
 
 ### NuGet
-The goal of this project is to make the library available in NuGet for easy install and update.
+The goal of this project is to make the library available in NuGet for easy install and update. This will be available upon release.
 
 ### Manual Installation
 1. Download the [latest release](https://github.com/rcskids/ScriptLinkStandard/releases).
@@ -41,6 +41,8 @@ Initial testing has been completed demonstrating compatibility of the library wi
 
 .NET Framework | Compatible
 -------------- | ----------
+4.7.1 | Untested
+4.7 | Untested
 4.6.2 | Untested
 4.6.1 | Yes
 4.6 | Yes
@@ -63,7 +65,7 @@ The objects include:
 * RowObject
 * FieldObject
 
-Each object includes a variety of methods designed to help manage or modify the received OptionObject or OptionObject2. For example,
+Each object includes a variety of methods designed to help manage or modify the received OptionObject, OptionObject2, or OptionObject2015. For example,
 * To get a FieldValue from an OptionObject without Multiple Iteration tables, you can write `string value = optionObject.GetFieldValue(fieldNumber);`.
 * To set a FieldValue in an OptionObject without Multiple Iteration tables, you can write `optionObject.SetFieldValue(fieldNumber, fieldValue);`.
 * To set a FieldObject as Required in an OptionObject, you can write `optionObject.SetRequiredFields(fieldNumbers);` using a List<string> containing the FieldNumber(s) to require. This also works for enabling, disabling, locking, and unlocking.
@@ -142,7 +144,7 @@ public class HelloWorldScript : IScriptLink
 By design, the IScriptLink interface requires you to account for both the legacy OptionObject and OptionObject2 as well as the current OptionObject2015. In the example above, the legacy OptionObject and OptionObject2 are converted to an OptionObject2015 and handled by the OptionObject2015 logic to minimize duplicate code. This code design could still be done without the interface allowing you to write for only the OptionObject type you prefer to use.
 
 ## Contributing
-To be written
+Interested in contributing to this project? [Learn more](https://github.com/rcskids/ScriptLinkStandard/blob/master/CONTRIBUTING.md).
 
 ## Creators
 Scott Olson Jr
