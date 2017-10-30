@@ -15,7 +15,7 @@ namespace ScriptLinkStandard.Helpers
         /// <param name="formId"></param>
         /// <param name="rowObject"></param>
         /// <returns></returns>
-        public static OptionObject AddRowObject(IOptionObject optionObject, string formId, IRowObject rowObject)
+        public static IOptionObject AddRowObject(IOptionObject optionObject, string formId, IRowObject rowObject)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
@@ -32,7 +32,7 @@ namespace ScriptLinkStandard.Helpers
         /// <param name="formId"></param>
         /// <param name="rowObject"></param>
         /// <returns></returns>
-        public static OptionObject2 AddRowObject(IOptionObject2 optionObject2, string formId, IRowObject rowObject)
+        public static IOptionObject2 AddRowObject(IOptionObject2 optionObject2, string formId, IRowObject rowObject)
         {
             if (optionObject2 == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject2");
@@ -49,7 +49,7 @@ namespace ScriptLinkStandard.Helpers
         /// <param name="formId"></param>
         /// <param name="rowObject"></param>
         /// <returns></returns>
-        public static OptionObject2015 AddRowObject(IOptionObject2015 optionObject2015, string formId, IRowObject rowObject)
+        public static IOptionObject2015 AddRowObject(IOptionObject2015 optionObject2015, string formId, IRowObject rowObject)
         {
             if (optionObject2015 == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject2015");
@@ -63,12 +63,12 @@ namespace ScriptLinkStandard.Helpers
                 {
                     if (optionObject2015.Forms[i].FormId == formId)
                     {
-                        optionObject2015.Forms[i] = AddRowObject(optionObject2015.Forms[i], rowObject);
+                        optionObject2015.Forms[i] = (FormObject)AddRowObject(optionObject2015.Forms[i], rowObject);
                         break;
                     }
                 }
             }
-            return (OptionObject2015)optionObject2015;
+            return optionObject2015;
         }
         /// <summary>
         /// Adds a <see cref="RowObject"/> to a provided <see cref="FormObject"/>.
@@ -76,7 +76,7 @@ namespace ScriptLinkStandard.Helpers
         /// <param name="formObject"></param>
         /// <param name="rowObject"></param>
         /// <returns></returns>
-        public static FormObject AddRowObject(IFormObject formObject, IRowObject rowObject)
+        public static IFormObject AddRowObject(IFormObject formObject, IRowObject rowObject)
         {
             if (formObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");
@@ -100,7 +100,7 @@ namespace ScriptLinkStandard.Helpers
                     rowObject.RowId = GetNextRowId(formObject);
                 formObject.OtherRows.Add((RowObject)rowObject);
             }
-            return (FormObject)formObject;
+            return formObject;
         }
 
         private static string GetNextRowId(IFormObject formObject)
@@ -118,14 +118,14 @@ namespace ScriptLinkStandard.Helpers
             return formObject.FormId + "||99";
         }
 
-        public static FormObject AddRowObject(IFormObject formObject, string rowId, string parentRowId)
+        public static IFormObject AddRowObject(IFormObject formObject, string rowId, string parentRowId)
         {
             if (formObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");
             return AddRowObject(formObject, rowId, parentRowId, "ADD");
         }
 
-        public static FormObject AddRowObject(IFormObject formObject, string rowId, string parentRowId, string rowAction)
+        public static IFormObject AddRowObject(IFormObject formObject, string rowId, string parentRowId, string rowAction)
         {
             if (formObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");

@@ -5,7 +5,7 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
-        public static RowObject RemoveFieldObject(IRowObject rowObject, IFieldObject fieldObject)
+        public static IRowObject RemoveFieldObject(IRowObject rowObject, IFieldObject fieldObject)
         {
             if (rowObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
@@ -15,7 +15,7 @@ namespace ScriptLinkStandard.Helpers
             return (RowObject)rowObject;
         }
 
-        public static RowObject RemoveFieldObject(IRowObject rowObject, string fieldNumber)
+        public static IRowObject RemoveFieldObject(IRowObject rowObject, string fieldNumber)
         {
             if (rowObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "rowObject");

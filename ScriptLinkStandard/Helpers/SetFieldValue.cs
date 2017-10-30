@@ -5,7 +5,7 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
-        public static OptionObject SetFieldValue(IOptionObject optionObject, string fieldNumber, string fieldValue)
+        public static IOptionObject SetFieldValue(IOptionObject optionObject, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
@@ -14,7 +14,7 @@ namespace ScriptLinkStandard.Helpers
             return SetFieldValue(optionObject.ToOptionObject2015(), fieldNumber, fieldValue).ToOptionObject(); ;
         }
 
-        public static OptionObject SetFieldValue(IOptionObject optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
+        public static IOptionObject SetFieldValue(IOptionObject optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
@@ -26,7 +26,7 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return SetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber, fieldValue).ToOptionObject();
         }
-        public static OptionObject2 SetFieldValue(IOptionObject2 optionObject, string fieldNumber, string fieldValue)
+        public static IOptionObject2 SetFieldValue(IOptionObject2 optionObject, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
@@ -35,7 +35,7 @@ namespace ScriptLinkStandard.Helpers
             return SetFieldValue(optionObject.ToOptionObject2015(), fieldNumber, fieldValue).ToOptionObject2(); ;
         }
 
-        public static OptionObject2 SetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
+        public static IOptionObject2 SetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
@@ -48,7 +48,7 @@ namespace ScriptLinkStandard.Helpers
             return SetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber, fieldValue).ToOptionObject2();
         }
 
-        public static OptionObject2015 SetFieldValue(IOptionObject2015 optionObject, string fieldNumber, string fieldValue)
+        public static IOptionObject2015 SetFieldValue(IOptionObject2015 optionObject, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
@@ -71,7 +71,7 @@ namespace ScriptLinkStandard.Helpers
             throw new System.ArgumentException("The specified FieldObject was not found in this OptionObject.", "optionObject");
         }
 
-        public static OptionObject2015 SetFieldValue(IOptionObject2015 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
+        public static IOptionObject2015 SetFieldValue(IOptionObject2015 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
@@ -86,12 +86,12 @@ namespace ScriptLinkStandard.Helpers
             for (int i = 0; i < optionObject.Forms.Count; i++)
             {
                 if (optionObject.Forms[i].FormId == formId)
-                    optionObject.Forms[i] = SetFieldValue(optionObject.Forms[i], rowId, fieldNumber, fieldValue);
+                    optionObject.Forms[i] = (FormObject)SetFieldValue(optionObject.Forms[i], rowId, fieldNumber, fieldValue);
             }
-            return (OptionObject2015)optionObject;
+            return optionObject;
         }
 
-        public static FormObject SetFieldValue(IFormObject formObject, string fieldNumber, string fieldValue)
+        public static IFormObject SetFieldValue(IFormObject formObject, string fieldNumber, string fieldValue)
         {
             if (formObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");
@@ -104,7 +104,7 @@ namespace ScriptLinkStandard.Helpers
             return SetFieldValue(formObject, formObject.CurrentRow.RowId, fieldNumber, fieldValue);
         }
 
-        public static FormObject SetFieldValue(IFormObject formObject, string rowId, string fieldNumber, string fieldValue)
+        public static IFormObject SetFieldValue(IFormObject formObject, string rowId, string fieldNumber, string fieldValue)
         {
             if (formObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");
@@ -116,8 +116,8 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             if (formObject.CurrentRow.RowId == rowId)
             {
-                formObject.CurrentRow = SetFieldValue(formObject.CurrentRow, fieldNumber, fieldValue);
-                return (FormObject)formObject;
+                formObject.CurrentRow = (RowObject)SetFieldValue(formObject.CurrentRow, fieldNumber, fieldValue);
+                return formObject;
             }
             if (formObject.MultipleIteration)
             {
@@ -125,15 +125,15 @@ namespace ScriptLinkStandard.Helpers
                 {
                     if (formObject.OtherRows[i].RowId == rowId)
                     {
-                        formObject.OtherRows[i] = SetFieldValue(formObject.OtherRows[i], fieldNumber, fieldValue);
-                        return (FormObject)formObject;
+                        formObject.OtherRows[i] = (RowObject)SetFieldValue(formObject.OtherRows[i], fieldNumber, fieldValue);
+                        return formObject;
                     }
                 }
             }
             throw new System.ArgumentException("The specified FieldObject was not found in this FormObject.", "formObject");
         }
 
-        public static RowObject SetFieldValue(IRowObject rowObject, string fieldNumber, string fieldValue)
+        public static IRowObject SetFieldValue(IRowObject rowObject, string fieldNumber, string fieldValue)
         {
             if (rowObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
@@ -143,21 +143,21 @@ namespace ScriptLinkStandard.Helpers
             {
                 if (rowObject.Fields[i].FieldNumber == fieldNumber)
                 {
-                    rowObject.Fields[i] = SetFieldValue(rowObject.Fields[i], fieldValue);
+                    rowObject.Fields[i] = (FieldObject)SetFieldValue(rowObject.Fields[i], fieldValue);
                     rowObject.RowAction = "EDIT";
                     break;
                 }
             }
-            return (RowObject)rowObject;
+            return rowObject;
         }
 
-        public static FieldObject SetFieldValue(IFieldObject fieldObject, string fieldValue)
+        public static IFieldObject SetFieldValue(IFieldObject fieldObject, string fieldValue)
         {
             if (fieldObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "fieldObject");
             fieldObject.FieldValue = fieldValue;
             fieldObject.SetAsModified();
-            return (FieldObject)fieldObject;
+            return fieldObject;
         }
     }
 }

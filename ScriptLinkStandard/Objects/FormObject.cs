@@ -202,7 +202,7 @@ namespace ScriptLinkStandard.Objects
         {
             if (rowObject == null)
                 return;
-            FormObject tempFormObject = ScriptLinkHelpers.AddRowObject(this, rowObject);
+            IFormObject tempFormObject = ScriptLinkHelpers.AddRowObject(this, rowObject);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -213,7 +213,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="parentRowId"></param>
         public void AddRowObject(string rowId, string parentRowId)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.AddRowObject(this, rowId, parentRowId);
+            IFormObject tempFormObject = ScriptLinkHelpers.AddRowObject(this, rowId, parentRowId);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -225,7 +225,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="rowAction"></param>
         public void AddRowObject(string rowId, string parentRowId, string rowAction)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.AddRowObject(this, rowId, parentRowId, rowAction);
+            IFormObject tempFormObject = ScriptLinkHelpers.AddRowObject(this, rowId, parentRowId, rowAction);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -235,7 +235,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="rowId"></param>
         public void DeleteRowObject(RowObject rowObject)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.DeleteRowObject(this, rowObject);
+            IFormObject tempFormObject = ScriptLinkHelpers.DeleteRowObject(this, rowObject);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -245,7 +245,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="rowId"></param>
         public void DeleteRowObject(string rowId)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.DeleteRowObject(this, rowId);
+            IFormObject tempFormObject = ScriptLinkHelpers.DeleteRowObject(this, rowId);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -353,7 +353,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="fieldNumbers"></param>
         public void SetDisabledFields(List<string> fieldNumbers)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.SetDisabledFields(this, fieldNumbers);
+            IFormObject tempFormObject = ScriptLinkHelpers.SetDisabledFields(this, fieldNumbers);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -364,7 +364,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="fieldValue"></param>
         public void SetFieldValue(string fieldNumber, string fieldValue)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.SetFieldValue(this, fieldNumber, fieldValue);
+            IFormObject tempFormObject = ScriptLinkHelpers.SetFieldValue(this, fieldNumber, fieldValue);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -377,7 +377,7 @@ namespace ScriptLinkStandard.Objects
         /// <returns></returns>
         public void SetFieldValue(string rowId, string fieldNumber, string fieldValue)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.SetFieldValue(this, rowId, fieldNumber, fieldValue);
+            IFormObject tempFormObject = ScriptLinkHelpers.SetFieldValue(this, rowId, fieldNumber, fieldValue);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -387,7 +387,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="fieldNumbers"></param>
         public void SetLockedFields(List<string> fieldNumbers)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.SetLockedFields(this, fieldNumbers);
+            IFormObject tempFormObject = ScriptLinkHelpers.SetLockedFields(this, fieldNumbers);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -397,7 +397,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="fieldNumbers"></param>
         public void SetOptionalFields(List<string> fieldNumbers)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.SetOptionalFields(this, fieldNumbers);
+            IFormObject tempFormObject = ScriptLinkHelpers.SetOptionalFields(this, fieldNumbers);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -407,7 +407,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="fieldNumbers"></param>
         public void SetRequiredFields(List<string> fieldNumbers)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.SetRequiredFields(this, fieldNumbers);
+            IFormObject tempFormObject = ScriptLinkHelpers.SetRequiredFields(this, fieldNumbers);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -417,7 +417,7 @@ namespace ScriptLinkStandard.Objects
         /// <param name="fieldNumbers"></param>
         public void SetUnlockedFields(List<string> fieldNumbers)
         {
-            FormObject tempFormObject = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumbers);
+            IFormObject tempFormObject = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumbers);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }

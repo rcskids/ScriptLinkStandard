@@ -61,8 +61,8 @@ namespace ScriptLinkStandard.Helpers
                 "Option User ID: " + optionObject.OptionUserId,
                 "Parent Namepace: " + optionObject.ParentNamespace,
                 "Server Name: " + optionObject.ServerName,
-                "SessionToken:" + optionObject.SessionToken,
-                "System Code: " + optionObject.SystemCode
+                "System Code: " + optionObject.SystemCode,
+                "SessionToken:" + optionObject.SessionToken
             };
             return headers;
         }

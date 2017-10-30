@@ -7,39 +7,39 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
-        public static OptionObject SetFieldObjects(IOptionObject optionObject, string fieldAction, List<FieldObject> fieldObjects)
+        public static IOptionObject SetFieldObjects(IOptionObject optionObject, string fieldAction, List<FieldObject> fieldObjects)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldObjects).ToOptionObject();
         }
-        public static OptionObject SetFieldObjects(IOptionObject optionObject, string fieldAction, List<string> fieldNumbers)
+        public static IOptionObject SetFieldObjects(IOptionObject optionObject, string fieldAction, List<string> fieldNumbers)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject();
         }
-        public static OptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, List<FieldObject> fieldObjects)
+        public static IOptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, List<FieldObject> fieldObjects)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldObjects).ToOptionObject2();
         }
-        public static OptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, List<string> fieldNumbers)
+        public static IOptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, List<string> fieldNumbers)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject2();
         }
 
-        public static OptionObject2015 SetFieldObjects(IOptionObject2015 optionObject, string fieldAction, List<FieldObject> fieldObjects)
+        public static IOptionObject2015 SetFieldObjects(IOptionObject2015 optionObject, string fieldAction, List<FieldObject> fieldObjects)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             List<string> fieldNumbers = GetFieldNumbersToSet(fieldObjects);
             return SetFieldObjects(optionObject, fieldAction, fieldNumbers);
         }
-        public static OptionObject2015 SetFieldObjects(IOptionObject2015 optionObject2015, string fieldAction, List<string> fieldNumbers)
+        public static IOptionObject2015 SetFieldObjects(IOptionObject2015 optionObject2015, string fieldAction, List<string> fieldNumbers)
         {
             if (optionObject2015 == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject2015");
@@ -64,7 +64,7 @@ namespace ScriptLinkStandard.Helpers
             {
                 try
                 {
-                    optionObject2015.Forms[i] = SetFieldObjects(optionObject2015.Forms[i], fieldAction, fieldsToSet);
+                    optionObject2015.Forms[i] = (FormObject)SetFieldObjects(optionObject2015.Forms[i], fieldAction, fieldsToSet);
                 }
                 catch (Exception)
                 {
@@ -75,10 +75,10 @@ namespace ScriptLinkStandard.Helpers
             if (formErrors == optionObject2015.Forms.Count)
                 throw new System.ArgumentException("None of the identified FieldsObjects were able to be disabled in " + optionObject2015.Forms.Count.ToString() + " FormObjects");
 
-            return (OptionObject2015)optionObject2015;
+            return optionObject2015;
         }
 
-        public static FormObject SetFieldObjects(IFormObject formObject, string fieldAction, List<string> fieldNumbers)
+        public static IFormObject SetFieldObjects(IFormObject formObject, string fieldAction, List<string> fieldNumbers)
         {
             if (formObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");
@@ -98,19 +98,19 @@ namespace ScriptLinkStandard.Helpers
             if (fieldsToSet.Count == 0)
                 throw new System.ArgumentException("None of the identified FieldsObjects were found in this FormObject.");
 
-            formObject.CurrentRow = SetFieldObjects(formObject.CurrentRow, fieldAction, fieldsToSet);
+            formObject.CurrentRow = (RowObject)SetFieldObjects(formObject.CurrentRow, fieldAction, fieldsToSet);
 
             if (formObject.MultipleIteration)
             {
                 for (int i = 0; i < formObject.OtherRows.Count; i++)
                 {
-                    formObject.OtherRows[i] = SetFieldObjects(formObject.OtherRows[i], fieldAction, fieldsToSet);
+                    formObject.OtherRows[i] = (RowObject)SetFieldObjects(formObject.OtherRows[i], fieldAction, fieldsToSet);
                 }
             }
-            return (FormObject)formObject;
+            return formObject;
         }
 
-        public static RowObject SetFieldObjects(IRowObject rowObject, string fieldAction, List<string> fieldNumbers)
+        public static IRowObject SetFieldObjects(IRowObject rowObject, string fieldAction, List<string> fieldNumbers)
         {
             if (rowObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
@@ -167,7 +167,7 @@ namespace ScriptLinkStandard.Helpers
                     }
                 }
             }
-            return (RowObject)rowObject;
+            return rowObject;
         }
 
         private static List<string> GetFieldNumbersToSet(List<FieldObject> fieldObjects)

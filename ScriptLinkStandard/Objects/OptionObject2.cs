@@ -539,7 +539,7 @@ namespace ScriptLinkStandard.Objects
         /// <returns></returns>
         public OptionObject2 ToReturnOptionObject()
         {
-            return ScriptLinkHelpers.GetReturnOptionObject(this);
+            return (OptionObject2)ScriptLinkHelpers.GetReturnOptionObject(this);
         }
         /// <summary>
         /// Creates an <see cref="OptionObject2"/> with the minimal information required to return plus the provide Error Code and Message.
@@ -549,7 +549,7 @@ namespace ScriptLinkStandard.Objects
         /// <returns></returns>
         public OptionObject2 ToReturnOptionObject(int errorCode, string errorMessage)
         {
-            return ScriptLinkHelpers.GetReturnOptionObject(this, errorCode, errorMessage);
+            return (OptionObject2)ScriptLinkHelpers.GetReturnOptionObject(this, errorCode, errorMessage);
         }
     }
 }
