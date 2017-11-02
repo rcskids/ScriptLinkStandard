@@ -2,6 +2,7 @@
 using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System.Collections.Generic;
 
 namespace ScriptLinkStandard.Tests.HelpersTests
 {
@@ -248,6 +249,49 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             IOptionObject2 returnOptionObject = ScriptLinkHelpers.DisableAllFieldObjects(optionObject2);
             Assert.AreEqual(optionObject2.Forms.Count, returnOptionObject.Forms.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        public void DisableAllFieldObjects_OptionObject2015_ExcludesFields()
+        {
+            FieldObject fieldObject1 = new FieldObject("1", "1", true, false, false);
+            FieldObject fieldObject2 = new FieldObject("2", "2", true, false, false);
+            FieldObject fieldObject3 = new FieldObject("3", "3", true, false, false);
+            FieldObject fieldObject4 = new FieldObject("4", "4", true, false, false);
+            FieldObject fieldObject5 = new FieldObject("5", "5", true, false, false);
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                fieldObject1,
+                fieldObject2,
+                fieldObject3,
+                fieldObject4,
+                fieldObject5
+            };
+            RowObject rowObject = new RowObject("1||1", fieldObjects);
+            FormObject formObject = new FormObject("1", rowObject);
+            List<FormObject> formObjects = new List<FormObject>
+            {
+                formObject
+            };
+            OptionObject2015 optionObject2015 = new OptionObject2015()
+            {
+                Forms = formObjects
+            };
+
+            List<string> excludedFields = new List<string>
+            {
+                "2",
+                "4"
+            };
+            OptionObject2015 returnOptionObject = (OptionObject2015)ScriptLinkHelpers.DisableAllFieldObjects(optionObject2015, excludedFields);
+
+            Assert.IsFalse(returnOptionObject.IsFieldEnabled("1"));
+            Assert.AreEqual("1", returnOptionObject.GetFieldValue("1"));
+            Assert.IsTrue(returnOptionObject.IsFieldEnabled("2"));
+            Assert.IsFalse(returnOptionObject.IsFieldEnabled("3"));
+            Assert.IsTrue(returnOptionObject.IsFieldEnabled("4"));
+            Assert.IsFalse(returnOptionObject.IsFieldEnabled("5"));
         }
     }
 }
