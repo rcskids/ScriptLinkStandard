@@ -299,6 +299,21 @@ namespace ScriptLinkStandard.Objects
             this.Forms = ScriptLinkHelpers.DeleteRowObject(this, rowId).Forms;
         }
         /// <summary>
+        /// Sets all <see cref="FieldObject"/> as disabled.
+        /// </summary>
+        public void DisableAllFieldObjects()
+        {
+            this.Forms = ScriptLinkHelpers.DisableAllFieldObjects(this).Forms;
+        }
+        /// <summary>
+        /// Sets all <see cref="FieldObject"/> as disabled except for any listed to be excluded.
+        /// </summary>
+        /// <param name="excludedFieldObjects"></param>
+        public void DisableAllFieldObjects(List<string> excludedFieldObjects)
+        {
+            this.Forms = ScriptLinkHelpers.DisableAllFieldObjects(this, excludedFieldObjects).Forms;
+        }
+        /// <summary>
         /// Returns the CurrentRow RowId of the form matching the FormId.
         /// </summary>
         /// <param name="formId"></param>

@@ -24,6 +24,8 @@ namespace ScriptLinkStandard.Interfaces
         void AddRowObject(string formId, RowObject rowObject);
         void DeleteRowObject(RowObject rowObject);
         void DeleteRowObject(string rowId);
+        void DisableAllFieldObjects();
+        void DisableAllFieldObjects(List<string> excludedFieldObjects);
         string GetCurrentRowId(string formId);
         string GetFieldValue(string fieldNumber);
         string GetFieldValue(string formId, string rowId, string fieldNumber);
