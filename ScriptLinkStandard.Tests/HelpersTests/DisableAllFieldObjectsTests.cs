@@ -14,12 +14,14 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         [TestInitialize]
         public void TestInitialize()
         {
-            IFieldObject addField = new FieldObject();
-            addField.Enabled = "1";
-            addField.FieldNumber = "100";
-            addField.FieldValue = "TEST";
-            addField.Lock = "0";
-            addField.Required = "1";
+            IFieldObject addField = new FieldObject
+            {
+                Enabled = "1",
+                FieldNumber = "100",
+                FieldValue = "TEST",
+                Lock = "0",
+                Required = "1"
+            };
 
             IRowObject currentRow = new RowObject();
             currentRow.Fields.Add((FieldObject)addField);
@@ -49,15 +51,19 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             otherRow2.RowAction = "";
             otherRow2.RowId = "3";
 
-            IFormObject primaryForm = new FormObject();
-            primaryForm.CurrentRow = (RowObject)currentRow;
-            primaryForm.FormId = "1";
-            primaryForm.MultipleIteration = false;
+            IFormObject primaryForm = new FormObject
+            {
+                CurrentRow = (RowObject)currentRow,
+                FormId = "1",
+                MultipleIteration = false
+            };
 
-            IFormObject multipleIterationForm = new FormObject();
-            multipleIterationForm.CurrentRow = null;
-            multipleIterationForm.FormId = "2";
-            multipleIterationForm.MultipleIteration = true;
+            IFormObject multipleIterationForm = new FormObject
+            {
+                CurrentRow = null,
+                FormId = "2",
+                MultipleIteration = true
+            };
             multipleIterationForm.OtherRows.Add((RowObject)otherRow1);
             multipleIterationForm.OtherRows.Add((RowObject)otherRow2);
 

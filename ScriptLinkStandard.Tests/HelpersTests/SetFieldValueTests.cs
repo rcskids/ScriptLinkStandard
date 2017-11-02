@@ -23,7 +23,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
             var actual = new FieldObject();
 
             expected.FieldValue = "Test";
-            actual = ScriptLinkHelpers.SetFieldValue(actual, "Test");
+            actual = (FieldObject)ScriptLinkHelpers.SetFieldValue(actual, "Test");
 
             Assert.AreEqual(expected.FieldValue, actual.FieldValue);
         }
@@ -34,12 +34,14 @@ namespace ScriptLinkStandard.Test.HelpersTests
         {
             string expected = "Test";
 
-            var fieldObject = new FieldObject();
-            fieldObject.FieldNumber = "123";
+            var fieldObject = new FieldObject
+            {
+                FieldNumber = "123"
+            };
             var rowObject = new RowObject();
             rowObject.Fields.Add(fieldObject);
 
-            rowObject = ScriptLinkHelpers.SetFieldValue(rowObject, "123", "Test");
+            rowObject = (RowObject)ScriptLinkHelpers.SetFieldValue(rowObject, "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(rowObject, "123");
 
             Assert.AreEqual(expected, actual);
@@ -65,7 +67,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
                 CurrentRow = rowObject
             };
 
-            formObject = ScriptLinkHelpers.SetFieldValue(formObject, "123", "Test");
+            formObject = (FormObject)ScriptLinkHelpers.SetFieldValue(formObject, "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(formObject, "123");
 
             Assert.AreEqual(expected, actual);
@@ -112,7 +114,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
             formObject.OtherRows.Add(rowObject02);
             formObject.OtherRows.Add(rowObject03);
 
-            formObject = ScriptLinkHelpers.SetFieldValue(formObject, "2||2", "123", "Test");
+            formObject = (FormObject)ScriptLinkHelpers.SetFieldValue(formObject, "2||2", "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(formObject, "2||2", "123");
             Assert.AreEqual(expected, actual);
         }
@@ -159,7 +161,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
             formObject.OtherRows.Add(rowObject02);
             formObject.OtherRows.Add(rowObject03);
 
-            formObject = ScriptLinkHelpers.SetFieldValue(formObject, "123", "Test");
+            formObject = (FormObject)ScriptLinkHelpers.SetFieldValue(formObject, "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(formObject, "123");
             Assert.AreNotEqual(expected, actual);
         }
@@ -170,28 +172,42 @@ namespace ScriptLinkStandard.Test.HelpersTests
         {
             string expected = "Test";
 
-            var fieldObject01 = new FieldObject();
-            fieldObject01.FieldNumber = "123";
-            var fieldObject02 = new FieldObject();
-            fieldObject02.FieldNumber = "123";
-            var fieldObject03 = new FieldObject();
-            fieldObject03.FieldNumber = "123";
-            var rowObject01 = new RowObject();
-            rowObject01.RowId = "2||1";
+            var fieldObject01 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject02 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject03 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var rowObject01 = new RowObject
+            {
+                RowId = "2||1"
+            };
             rowObject01.Fields.Add(fieldObject01);
-            var rowObject02 = new RowObject();
-            rowObject02.RowId = "2||2";
+            var rowObject02 = new RowObject
+            {
+                RowId = "2||2"
+            };
             rowObject02.Fields.Add(fieldObject02);
-            var rowObject03 = new RowObject();
-            rowObject03.RowId = "2||3";
+            var rowObject03 = new RowObject
+            {
+                RowId = "2||3"
+            };
             rowObject03.Fields.Add(fieldObject03);
-            var formObject = new FormObject();
-            formObject.CurrentRow = rowObject01;
+            var formObject = new FormObject
+            {
+                CurrentRow = rowObject01
+            };
             formObject.OtherRows.Add(rowObject02);
             formObject.OtherRows.Add(rowObject03);
             formObject.MultipleIteration = true;
 
-            formObject = ScriptLinkHelpers.SetFieldValue(formObject, "2||2", "123", "Test");
+            formObject = (FormObject)ScriptLinkHelpers.SetFieldValue(formObject, "2||2", "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(formObject, "2||2", "123");
 
             Assert.AreEqual(expected, actual);
@@ -203,32 +219,52 @@ namespace ScriptLinkStandard.Test.HelpersTests
         {
             string expected = "Test";
 
-            var fieldObject01 = new FieldObject();
-            fieldObject01.FieldNumber = "122";
-            var fieldObject02 = new FieldObject();
-            fieldObject02.FieldNumber = "123";
-            var fieldObject03 = new FieldObject();
-            fieldObject03.FieldNumber = "123";
-            var fieldObject04 = new FieldObject();
-            fieldObject04.FieldNumber = "123";
-            var rowObject01 = new RowObject();
-            rowObject01.RowId = "1||1";
+            var fieldObject01 = new FieldObject
+            {
+                FieldNumber = "122"
+            };
+            var fieldObject02 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject03 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject04 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var rowObject01 = new RowObject
+            {
+                RowId = "1||1"
+            };
             rowObject01.Fields.Add(fieldObject01);
-            var rowObject02 = new RowObject();
-            rowObject02.RowId = "2||1";
+            var rowObject02 = new RowObject
+            {
+                RowId = "2||1"
+            };
             rowObject02.Fields.Add(fieldObject02);
-            var rowObject03 = new RowObject();
-            rowObject03.RowId = "2||2";
+            var rowObject03 = new RowObject
+            {
+                RowId = "2||2"
+            };
             rowObject03.Fields.Add(fieldObject03);
-            var rowObject04 = new RowObject();
-            rowObject04.RowId = "2||3";
+            var rowObject04 = new RowObject
+            {
+                RowId = "2||3"
+            };
             rowObject04.Fields.Add(fieldObject04);
-            var formObject01 = new FormObject();
-            formObject01.FormId = "1";
-            formObject01.CurrentRow = rowObject01;
-            var formObject02 = new FormObject();
-            formObject02.FormId = "2";
-            formObject02.CurrentRow = rowObject02;
+            var formObject01 = new FormObject
+            {
+                FormId = "1",
+                CurrentRow = rowObject01
+            };
+            var formObject02 = new FormObject
+            {
+                FormId = "2",
+                CurrentRow = rowObject02
+            };
             formObject02.OtherRows.Add(rowObject03);
             formObject02.OtherRows.Add(rowObject04);
             formObject02.MultipleIteration = true;
@@ -236,7 +272,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
             optionObject.Forms.Add(formObject01);
             optionObject.Forms.Add(formObject02);
 
-            optionObject = ScriptLinkHelpers.SetFieldValue(optionObject, "2", "2||3", "123", "Test");
+            optionObject = (OptionObject)ScriptLinkHelpers.SetFieldValue(optionObject, "2", "2||3", "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(optionObject, "2", "2||3", "123");
 
             Assert.AreEqual(expected, actual);
@@ -248,32 +284,52 @@ namespace ScriptLinkStandard.Test.HelpersTests
         {
             string expected = "Test";
 
-            var fieldObject01 = new FieldObject();
-            fieldObject01.FieldNumber = "122";
-            var fieldObject02 = new FieldObject();
-            fieldObject02.FieldNumber = "123";
-            var fieldObject03 = new FieldObject();
-            fieldObject03.FieldNumber = "123";
-            var fieldObject04 = new FieldObject();
-            fieldObject04.FieldNumber = "123";
-            var rowObject01 = new RowObject();
-            rowObject01.RowId = "1||1";
+            var fieldObject01 = new FieldObject
+            {
+                FieldNumber = "122"
+            };
+            var fieldObject02 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject03 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject04 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var rowObject01 = new RowObject
+            {
+                RowId = "1||1"
+            };
             rowObject01.Fields.Add(fieldObject01);
-            var rowObject02 = new RowObject();
-            rowObject02.RowId = "2||1";
+            var rowObject02 = new RowObject
+            {
+                RowId = "2||1"
+            };
             rowObject02.Fields.Add(fieldObject02);
-            var rowObject03 = new RowObject();
-            rowObject03.RowId = "2||2";
+            var rowObject03 = new RowObject
+            {
+                RowId = "2||2"
+            };
             rowObject03.Fields.Add(fieldObject03);
-            var rowObject04 = new RowObject();
-            rowObject04.RowId = "2||3";
+            var rowObject04 = new RowObject
+            {
+                RowId = "2||3"
+            };
             rowObject04.Fields.Add(fieldObject04);
-            var formObject01 = new FormObject();
-            formObject01.FormId = "1";
-            formObject01.CurrentRow = rowObject01;
-            var formObject02 = new FormObject();
-            formObject02.FormId = "2";
-            formObject02.CurrentRow = rowObject02;
+            var formObject01 = new FormObject
+            {
+                FormId = "1",
+                CurrentRow = rowObject01
+            };
+            var formObject02 = new FormObject
+            {
+                FormId = "2",
+                CurrentRow = rowObject02
+            };
             formObject02.OtherRows.Add(rowObject03);
             formObject02.OtherRows.Add(rowObject04);
             formObject02.MultipleIteration = true;
@@ -281,7 +337,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
             optionObject.Forms.Add(formObject01);
             optionObject.Forms.Add(formObject02);
 
-            optionObject = ScriptLinkHelpers.SetFieldValue(optionObject, "2", "2||1", "123", "Test");
+            optionObject = (OptionObject)ScriptLinkHelpers.SetFieldValue(optionObject, "2", "2||1", "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(optionObject, "2", "2||1", "123");
 
             Assert.AreEqual(expected, actual);
@@ -293,32 +349,52 @@ namespace ScriptLinkStandard.Test.HelpersTests
         {
             string expected = "Test";
 
-            var fieldObject01 = new FieldObject();
-            fieldObject01.FieldNumber = "122";
-            var fieldObject02 = new FieldObject();
-            fieldObject02.FieldNumber = "123";
-            var fieldObject03 = new FieldObject();
-            fieldObject03.FieldNumber = "123";
-            var fieldObject04 = new FieldObject();
-            fieldObject04.FieldNumber = "123";
-            var rowObject01 = new RowObject();
-            rowObject01.RowId = "1||1";
+            var fieldObject01 = new FieldObject
+            {
+                FieldNumber = "122"
+            };
+            var fieldObject02 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject03 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject04 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var rowObject01 = new RowObject
+            {
+                RowId = "1||1"
+            };
             rowObject01.Fields.Add(fieldObject01);
-            var rowObject02 = new RowObject();
-            rowObject02.RowId = "2||1";
+            var rowObject02 = new RowObject
+            {
+                RowId = "2||1"
+            };
             rowObject02.Fields.Add(fieldObject02);
-            var rowObject03 = new RowObject();
-            rowObject03.RowId = "2||2";
+            var rowObject03 = new RowObject
+            {
+                RowId = "2||2"
+            };
             rowObject03.Fields.Add(fieldObject03);
-            var rowObject04 = new RowObject();
-            rowObject04.RowId = "2||3";
+            var rowObject04 = new RowObject
+            {
+                RowId = "2||3"
+            };
             rowObject04.Fields.Add(fieldObject04);
-            var formObject01 = new FormObject();
-            formObject01.FormId = "1";
-            formObject01.CurrentRow = rowObject01;
-            var formObject02 = new FormObject();
-            formObject02.FormId = "2";
-            formObject02.CurrentRow = rowObject02;
+            var formObject01 = new FormObject
+            {
+                FormId = "1",
+                CurrentRow = rowObject01
+            };
+            var formObject02 = new FormObject
+            {
+                FormId = "2",
+                CurrentRow = rowObject02
+            };
             formObject02.OtherRows.Add(rowObject03);
             formObject02.OtherRows.Add(rowObject04);
             formObject02.MultipleIteration = true;
@@ -326,7 +402,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
             optionObject.Forms.Add(formObject01);
             optionObject.Forms.Add(formObject02);
 
-            optionObject = ScriptLinkHelpers.SetFieldValue(optionObject, "1", "1||1", "122", "Test");
+            optionObject = (OptionObject)ScriptLinkHelpers.SetFieldValue(optionObject, "1", "1||1", "122", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(optionObject, "1", "1||1", "122");
 
             Assert.AreEqual(expected, actual);
@@ -338,32 +414,52 @@ namespace ScriptLinkStandard.Test.HelpersTests
         {
             string expected = "Test";
 
-            var fieldObject01 = new FieldObject();
-            fieldObject01.FieldNumber = "122";
-            var fieldObject02 = new FieldObject();
-            fieldObject02.FieldNumber = "123";
-            var fieldObject03 = new FieldObject();
-            fieldObject03.FieldNumber = "123";
-            var fieldObject04 = new FieldObject();
-            fieldObject04.FieldNumber = "123";
-            var rowObject01 = new RowObject();
-            rowObject01.RowId = "1||1";
+            var fieldObject01 = new FieldObject
+            {
+                FieldNumber = "122"
+            };
+            var fieldObject02 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject03 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject04 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var rowObject01 = new RowObject
+            {
+                RowId = "1||1"
+            };
             rowObject01.Fields.Add(fieldObject01);
-            var rowObject02 = new RowObject();
-            rowObject02.RowId = "2||1";
+            var rowObject02 = new RowObject
+            {
+                RowId = "2||1"
+            };
             rowObject02.Fields.Add(fieldObject02);
-            var rowObject03 = new RowObject();
-            rowObject03.RowId = "2||2";
+            var rowObject03 = new RowObject
+            {
+                RowId = "2||2"
+            };
             rowObject03.Fields.Add(fieldObject03);
-            var rowObject04 = new RowObject();
-            rowObject04.RowId = "2||3";
+            var rowObject04 = new RowObject
+            {
+                RowId = "2||3"
+            };
             rowObject04.Fields.Add(fieldObject04);
-            var formObject01 = new FormObject();
-            formObject01.FormId = "1";
-            formObject01.CurrentRow = rowObject01;
-            var formObject02 = new FormObject();
-            formObject02.FormId = "2";
-            formObject02.CurrentRow = rowObject02;
+            var formObject01 = new FormObject
+            {
+                FormId = "1",
+                CurrentRow = rowObject01
+            };
+            var formObject02 = new FormObject
+            {
+                FormId = "2",
+                CurrentRow = rowObject02
+            };
             formObject02.OtherRows.Add(rowObject03);
             formObject02.OtherRows.Add(rowObject04);
             formObject02.MultipleIteration = true;
@@ -371,7 +467,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
             optionObject.Forms.Add(formObject01);
             optionObject.Forms.Add(formObject02);
 
-            optionObject = ScriptLinkHelpers.SetFieldValue(optionObject, "2", "2||3", "123", "Test");
+            optionObject = (OptionObject2)ScriptLinkHelpers.SetFieldValue(optionObject, "2", "2||3", "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(optionObject, "2", "2||3", "123");
 
             Assert.AreEqual(expected, actual);
@@ -383,32 +479,52 @@ namespace ScriptLinkStandard.Test.HelpersTests
         {
             string expected = "Test";
 
-            var fieldObject01 = new FieldObject();
-            fieldObject01.FieldNumber = "122";
-            var fieldObject02 = new FieldObject();
-            fieldObject02.FieldNumber = "123";
-            var fieldObject03 = new FieldObject();
-            fieldObject03.FieldNumber = "123";
-            var fieldObject04 = new FieldObject();
-            fieldObject04.FieldNumber = "123";
-            var rowObject01 = new RowObject();
-            rowObject01.RowId = "1||1";
+            var fieldObject01 = new FieldObject
+            {
+                FieldNumber = "122"
+            };
+            var fieldObject02 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject03 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject04 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var rowObject01 = new RowObject
+            {
+                RowId = "1||1"
+            };
             rowObject01.Fields.Add(fieldObject01);
-            var rowObject02 = new RowObject();
-            rowObject02.RowId = "2||1";
+            var rowObject02 = new RowObject
+            {
+                RowId = "2||1"
+            };
             rowObject02.Fields.Add(fieldObject02);
-            var rowObject03 = new RowObject();
-            rowObject03.RowId = "2||2";
+            var rowObject03 = new RowObject
+            {
+                RowId = "2||2"
+            };
             rowObject03.Fields.Add(fieldObject03);
-            var rowObject04 = new RowObject();
-            rowObject04.RowId = "2||3";
+            var rowObject04 = new RowObject
+            {
+                RowId = "2||3"
+            };
             rowObject04.Fields.Add(fieldObject04);
-            var formObject01 = new FormObject();
-            formObject01.FormId = "1";
-            formObject01.CurrentRow = rowObject01;
-            var formObject02 = new FormObject();
-            formObject02.FormId = "2";
-            formObject02.CurrentRow = rowObject02;
+            var formObject01 = new FormObject
+            {
+                FormId = "1",
+                CurrentRow = rowObject01
+            };
+            var formObject02 = new FormObject
+            {
+                FormId = "2",
+                CurrentRow = rowObject02
+            };
             formObject02.OtherRows.Add(rowObject03);
             formObject02.OtherRows.Add(rowObject04);
             formObject02.MultipleIteration = true;
@@ -416,7 +532,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
             optionObject.Forms.Add(formObject01);
             optionObject.Forms.Add(formObject02);
 
-            optionObject = ScriptLinkHelpers.SetFieldValue(optionObject, "2", "2||1", "123", "Test");
+            optionObject = (OptionObject2)ScriptLinkHelpers.SetFieldValue(optionObject, "2", "2||1", "123", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(optionObject, "2", "2||1", "123");
 
             Assert.AreEqual(expected, actual);
@@ -428,32 +544,52 @@ namespace ScriptLinkStandard.Test.HelpersTests
         {
             string expected = "Test";
 
-            var fieldObject01 = new FieldObject();
-            fieldObject01.FieldNumber = "122";
-            var fieldObject02 = new FieldObject();
-            fieldObject02.FieldNumber = "123";
-            var fieldObject03 = new FieldObject();
-            fieldObject03.FieldNumber = "123";
-            var fieldObject04 = new FieldObject();
-            fieldObject04.FieldNumber = "123";
-            var rowObject01 = new RowObject();
-            rowObject01.RowId = "1||1";
+            var fieldObject01 = new FieldObject
+            {
+                FieldNumber = "122"
+            };
+            var fieldObject02 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject03 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var fieldObject04 = new FieldObject
+            {
+                FieldNumber = "123"
+            };
+            var rowObject01 = new RowObject
+            {
+                RowId = "1||1"
+            };
             rowObject01.Fields.Add(fieldObject01);
-            var rowObject02 = new RowObject();
-            rowObject02.RowId = "2||1";
+            var rowObject02 = new RowObject
+            {
+                RowId = "2||1"
+            };
             rowObject02.Fields.Add(fieldObject02);
-            var rowObject03 = new RowObject();
-            rowObject03.RowId = "2||2";
+            var rowObject03 = new RowObject
+            {
+                RowId = "2||2"
+            };
             rowObject03.Fields.Add(fieldObject03);
-            var rowObject04 = new RowObject();
-            rowObject04.RowId = "2||3";
+            var rowObject04 = new RowObject
+            {
+                RowId = "2||3"
+            };
             rowObject04.Fields.Add(fieldObject04);
-            var formObject01 = new FormObject();
-            formObject01.FormId = "1";
-            formObject01.CurrentRow = rowObject01;
-            var formObject02 = new FormObject();
-            formObject02.FormId = "2";
-            formObject02.CurrentRow = rowObject02;
+            var formObject01 = new FormObject
+            {
+                FormId = "1",
+                CurrentRow = rowObject01
+            };
+            var formObject02 = new FormObject
+            {
+                FormId = "2",
+                CurrentRow = rowObject02
+            };
             formObject02.OtherRows.Add(rowObject03);
             formObject02.OtherRows.Add(rowObject04);
             formObject02.MultipleIteration = true;
@@ -461,7 +597,7 @@ namespace ScriptLinkStandard.Test.HelpersTests
             optionObject.Forms.Add(formObject01);
             optionObject.Forms.Add(formObject02);
 
-            optionObject = ScriptLinkHelpers.SetFieldValue(optionObject, "1", "1||1", "122", "Test");
+            optionObject = (OptionObject2)ScriptLinkHelpers.SetFieldValue(optionObject, "1", "1||1", "122", "Test");
             string actual = ScriptLinkHelpers.GetFieldValue(optionObject, "1", "1||1", "122");
 
             Assert.AreEqual(expected, actual);
