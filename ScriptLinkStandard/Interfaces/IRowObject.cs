@@ -23,11 +23,16 @@ namespace ScriptLinkStandard.Interfaces
         void RemoveFieldObject(string fieldNumber);
         void RemoveUnmodifiedFieldObjects();
         void SetDisabledFields(List<string> fieldNumbers);
+        void SetDisabledFields(string fieldNumber);
         void SetFieldValue(string fieldNumber, string fieldValue);
         void SetLockedFields(List<string> fieldNumbers);
+        void SetLockedFields(string fieldNumber);
         void SetOptionalFields(List<string> fieldNumbers);
+        void SetOptionalFields(string fieldNumber);
         void SetRequiredFields(List<string> fieldNumbers);
+        void SetRequiredFields(string fieldNumber);
         void SetUnlockedFields(List<string> fieldNumbers);
+        void SetUnlockedFields(string fieldNumber);
         string ToHtmlString(bool includeHtmlHeaders);
     }
 }

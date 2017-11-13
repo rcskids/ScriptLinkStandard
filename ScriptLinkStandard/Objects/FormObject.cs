@@ -358,6 +358,16 @@ namespace ScriptLinkStandard.Objects
             this.OtherRows = tempFormObject.OtherRows;
         }
         /// <summary>
+        /// Sets the specified field as disabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetDisabledFields(string fieldNumber)
+        {
+            IFormObject tempFormObject = ScriptLinkHelpers.SetDisabledFields(this, fieldNumber);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
         /// Sets the value of a <see cref="FieldObject"/> in the <see cref="CurrentRow"/> of a <see cref="FormObject"/>.
         /// </summary>
         /// <param name="fieldNumber"></param>
@@ -392,12 +402,32 @@ namespace ScriptLinkStandard.Objects
             this.OtherRows = tempFormObject.OtherRows;
         }
         /// <summary>
+        /// Sets the specified field as locked.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetLockedFields(string fieldNumber)
+        {
+            IFormObject tempFormObject = ScriptLinkHelpers.SetLockedFields(this, fieldNumber);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
         /// Sets the specified fields as enabled and not required.
         /// </summary>
         /// <param name="fieldNumbers"></param>
         public void SetOptionalFields(List<string> fieldNumbers)
         {
             IFormObject tempFormObject = ScriptLinkHelpers.SetOptionalFields(this, fieldNumbers);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
+        /// Sets the specified field as enabled and not required.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetOptionalFields(string fieldNumber)
+        {
+            IFormObject tempFormObject = ScriptLinkHelpers.SetOptionalFields(this, fieldNumber);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
@@ -412,12 +442,32 @@ namespace ScriptLinkStandard.Objects
             this.OtherRows = tempFormObject.OtherRows;
         }
         /// <summary>
+        /// Sets the specified field as enabled and required.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetRequiredFields(string fieldNumber)
+        {
+            IFormObject tempFormObject = ScriptLinkHelpers.SetRequiredFields(this, fieldNumber);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
         /// Sets the specified fields as unlocked.
         /// </summary>
         /// <param name="fieldNumbers"></param>
         public void SetUnlockedFields(List<string> fieldNumbers)
         {
             IFormObject tempFormObject = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumbers);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+        /// <summary>
+        /// Sets the specified field as unlocked.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetUnlockedFields(string fieldNumber)
+        {
+            IFormObject tempFormObject = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumber);
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }

@@ -483,6 +483,14 @@ namespace ScriptLinkStandard.Objects
             this.Forms = ScriptLinkHelpers.SetDisabledFields(this, fieldNumbers).Forms;
         }
         /// <summary>
+        /// Sets the specified field as disabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetDisabledFields(string fieldNumber)
+        {
+            this.Forms = ScriptLinkHelpers.SetDisabledFields(this, fieldNumber).Forms;
+        }
+        /// <summary>
         /// Sets the FieldValue of a <see cref="FieldObject"/> in the <see cref="OptionObject"/> on the first form CurrentRow.
         /// </summary>
         /// <param name="fieldNumber"></param>
@@ -511,12 +519,28 @@ namespace ScriptLinkStandard.Objects
             this.Forms = ScriptLinkHelpers.SetLockedFields(this, fieldNumbers).Forms;
         }
         /// <summary>
+        /// Set the specified field as locked.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetLockedFields(string fieldNumber)
+        {
+            this.Forms = ScriptLinkHelpers.SetLockedFields(this, fieldNumber).Forms;
+        }
+        /// <summary>
         /// Set the specified fields as not required and enables if disabled.
         /// </summary>
         /// <param name="fieldNumbers"></param>
         public void SetOptionalFields(List<string> fieldNumbers)
         {
             this.Forms = ScriptLinkHelpers.SetOptionalFields(this, fieldNumbers).Forms;
+        }
+        /// <summary>
+        /// Set the specified field as not required and enables if disabled.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetOptionalFields(string fieldNumber)
+        {
+            this.Forms = ScriptLinkHelpers.SetOptionalFields(this, fieldNumber).Forms;
         }
         /// <summary>
         /// Sets the specified fields as required and enables if disabled.
@@ -527,12 +551,28 @@ namespace ScriptLinkStandard.Objects
             this.Forms = ScriptLinkHelpers.SetRequiredFields(this, fieldNumbers).Forms;
         }
         /// <summary>
+        /// Sets the specified field as required and enables if disabled.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetRequiredFields(string fieldNumber)
+        {
+            this.Forms = ScriptLinkHelpers.SetRequiredFields(this, fieldNumber).Forms;
+        }
+        /// <summary>
         /// Set the specified fields as unlocked.
         /// </summary>
         /// <param name="fieldNumbers"></param>
         public void SetUnlockedFields(List<string> fieldNumbers)
         {
             this.Forms = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumbers).Forms;
+        }
+        /// <summary>
+        /// Set the specified field as unlocked.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetUnlockedFields(string fieldNumber)
+        {
+            this.Forms = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumber).Forms;
         }
 
         /// <summary>
