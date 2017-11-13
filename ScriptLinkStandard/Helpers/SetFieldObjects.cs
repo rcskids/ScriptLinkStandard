@@ -19,6 +19,13 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject();
         }
+        public static IOptionObject SetFieldObjects(IOptionObject optionObject, string fieldAction, string fieldNumber)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            List<string> fieldNumbers = new List<string> { fieldNumber };
+            return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject();
+        }
         public static IOptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, List<FieldObject> fieldObjects)
         {
             if (optionObject == null)
@@ -29,6 +36,13 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject2();
+        }
+        public static IOptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, string fieldNumber)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            List<string> fieldNumbers = new List<string> { fieldNumber };
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject2();
         }
 
@@ -77,6 +91,13 @@ namespace ScriptLinkStandard.Helpers
 
             return optionObject2015;
         }
+        public static IOptionObject2015 SetFieldObjects(IOptionObject2015 optionObject, string fieldAction, string fieldNumber)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+            List<string> fieldNumbers = new List<string> { fieldNumber };
+            return SetFieldObjects(optionObject, fieldAction, fieldNumbers);
+        }
 
         public static IFormObject SetFieldObjects(IFormObject formObject, string fieldAction, List<string> fieldNumbers)
         {
@@ -108,6 +129,13 @@ namespace ScriptLinkStandard.Helpers
                 }
             }
             return formObject;
+        }
+        public static IFormObject SetFieldObjects(IFormObject formObject, string fieldAction, string fieldNumber)
+        {
+            if (formObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "formObject");
+            List<string> fieldNumbers = new List<string> { fieldNumber };
+            return SetFieldObjects(formObject, fieldAction, fieldNumbers);
         }
 
         public static IRowObject SetFieldObjects(IRowObject rowObject, string fieldAction, List<string> fieldNumbers)
@@ -168,6 +196,13 @@ namespace ScriptLinkStandard.Helpers
                 }
             }
             return rowObject;
+        }
+        public static IRowObject SetFieldObjects(IRowObject rowObject, string fieldAction, string fieldNumber)
+        {
+            if (rowObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
+            List<string> fieldNumbers = new List<string> { fieldNumber };
+            return SetFieldObjects(rowObject, fieldAction, fieldNumbers);
         }
 
         private static List<string> GetFieldNumbersToSet(List<FieldObject> fieldObjects)
