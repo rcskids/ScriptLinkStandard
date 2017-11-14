@@ -25,6 +25,7 @@ namespace ScriptLinkStandard.Interfaces
         void AddFormObject(FormObject formObject);
         void AddFormObject(string formId, bool multipleIteration);
         void AddRowObject(string formId, RowObject rowObject);
+        OptionObject2015 Clone();
         void DeleteRowObject(RowObject rowObject);
         void DeleteRowObject(string rowId);
         void DisableAllFieldObjects();

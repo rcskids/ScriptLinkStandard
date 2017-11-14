@@ -321,6 +321,17 @@ namespace ScriptLinkStandard.Objects
             this.Forms = ScriptLinkHelpers.AddRowObject(this, formId, rowObject).Forms;
         }
         /// <summary>
+        /// Clones the <see cref="OptionObject2015"/>.
+        /// </summary>
+        /// <returns></returns>
+        public OptionObject2015 Clone()
+        {
+            // Shallow Copy
+            // https://msdn.microsoft.com/en-us/library/system.object.memberwiseclone(v=vs.110).aspx
+            // https://docs.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone?view=netframework-4.7.1#System_Object_MemberwiseClone
+            return (OptionObject2015)this.MemberwiseClone();
+        }
+        /// <summary>
         /// Marks a <see cref="RowObject"/> for deletion.
         /// </summary>
         /// <param name="rowObject"></param>
