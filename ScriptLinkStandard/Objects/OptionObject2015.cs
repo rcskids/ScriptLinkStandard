@@ -587,13 +587,21 @@ namespace ScriptLinkStandard.Objects
         }
 
         /// <summary>
-        /// Returns a <see cref="string"/> with all of the contents of the <see cref="OptionObject2"/> formatted in HTML.
+        /// Returns a <see cref="string"/> with all of the contents of the <see cref="OptionObject2015"/> formatted in HTML.
         /// </summary>
         /// <param name="includeHtmlHeaders">Determines whether to include the HTML headers in return. False allows for the embedding of the HTML in another HTML document.</param>
-        /// <returns><see cref="string"/> of all of the contents of the <see cref="OptionObject2"/> formatted in HTML.</returns>
+        /// <returns><see cref="string"/> of all of the contents of the <see cref="OptionObject2015"/> formatted in HTML.</returns>
         public string ToHtmlString(bool includeHtmlHeaders)
         {
             return ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
+        }
+        /// <summary>
+        /// Returns a <see cref="string"/> with all of the contents of the <see cref="OptionObject2015"/> formatted as JSON.
+        /// </summary>
+        /// <returns><see cref="string"/> of all of the contents of the <see cref="OptionObject2015"/> formatted as JSON.</returns>
+        public string ToJson()
+        {
+            return ScriptLinkHelpers.TransformToJson(this);
         }
         /// <summary>
         /// Transforms the <see cref="OptionObject2015"/>  to an <see cref="OptionObject"/>.

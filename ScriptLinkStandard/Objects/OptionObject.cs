@@ -554,6 +554,14 @@ namespace ScriptLinkStandard.Objects
             return ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
         }
         /// <summary>
+        /// Returns a <see cref="string"/> with all of the contents of the <see cref="OptionObject"/> formatted as JSON.
+        /// </summary>
+        /// <returns><see cref="string"/> of all of the contents of the <see cref="OptionObject"/> formatted as JSON.</returns>
+        public string ToJson()
+        {
+            return ScriptLinkHelpers.TransformToJson(this);
+        }
+        /// <summary>
         /// Transforms the <see cref="OptionObject"/>  to an <see cref="OptionObject2"/>.
         /// </summary>
         /// <returns></returns>
