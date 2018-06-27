@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Objects;
 
 namespace ScriptLinkStandard.Tests.HelpersTests
@@ -117,6 +118,27 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             modifiedOptionObject.Forms.Add(addForm);
             OptionObject transformedOptionObject = modifiedOptionObject.ToOptionObject();
             Assert.AreEqual(modifiedOptionObject.Forms.Count, transformedOptionObject.Forms.Count);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2015")]
+        public void OptionObject2015FromJsonSuccess()
+        {
+            string json = "{\"EntityID\":null,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"NamespaceName\":null,\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"ParentNamespace\":null,\"ServerName\":null,\"SystemCode\":null,\"SessionToken\":null}";
+            OptionObject2015 expected = new OptionObject2015();
+            Assert.AreEqual(expected, ScriptLinkHelpers.TransformToOptionObject2015(json));
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2015")]
+        public void OptionObject2015FromJsonFailure()
+        {
+            string json = "{\"EntityID\":null,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"NamespaceName\":null,\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"ParentNamespace\":null,\"ServerName\":null,\"SystemCode\":null,\"SessionToken\":null}";
+            OptionObject2015 expected = new OptionObject2015
+            {
+                EntityID = "1"
+            };
+            Assert.AreNotEqual(expected, ScriptLinkHelpers.TransformToOptionObject2015(json));
         }
     }
 }
