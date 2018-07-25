@@ -1,9 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Objects;
 using System.Collections.Generic;
 
-namespace ScriptLinkStandard.Test.EntitiesTests
+namespace ScriptLinkStandard.Tests.ObjectsTests
 {
     [TestClass]
     public class OptionObject22Tests

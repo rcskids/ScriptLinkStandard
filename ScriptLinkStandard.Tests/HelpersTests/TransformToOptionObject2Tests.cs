@@ -3,7 +3,7 @@ using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Objects;
 using System;
 
-namespace ScriptLinkStandard.Test.HelperTests
+namespace ScriptLinkStandard.Tests.HelpersTests
 {
     [TestClass]
     public class TransformToOptionObject2Tests

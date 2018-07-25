@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ScriptLinkStandard.Objects;
 
-namespace ScriptLinkStandard.Test.ObjectsTests
+namespace ScriptLinkStandard.Tests.ObjectsTests
 {
     [TestClass]
     public class FieldObjectTests

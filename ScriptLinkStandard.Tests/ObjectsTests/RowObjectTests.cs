@@ -2,7 +2,7 @@
 using ScriptLinkStandard.Objects;
 using System.Collections.Generic;
 
-namespace ScriptLinkStandard.Test.ObjectsTests
+namespace ScriptLinkStandard.Tests.ObjectsTests
 {
     [TestClass]
     public class RowObjectTests

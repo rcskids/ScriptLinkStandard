@@ -2,7 +2,7 @@
 using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Objects;
 
-namespace ScriptLinkStandard.Test.HelpersTests
+namespace ScriptLinkStandard.Tests.HelpersTests
 {
     [TestClass]
     public class IsFieldPresentTests

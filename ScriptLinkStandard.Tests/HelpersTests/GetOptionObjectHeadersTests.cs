@@ -3,7 +3,7 @@ using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Objects;
 using System.Collections.Generic;
 
-namespace ScriptLinkStandard.Test.HelpersTests
+namespace ScriptLinkStandard.Tests.HelpersTests
 {
     [TestClass]
     public class GetOptionObjectHeadersTests

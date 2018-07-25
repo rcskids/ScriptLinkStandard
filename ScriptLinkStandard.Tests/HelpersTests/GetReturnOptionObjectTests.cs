@@ -3,7 +3,7 @@ using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
 
-namespace ScriptLinkStandard.Test.HelpersTests
+namespace ScriptLinkStandard.Tests.HelpersTests
 {
     [TestClass]
     public class GetReturnOptionObjectTests

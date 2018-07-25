@@ -4,7 +4,7 @@ using ScriptLinkStandard.Objects;
 using ScriptLinkStandard.Helpers;
 using System.Collections.Generic;
 
-namespace ScriptLinkStandard.Test.HelpersTests
+namespace ScriptLinkStandard.Tests.HelpersTests
 {
     [TestClass]
     public class SetFieldValuesTests

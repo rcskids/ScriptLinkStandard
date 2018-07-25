@@ -2,7 +2,7 @@
 using ScriptLinkStandard.Objects;
 using System.Collections.Generic;
 
-namespace ScriptLinkStandard.Test.EntitiesTests
+namespace ScriptLinkStandard.Tests.ObjectsTests
 {
     [TestClass]
     public class FormObjectTests
