@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace ScriptLinkStandard.Tests.ObjectsTests
 {
     [TestClass]
-    public class OptionObject22Tests
+    public class OptionObject2Tests
     {
         private OptionObject2 configuredOptionObject2;
 
