@@ -21,7 +21,8 @@ namespace ScriptLinkStandard.Tests.HelpersTests
                 Required = "0",
                 Lock = "0"
             };
-            ScriptLinkHelpers.AddFieldObject(null, fieldObject);
+            RowObject rowObject = null;
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject);
             Assert.AreNotEqual(null, fieldObject);
         }
 
@@ -31,7 +32,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void AddFieldObject_ToRowObject_NullFieldObject()
         {
             RowObject rowObject = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject, null);
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, null);
             Assert.AreNotEqual(rowObject, null);
         }
 
@@ -49,8 +50,8 @@ namespace ScriptLinkStandard.Tests.HelpersTests
                 Lock = "0"
             };
             RowObject rowObject = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject);
-            ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject);
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject);
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject);
             Assert.IsFalse(rowObject.IsFieldPresent("1"));
         }
 
@@ -76,8 +77,8 @@ namespace ScriptLinkStandard.Tests.HelpersTests
                 Lock = "0"
             };
             RowObject rowObject = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject1);
-            ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject2);
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject1);
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject2);
             Assert.IsFalse(rowObject.IsFieldPresent("1"));
         }
 
@@ -94,7 +95,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
                 Lock = "0"
             };
             RowObject rowObject = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject);
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, fieldObject);
             Assert.IsTrue(rowObject.IsFieldPresent("1"));
         }
 
@@ -105,7 +106,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             string expectedNumber = "1";
             string expectedValue = "Test";
             RowObject rowObject = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject, expectedNumber, expectedValue);
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, expectedNumber, expectedValue);
             Assert.IsTrue(rowObject.IsFieldPresent(expectedNumber));
             Assert.AreEqual(expectedValue, rowObject.GetFieldValue(expectedNumber));
         }
@@ -118,7 +119,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             string expectedNumber = null;
             string expectedValue = "Test";
             RowObject rowObject = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject, expectedNumber, expectedValue);
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, expectedNumber, expectedValue);
             Assert.IsTrue(rowObject.IsFieldPresent(expectedNumber));
             Assert.AreEqual(expectedValue, rowObject.GetFieldValue(expectedNumber));
         }
@@ -131,7 +132,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             string expectedNumber = "";
             string expectedValue = "Test";
             RowObject rowObject = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject, expectedNumber, expectedValue);
+            rowObject = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject, expectedNumber, expectedValue);
             Assert.IsTrue(rowObject.IsFieldPresent(expectedNumber));
             Assert.AreEqual(expectedValue, rowObject.GetFieldValue(expectedNumber));
         }
@@ -142,8 +143,8 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             RowObject rowObject1 = new RowObject();
             RowObject rowObject2 = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "1", "1", "1");
-            ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", true, true, true);
+            rowObject1 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "1", "1", "1");
+            rowObject2 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", true, true, true);
             Assert.IsTrue(rowObject1.IsFieldEnabled("1"));
             Assert.IsTrue(rowObject2.IsFieldEnabled("1"));
         }
@@ -154,8 +155,8 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             RowObject rowObject1 = new RowObject();
             RowObject rowObject2 = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "0", "0", "0");
-            ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", false, false, false);
+            rowObject1 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "0", "0", "0");
+            rowObject2 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", false, false, false);
             Assert.IsFalse(rowObject1.IsFieldEnabled("1"));
             Assert.IsFalse(rowObject2.IsFieldEnabled("1"));
         }
@@ -166,8 +167,8 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             RowObject rowObject1 = new RowObject();
             RowObject rowObject2 = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "1", "1", "1");
-            ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", true, true, true);
+            rowObject1 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "1", "1", "1");
+            rowObject2 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", true, true, true);
             Assert.IsTrue(rowObject1.IsFieldRequired("1"));
             Assert.IsTrue(rowObject2.IsFieldRequired("1"));
         }
@@ -178,8 +179,8 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             RowObject rowObject1 = new RowObject();
             RowObject rowObject2 = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "0", "0", "0");
-            ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", false, false, false);
+            rowObject1 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "0", "0", "0");
+            rowObject2 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", false, false, false);
             Assert.IsFalse(rowObject1.IsFieldRequired("1"));
             Assert.IsFalse(rowObject2.IsFieldRequired("1"));
         }
@@ -190,8 +191,8 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             RowObject rowObject1 = new RowObject();
             RowObject rowObject2 = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "1", "1", "1");
-            ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", true, true, true);
+            rowObject1 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "1", "1", "1");
+            rowObject2 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", true, true, true);
             Assert.IsTrue(rowObject1.IsFieldLocked("1"));
             Assert.IsTrue(rowObject2.IsFieldLocked("1"));
         }
@@ -202,8 +203,8 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             RowObject rowObject1 = new RowObject();
             RowObject rowObject2 = new RowObject();
-            ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "0", "0", "0");
-            ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", false, false, false);
+            rowObject1 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject1, "1", "Test", "0", "0", "0");
+            rowObject2 = (RowObject)ScriptLinkHelpers.AddFieldObject(rowObject2, "1", "Test", false, false, false);
             Assert.IsFalse(rowObject1.IsFieldLocked("1"));
             Assert.IsFalse(rowObject2.IsFieldLocked("1"));
         }
