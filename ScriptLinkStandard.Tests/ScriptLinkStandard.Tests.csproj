@@ -72,6 +72,7 @@
     <Compile Include="HelpersTests\TransformToJsonTests.cs" />
     <Compile Include="HelpersTests\AddFieldObjectTests.cs" />
     <Compile Include="HelpersTests\AddFormObjectTests.cs" />
+    <Compile Include="HelpersTests\AddRowObjectTests.cs" />
     <Compile Include="ObjectsTests\FieldObjectTests.cs" />
     <Compile Include="ObjectsTests\FormObjectTests.cs" />
     <Compile Include="ObjectsTests\OptionObject2Tests.cs" />
