@@ -1,13 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ScriptLinkStandard.Objects;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ScriptLinkStandard.Helpers;
-using System.Collections.Generic;
+using ScriptLinkStandard.Objects;
 
 namespace ScriptLinkStandard.Tests.HelpersTests
 {
     [TestClass]
-    public class SetFieldValuesTests
+    public class SetFieldValueTests
     {
         [TestInitialize]
         public void TestInitialize()
