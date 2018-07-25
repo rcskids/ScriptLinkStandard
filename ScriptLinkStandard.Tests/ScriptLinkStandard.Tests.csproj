@@ -73,6 +73,7 @@
     <Compile Include="HelpersTests\AddFieldObjectTests.cs" />
     <Compile Include="HelpersTests\AddFormObjectTests.cs" />
     <Compile Include="HelpersTests\AddRowObjectTests.cs" />
+    <Compile Include="HelpersTests\GetCurrentRowIdTests.cs" />
     <Compile Include="ObjectsTests\FieldObjectTests.cs" />
     <Compile Include="ObjectsTests\FormObjectTests.cs" />
     <Compile Include="ObjectsTests\OptionObject2Tests.cs" />
