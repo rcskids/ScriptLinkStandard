@@ -218,15 +218,9 @@ namespace ScriptLinkStandard.Objects
             return true;
         }
 
-        private bool AreBothEmpty(List<FormObject> list1, List<FormObject> list2)
-        {
-            return (!list1.Any() && !list2.Any());
-        }
+        private bool AreBothEmpty(List<FormObject> list1, List<FormObject> list2) => (!list1.Any() && !list2.Any());
 
-        private bool AreBothNull(List<FormObject> list1, List<FormObject> list2)
-        {
-            return (list1 == null && list2 == null);
-        }
+        private bool AreBothNull(List<FormObject> list1, List<FormObject> list2) => (list1 == null && list2 == null);
 
         /// <summary>
         /// Used to compare <see cref="OptionObject2015"/> to an <see cref="object"/> to determine if they are equal. Returns <see cref="bool"/>.
@@ -292,224 +286,165 @@ namespace ScriptLinkStandard.Objects
         /// Adds a <see cref="FormObject"/> to an <see cref="OptionObject2015"/>.
         /// </summary>
         /// <param name="formObject"></param>
-        public void AddFormObject(FormObject formObject)
-        {
-            if (formObject == null)
-                return;
-            this.Forms = ScriptLinkHelpers.AddFormObject(this, formObject).Forms;
-        }
+        public void AddFormObject(FormObject formObject) => this.Forms = ScriptLinkHelpers.AddFormObject(this, formObject).Forms;
+
         /// <summary>
         /// Adds a <see cref="FormObject"/> to an <see cref="OptionObject2015"/>.
         /// </summary>
         /// <param name="formId"></param>
         /// <param name="multipleIteration"></param>
-        public void AddFormObject(string formId, bool multipleIteration)
-        {
-            if (formId == null || formId == "")
-                return;
-            this.Forms = ScriptLinkHelpers.AddFormObject(this, formId, multipleIteration).Forms;
-        }
+        public void AddFormObject(string formId, bool multipleIteration) => this.Forms = ScriptLinkHelpers.AddFormObject(this, formId, multipleIteration).Forms;
+
         /// <summary>
         /// Adds a <see cref="RowObject"/> to a <see cref="FormObject"/> in this <see cref="OptionObject2015"/>.
         /// </summary>
         /// <param name="formId"></param>
         /// <param name="rowObject"></param>
-        public void AddRowObject(string formId, RowObject rowObject)
-        {
-            if (formId == null || formId == "")
-                return;
-            this.Forms = ScriptLinkHelpers.AddRowObject(this, formId, rowObject).Forms;
-        }
+        public void AddRowObject(string formId, RowObject rowObject) => this.Forms = ScriptLinkHelpers.AddRowObject(this, formId, rowObject).Forms;
+
         /// <summary>
         /// Clones the <see cref="OptionObject2015"/>.
         /// </summary>
         /// <returns></returns>
-        public OptionObject2015 Clone()
-        {
+        public OptionObject2015 Clone() =>
             // Shallow Copy
             // https://msdn.microsoft.com/en-us/library/system.object.memberwiseclone(v=vs.110).aspx
             // https://docs.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone?view=netframework-4.7.1#System_Object_MemberwiseClone
-            return (OptionObject2015)this.MemberwiseClone();
-        }
+            (OptionObject2015)this.MemberwiseClone();
+
         /// <summary>
         /// Marks a <see cref="RowObject"/> for deletion.
         /// </summary>
         /// <param name="rowObject"></param>
-        public void DeleteRowObject(RowObject rowObject)
-        {
-            if (rowObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "rowObject");
-            this.Forms = ScriptLinkHelpers.DeleteRowObject(this, rowObject).Forms;
-        }
+        public void DeleteRowObject(RowObject rowObject) => this.Forms = ScriptLinkHelpers.DeleteRowObject(this, rowObject).Forms;
+
         /// <summary>
         /// Marks a <see cref="RowObject"/> for deletion.
         /// </summary>
         /// <param name="rowId"></param>
-        public void DeleteRowObject(string rowId)
-        {
-            if (rowId == null || rowId == "")
-                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
-            this.Forms = ScriptLinkHelpers.DeleteRowObject(this, rowId).Forms;
-        }
+        public void DeleteRowObject(string rowId) => this.Forms = ScriptLinkHelpers.DeleteRowObject(this, rowId).Forms;
+
         /// <summary>
         /// Sets all <see cref="FieldObject"/> as disabled.
         /// </summary>
-        public void DisableAllFieldObjects()
-        {
-            this.Forms = ScriptLinkHelpers.DisableAllFieldObjects(this).Forms;
-        }
+        public void DisableAllFieldObjects() => this.Forms = ScriptLinkHelpers.DisableAllFieldObjects(this).Forms;
+
         /// <summary>
         /// Sets all <see cref="FieldObject"/> as disabled except for any listed to be excluded.
         /// </summary>
         /// <param name="excludedFieldObjects"></param>
-        public void DisableAllFieldObjects(List<string> excludedFieldObjects)
-        {
-            this.Forms = ScriptLinkHelpers.DisableAllFieldObjects(this, excludedFieldObjects).Forms;
-        }
+        public void DisableAllFieldObjects(List<string> excludedFieldObjects) => this.Forms = ScriptLinkHelpers.DisableAllFieldObjects(this, excludedFieldObjects).Forms;
+
         /// <summary>
         /// Returns the CurrentRow RowId of the form matching the FormId.
         /// </summary>
         /// <param name="formId"></param>
         /// <returns></returns>
-        public string GetCurrentRowId(string formId)
-        {
-            return ScriptLinkHelpers.GetCurrentRowId(this, formId);
-        }
+        public string GetCurrentRowId(string formId) => ScriptLinkHelpers.GetCurrentRowId(this, formId);
+
         /// <summary>
         /// Returns the first value of the field matching the Field Number.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public string GetFieldValue(string fieldNumber)
-        {
-            return ScriptLinkHelpers.GetFieldValue(this, fieldNumber);
-        }
+        public string GetFieldValue(string fieldNumber) => ScriptLinkHelpers.GetFieldValue(this, fieldNumber);
+
         /// <summary>
         /// Returns the value of the <see cref="FieldObject"/> matching the Field Number.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public string GetFieldValue(string formId, string rowId, string fieldNumber)
-        {
-            return ScriptLinkHelpers.GetFieldValue(this, formId, rowId, fieldNumber);
-        }
+        public string GetFieldValue(string formId, string rowId, string fieldNumber) => ScriptLinkHelpers.GetFieldValue(this, formId, rowId, fieldNumber);
+
         /// <summary>
         /// Returns the values of the field matching the Field Number.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public List<string> GetFieldValues(string fieldNumber)
-        {
-            return ScriptLinkHelpers.GetFieldValues(this, fieldNumber);
-        }
+        public List<string> GetFieldValues(string fieldNumber) => ScriptLinkHelpers.GetFieldValues(this, fieldNumber);
+
         /// <summary>
         /// Returns the Multiple Iteration Status of the form matching the FormId.
         /// </summary>
         /// <param name="formId"></param>
         /// <returns></returns>
-        public bool GetMultipleIterationStatus(string formId)
-        {
-            return ScriptLinkHelpers.GetMultipleIterationStatus(this, formId);
-        }
+        public bool GetMultipleIterationStatus(string formId) => ScriptLinkHelpers.GetMultipleIterationStatus(this, formId);
+
         /// <summary>
         /// Returns the CurrentRow ParentRowId of the form matching the FormId.
         /// </summary>
         /// <param name="formId"></param>
         /// <returns></returns>
-        public string GetParentRowId(string formId)
-        {
-            return ScriptLinkHelpers.GetParentRowId(this, formId);
-        }
+        public string GetParentRowId(string formId) => ScriptLinkHelpers.GetParentRowId(this, formId);
 
         /// <summary>
         /// Returns whether the specified field is enabled.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsFieldEnabled(string fieldNumber)
-        {
-            return ScriptLinkHelpers.IsFieldEnabled(this, fieldNumber);
-        }
+        public bool IsFieldEnabled(string fieldNumber) => ScriptLinkHelpers.IsFieldEnabled(this, fieldNumber);
+
         /// <summary>
         /// Returns whether the specified field is locked.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsFieldLocked(string fieldNumber)
-        {
-            return ScriptLinkHelpers.IsFieldLocked(this, fieldNumber);
-        }
+        public bool IsFieldLocked(string fieldNumber) => ScriptLinkHelpers.IsFieldLocked(this, fieldNumber);
+
         /// <summary>
         /// Returns whether the specified field is present.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsFieldPresent(string fieldNumber)
-        {
-            return ScriptLinkHelpers.IsFieldPresent(this, fieldNumber);
-        }
+        public bool IsFieldPresent(string fieldNumber) => ScriptLinkHelpers.IsFieldPresent(this, fieldNumber);
+
         /// <summary>
         /// Returns whether the specified field is required.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsFieldRequired(string fieldNumber)
-        {
-            return ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
-        }
+        public bool IsFieldRequired(string fieldNumber) => ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
+
         /// <summary>
         /// Returns whether the specified <see cref="FormObject"/> is present.
         /// </summary>
         /// <param name="formId"></param>
         /// <returns></returns>
-        public bool IsFormPresent(string formId)
-        {
-            return ScriptLinkHelpers.IsFormPresent(this, formId);
-        }
+        public bool IsFormPresent(string formId) => ScriptLinkHelpers.IsFormPresent(this, formId);
+
         /// <summary>
         /// Returns whether the specified <see cref="RowObject"/> is marked for deletion.
         /// </summary>
         /// <param name="rowId"></param>
         /// <returns></returns>
-        public bool IsRowMarkedForDeletion(string rowId)
-        {
-            return ScriptLinkHelpers.IsRowMarkedForDeletion(this, rowId);
-        }
+        public bool IsRowMarkedForDeletion(string rowId) => ScriptLinkHelpers.IsRowMarkedForDeletion(this, rowId);
+
         /// <summary>
         /// Returns whether the specified <see cref="RowObject"/> is present.
         /// </summary>
         /// <param name="rowId"></param>
         /// <returns></returns>
-        public bool IsRowPresent(string rowId)
-        {
-            return ScriptLinkHelpers.IsRowPresent(this, rowId);
-        }
+        public bool IsRowPresent(string rowId) => ScriptLinkHelpers.IsRowPresent(this, rowId);
 
         /// <summary>
         /// Sets the specified fields as disabled and unrequires if required.
         /// </summary>
         /// <param name="fieldNumbers"></param>
-        public void SetDisabledFields(List<string> fieldNumbers)
-        {
-            this.Forms = ScriptLinkHelpers.SetDisabledFields(this, fieldNumbers).Forms;
-        }
+        public void SetDisabledFields(List<string> fieldNumbers) => this.Forms = ScriptLinkHelpers.SetDisabledFields(this, fieldNumbers).Forms;
+
         /// <summary>
         /// Sets the specified field as disabled and unrequires if required.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetDisabledFields(string fieldNumber)
-        {
-            this.Forms = ScriptLinkHelpers.SetDisabledFields(this, fieldNumber).Forms;
-        }
+        public void SetDisabledFields(string fieldNumber) => this.Forms = ScriptLinkHelpers.SetDisabledFields(this, fieldNumber).Forms;
+
         /// <summary>
         /// Sets the FieldValue of a <see cref="FieldObject"/> in the <see cref="OptionObject"/> on the first form CurrentRow.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <param name="fieldValue"></param>
-        public void SetFieldValue(string fieldNumber, string fieldValue)
-        {
-            this.Forms = ScriptLinkHelpers.SetFieldValue(this, fieldNumber, fieldValue).Forms;
-        }
+        public void SetFieldValue(string fieldNumber, string fieldValue) => this.Forms = ScriptLinkHelpers.SetFieldValue(this, fieldNumber, fieldValue).Forms;
+
         /// <summary>
         /// Sets the FieldValue of a <see cref="FieldObject"/> in the <see cref="OptionObject2"/> 
         /// </summary>
@@ -517,125 +452,93 @@ namespace ScriptLinkStandard.Objects
         /// <param name="rowId"></param>
         /// <param name="fieldNumber"></param>
         /// <param name="fieldValue"></param>
-        public void SetFieldValue(string formId, string rowId, string fieldNumber, string fieldValue)
-        {
-            this.Forms = ScriptLinkHelpers.SetFieldValue(this, formId, rowId, fieldNumber, fieldValue).Forms;
-        }
+        public void SetFieldValue(string formId, string rowId, string fieldNumber, string fieldValue) => this.Forms = ScriptLinkHelpers.SetFieldValue(this, formId, rowId, fieldNumber, fieldValue).Forms;
+
         /// <summary>
         /// Set the specified fields as locked.
         /// </summary>
         /// <param name="fieldNumbers"></param>
-        public void SetLockedFields(List<string> fieldNumbers)
-        {
-            this.Forms = ScriptLinkHelpers.SetLockedFields(this, fieldNumbers).Forms;
-        }
+        public void SetLockedFields(List<string> fieldNumbers) => this.Forms = ScriptLinkHelpers.SetLockedFields(this, fieldNumbers).Forms;
+
         /// <summary>
         /// Set the specified field as locked.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetLockedFields(string fieldNumber)
-        {
-            this.Forms = ScriptLinkHelpers.SetLockedFields(this, fieldNumber).Forms;
-        }
+        public void SetLockedFields(string fieldNumber) => this.Forms = ScriptLinkHelpers.SetLockedFields(this, fieldNumber).Forms;
+
         /// <summary>
         /// Set the specified fields as not required and enables if disabled.
         /// </summary>
         /// <param name="fieldNumbers"></param>
-        public void SetOptionalFields(List<string> fieldNumbers)
-        {
-            this.Forms = ScriptLinkHelpers.SetOptionalFields(this, fieldNumbers).Forms;
-        }
+        public void SetOptionalFields(List<string> fieldNumbers) => this.Forms = ScriptLinkHelpers.SetOptionalFields(this, fieldNumbers).Forms;
+
         /// <summary>
         /// Set the specified field as not required and enables if disabled.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetOptionalFields(string fieldNumber)
-        {
-            this.Forms = ScriptLinkHelpers.SetOptionalFields(this, fieldNumber).Forms;
-        }
+        public void SetOptionalFields(string fieldNumber) => this.Forms = ScriptLinkHelpers.SetOptionalFields(this, fieldNumber).Forms;
+
         /// <summary>
         /// Sets the specified fields as required and enables if disabled.
         /// </summary>
         /// <param name="fieldNumbers"></param>
-        public void SetRequiredFields(List<string> fieldNumbers)
-        {
-            this.Forms = ScriptLinkHelpers.SetRequiredFields(this, fieldNumbers).Forms;
-        }
+        public void SetRequiredFields(List<string> fieldNumbers) => this.Forms = ScriptLinkHelpers.SetRequiredFields(this, fieldNumbers).Forms;
+
         /// <summary>
         /// Sets the specified field as required and enables if disabled.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetRequiredFields(string fieldNumber)
-        {
-            this.Forms = ScriptLinkHelpers.SetRequiredFields(this, fieldNumber).Forms;
-        }
+        public void SetRequiredFields(string fieldNumber) => this.Forms = ScriptLinkHelpers.SetRequiredFields(this, fieldNumber).Forms;
+
         /// <summary>
         /// Set the specified fields as unlocked.
         /// </summary>
         /// <param name="fieldNumbers"></param>
-        public void SetUnlockedFields(List<string> fieldNumbers)
-        {
-            this.Forms = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumbers).Forms;
-        }
+        public void SetUnlockedFields(List<string> fieldNumbers) => this.Forms = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumbers).Forms;
+
         /// <summary>
         /// Set the specified field as unlocked.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetUnlockedFields(string fieldNumber)
-        {
-            this.Forms = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumber).Forms;
-        }
+        public void SetUnlockedFields(string fieldNumber) => this.Forms = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumber).Forms;
 
         /// <summary>
         /// Returns a <see cref="string"/> with all of the contents of the <see cref="OptionObject2015"/> formatted in HTML.
         /// </summary>
         /// <param name="includeHtmlHeaders">Determines whether to include the HTML headers in return. False allows for the embedding of the HTML in another HTML document.</param>
         /// <returns><see cref="string"/> of all of the contents of the <see cref="OptionObject2015"/> formatted in HTML.</returns>
-        public string ToHtmlString(bool includeHtmlHeaders)
-        {
-            return ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
-        }
+        public string ToHtmlString(bool includeHtmlHeaders) => ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
+
         /// <summary>
         /// Returns a <see cref="string"/> with all of the contents of the <see cref="OptionObject2015"/> formatted as JSON.
         /// </summary>
         /// <returns><see cref="string"/> of all of the contents of the <see cref="OptionObject2015"/> formatted as JSON.</returns>
-        public string ToJson()
-        {
-            return ScriptLinkHelpers.TransformToJson(this);
-        }
+        public string ToJson() => ScriptLinkHelpers.TransformToJson(this);
+
         /// <summary>
         /// Transforms the <see cref="OptionObject2015"/>  to an <see cref="OptionObject"/>.
         /// </summary>
         /// <returns></returns>
-        public OptionObject ToOptionObject()
-        {
-            return (OptionObject)ScriptLinkHelpers.TransformToOptionObject(this);
-        }
+        public OptionObject ToOptionObject() => (OptionObject)ScriptLinkHelpers.TransformToOptionObject(this);
+
         /// <summary>
         /// Transforms the <see cref="OptionObject2015"/>  to an <see cref="OptionObject2"/>.
         /// </summary>
         /// <returns></returns>
-        public OptionObject2 ToOptionObject2()
-        {
-            return (OptionObject2)ScriptLinkHelpers.TransformToOptionObject2(this);
-        }
+        public OptionObject2 ToOptionObject2() => (OptionObject2)ScriptLinkHelpers.TransformToOptionObject2(this);
+
         /// <summary>
         /// Creates an <see cref="OptionObject2015"/> with the minimal information required to return.
         /// </summary>
         /// <returns></returns>
-        public OptionObject2015 ToReturnOptionObject()
-        {
-            return (OptionObject2015)ScriptLinkHelpers.GetReturnOptionObject(this);
-        }
+        public OptionObject2015 ToReturnOptionObject() => (OptionObject2015)ScriptLinkHelpers.GetReturnOptionObject(this);
+
         /// <summary>
         /// Creates an <see cref="OptionObject2015"/> with the minimal information required to return plus the provide Error Code and Message.
         /// </summary>
         /// <param name="errorCode"></param>
         /// <param name="errorMessage"></param>
         /// <returns></returns>
-        public OptionObject2015 ToReturnOptionObject(int errorCode, string errorMessage)
-        {
-            return (OptionObject2015)ScriptLinkHelpers.GetReturnOptionObject(this, errorCode, errorMessage);
-        }
+        public OptionObject2015 ToReturnOptionObject(int errorCode, string errorMessage) => (OptionObject2015)ScriptLinkHelpers.GetReturnOptionObject(this, errorCode, errorMessage);
     }
 }

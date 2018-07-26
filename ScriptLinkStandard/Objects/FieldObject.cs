@@ -6,7 +6,7 @@ using System;
 namespace ScriptLinkStandard.Objects
 {
     /// <summary>
-    /// Represents a FieldObject within a <see cref="RowObject"/>.
+    /// Represents a ScriptLink FieldObject within a <see cref="RowObject"/>.
     /// </summary>
     public class FieldObject : IEquatable<FieldObject>, IFieldObject
     {
@@ -163,6 +163,7 @@ namespace ScriptLinkStandard.Objects
                 return false;
             return this.Equals(fieldObject);
         }
+
         /// <summary>
         /// Overrides the <see cref="GetHashCode"/> method for a <see cref="FieldObject"/>.
         /// </summary>
@@ -202,42 +203,32 @@ namespace ScriptLinkStandard.Objects
         /// Returns the <see cref="FieldValue"/> of a <see cref="FieldObject"/>
         /// </summary>
         /// <returns></returns>
-        public string GetFieldValue()
-        {
-            return this.FieldValue;
-        }
+        public string GetFieldValue() => this.FieldValue;
+
         /// <summary>
         /// Returns whether the <see cref="FieldObject"/> has been modified.
         /// </summary>
         /// <returns></returns>
-        public bool IsModified()
-        {
-            return _isModified;
-        }
+        public bool IsModified() => _isModified;
+
         /// <summary>
         /// Determines whether <see cref="FieldObject"/> is enabled.
         /// </summary>
         /// <returns></returns>
-        public bool IsEnabled()
-        {
-            return this.Enabled == "1" ? true : false;
-        }
+        public bool IsEnabled() => this.Enabled == "1" ? true : false;
+
         /// <summary>
         /// Determines whether <see cref="FieldObject"/> is enabled.
         /// </summary>
         /// <returns></returns>
-        public bool IsLocked()
-        {
-            return this.Lock == "1" ? true : false;
-        }
+        public bool IsLocked() => this.Lock == "1" ? true : false;
+
         /// <summary>
         /// Determines whether <see cref="FieldObject"/> is enabled.
         /// </summary>
         /// <returns></returns>
-        public bool IsRequired()
-        {
-            return this.Required == "1" ? true : false;
-        }
+        public bool IsRequired() => this.Required == "1" ? true : false;
+
         /// <summary>
         /// Sets the <see cref="FieldObject"/> as disabled and marks the <see cref="FieldObject"/> as modified.
         /// </summary>
@@ -247,6 +238,7 @@ namespace ScriptLinkStandard.Objects
             this.Enabled = "0";
             this.Required = "0";
         }
+
         /// <summary>
         /// Sets the <see cref="FieldObject"/> as enabled and marks the <see cref="FieldObject"/> as modified.
         /// </summary>
@@ -255,6 +247,7 @@ namespace ScriptLinkStandard.Objects
             _isModified = true;
             this.Enabled = "1";
         }
+
         /// <summary>
         /// Sets the <see cref="FieldObject"/> as locked and marks the <see cref="FieldObject"/> as modified.
         /// </summary>
@@ -263,13 +256,12 @@ namespace ScriptLinkStandard.Objects
             _isModified = true;
             this.Lock = "1";
         }
+
         /// <summary>
         /// Sets the <see cref="FieldObject"/> as modified.
         /// </summary>
-        public void SetAsModified()
-        {
-            _isModified = true;
-        }
+        public void SetAsModified() => _isModified = true;
+
         /// <summary>
         /// Sets the <see cref="FieldObject"/> as optional and marks the <see cref="FieldObject"/> as modified.
         /// </summary>
@@ -279,6 +271,7 @@ namespace ScriptLinkStandard.Objects
             this.Enabled = "1";
             this.Required = "0";
         }
+
         /// <summary>
         /// Sets the <see cref="FieldObject"/> as required and marks the <see cref="FieldObject"/> as modified.
         /// </summary>
@@ -288,6 +281,7 @@ namespace ScriptLinkStandard.Objects
             this.Enabled = "1";
             this.Required = "1";
         }
+
         /// <summary>
         /// Sets the <see cref="FieldObject"/> as unlocked and marks the <see cref="FieldObject"/> as modified.
         /// </summary>
@@ -296,6 +290,7 @@ namespace ScriptLinkStandard.Objects
             _isModified = true;
             this.Lock = "0";
         }
+
         /// <summary>
         /// Sets the <see cref="FieldValue"/> of a <see cref="FieldObject"/>.
         /// </summary>
@@ -306,23 +301,18 @@ namespace ScriptLinkStandard.Objects
             _isModified = true;
             this.FieldValue = fieldValue;
         }
-        
+
         /// <summary>
         /// Returns a <see cref="string"/> with all of the contents of the <see cref="FieldObject"/> formatted in HTML.
         /// </summary>
         /// <param name="includeHtmlHeaders">Determines whether to include the HTML headers in return. False allows for the embedding of the HTML in another HTML document.</param>
         /// <returns><see cref="string"/> of all of the contents of the <see cref="FieldObject"/> formatted in HTML.</returns>
-        public string ToHtmlString(bool includeHtmlHeaders)
-        {
-            return ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
-        }
+        public string ToHtmlString(bool includeHtmlHeaders) => ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
+
         /// <summary>
         /// Returns a <see cref="string"/> with all of the contents of the <see cref="FieldObject"/> formatted as JSON.
         /// </summary>
         /// <returns><see cref="string"/> of all of the contents of the <see cref="FieldObject"/> formatted as JSON.</returns>
-        public string ToJson()
-        {
-            return ScriptLinkHelpers.TransformToJson(this);
-        }
+        public string ToJson() => ScriptLinkHelpers.TransformToJson(this);
     }
 }

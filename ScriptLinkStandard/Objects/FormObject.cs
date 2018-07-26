@@ -131,15 +131,9 @@ namespace ScriptLinkStandard.Objects
             return true;
         }
 
-        private bool AreBothEmpty(List<RowObject> list1, List<RowObject> list2)
-        {
-            return (!list1.Any() && !list2.Any());
-        }
+        private bool AreBothEmpty(List<RowObject> list1, List<RowObject> list2) => (!list1.Any() && !list2.Any());
 
-        private bool AreBothNull(List<RowObject> list1, List<RowObject> list2)
-        {
-            return (list1 == null && list2 == null);
-        }
+        private bool AreBothNull(List<RowObject> list1, List<RowObject> list2) => (list1 == null && list2 == null);
 
         /// <summary>
         /// Used to compare <see cref="FormObject"/> to an <see cref="object"/> to determine if they are equal. Returns <see cref="bool"/>.
@@ -249,104 +243,83 @@ namespace ScriptLinkStandard.Objects
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
+
         /// <summary>
         /// Returns the RowId of the <see cref="CurrentRow"/>.
         /// </summary>
         /// <returns></returns>
-        public string GetCurrentRowId()
-        {
-            return ScriptLinkHelpers.GetCurrentRowId(this);
-        }
+        public string GetCurrentRowId() => ScriptLinkHelpers.GetCurrentRowId(this);
+
         /// <summary>
         /// Returns the value of the <see cref="FieldObject"/> in the CurrentRow of the <see cref="FormObject"/> by FieldNumber.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public string GetFieldValue(string fieldNumber)
-        {
-            return ScriptLinkHelpers.GetFieldValue(this, fieldNumber);
-        }
+        public string GetFieldValue(string fieldNumber) => ScriptLinkHelpers.GetFieldValue(this, fieldNumber);
+
         /// <summary>
         /// Returns the value of the <see cref="FieldObject"/> in the <see cref="RowObject"/> of the <see cref="FormObject"/> by RowId and FieldNumber.
         /// </summary>
         /// <param name="rowId"></param>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public string GetFieldValue(string rowId, string fieldNumber)
-        {
-            return ScriptLinkHelpers.GetFieldValue(this, rowId, fieldNumber);
-        }
+        public string GetFieldValue(string rowId, string fieldNumber) => ScriptLinkHelpers.GetFieldValue(this, rowId, fieldNumber);
+
         /// <summary>
         /// Returns a <see cref="List{T}"/> of FieldValues in a <see cref="FormObject"/>.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public List<string> GetFieldValues(string fieldNumber)
-        {
-            return ScriptLinkHelpers.GetFieldValues(this, fieldNumber);
-        }
+        public List<string> GetFieldValues(string fieldNumber) => ScriptLinkHelpers.GetFieldValues(this, fieldNumber);
+
         /// <summary>
         /// Returns the ParentRowId of the <see cref="CurrentRow"/>.
         /// </summary>
         /// <returns></returns>
-        public string GetParentRowId()
-        {
-            return ScriptLinkHelpers.GetParentRowId(this);
-        }
+        public string GetParentRowId() => ScriptLinkHelpers.GetParentRowId(this);
+
         /// <summary>
         /// Determines whether the <see cref="FieldObject"/> is enabled in the <see cref="FormObject"/> by FieldNumber.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsFieldEnabled(string fieldNumber)
-        {
-            return ScriptLinkHelpers.IsFieldEnabled(this, fieldNumber);
-        }
+        public bool IsFieldEnabled(string fieldNumber) => ScriptLinkHelpers.IsFieldEnabled(this, fieldNumber);
+
         /// <summary>
         /// Determines whether the <see cref="FieldObject"/> is locked in the <see cref="FormObject"/> by FieldNumber.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsFieldLocked(string fieldNumber)
-        {
-            return ScriptLinkHelpers.IsFieldLocked(this, fieldNumber);
-        }
+        public bool IsFieldLocked(string fieldNumber) => ScriptLinkHelpers.IsFieldLocked(this, fieldNumber);
+
         /// <summary>
         /// Determines whether the <see cref="FieldObject"/> is present in the <see cref="FormObject"/> by FieldNumber.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsFieldPresent(string fieldNumber)
-        {
-            return ScriptLinkHelpers.IsFieldPresent(this, fieldNumber);
-        }
+        public bool IsFieldPresent(string fieldNumber) => ScriptLinkHelpers.IsFieldPresent(this, fieldNumber);
+
         /// <summary>
         /// Determines whether the <see cref="FieldObject"/> is required in the <see cref="FormObject"/> by FieldNumber.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsFieldRequired(string fieldNumber)
-        {
-            return ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
-        }
+        public bool IsFieldRequired(string fieldNumber) => ScriptLinkHelpers.IsFieldRequired(this, fieldNumber);
+
         /// <summary>
         /// Determines whether the <see cref="RowObject"/> is marked for deletion in the <see cref="FormObject"/> by RowId.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsRowMarkedForDeletion(string rowId)
-        {
-            return ScriptLinkHelpers.IsRowMarkedForDeletion(this, rowId);
-        }
+        public bool IsRowMarkedForDeletion(string rowId) => ScriptLinkHelpers.IsRowMarkedForDeletion(this, rowId);
+
         /// <summary>
         /// Determines whether the <see cref="RowObject"/> is present in the <see cref="FormObject"/> by RowId.
         /// </summary>
         /// <param name="fieldNumber"></param>
         /// <returns></returns>
-        public bool IsRowPresent(string rowId)
-        {
-            return ScriptLinkHelpers.IsRowPresent(this, rowId);
-        }
+        public bool IsRowPresent(string rowId) => ScriptLinkHelpers.IsRowPresent(this, rowId);
+
         /// <summary>
         /// Sets the specified fields as disabled and unrequires if required.
         /// </summary>
@@ -471,22 +444,18 @@ namespace ScriptLinkStandard.Objects
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
+
         /// <summary>
         /// Returns a <see cref="string"/> with all of the contents of the <see cref="FormObject"/> formatted in HTML.
         /// </summary>
         /// <param name="includeHtmlHeaders">Determines whether to include the HTML headers in return. False allows for the embedding of the HTML in another HTML document.</param>
         /// <returns><see cref="string"/> of all of the contents of the <see cref="FormObject"/> formatted in HTML.</returns>
-        public string ToHtmlString(bool includeHtmlHeaders)
-        {
-            return ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
-        }
+        public string ToHtmlString(bool includeHtmlHeaders) => ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
+
         /// <summary>
         /// Returns a <see cref="string"/> with all of the contents of the <see cref="FormObject"/> formatted as JSON.
         /// </summary>
         /// <returns><see cref="string"/> of all of the contents of the <see cref="FormObject"/> formatted as JSON.</returns>
-        public string ToJson()
-        {
-            return ScriptLinkHelpers.TransformToJson(this);
-        }
+        public string ToJson() => ScriptLinkHelpers.TransformToJson(this);
     }
 }
