@@ -8,7 +8,7 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
-        public static OptionObject2015 TransformToOptionObject2015(IOptionObject optionObject)
+        public static IOptionObject2015 TransformToOptionObject2015(IOptionObject optionObject)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null", "optionObject2");
@@ -29,7 +29,7 @@ namespace ScriptLinkStandard.Helpers
             };
             return optionObject2015;
         }
-        public static OptionObject2015 TransformToOptionObject2015(IOptionObject2 optionObject2)
+        public static IOptionObject2015 TransformToOptionObject2015(IOptionObject2 optionObject2)
         {
             if (optionObject2 == null)
                 throw new System.ArgumentException("Parameter cannot be null", "optionObject2");
@@ -54,7 +54,7 @@ namespace ScriptLinkStandard.Helpers
             return optionObject2015;
         }
 
-        public static OptionObject2015 TransformToOptionObject2015(string serializedString)
+        public static IOptionObject2015 TransformToOptionObject2015(string serializedString)
         {
             if (serializedString == null || serializedString == "")
                 throw new System.ArgumentException("Parameter cannot be empty or null", "serializedString");

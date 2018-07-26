@@ -597,7 +597,7 @@ namespace ScriptLinkStandard.Objects
         /// <returns></returns>
         public OptionObject ToOptionObject()
         {
-            return ScriptLinkHelpers.TransformToOptionObject(this);
+            return (OptionObject)ScriptLinkHelpers.TransformToOptionObject(this);
         }
         /// <summary>
         /// Transforms the <see cref="OptionObject2"/>  to an <see cref="OptionObject2015"/>.
@@ -605,7 +605,7 @@ namespace ScriptLinkStandard.Objects
         /// <returns></returns>
         public OptionObject2015 ToOptionObject2015()
         {
-            return ScriptLinkHelpers.TransformToOptionObject2015(this);
+            return (OptionObject2015)ScriptLinkHelpers.TransformToOptionObject2015(this);
         }
         /// <summary>
         /// Creates an <see cref="OptionObject2"/> with the minimal information required to return.

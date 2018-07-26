@@ -480,5 +480,13 @@ namespace ScriptLinkStandard.Objects
         {
             return ScriptLinkHelpers.TransformToHtmlString(this, includeHtmlHeaders);
         }
+        /// <summary>
+        /// Returns a <see cref="string"/> with all of the contents of the <see cref="FormObject"/> formatted as JSON.
+        /// </summary>
+        /// <returns><see cref="string"/> of all of the contents of the <see cref="FormObject"/> formatted as JSON.</returns>
+        public string ToJson()
+        {
+            return ScriptLinkHelpers.TransformToJson(this);
+        }
     }
 }
