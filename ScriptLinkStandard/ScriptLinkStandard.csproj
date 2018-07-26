@@ -8,7 +8,8 @@
     <PackageLicenseUrl>https://github.com/rcskids/ScriptLinkStandard/blob/master/LICENSE.md</PackageLicenseUrl>
     <Authors>Scott Olson Jr, Luis Quicano</Authors>
     <Company />
-    <Description>A class Library for Netsmart myAvatar ScriptLink API development.</Description>
+    <Description>A class library for Netsmart myAvatar ScriptLink API development.</Description>
+    <PackageTags>Netsmart myAvatar, ScriptLink</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
