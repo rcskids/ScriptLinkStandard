@@ -39,5 +39,5 @@ The goal of this project is to make this library available for free through NuGe
 
 Here are some walkthroughs to help you get started with ScriptLinkStandard.
 
-* [Create a new ScriptLinkStandard Project](./walkthrough-create-new-scriptlinkstandard-project.md)
-* [Migrate an existing ScriptLink project](./walkthrough-migrate-existing-scriptlink-project.md)
+* [Create a new ScriptLinkStandard Project](./walkthrough-create-new-scriptlinkstandard-project)
+* [Migrate an existing ScriptLink project](./walkthrough-migrate-existing-scriptlink-project)
