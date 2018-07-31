@@ -177,7 +177,7 @@ When using ScriptLinkStandard, the returnOptionObject can be created directly fr
 
 ### Refactor Setting and Getting FieldValues
 
-ScriptLinkStandard makes it easier to get and set values. It allows the developer to skip the rewriting off loops to get and new to set. Additionally, since the sample code hands off returnOptionObject creation to the private method when the scriptName matches the ToReturnOptionObject refactor option is available here as well.
+ScriptLinkStandard makes it easier to get and set values. It allows the developer to skip the rewriting of loops to get and new to set. Additionally, since the sample code hands off returnOptionObject creation to the private method when the scriptName matches the ToReturnOptionObject refactor option is available here as well.
 
 Here's the refactored private method.
 
