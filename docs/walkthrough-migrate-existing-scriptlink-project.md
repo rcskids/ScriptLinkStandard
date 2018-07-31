@@ -66,17 +66,16 @@ Consider the following ScriptLink API based on NTST.ScripLinkService.Objects.
                 default:
                     returnOptionObject.ErrorCode = 3;
                     returnOptionObject.ErrorMesg = "No script was found with this name.";
+                    returnOptionObject.EntityID = optionObject2.EntityID;
+                    returnOptionObject.OptionId = optionObject2.OptionId;
+                    returnOptionObject.EpisodeNumber = optionObject2.EpisodeNumber;
+                    returnOptionObject.SystemCode = optionObject2.SystemCode;
+                    returnOptionObject.Facility = optionObject2.Facility;
+                    returnOptionObject.ServerName = optionObject2.ServerName;
+                    returnOptionObject.ParentNamespace = optionObject2.ParentNamespace;
+                    returnOptionObject.NamespaceName = optionObject2.NamespaceName;
                     break;
             }
-
-            returnOptionObject.EntityID = optionObject2.EntityID;
-            returnOptionObject.OptionId = optionObject2.OptionId;
-            returnOptionObject.EpisodeNumber = optionObject2.EpisodeNumber;
-            returnOptionObject.SystemCode = optionObject2.SystemCode;
-            returnOptionObject.Facility = optionObject2.Facility;
-            returnOptionObject.ServerName = optionObject2.ServerName;
-            returnOptionObject.ParentNamespace = optionObject2.ParentNamespace;
-            returnOptionObject.NamespaceName = optionObject2.NamespaceName;
 
             return returnOptionObject;
         }
