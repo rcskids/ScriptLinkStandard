@@ -6,7 +6,7 @@ title: OptionObject2 Class
 
 # OptionObject2
 
-Namespace: ScriptLinkStandard.Objects
+Namespace: [ScriptLinkStandard.Objects](./)
 
 Assemblies: ScriptLinkStandard.dll
 
