@@ -10,7 +10,7 @@ ScriptLinkStandard is a class library designed to help organizations that use my
 
 ## Get Started
 
-Looking to get started with ScriptLinkStandard? We will be making ScriptLinkStandard available through NuGet easy inclusion in your new and existing ScriptLink projects.
+Looking to get started with ScriptLinkStandard? We will be making ScriptLinkStandard available through NuGet for easy inclusion in your new and existing ScriptLink projects.
 
 ### NuGet
 
