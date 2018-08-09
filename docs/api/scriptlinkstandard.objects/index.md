@@ -12,7 +12,7 @@ It is recommended that you use the [OptionObject2015](optionobject2015.md) class
 
 ## Structure
 
-![OptionObject2015 Structure](/ScriptLinkStandard/images/ScriptLinkStandard.Objects.png)
+![OptionObject2015 Structure](./images/ScriptLinkStandard.Objects.png)
 
 * OptionObject: [OptionObject2015](optionobject2015.md), [OptionObject2](optionobject2.md), or [OptionObject](optionobject.md)
   * Forms: List<[FormObject](formobject.md)>
