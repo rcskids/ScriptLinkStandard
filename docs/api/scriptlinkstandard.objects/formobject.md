@@ -94,9 +94,20 @@ public void GetMyFieldValue_Returns_Y()
 | IsFieldRequired(string) | Returns whether a [FieldObject](./fieldobject.md) in a FormObject is required by FieldNumber. |
 | IsRowMarkedForDeletion(string) | Returns whether a [RowObject](./rowobject.md) in a FormObject is marked for deletion by RowId. |
 | IsRowPresent(string) | Returns whether a [RowObject](./rowobject.md) in a FormObject is present by RowId. |  
-| SetDisabledFields(List<string>) | Sets [FieldObjects](./fieldobject.md) in a FormObject as disabled by FieldNumbers. |
+| SetDisabledFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a FormObject as disabled by FieldNumbers. |
 | SetDisabledFields(string) | Sets the [FieldObjects](./fieldobject.md) in a FormObject as disabled by FieldNumber. If [FieldObject](./fieldobject.md) is in a multiple iteration FormObject then all occurances will be set as disabled. |
-| more... | to be written |
+| SetFieldValue(string, string) | Sets the FieldValue of a [FieldObject](./fieldobject.md) in the FormObject.CurrentRow by FieldNumber. |
+| SetFieldValue(string, string, string) | Sets the FieldValue a [FieldObject](./fieldobject.md) in the FormObject by RowId and FieldNumber. |
+| SetLockedFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a FormObject as locked by FieldNumbers. |
+| SetLockedFields(string) | Sets the [FieldObjects](./fieldobject.md) in a FormObject as locked by FieldNumber. If [FieldObject](./fieldobject.md) is in a multiple iteration FormObject then all occurances will be set as locked. |
+| SetOptionalFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a FormObject as enabled and not required by FieldNumbers. |
+| SetOptionalFields(string) | Sets the [FieldObjects](./fieldobject.md) in a FormObject as enabled and not required by FieldNumber. If [FieldObject](./fieldobject.md) is in a multiple iteration FormObject then all occurances will be set as enabled and not required. |
+| SetRequiredFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a FormObject as enabled and required by FieldNumbers. |
+| SetRequiredFields(string) | Sets the [FieldObjects](./fieldobject.md) in a FormObject as enabled and required by FieldNumber. If [FieldObject](./fieldobject.md) is in a multiple iteration FormObject then all occurances will be set as enabled and required. |
+| SetUnlockedFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a FormObject as unlocked by FieldNumbers. |
+| SetUnlockedFields(string) | Sets the [FieldObjects](./fieldobject.md) in a FormObject as unlocked by FieldNumber. If [FieldObject](./fieldobject.md) is in a multiple iteration FormObject then all occurances will be set as unlocked. |
+| ToHtmlString(bool) | Returns the FormObject as an HTML string. The `<html>`, `<head>`, and `<body>` tags can be included if desired. |
+| ToJson() | Returns the FormObject as a JSON string. |
 
 ## Explicit Interface Implementations
 
@@ -110,3 +121,5 @@ public void GetMyFieldValue_Returns_Y()
 * [OptionObject](./optionobject.md)
 * [OptionObject2](./optionobject2.md)
 * [OptionObject2015](./optionobject2015.md)
+* [RowObject](./rowobject.md)
+* [FieldObject](./fieldobject.md)
