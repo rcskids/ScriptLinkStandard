@@ -58,9 +58,9 @@ ScriptLink APIs based on ScriptLinkStandard can be run on Windows Server 2008 or
 The ScriptLinkStandard.Objects namespace contains the object definitions and will be the most commonly used namespace in your projects.
 
 The objects include:
-* OptionObject2015
-* OptionObject2 (legacy)
-* OptionObject (legacy)
+* [OptionObject2015](https://rcskids.github.io/ScriptLinkStandard/api/scriptlinkstandard.objects/optionobject2015.html)
+* [OptionObject2](https://rcskids.github.io/ScriptLinkStandard/api/scriptlinkstandard.objects/optionobject2.html) (legacy)
+* [OptionObject](https://rcskids.github.io/ScriptLinkStandard/api/scriptlinkstandard.objects/optionobject.html) (legacy)
 * FormObject
 * RowObject
 * FieldObject
