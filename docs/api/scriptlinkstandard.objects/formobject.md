@@ -78,7 +78,24 @@ public void GetMyFieldValue_Returns_Y()
 
 | Method        | Description |
 |:----------------|:------------|
-| AddRowObject([RowObject](./rowobject.md)) | Adds a RowObject to a the FormObject. |
+| AddRowObject([RowObject](./rowobject.md)) | Adds a [RowObject](./rowobject.md) to a the FormObject. |
+| AddRowObject(string, string) | Adds a [RowObject](./rowobject.md) to a FormObject using supplied RowId and ParentRowId. |
+| AddRowObject(string, string, string) | Adds a [RowObject](./rowobject.md) to a FormObject using supplied RowId and ParentRowId and setting the RowAction. |
+| DeleteRowObject([RowObject](./rowobject.md)) | Removes a [RowObject](./rowobject.md) from a FormObject. |
+| DeleteRowObject(string) | Removes a [RowObject](./rowobject.md) from a FormObject by RowId. |
+| GetCurrentRowId() | Returns the ID of the [RowObject](./rowobject.md) in the CurrentRow of a FormObject. |
+| GetFieldValue(string) | Returns the FieldValue of a [FieldObject](./fieldobject.md) in a FormObject by FieldNumber. |
+| GetFieldValue(string, string) | Returns the FieldValue of a [FieldObject](./fieldobject.md) in a FormObject by RowId and FieldNumber. |
+| GetFieldValues(string) | Returns a List<string> of FieldValues in a FormObject by FieldNumber. |
+| GetParentRowId() | Returns the ParentRowId of the FormObject.CurrentRow. |
+| IsFieldEnabled(string) | Returns whether a [FieldObject](./fieldobject.md) in a FormObject is enabled by FieldNumber. |
+| IsFieldLocked(string) | Returns whether a [FieldObject](./fieldobject.md) in a FormObject is locked by FieldNumber. |
+| IsFieldPresent(string) | Returns whether a [FieldObject](./fieldobject.md) in a FormObject is present by FieldNumber. |
+| IsFieldRequired(string) | Returns whether a [FieldObject](./fieldobject.md) in a FormObject is required by FieldNumber. |
+| IsRowMarkedForDeletion(string) | Returns whether a [RowObject](./rowobject.md) in a FormObject is marked for deletion by RowId. |
+| IsRowPresent(string) | Returns whether a [RowObject](./rowobject.md) in a FormObject is present by RowId. |  
+| SetDisabledFields(List<string>) | Sets [FieldObjects](./fieldobject.md) in a FormObject as disabled by FieldNumbers. |
+| SetDisabledFields(string) | Sets the [FieldObjects](./fieldobject.md) in a FormObject as disabled by FieldNumber. If [FieldObject](./fieldobject.md) is in a multiple iteration FormObject then all occurances will be set as disabled. |
 | more... | to be written |
 
 ## Explicit Interface Implementations
