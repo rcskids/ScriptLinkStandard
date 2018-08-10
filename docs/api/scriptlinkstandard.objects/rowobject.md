@@ -90,17 +90,17 @@ public void GetMyFieldValue_Returns_Y()
 | RemoveFieldObject([FieldObject](./fieldobject.md)) | Removes a [FieldObject](./fieldobject.md) from a RowObject. |
 | RemoveFieldObject(string) | Removes a [FieldObject](./fieldobject.md) from a RowObject by FieldNumber. |
 | RemoveUnmodifiedFieldObjects() | Removes [FieldObjects](./fieldobject.md) from RowObject that have not been modified. |  
+| SetDisabledField(string) | Sets the [FieldObject](./fieldobject.md) in a RowObject as disabled by FieldNumber. |
 | SetDisabledFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a RowObject as disabled by FieldNumbers. |
-| SetDisabledFields(string) | Sets the [FieldObjects](./fieldobject.md) in a RowObject as disabled by FieldNumber. If [FieldObject](./fieldobject.md) is in a multiple iteration FormObject then all occurances will be set as disabled. |
 | SetFieldValue(string, string) | Sets the FieldValue of a [FieldObject](./fieldobject.md) in the RowObject by FieldNumber. |
+| SetLockedField(string) | Sets the [FieldObject](./fieldobject.md) in a RowObject as locked by FieldNumber. |
 | SetLockedFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a RowObject as locked by FieldNumbers. |
-| SetLockedFields(string) | Sets the [FieldObject](./fieldobject.md) in a RowObject as locked by FieldNumber. |
+| SetOptionalField(string) | Sets the [FieldObject](./fieldobject.md) in a RowObject as enabled and not required by FieldNumber. |
 | SetOptionalFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a RowObject as enabled and not required by FieldNumbers. |
-| SetOptionalFields(string) | Sets the [FieldObject](./fieldobject.md) in a RowObject as enabled and not required by FieldNumber. |
+| SetRequiredField(string) | Sets the [FieldObject](./fieldobject.md) in a RowObject as enabled and required by FieldNumber. |
 | SetRequiredFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a RowObject as enabled and required by FieldNumbers. |
-| SetRequiredFields(string) | Sets the [FieldObject](./fieldobject.md) in a RowObject as enabled and required by FieldNumber. |
+| SetUnlockedField(string) | Sets the [FieldObject](./fieldobject.md) in a RowObject as unlocked by FieldNumber. |
 | SetUnlockedFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a RowObject as unlocked by FieldNumbers. |
-| SetUnlockedFields(string) | Sets the [FieldObject](./fieldobject.md) in a RowObject as unlocked by FieldNumber. |
 | ToHtmlString(bool) | Returns the RowObject as an HTML string. The `<html>`, `<head>`, and `<body>` tags can be included if desired. |
 | ToJson() | Returns the RowObject as a JSON string. |
 
