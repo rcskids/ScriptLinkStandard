@@ -54,7 +54,7 @@ public void GetMyFieldValue_Returns_Y()
     SystemCode = "UAT",
     SessionToken = "a2s3d4f5g6"
   }
-  optionObject2015.Forms.Add(optionObject2015);
+  optionObject2015.Forms.Add(formObject);
   
   // Act
   OptionObject2015 returnOptionObject = script.ProcessScript(optionObject, parameter);
