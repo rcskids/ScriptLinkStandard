@@ -206,12 +206,6 @@ namespace ScriptLinkStandard.Objects
         public string GetFieldValue() => this.FieldValue;
 
         /// <summary>
-        /// Returns whether the <see cref="FieldObject"/> has been modified.
-        /// </summary>
-        /// <returns></returns>
-        public bool IsModified() => _isModified;
-
-        /// <summary>
         /// Determines whether <see cref="FieldObject"/> is enabled.
         /// </summary>
         /// <returns></returns>
@@ -222,6 +216,12 @@ namespace ScriptLinkStandard.Objects
         /// </summary>
         /// <returns></returns>
         public bool IsLocked() => this.Lock == "1" ? true : false;
+
+        /// <summary>
+        /// Returns whether the <see cref="FieldObject"/> has been modified.
+        /// </summary>
+        /// <returns></returns>
+        public bool IsModified() => _isModified;
 
         /// <summary>
         /// Determines whether <see cref="FieldObject"/> is enabled.
