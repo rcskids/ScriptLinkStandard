@@ -84,7 +84,7 @@ OptionObject2015 is the latest definition of the OptionObject for use with myAva
 | Clone                                         | Creates a shallow copy of the OptionObject2015.            |
 | DeleteRowObject([RowObject](./rowobject.md))                    | Removes the [RowObject](./rowobject.md) from the OptionObject2015.            |
 | DeleteRowObject(string)                       | Removes a [RowObject](./rowobject.md) from the OptionObject2015 by specified RowId.            |
-| DisableAllFieldObjects                        | Sets all [FieldObjects](./fieldobject.md) in the OptionObject2015 to disabled.            |
+| DisableAllFieldObjects()                        | Sets all [FieldObjects](./fieldobject.md) in the OptionObject2015 to disabled.            |
 | DisableAllFieldObjects(List<string>)          | Sets all [FieldObjects](./fieldobject.md) in the OptionObject2015 to disabled, except for the FieldNumbers specified in List<string>.            |
 | GetCurrentRowId(string)                       | Gets the CurrentRow.RowId of the [FormObject](./formobject.md) in the OptionObject2015 by FormId.            |
 | GetFieldValue(string)                         | Gets the FieldValue of a specified [FieldObject](./fieldobject.md) in the OptionObject2015 by FieldNumber.            |
@@ -112,10 +112,10 @@ OptionObject2015 is the latest definition of the OptionObject for use with myAva
 | SetUnlockedFields(List<string>)               | Sets the specified [FieldObjects](./fieldobject.md) as unlocked in the OptionObject2015 by FieldNumber.            |
 | SetUnlockedFields(string)                     | Sets the specified [FieldObject](./fieldobject.md) as unlocked in the OptionObject2015 by FieldNumber.            |
 | ToHtmlString(bool)                            | Returns the OptionObject2015 as an HTML string. The `<html>`, `<head>`, and `<body>` tags can be included if desired.            |
-| ToJson                                        | Returns the OptionObject2015 as a JSON string.           |
-| ToOptionObject                                | Returns a copy of the OptionObject2015 as an OptionObject.            |
-| ToOptionObject2                               | Returns a copy of the OptionObject2015 as an OptionObject2.            |
-| ToReturnOptionObject                          | Creates and returns the returnOptionObject with all required properties and modified values.            |
+| ToJson()                                        | Returns the OptionObject2015 as a JSON string.           |
+| ToOptionObject()                                | Returns a copy of the OptionObject2015 as an OptionObject.            |
+| ToOptionObject2()                               | Returns a copy of the OptionObject2015 as an OptionObject2.            |
+| ToReturnOptionObject()                          | Creates and returns the returnOptionObject with all required properties and modified values.            |
 | ToReturnOptionObject(int, string)             | Creates and returns the returnOptionObject with all required properties and modified values and specified the ErrorCode and ErrorMesg.            |
 
 ## Explicit Interface Implementations
