@@ -53,24 +53,24 @@ A basic implementation of the ScriptLinkStandard library would use only the Scri
 @using ScriptLinkStandard.Objects
 ```
 
-The [ScriptLinkStandard.Objects](./scriptlinkstandard.objects) namespace includes all of the objects (classes) required to create a functional ScriptLink API.
+The [ScriptLinkStandard.Objects](./api/scriptlinkstandard.objects) namespace includes all of the objects (classes) required to create a functional ScriptLink API.
 
-* [OptionObject2015](./scriptlinkstandard.objects/optionobject2015.md)
-* [OptionObject2](./scriptlinkstandard.objects/optionobject2.md) (Legacy)
-* [OptionObject](./scriptlinkstandard.objects/optionobject.md) (Legacy)
-* Read [more...](./scriptlinkstandard.objects)
+* [OptionObject2015](./api/scriptlinkstandard.objects/optionobject2015.md)
+* [OptionObject2](./api/scriptlinkstandard.objects/optionobject2.md) (Legacy)
+* [OptionObject](./api/scriptlinkstandard.objects/optionobject.md) (Legacy)
+* Read [more...](./api/scriptlinkstandard.objects)
 
 #### ScriptLinkStandard.Helpers
 
-Although most of the [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md) are accessible as method on the various objects, some use cases would need leverage the [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md) class directly. Here are some common examples:
+Although most of the [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md) are accessible as method on the various objects, some use cases would need leverage the [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md) class directly. Here are some common examples:
 
-* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidErrorCode()
-* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidRowAction()
-* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidUrl()
-* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).SafeGetInt()
-* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).SplitDelimitedParameter()
-* Read [more...](./scriptlinkstandard.helpers)
+* [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidErrorCode()
+* [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidRowAction()
+* [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidUrl()
+* [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).SafeGetInt()
+* [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).SplitDelimitedParameter()
+* Read [more...](./api/scriptlinkstandard.helpers)
 
 #### ScriptLinkStandard.Interfaces
 
-The [ScriptLinkStandard.Interfaces](./scriptlinkstandard.interfaces) namespace is helpful when you want use a Test-Driven Development process or create your own custom objects that work with the [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md) class.
+The [ScriptLinkStandard.Interfaces](./api/scriptlinkstandard.interfaces) namespace is helpful when you want use a Test-Driven Development process or create your own custom objects that work with the [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md) class.
