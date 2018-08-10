@@ -35,9 +35,42 @@ The goal of this project is to make this library available for free through NuGe
 @using ScriptLinkStandard.Objects
 ```
 
-## Walkthroughs
+## Documentation
+### Walkthroughs
 
 Here are some walkthroughs to help you get started with ScriptLinkStandard.
 
 * [Create a new ScriptLinkStandard Project](./walkthrough-create-new-scriptlinkstandard-project.md)
 * [Migrate an existing ScriptLink project](./walkthrough-migrate-existing-scriptlink-project.md)
+
+### API
+
+#### ScriptLinkStandard.Objects
+
+A basic implementation of the ScriptLinkStandard library would use only the ScriptLinkStandard namespace.
+
+``` c#
+@using ScriptLinkStandard.Objects
+```
+
+The [ScriptLinkStandard.Objects](./scriptlinkstandard.objects) namespace includes all of the objects (classes) required to create a functional ScriptLink API.
+
+* [OptionObject2015](./scriptlinkstandard.objects/optionobject2015.md)
+* [OptionObject2](./scriptlinkstandard.objects/optionobject2.md) (Legacy)
+* [OptionObject](./scriptlinkstandard.objects/optionobject.md) (Legacy)
+* Read [more...](./scriptlinkstandard.objects)
+
+#### ScriptLinkStandard.Helpers
+
+Although most of the [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md) are accessible as method on the various objects, some use cases would need leverage the [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md) class directly. Here are some common examples:
+
+* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidErrorCode()
+* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidRowAction()
+* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidUrl()
+* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).SafeGetInt()
+* [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md).SplitDelimitedParameter()
+* Read [more...](./scriptlinkstandard.helpers)
+
+#### ScriptLinkStandard.Interfaces
+
+The [ScriptLinkStandard.Interfaces](./scriptlinkstandard.interfaces) namespace is helpful when you want use a Test-Driven Development process or create your own custom objects that work with the [ScriptLinkHelpers](./scriptlinkstandard.helpers/scriptlinkhelpers.md) class.
