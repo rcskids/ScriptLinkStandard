@@ -55,6 +55,8 @@ namespace ScriptLinkDemo.Web.Api
 
 OptionObject2015 is the latest definition of the OptionObject for use with myAvatar. It adds the SessionToken property to support calls to myAvatar Web Services.
 
+To use OptionObject2015 you will need RADplus 2016 Update 17 installed in myAvatar or have updated to myAvatar 2017 or later.
+
 ## Properties
 
 | Property        | Description |
