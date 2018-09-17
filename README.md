@@ -2,7 +2,7 @@
 
 ScriptLinkStandard is a Class Library designed to assist developers in creating SOAP web services that can be consumed by Netsmart's myAvatar solution using ScriptLink.
 
-This library is written for [.NET Standard 1.1](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). Subject to change prior to release.
+This library is written for [.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). Subject to change prior to release.
 
 ## Contents
 * [Installation](https://github.com/rcskids/ScriptLinkStandard#installation)
@@ -41,18 +41,19 @@ Initial testing has been completed demonstrating compatibility of the library wi
 
 .NET Framework | Compatible
 -------------- | ----------
-4.7.1 | Untested
-4.7 | Untested
-4.6.2 | Untested
+4.7.1 | Yes
+4.7 | Yes
+4.6.2 | Yes
 4.6.1 | Yes
-4.6 | Yes
-4.5.2 | Yes
-4.5.1 | Yes
-4.5 | Yes
+4.6 | No
+4.5.2 | No
+4.5.1 | No
+4.5 | No
+4 | No
 
 Check out the Microsoft Docs for more information on [.NET Standard compatibility](https://docs.microsoft.com/en-us/dotnet/standard/net-standard).
 
-ScriptLink APIs based on ScriptLinkStandard can be run on Windows Server 2008 or later. More information can be found on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/framework/get-started/system-requirements).
+ScriptLink APIs based on ScriptLinkStandard can be run on Windows Server 2008 R2 or later. More information can be found on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/framework/get-started/system-requirements).
 
 ### ScriptLinkStandard.Objects
 The ScriptLinkStandard.Objects namespace contains the object definitions and will be the most commonly used namespace in your projects.
@@ -61,9 +62,9 @@ The objects include:
 * [OptionObject2015](https://rcskids.github.io/ScriptLinkStandard/api/scriptlinkstandard.objects/optionobject2015.html)
 * [OptionObject2](https://rcskids.github.io/ScriptLinkStandard/api/scriptlinkstandard.objects/optionobject2.html) (legacy)
 * [OptionObject](https://rcskids.github.io/ScriptLinkStandard/api/scriptlinkstandard.objects/optionobject.html) (legacy)
-* FormObject
-* RowObject
-* FieldObject
+* [FormObject](https://rcskids.github.io/ScriptLinkStandard/api/scriptlinkstandard.objects/formobject.html)
+* [RowObject](https://rcskids.github.io/ScriptLinkStandard/api/scriptlinkstandard.objects/rowobject.html)
+* [FieldObject](https://rcskids.github.io/ScriptLinkStandard/api/scriptlinkstandard.objects/fieldobject.html)
 
 Each object includes a variety of methods designed to help manage or modify the received OptionObject, OptionObject2, or OptionObject2015. For example,
 * To get a FieldValue from an OptionObject without Multiple Iteration tables, you can write `string value = optionObject.GetFieldValue(fieldNumber);`.
