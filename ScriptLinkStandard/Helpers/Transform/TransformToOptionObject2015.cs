@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -60,6 +61,15 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be empty or null", "serializedString");
             try
             {
+                OptionObject2015 optionObject = DeserializeObject<OptionObject2015>(serializedString);
+                return optionObject;
+            }
+            catch
+            {
+                // Not valid XML or doesn't match the OptionObject specification
+            }
+            try
+            {
                 OptionObject2015 optionObject = JsonConvert.DeserializeObject<OptionObject2015>(serializedString);
                 return optionObject;
             }
@@ -67,7 +77,6 @@ namespace ScriptLinkStandard.Helpers
             {
                 // Not valid JSON or doesn't match the OptionObject specification
             }
-            // Future implementation: XML?
             throw new System.ArgumentException("Serialized string is not in a compatible format.", "serializedString");
         }
     }

@@ -124,21 +124,72 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         [TestCategory("OptionObject2015")]
         public void OptionObject2015FromJsonSuccess()
         {
-            string json = "{\"EntityID\":null,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"NamespaceName\":null,\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"ParentNamespace\":null,\"ServerName\":null,\"SystemCode\":null,\"SessionToken\":null}";
-            OptionObject2015 expected = new OptionObject2015();
-            Assert.AreEqual(expected, ScriptLinkHelpers.TransformToOptionObject2015(json));
+            string json = "{\"EntityID\":1,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"NamespaceName\":null,\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"ParentNamespace\":null,\"ServerName\":null,\"SystemCode\":null,\"SessionToken\":null}";
+            OptionObject2015 expected = new OptionObject2015
+            {
+                EntityID = "1"
+            };
+            OptionObject2015 actual = (OptionObject2015)ScriptLinkHelpers.TransformToOptionObject2015(json);
+            Assert.IsNotNull(actual.EntityID);
+            Assert.AreEqual(expected.EntityID, actual.EntityID);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject2015")]
         public void OptionObject2015FromJsonFailure()
         {
-            string json = "{\"EntityID\":null,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"NamespaceName\":null,\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"ParentNamespace\":null,\"ServerName\":null,\"SystemCode\":null,\"SessionToken\":null}";
+            string json = "{\"EntityID\":2,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"NamespaceName\":null,\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"ParentNamespace\":null,\"ServerName\":null,\"SystemCode\":null,\"SessionToken\":null}";
             OptionObject2015 expected = new OptionObject2015
             {
                 EntityID = "1"
             };
-            Assert.AreNotEqual(expected, ScriptLinkHelpers.TransformToOptionObject2015(json));
+            OptionObject2015 actual = (OptionObject2015)ScriptLinkHelpers.TransformToOptionObject2015(json);
+            Assert.IsNotNull(actual.EntityID);
+            Assert.AreNotEqual(expected.EntityID, actual.EntityID);
+            Assert.AreNotEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2015")]
+        public void OptionObject2015FromXmlSuccess()
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
+                            + "<OptionObject2015 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "  <EntityID>1</EntityID>" + Environment.NewLine
+                            + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
+                            + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
+                            + "  <Forms />" + Environment.NewLine
+                            + "</OptionObject2015>";
+            OptionObject2015 expected = new OptionObject2015
+            {
+                EntityID = "1"
+            };
+            OptionObject2015 actual = (OptionObject2015)ScriptLinkHelpers.TransformToOptionObject2015(xml);
+            Assert.IsNotNull(actual.EntityID);
+            Assert.AreEqual(expected.EntityID, actual.EntityID);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2015")]
+        public void OptionObject2015FromXmlFailure()
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
+                            + "<OptionObject2015 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "  <EntityID>2</EntityID>" + Environment.NewLine
+                            + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
+                            + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
+                            + "  <Forms />" + Environment.NewLine
+                            + "</OptionObject2015>";
+            OptionObject2015 expected = new OptionObject2015
+            {
+                EntityID = "1"
+            };
+            OptionObject2015 actual = (OptionObject2015)ScriptLinkHelpers.TransformToOptionObject2015(xml);
+            Assert.IsNotNull(actual.EntityID);
+            Assert.AreNotEqual(expected.EntityID, actual.EntityID);
+            Assert.AreNotEqual(expected, actual);
         }
     }
 }

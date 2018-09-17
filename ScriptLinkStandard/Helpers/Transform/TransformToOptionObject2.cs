@@ -60,14 +60,22 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be empty or null", "serializedString");
             try
             {
+                OptionObject2 optionObject = DeserializeObject<OptionObject2>(serializedString);
+                return optionObject;
+            }
+            catch
+            {
+                // Not valid XML or doesn't match the OptionObject specification
+            }
+            try
+            {
                 OptionObject2 optionObject = JsonConvert.DeserializeObject<OptionObject2>(serializedString);
                 return optionObject;
             }
             catch
             {
-                // Not valid JSON or doesn't match the OptionObject2 specification
+                // Not valid JSON or doesn't match the OptionObject specification
             }
-            // Future implementation: XML?
             throw new System.ArgumentException("Serialized string is not in a compatible format.", "serializedString");
         }
     }

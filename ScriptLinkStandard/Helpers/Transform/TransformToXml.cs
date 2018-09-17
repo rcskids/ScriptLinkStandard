@@ -1,6 +1,9 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 using System.IO;
+using System.Text;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace ScriptLinkStandard.Helpers
@@ -65,16 +68,43 @@ namespace ScriptLinkStandard.Helpers
 
         private static string SerializeObject<T>(T objectToSerialize)
         {
+            if (objectToSerialize == null)
+            {
+                return string.Empty;
+            }
             try
             {
-                StringWriter stringWriter = new StringWriter();
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                serializer.Serialize(stringWriter, objectToSerialize);
-                return stringWriter.ToString();
+                using (StringWriter stringWriter = new System.IO.StringWriter())
+                {
+                    var serializer = new XmlSerializer(typeof(T));
+                    serializer.Serialize(stringWriter, objectToSerialize);
+                    return stringWriter.ToString();
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                return string.Empty;
+            }
+        }
+
+        private static T DeserializeObject<T>(string xml) where T : new()
+        {
+            if (string.IsNullOrEmpty(xml))
+            {
+                return new T();
+            }
+            try
+            {
+                using (var stringReader = new StringReader(xml))
+                {
+                    var serializer = new XmlSerializer(typeof(T));
+                    return (T)serializer.Deserialize(stringReader);
+                }
+            }
+            catch (Exception ex)
+            {
+                //return new T();
+                throw ex;
             }
         }
     }

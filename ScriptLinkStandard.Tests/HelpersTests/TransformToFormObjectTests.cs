@@ -22,21 +22,70 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         [TestCategory("FormObject")]
         public void FormObjectFromJson_Success()
         {
-            string json = "{\"CurrentRow\":null,\"FormId\":null,\"MultipleIteration\":false,\"OtherRows\":[]}";
-            FormObject expected = new FormObject();
-            Assert.AreEqual(expected, ScriptLinkHelpers.TransformToFormObject(json));
+            string json = "{\"CurrentRow\":null,\"FormId\":1,\"MultipleIteration\":false,\"OtherRows\":[]}";
+            FormObject expected = new FormObject
+            {
+                FormId = "1"
+            };
+            FormObject actual = (FormObject)ScriptLinkHelpers.TransformToFormObject(json);
+            Assert.IsNotNull(actual.FormId);
+            Assert.AreEqual(expected.FormId, actual.FormId);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [TestCategory("FormObject")]
         public void FormObjectFromJson_Failure()
         {
-            string json = "{\"CurrentRow\":null,\"FormId\":null,\"MultipleIteration\":false,\"OtherRows\":[]}";
+            string json = "{\"CurrentRow\":null,\"FormId\":2,\"MultipleIteration\":false,\"OtherRows\":[]}";
             FormObject expected = new FormObject
             {
                 FormId = "1"
             };
-            Assert.AreNotEqual(expected, ScriptLinkHelpers.TransformToFormObject(json));
+            FormObject actual = (FormObject)ScriptLinkHelpers.TransformToFormObject(json);
+            Assert.IsNotNull(actual.FormId);
+            Assert.AreNotEqual(expected.FormId, actual.FormId);
+            Assert.AreNotEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObjectFromXml_Success()
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
+                       + "<FormObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                       + "  <FormId>1</FormId>" + Environment.NewLine
+                       + "  <MultipleIteration>false</MultipleIteration>" + Environment.NewLine
+                       + "  <OtherRows />" + Environment.NewLine
+                       + "</FormObject>";
+            FormObject expected = new FormObject
+            {
+                FormId = "1"
+            };
+            FormObject actual = (FormObject)ScriptLinkHelpers.TransformToFormObject(xml);
+            Assert.IsNotNull(actual.FormId);
+            Assert.AreEqual(expected.FormId, actual.FormId);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("FormObject")]
+        public void FormObjectFromXml_Failure()
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
+                       + "<FormObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                       + "  <FormId>2</FormId>" + Environment.NewLine
+                       + "  <MultipleIteration>false</MultipleIteration>" + Environment.NewLine
+                       + "  <OtherRows />" + Environment.NewLine
+                       + "</FormObject>";
+            FormObject expected = new FormObject
+            {
+                FormId = "1"
+            };
+            FormObject actual = (FormObject)ScriptLinkHelpers.TransformToFormObject(xml);
+            Assert.IsNotNull(actual.FormId);
+            Assert.AreNotEqual(expected.FormId, actual.FormId);
+            Assert.AreNotEqual(expected, actual);
         }
     }
 }

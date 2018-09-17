@@ -17,6 +17,15 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be empty or null", "serializedString");
             try
             {
+                RowObject rowObject = DeserializeObject<RowObject>(serializedString);
+                return rowObject;
+            }
+            catch
+            {
+                // Not valid XML or doesn't match the FieldObject specification
+            }
+            try
+            {
                 RowObject rowObject = JsonConvert.DeserializeObject<RowObject>(serializedString);
                 return rowObject;
             }
@@ -24,7 +33,6 @@ namespace ScriptLinkStandard.Helpers
             {
                 // Not valid JSON or doesn't match the FieldObject specification
             }
-            // Future implementation: XML?
             throw new System.ArgumentException("Serialized string is not in a compatible format.", "serializedString");
         }
     }

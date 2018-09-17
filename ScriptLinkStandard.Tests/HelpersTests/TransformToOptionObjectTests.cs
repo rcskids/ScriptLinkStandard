@@ -124,21 +124,72 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         [TestCategory("OptionObject")]
         public void OptionObjectFromJsonSuccess()
         {
-            string json = "{\"EntityID\":null,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"SystemCode\":null}";
-            OptionObject expected = new OptionObject();
-            Assert.AreEqual(expected, ScriptLinkHelpers.TransformToOptionObject(json));
+            string json = "{\"EntityID\":1,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"NamespaceName\":null,\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"ParentNamespace\":null,\"ServerName\":null,\"SystemCode\":null,\"SessionToken\":null}";
+            OptionObject expected = new OptionObject
+            {
+                EntityID = "1"
+            };
+            OptionObject actual = (OptionObject)ScriptLinkHelpers.TransformToOptionObject(json);
+            Assert.IsNotNull(actual.EntityID);
+            Assert.AreEqual(expected.EntityID, actual.EntityID);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [TestCategory("OptionObject")]
         public void OptionObjectFromJsonFailure()
         {
-            string json = "{\"EntityID\":null,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"SystemCode\":null}";
+            string json = "{\"EntityID\":2,\"EpisodeNumber\":0.0,\"ErrorCode\":0.0,\"ErrorMesg\":null,\"Facility\":null,\"Forms\":[],\"NamespaceName\":null,\"OptionId\":null,\"OptionStaffId\":null,\"OptionUserId\":null,\"ParentNamespace\":null,\"ServerName\":null,\"SystemCode\":null,\"SessionToken\":null}";
             OptionObject expected = new OptionObject
             {
                 EntityID = "1"
             };
-            Assert.AreNotEqual(expected, ScriptLinkHelpers.TransformToOptionObject(json));
+            OptionObject actual = (OptionObject)ScriptLinkHelpers.TransformToOptionObject(json);
+            Assert.IsNotNull(actual.EntityID);
+            Assert.AreNotEqual(expected.EntityID, actual.EntityID);
+            Assert.AreNotEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        public void OptionObjectFromXmlSuccess()
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
+                            + "<OptionObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "  <EntityID>1</EntityID>" + Environment.NewLine
+                            + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
+                            + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
+                            + "  <Forms />" + Environment.NewLine
+                            + "</OptionObject>";
+            OptionObject expected = new OptionObject
+            {
+                EntityID = "1"
+            };
+            OptionObject actual = (OptionObject)ScriptLinkHelpers.TransformToOptionObject(xml);
+            Assert.IsNotNull(actual.EntityID);
+            Assert.AreEqual(expected.EntityID, actual.EntityID);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        public void OptionObjectFromXmlFailure()
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
+                            + "<OptionObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "  <EntityID>2</EntityID>" + Environment.NewLine
+                            + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
+                            + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
+                            + "  <Forms />" + Environment.NewLine
+                            + "</OptionObject>";
+            OptionObject expected = new OptionObject
+            {
+                EntityID = "1"
+            };
+            OptionObject actual = (OptionObject)ScriptLinkHelpers.TransformToOptionObject(xml);
+            Assert.IsNotNull(actual.EntityID);
+            Assert.AreNotEqual(expected.EntityID, actual.EntityID);
+            Assert.AreNotEqual(expected, actual);
         }
     }
 }
