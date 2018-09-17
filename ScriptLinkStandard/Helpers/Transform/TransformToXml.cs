@@ -1,10 +1,5 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
-using System;
-using System.IO;
-using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace ScriptLinkStandard.Helpers
 {
@@ -17,7 +12,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Xml-formatted string based on the provided <see cref="IOptionObject"/>.</returns>
         public static string TransformToXml(IOptionObject optionObject)
         {
-            return SerializeObject((OptionObject)optionObject);
+            return SerializeObjectToXmlString((OptionObject)optionObject);
         }
         /// <summary>
         /// Transforms an <see cref="IOptionObject2"/> to a Xml-formatted string.
@@ -26,7 +21,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Xml-formatted string based on the provided <see cref="IOptionObject2"/>.</returns>
         public static string TransformToXml(IOptionObject2 optionObject2)
         {
-            return SerializeObject((OptionObject2)optionObject2);
+            return SerializeObjectToXmlString((OptionObject2)optionObject2);
         }
         /// <summary>
         /// Transforms an <see cref="IOptionObject2015"/> to a Xml-formatted string.
@@ -35,7 +30,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Xml-formatted string based on the provided <see cref="IOptionObject2015"/>.</returns>
         public static string TransformToXml(IOptionObject2015 optionObject2015)
         {
-            return SerializeObject((OptionObject2015)optionObject2015);
+            return SerializeObjectToXmlString((OptionObject2015)optionObject2015);
         }
         /// <summary>
         /// Transforms an <see cref="IFormObject"/> to a Xml-formatted string.
@@ -44,7 +39,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Xml-formatted string based on the provided <see cref="IFormObject"/>.</returns>
         public static string TransformToXml(IFormObject formObject)
         {
-            return SerializeObject((FormObject)formObject);
+            return SerializeObjectToXmlString((FormObject)formObject);
         }
         /// <summary>
         /// Transforms an <see cref="IRowObject"/> to a Xml-formatted string.
@@ -53,7 +48,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Xml-formatted string based on the provided <see cref="IRowObject"/>.</returns>
         public static string TransformToXml(IRowObject rowObject)
         {
-            return SerializeObject((RowObject)rowObject);
+            return SerializeObjectToXmlString((RowObject)rowObject);
         }
         /// <summary>
         /// Transforms an <see cref="IFieldObject"/> to a Xml-formatted string.
@@ -62,50 +57,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Xml-formatted string based on the provided <see cref="IFieldObject"/>.</returns>
         public static string TransformToXml(IFieldObject fieldObject)
         {
-            return SerializeObject((FieldObject)fieldObject);
-        }
-
-
-        private static string SerializeObject<T>(T objectToSerialize)
-        {
-            if (objectToSerialize == null)
-            {
-                return string.Empty;
-            }
-            try
-            {
-                using (StringWriter stringWriter = new System.IO.StringWriter())
-                {
-                    var serializer = new XmlSerializer(typeof(T));
-                    serializer.Serialize(stringWriter, objectToSerialize);
-                    return stringWriter.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                return string.Empty;
-            }
-        }
-
-        private static T DeserializeObject<T>(string xml) where T : new()
-        {
-            if (string.IsNullOrEmpty(xml))
-            {
-                return new T();
-            }
-            try
-            {
-                using (var stringReader = new StringReader(xml))
-                {
-                    var serializer = new XmlSerializer(typeof(T));
-                    return (T)serializer.Deserialize(stringReader);
-                }
-            }
-            catch (Exception ex)
-            {
-                //return new T();
-                throw ex;
-            }
+            return SerializeObjectToXmlString((FieldObject)fieldObject);
         }
     }
 }

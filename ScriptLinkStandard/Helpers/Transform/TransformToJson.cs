@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ScriptLinkStandard.Interfaces;
+﻿using ScriptLinkStandard.Interfaces;
 
 namespace ScriptLinkStandard.Helpers
 {
@@ -12,7 +11,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Json-formatted string based on the provided <see cref="IOptionObject"/>.</returns>
         public static string TransformToJson(IOptionObject optionObject)
         {
-            return JsonConvert.SerializeObject(optionObject);
+            return SerializeObjectToJsonString(optionObject);
         }
         /// <summary>
         /// Transforms an <see cref="IOptionObject2"/> to a Json-formatted string.
@@ -21,7 +20,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Json-formatted string based on the provided <see cref="IOptionObject2"/>.</returns>
         public static string TransformToJson(IOptionObject2 optionObject2)
         {
-            return JsonConvert.SerializeObject(optionObject2);
+            return SerializeObjectToJsonString(optionObject2);
         }
         /// <summary>
         /// Transforms an <see cref="IOptionObject2015"/> to a Json-formatted string.
@@ -30,7 +29,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Json-formatted string based on the provided <see cref="IOptionObject2015"/>.</returns>
         public static string TransformToJson(IOptionObject2015 optionObject2015)
         {
-            return JsonConvert.SerializeObject(optionObject2015);
+            return SerializeObjectToJsonString(optionObject2015);
         }
         /// <summary>
         /// Transforms an <see cref="IFormObject"/> to a Json-formatted string.
@@ -39,7 +38,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Json-formatted string based on the provided <see cref="IFormObject"/>.</returns>
         public static string TransformToJson(IFormObject formObject)
         {
-            return JsonConvert.SerializeObject(formObject);
+            return SerializeObjectToJsonString(formObject);
         }
         /// <summary>
         /// Transforms an <see cref="IRowObject"/> to a Json-formatted string.
@@ -48,7 +47,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Json-formatted string based on the provided <see cref="IRowObject"/>.</returns>
         public static string TransformToJson(IRowObject rowObject)
         {
-            return JsonConvert.SerializeObject(rowObject);
+            return SerializeObjectToJsonString(rowObject);
         }
         /// <summary>
         /// Transforms an <see cref="IFieldObject"/> to a Json-formatted string.
@@ -57,7 +56,7 @@ namespace ScriptLinkStandard.Helpers
         /// <returns>A Json-formatted string based on the provided <see cref="IFieldObject"/>.</returns>
         public static string TransformToJson(IFieldObject fieldObject)
         {
-            return JsonConvert.SerializeObject(fieldObject);
+            return SerializeObjectToJsonString(fieldObject);
         }
     }
 }

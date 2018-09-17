@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ScriptLinkStandard.Interfaces;
+﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
 
 namespace ScriptLinkStandard.Helpers
@@ -7,9 +6,9 @@ namespace ScriptLinkStandard.Helpers
     public partial class ScriptLinkHelpers
     {
         /// <summary>
-        /// Transforms a Json-formatted <see cref="System.String"/> to <see cref="RowObject"/>.
+        /// Transforms an Xml- or Json-formatted <see cref="System.String"/> to <see cref="RowObject"/>.
         /// </summary>
-        /// <param name="serializedString">A Json-formatted <see cref="System.String"/>.</param>
+        /// <param name="serializedString">An Xml- or Json-formatted <see cref="System.String"/>.</param>
         /// <returns>A <see cref="RowObject"/>.</returns>
         public static IRowObject TransformToRowObject(string serializedString)
         {
@@ -17,23 +16,12 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be empty or null", "serializedString");
             try
             {
-                RowObject rowObject = DeserializeObject<RowObject>(serializedString);
-                return rowObject;
+                return DeserializeObject<RowObject>(serializedString);
             }
             catch
             {
-                // Not valid XML or doesn't match the FieldObject specification
+                throw new System.ArgumentException("Serialized string is not in a compatible format.", "serializedString");
             }
-            try
-            {
-                RowObject rowObject = JsonConvert.DeserializeObject<RowObject>(serializedString);
-                return rowObject;
-            }
-            catch
-            {
-                // Not valid JSON or doesn't match the FieldObject specification
-            }
-            throw new System.ArgumentException("Serialized string is not in a compatible format.", "serializedString");
         }
     }
 }
