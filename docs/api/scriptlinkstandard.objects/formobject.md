@@ -108,6 +108,7 @@ public void GetMyFieldValue_Returns_Y()
 | SetUnlockedFields(string) | Sets the [FieldObjects](./fieldobject.md) in a FormObject as unlocked by FieldNumber. If [FieldObject](./fieldobject.md) is in a multiple iteration FormObject then all occurances will be set as unlocked. |
 | ToHtmlString(bool) | Returns the FormObject as an HTML string. The `<html>`, `<head>`, and `<body>` tags can be included if desired. |
 | ToJson() | Returns the FormObject as a JSON string. |
+| ToXml() | Returns the FormObject as an XML string. |
 
 ## Explicit Interface Implementations
 
