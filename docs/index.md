@@ -12,6 +12,10 @@ ScriptLinkStandard is a class library designed to help organizations that use my
 
 Looking to get started with ScriptLinkStandard? We will be making ScriptLinkStandard available through NuGet for easy inclusion in your new and existing ScriptLink projects.
 
+### Compatibility
+
+ScriptLinkStandard is compatible with projects based on .NET Framework 4.5 and later. [Learn more](./compatibility.md).
+
 ### NuGet
 
 The goal of this project is to make this library available for free through NuGet. We'll have more information soon on this.

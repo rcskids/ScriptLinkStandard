@@ -8,7 +8,7 @@ title: ScriptLinkStandard.Objects Namespace
 
 The ScriptLinkStandard.Objects namespace includes the classes that define the XML contract required for use with myAvatar ScriptLink.
 
-It is recommended that you use the [OptionObject2015](optionobject2015.md) class.
+It is recommended that you use the [OptionObject2015](optionobject2015.md) class. This is required if you use ScriptLink with Avatar Web Services and Cache 2016 or later.
 
 ## Structure
 
