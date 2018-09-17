@@ -1,7 +1,7 @@
 ﻿using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Interfaces;
 using System;
-// using System.Xml.Serialization
+//using System.Xml.Serialization;
 
 namespace ScriptLinkStandard.Objects
 {
@@ -54,7 +54,6 @@ namespace ScriptLinkStandard.Objects
                 return _isModified;
             }
         }
-        
         */
 
         //
@@ -314,5 +313,11 @@ namespace ScriptLinkStandard.Objects
         /// </summary>
         /// <returns><see cref="string"/> of all of the contents of the <see cref="FieldObject"/> formatted as JSON.</returns>
         public string ToJson() => ScriptLinkHelpers.TransformToJson(this);
+
+        /// <summary>
+        /// Returns a <see cref="string"/> with all of the contents of the <see cref="FieldObject"/> formatted as XML.
+        /// </summary>
+        /// <returns><see cref="string"/> of all of the contents of the <see cref="FieldObject"/> formatted as XML.</returns>
+        public string ToXml() => ScriptLinkHelpers.TransformToXml(this);
     }
 }

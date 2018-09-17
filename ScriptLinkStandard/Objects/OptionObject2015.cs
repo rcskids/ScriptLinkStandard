@@ -540,5 +540,11 @@ namespace ScriptLinkStandard.Objects
         /// <param name="errorMessage"></param>
         /// <returns></returns>
         public OptionObject2015 ToReturnOptionObject(int errorCode, string errorMessage) => (OptionObject2015)ScriptLinkHelpers.GetReturnOptionObject(this, errorCode, errorMessage);
+
+        /// <summary>
+        /// Returns a <see cref="string"/> with all of the contents of the <see cref="OptionObject2015"/> formatted as XML.
+        /// </summary>
+        /// <returns><see cref="string"/> of all of the contents of the <see cref="OptionObject2015"/> formatted as XML.</returns>
+        public string ToXml() => ScriptLinkHelpers.TransformToXml(this);
     }
 }

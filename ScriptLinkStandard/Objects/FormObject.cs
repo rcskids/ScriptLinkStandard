@@ -457,5 +457,11 @@ namespace ScriptLinkStandard.Objects
         /// </summary>
         /// <returns><see cref="string"/> of all of the contents of the <see cref="FormObject"/> formatted as JSON.</returns>
         public string ToJson() => ScriptLinkHelpers.TransformToJson(this);
+
+        /// <summary>
+        /// Returns a <see cref="string"/> with all of the contents of the <see cref="FormObject"/> formatted as XML.
+        /// </summary>
+        /// <returns><see cref="string"/> of all of the contents of the <see cref="FormObject"/> formatted as XML.</returns>
+        public string ToXml() => ScriptLinkHelpers.TransformToXml(this);
     }
 }

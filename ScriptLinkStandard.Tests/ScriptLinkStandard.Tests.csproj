@@ -78,6 +78,7 @@
     <Compile Include="HelpersTests\TransformToFieldObjectTests.cs" />
     <Compile Include="HelpersTests\TransformToRowObjectTests.cs" />
     <Compile Include="HelpersTests\TransformToFormObjectTests.cs" />
+    <Compile Include="HelpersTests\TransformToXmlTests.cs" />
     <Compile Include="ObjectsTests\FieldObjectTests.cs" />
     <Compile Include="ObjectsTests\FormObjectTests.cs" />
     <Compile Include="ObjectsTests\OptionObject2Tests.cs" />
