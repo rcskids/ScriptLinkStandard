@@ -118,6 +118,7 @@ OptionObject2 is a subsequent definition of the OptionObject for use with myAvat
 | ToOptionObject2015                            | Returns a copy of the OptionObject2 as an OptionObject2015.            |
 | ToReturnOptionObject                          | Creates and returns the returnOptionObject with all required properties and modified values.            |
 | ToReturnOptionObject(int, string)             | Creates and returns the returnOptionObject with all required properties and modified values and specified the ErrorCode and ErrorMesg.            |
+| ToXml()                                        | Returns the OptionObject2 as an XML string.           |
 
 ## Explicit Interface Implementations
 
@@ -130,4 +131,6 @@ OptionObject2 is a subsequent definition of the OptionObject for use with myAvat
 
 * [OptionObject](./optionobject.md)
 * [OptionObject2015](./optionobject2015.md)
-
+* [FormObject](./formobject.md)
+* [RowObject](./rowobject.md)
+* [FieldObject](./fieldobject.md)

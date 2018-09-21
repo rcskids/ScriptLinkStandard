@@ -14,7 +14,7 @@ Looking to get started with ScriptLinkStandard? We will be making ScriptLinkStan
 
 ### Compatibility
 
-ScriptLinkStandard is compatible with projects based on .NET Framework 4.5 and later. [Learn more](./compatibility.md).
+ScriptLinkStandard is compatible with projects based on .NET Framework 4.6.1 and later. [Learn more](./compatibility.md).
 
 ### NuGet
 

@@ -119,6 +119,7 @@ To use OptionObject2015 you will need RADplus 2016 Update 17 installed in myAvat
 | ToOptionObject2()                               | Returns a copy of the OptionObject2015 as an OptionObject2.            |
 | ToReturnOptionObject()                          | Creates and returns the returnOptionObject with all required properties and modified values.            |
 | ToReturnOptionObject(int, string)             | Creates and returns the returnOptionObject with all required properties and modified values and specified the ErrorCode and ErrorMesg.            |
+| ToXml()                                        | Returns the OptionObject2015 as an XML string.           |
 
 ## Explicit Interface Implementations
 

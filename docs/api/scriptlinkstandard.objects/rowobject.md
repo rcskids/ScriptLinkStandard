@@ -103,6 +103,7 @@ public void GetMyFieldValue_Returns_Y()
 | SetUnlockedFields(List&lt;string&gt;) | Sets [FieldObjects](./fieldobject.md) in a RowObject as unlocked by FieldNumbers. |
 | ToHtmlString(bool) | Returns the RowObject as an HTML string. The `<html>`, `<head>`, and `<body>` tags can be included if desired. |
 | ToJson() | Returns the RowObject as a JSON string. |
+| ToXml() | Returns the RowObject as an XML string. |
 
 ## Explicit Interface Implementations
 
