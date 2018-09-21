@@ -1,15 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/rcskids/ScriptLinkStandard</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/rcskids/ScriptLinkStandard/blob/master/LICENSE.md</PackageLicenseUrl>
     <Authors>Scott Olson Jr, Luis Quicano</Authors>
-    <Company />
+    <Company>Rebekah Children's Services</Company>
     <Description>A class library for Netsmart myAvatar ScriptLink API development.</Description>
     <PackageTags>Netsmart myAvatar, ScriptLink</PackageTags>
+    <SignAssembly>false</SignAssembly>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

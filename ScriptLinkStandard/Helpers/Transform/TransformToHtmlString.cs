@@ -223,10 +223,7 @@ namespace ScriptLinkStandard.Helpers
             if (rawObject == null) { return ""; }
             string html = "";
             Type type = rawObject.GetType();
-            // For .NET Standard 2.0
-            // PropertyInfo[] properties = type.GetProperties(BindingFlags.Public);
-            // For .NET Standard 1.x
-            PropertyInfo[] properties = type.GetTypeInfo().DeclaredProperties.ToArray();
+            PropertyInfo[] properties = GetPropertyInfo(type);
 
             switch (htmlOutputType)
             {
@@ -298,6 +295,13 @@ namespace ScriptLinkStandard.Helpers
             }
 
             return html;
+        }
+
+        private static PropertyInfo[] GetPropertyInfo(Type type)
+        {
+            return type.GetProperties(BindingFlags.Public);
+            // For previous .NET Standard versions
+            //return type.GetTypeInfo().DeclaredProperties.ToArray();
         }
 
         private static string GetHtmlHeader()
