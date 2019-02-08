@@ -21,7 +21,7 @@ You will need the following to complete this walkthrough.
   2. Select ASP.NET Web Application (.NET Framework)
   3. Set the Name for your ScriptLink project. (e.g., SLSDemo.Web)
   4. Accept defaults for your Location and Solution name.
-  5. Set the Framework to .NET Framework 4.6.1.
+  5. Set the Framework to .NET Framework 4.7.2.
   6. Select OK.
 3. On the New ASP.NET Web Application screen,
   1. Select Empty.
@@ -31,7 +31,11 @@ You will need the following to complete this walkthrough.
 
 ## Add Required Packages
 
-To be written.
+1. Right-click on the solution and select Manage NuGet Packages for Solution...
+2. Enter ScriptLinkStandard in the search box. (Check Include prerelease to check to get the latest prelease version.)
+3. Select ScriptLinkStandard from the search results.
+4. Check the boxes next to each of your projects (Web and Unit Test) and select Install.
+5. Once installed you may close the NuGet - Solution page or search for additional packages.
 
 ## Create Controller API
 
