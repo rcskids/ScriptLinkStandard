@@ -18,20 +18,12 @@ ScriptLinkStandard is compatible with projects based on .NET Framework 4.6.1 and
 
 ### NuGet
 
-The goal of this project is to make this library available for free through NuGet. We'll have more information soon on this.
-
-### Manual Installation
-
-1. Download the [latest release](https://github.com/rcskids/ScriptLinkStandard/releases).
-2. Extract the compressed file.
-3. Open your solution in Visual Studio.
-4. For each project in the solution that will use the library (e.g., your web app and unit test projects)
-	1. Select Project > Add Reference... from the menu bar (or right-click on the project and select Add > Reference...).
-	2. In the Reference Manager, select Browse...
-	3. Navigate the location of the ScriptLinkStandard.dll that you just extracted.
-	4. Select the ScriptLinkStandard.dll file and click Add.
-	5. Select OK.
-5. You can now reference the ScriptLinkStandard library throughout your project with `@using` tags.
+1. Right-click on the solution and select Manage NuGet Packages for Solution...
+2. Enter ScriptLinkStandard in the search box. (Check Include prerelease to check to get the latest prelease version.)
+3. Select ScriptLinkStandard from the search results.
+4. Check the boxes next to each of your projects (Web and Unit Test) and select Install.
+5. Once installed you may close the NuGet - Solution page or search for additional packages.
+6. You can now reference the ScriptLinkStandard library throughout your project with `@using` tags.
 
 ```c#
 @using ScriptLinkStandard.Helpers
