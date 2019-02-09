@@ -21,7 +21,7 @@ public partial class ScriptLinkHelpers
 The following code samples demonstrate using the ScriptLinkHelpers class.
 
 ### IsValidErrorCode
-There is a limited set of error codes that are valid of ruse with ScriptLink.
+There is a limited set of error codes that are valid for use with ScriptLink.
 ```c#
 double errorCode = 3;
 if (ScriptLinkHelpers.IsValidErrorCode(errorCode))
@@ -31,7 +31,7 @@ if (ScriptLinkHelpers.IsValidErrorCode(errorCode))
 ```
 
 ### IsValidRowAction
-There is a limited set of error codes that are valid of ruse with ScriptLink.
+There is a limited set of error codes that are valid for use with ScriptLink.
 ```c#
 string rowAction = "EDIT";
 if (ScriptLinkHelpers.IsValidRowAction(rowAction))
@@ -41,7 +41,7 @@ if (ScriptLinkHelpers.IsValidRowAction(rowAction))
 ```
 
 ### IsValidUrl
-There is a limited set of error codes that are valid of ruse with ScriptLink.
+There is a limited set of error codes that are valid for use with ScriptLink.
 ```c#
 double errorCode = 5;
 string url = "http://www.rcskids.org";
