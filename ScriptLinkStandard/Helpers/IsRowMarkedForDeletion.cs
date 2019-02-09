@@ -1,8 +1,6 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ScriptLinkStandard.Helpers
 {

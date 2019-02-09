@@ -103,21 +103,6 @@ namespace ScriptLinkStandard.Helpers
             return formObject;
         }
 
-        private static string GetNextRowId(IFormObject formObject)
-        {
-            int maximumNumberOfMultipleIterationRows = 15;
-            for (int i = 1; i < maximumNumberOfMultipleIterationRows; i++)
-            {
-                string tempRowId = formObject.FormId + "||" + i.ToString();
-                if (formObject.CurrentRow == null)
-                    return tempRowId;
-                if (formObject.CurrentRow.RowId != tempRowId
-                    && !formObject.OtherRows.Exists(r => r.RowId == tempRowId))
-                    return tempRowId;
-            }
-            return formObject.FormId + "||99";
-        }
-
         public static IFormObject AddRowObject(IFormObject formObject, string rowId, string parentRowId)
         {
             if (formObject == null)
@@ -137,5 +122,23 @@ namespace ScriptLinkStandard.Helpers
             };
             return AddRowObject(formObject, rowObject);
         }
+
+
+        #region HelperMethods
+        private static string GetNextRowId(IFormObject formObject)
+        {
+            int maximumNumberOfMultipleIterationRows = 15;
+            for (int i = 1; i < maximumNumberOfMultipleIterationRows; i++)
+            {
+                string tempRowId = formObject.FormId + "||" + i.ToString();
+                if (formObject.CurrentRow == null)
+                    return tempRowId;
+                if (formObject.CurrentRow.RowId != tempRowId
+                    && !formObject.OtherRows.Exists(r => r.RowId == tempRowId))
+                    return tempRowId;
+            }
+            return formObject.FormId + "||99";
+        }
+        #endregion
     }
 }
