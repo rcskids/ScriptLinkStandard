@@ -259,6 +259,18 @@ The following methods are also available as methods on the various objects.
 | SetUnlockedFields(IFormObject, string) | formObject.SetUnlockedFields(string) |
 | SetUnlockedFields(IRowObject, List<string>) | rowObject.SetUnlockedFields(List<string>) |
 | SetUnlockedFields(IRowObject, string) | rowObject.SetUnlockedFields(string) |
+| TransformToHtmlString(IOptionObject) | optionObject.ToHtmlString() |
+| TransformToHtmlString(IOptionObject, bool) | optionObject.ToHtmlString(bool) |
+| TransformToHtmlString(IOptionObject2) | optionObject.ToHtmlString() |
+| TransformToHtmlString(IOptionObject2, bool) | optionObject.ToHtmlString(bool) |
+| TransformToHtmlString(IOptionObject2015) | optionObject.ToHtmlString() |
+| TransformToHtmlString(IOptionObject2015, bool) | optionObject.ToHtmlString(bool) |
+| TransformToHtmlString(IFormObject) | formObject.ToHtmlString() |
+| TransformToHtmlString(IFormObject, bool) | formObject.ToHtmlString(bool) |
+| TransformToHtmlString(IRowObject) | rowObject.ToHtmlString() |
+| TransformToHtmlString(IRowObject, bool) | rowObject.ToHtmlString(bool) |
+| TransformToHtmlString(IFieldObject) | fieldObject.ToHtmlString() |
+| TransformToHtmlString(IFieldObject, bool) | fieldObject.ToHtmlString(bool) |
 
 ## See also
 
