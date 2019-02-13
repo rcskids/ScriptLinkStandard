@@ -6,6 +6,12 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Returns whether the <see cref="IRowObject"/> in an <see cref="IOptionObject"/> is marked for deletion by RowId.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="rowId"></param>
+        /// <returns></returns>
         public static bool IsRowMarkedForDeletion(IOptionObject optionObject, string rowId)
         {
             if (optionObject == null)
@@ -14,6 +20,12 @@ namespace ScriptLinkStandard.Helpers
                 throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
             return IsRowMarkedForDeletion(optionObject.ToOptionObject2015(), rowId);
         }
+        /// <summary>
+        /// Returns whether the <see cref="IRowObject"/> in an <see cref="IOptionObject2"/> is marked for deletion by RowId.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="rowId"></param>
+        /// <returns></returns>
         public static bool IsRowMarkedForDeletion(IOptionObject2 optionObject, string rowId)
         {
             if (optionObject == null)
@@ -22,7 +34,12 @@ namespace ScriptLinkStandard.Helpers
                 throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
             return IsRowMarkedForDeletion(optionObject.ToOptionObject2015(), rowId);
         }
-
+        /// <summary>
+        /// Returns whether the <see cref="IRowObject"/> in an <see cref="IOptionObject2015"/> is marked for deletion by RowId.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="rowId"></param>
+        /// <returns></returns>
         public static bool IsRowMarkedForDeletion(IOptionObject2015 optionObject, string rowId)
         {
             if (optionObject == null)
@@ -38,7 +55,12 @@ namespace ScriptLinkStandard.Helpers
             }
             return false;
         }
-
+        /// <summary>
+        /// Returns whether the <see cref="IRowObject"/> in an <see cref="IFormObject"/> is marked for deletion by RowId.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="rowId"></param>
+        /// <returns></returns>
         public static bool IsRowMarkedForDeletion(IFormObject formObject, string rowId)
         {
             if (formObject == null)

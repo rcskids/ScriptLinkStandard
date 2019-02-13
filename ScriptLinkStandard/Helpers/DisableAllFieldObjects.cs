@@ -6,38 +6,69 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Sets all <see cref="IFieldObject"/> in the <see cref="IOptionObject"/> to disabled.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
         public static IOptionObject DisableAllFieldObjects(IOptionObject optionObject)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject.ToOptionObject2015()).ToOptionObject();
         }
+        /// <summary>
+        /// Sets all <see cref="IFieldObject"/> in the <see cref="IOptionObject"/> to disabled, except for the FieldNumbers specified in List.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="excludedFields"></param>
+        /// <returns></returns>
         public static IOptionObject DisableAllFieldObjects(IOptionObject optionObject, List<string> excludedFields)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject.ToOptionObject2015(), excludedFields).ToOptionObject();
         }
+        /// <summary>
+        /// Sets all <see cref="IFieldObject"/> in the <see cref="IOptionObject2"/> to disabled.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
         public static IOptionObject2 DisableAllFieldObjects(IOptionObject2 optionObject)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject.ToOptionObject2015()).ToOptionObject2();
         }
+        /// <summary>
+        /// Sets all <see cref="IFieldObject"/> in the <see cref="IOptionObject2"/> to disabled, except for the FieldNumbers specified in List.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="excludedFields"></param>
+        /// <returns></returns>
         public static IOptionObject2 DisableAllFieldObjects(IOptionObject2 optionObject, List<string> excludedFields)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject.ToOptionObject2015(), excludedFields).ToOptionObject2();
         }
-
+        /// <summary>
+        /// Sets all <see cref="IFieldObject"/> in the <see cref="IOptionObject2015"/> to disabled.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
         public static IOptionObject2015 DisableAllFieldObjects(IOptionObject2015 optionObject)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject, new List<string>());
         }
-
+        /// <summary>
+        /// Sets all <see cref="IFieldObject"/> in the <see cref="IOptionObject2015"/> to disabled, except for the FieldNumbers specified in List.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="excludedFields"></param>
+        /// <returns></returns>
         public static IOptionObject2015 DisableAllFieldObjects(IOptionObject2015 optionObject, List<string> excludedFields)
         {
             if (optionObject == null)

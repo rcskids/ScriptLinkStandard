@@ -1,15 +1,12 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
         /// <summary>
-        /// Adds a <see cref="RowObject"/> to a specified <see cref="FormObject"/> within provided <see cref="OptionObject"/>.
+        /// Adds a <see cref="RowObject"/> to a specified <see cref="IFormObject"/> within provided <see cref="IOptionObject"/>.
         /// </summary>
         /// <param name="optionObject"></param>
         /// <param name="formId"></param>
@@ -26,7 +23,7 @@ namespace ScriptLinkStandard.Helpers
             return AddRowObject(optionObject.ToOptionObject2015(), formId, rowObject).ToOptionObject();
         }
         /// <summary>
-        /// Adds a <see cref="RowObject"/> to a specified <see cref="FormObject"/> within provided <see cref="OptionObject2"/>.
+        /// Adds a <see cref="RowObject"/> to a specified <see cref="IFormObject"/> within provided <see cref="IOptionObject2"/>.
         /// </summary>
         /// <param name="optionObject2"></param>
         /// <param name="formId"></param>
@@ -43,7 +40,7 @@ namespace ScriptLinkStandard.Helpers
             return AddRowObject(optionObject2.ToOptionObject2015(), formId, rowObject).ToOptionObject2();
         }
         /// <summary>
-        /// Adds a <see cref="RowObject"/> to a specified <see cref="FormObject"/> within provided <see cref="OptionObject2015"/>.
+        /// Adds a <see cref="RowObject"/> to a specified <see cref="IFormObject"/> within provided <see cref="IOptionObject2015"/>.
         /// </summary>
         /// <param name="optionObject2015"></param>
         /// <param name="formId"></param>
@@ -71,7 +68,7 @@ namespace ScriptLinkStandard.Helpers
             return optionObject2015;
         }
         /// <summary>
-        /// Adds a <see cref="RowObject"/> to a provided <see cref="FormObject"/>.
+        /// Adds a <see cref="RowObject"/> to a provided <see cref="IFormObject"/>.
         /// </summary>
         /// <param name="formObject"></param>
         /// <param name="rowObject"></param>
@@ -102,14 +99,27 @@ namespace ScriptLinkStandard.Helpers
             }
             return formObject;
         }
-
+        /// <summary>
+        /// Adds a <see cref="RowObject"/> to a provided <see cref="IFormObject"/> using provided RowId and ParentRowId.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="rowId"></param>
+        /// <param name="parentRowId"></param>
+        /// <returns></returns>
         public static IFormObject AddRowObject(IFormObject formObject, string rowId, string parentRowId)
         {
             if (formObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");
             return AddRowObject(formObject, rowId, parentRowId, "ADD");
         }
-
+        /// <summary>
+        /// Adds a <see cref="RowObject"/> to a provided <see cref="IFormObject"/> using provided RowId, ParentRowId, and RowAction.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="rowId"></param>
+        /// <param name="parentRowId"></param>
+        /// <param name="rowAction"></param>
+        /// <returns></returns>
         public static IFormObject AddRowObject(IFormObject formObject, string rowId, string parentRowId, string rowAction)
         {
             if (formObject == null)

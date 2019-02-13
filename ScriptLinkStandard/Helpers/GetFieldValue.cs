@@ -7,31 +7,64 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Returns the FieldValue of a specified <see cref="IFieldObject"/> in an <see cref="IOptionObject"/> by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IOptionObject optionObject, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2015(), fieldNumber);
         }
+        /// <summary>
+        /// Returns the FieldValue of a specified <see cref="IFieldObject"/> in an <see cref="IOptionObject"/> by FormId, RowId, and FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="formId"></param>
+        /// <param name="rowId"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IOptionObject optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber);
         }
+        /// <summary>
+        /// Returns the FieldValue of a specified <see cref="IFieldObject"/> in an <see cref="IOptionObject2"/> by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IOptionObject2 optionObject, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2015(), fieldNumber);
         }
+        /// <summary>
+        /// Returns the FieldValue of a specified <see cref="IFieldObject"/> in an <see cref="IOptionObject2"/> by FormId, RowId, and FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="formId"></param>
+        /// <param name="rowId"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber);
         }
-
+        /// <summary>
+        /// Returns the FieldValue of a specified <see cref="IFieldObject"/> in an <see cref="IOptionObject2015"/> by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
@@ -39,7 +72,14 @@ namespace ScriptLinkStandard.Helpers
             List<string> fieldValues = ScriptLinkHelpers.GetFieldValues(optionObject, fieldNumber);
             return fieldValues.Count > 0 ? fieldValues[0] : "";
         }
-
+        /// <summary>
+        /// Returns the FieldValue of a specified <see cref="IFieldObject"/> in an <see cref="IOptionObject2015"/> by FormId, RowId, and FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="formId"></param>
+        /// <param name="rowId"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IOptionObject2015 optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
@@ -51,14 +91,25 @@ namespace ScriptLinkStandard.Helpers
             }
             throw new ArgumentException("FieldObject (" + fieldNumber + ") could not be found.");
         }
-
+        /// <summary>
+        /// Returns the FieldValue of a <see cref="IFieldObject"/> in a <see cref="IFormObject"/> by FieldNumber.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IFormObject formObject, string fieldNumber)
         {
             if (formObject == null)
                 throw new ArgumentException("Parameter cannot be null", "formObject");
             return GetFieldValue(formObject, formObject.CurrentRow.RowId, fieldNumber);
         }
-
+        /// <summary>
+        /// Returns the FieldValue of a <see cref="IFieldObject"/> in a <see cref="IFormObject"/> by RowId and FieldNumber.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="rowId"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IFormObject formObject, string rowId, string fieldNumber)
         {
             if (formObject == null)
@@ -72,7 +123,12 @@ namespace ScriptLinkStandard.Helpers
             }
             throw new ArgumentException("FieldObject (" + fieldNumber + ") could not be found.");
         }
-
+        /// <summary>
+        /// Returns the FieldValue of a <see cref="IFieldObject"/> in a <see cref="IRowObject"/> by FieldNumber.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IRowObject rowObject, string fieldNumber)
         {
             if (rowObject == null)
@@ -84,7 +140,11 @@ namespace ScriptLinkStandard.Helpers
             }
             throw new ArgumentException("FieldObject (" + fieldNumber + ") could not be found.");
         }
-
+        /// <summary>
+        /// Returns the FieldValue of a <see cref="IFieldObject"/>.
+        /// </summary>
+        /// <param name="fieldObject"></param>
+        /// <returns></returns>
         public static string GetFieldValue(IFieldObject fieldObject)
         {
             if (fieldObject == null)

@@ -5,6 +5,13 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/> in a <see cref="IOptionObject"/> by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IOptionObject SetFieldValue(IOptionObject optionObject, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
@@ -13,7 +20,15 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return SetFieldValue(optionObject.ToOptionObject2015(), fieldNumber, fieldValue).ToOptionObject(); ;
         }
-
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/> in a <see cref="IOptionObject"/> by FormId, RowID, and FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="formId"></param>
+        /// <param name="rowId"></param>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IOptionObject SetFieldValue(IOptionObject optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
@@ -26,6 +41,13 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return SetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber, fieldValue).ToOptionObject();
         }
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/> in a <see cref="IOptionObject2"/> by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IOptionObject2 SetFieldValue(IOptionObject2 optionObject, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
@@ -34,7 +56,15 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return SetFieldValue(optionObject.ToOptionObject2015(), fieldNumber, fieldValue).ToOptionObject2(); ;
         }
-
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/> in a <see cref="IOptionObject2"/> by FormId, RowID, and FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="formId"></param>
+        /// <param name="rowId"></param>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IOptionObject2 SetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
@@ -47,7 +77,13 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return SetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber, fieldValue).ToOptionObject2();
         }
-
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/> in a <see cref="IOptionObject2015"/> by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IOptionObject2015 SetFieldValue(IOptionObject2015 optionObject, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
@@ -70,7 +106,15 @@ namespace ScriptLinkStandard.Helpers
             }
             throw new System.ArgumentException("The specified FieldObject was not found in this OptionObject.", "optionObject");
         }
-
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/> in a <see cref="IOptionObject2015"/> by FormId, RowID, and FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="formId"></param>
+        /// <param name="rowId"></param>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IOptionObject2015 SetFieldValue(IOptionObject2015 optionObject, string formId, string rowId, string fieldNumber, string fieldValue)
         {
             if (optionObject == null)
@@ -90,7 +134,13 @@ namespace ScriptLinkStandard.Helpers
             }
             return optionObject;
         }
-
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/> in a <see cref="IFormObject"/> by FieldNumber.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IFormObject SetFieldValue(IFormObject formObject, string fieldNumber, string fieldValue)
         {
             if (formObject == null)
@@ -103,7 +153,14 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Unable to determine which FieldObject to update. Please specify the FormId and RowId associated with the intended FieldObject.", "optionObject");
             return SetFieldValue(formObject, formObject.CurrentRow.RowId, fieldNumber, fieldValue);
         }
-
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/> in a <see cref="IFormObject"/> by RowId and FieldNumber.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="rowId"></param>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IFormObject SetFieldValue(IFormObject formObject, string rowId, string fieldNumber, string fieldValue)
         {
             if (formObject == null)
@@ -132,7 +189,13 @@ namespace ScriptLinkStandard.Helpers
             }
             throw new System.ArgumentException("The specified FieldObject was not found in this FormObject.", "formObject");
         }
-
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/> in a <see cref="IRowObject"/> by FieldNumber.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IRowObject SetFieldValue(IRowObject rowObject, string fieldNumber, string fieldValue)
         {
             if (rowObject == null)
@@ -150,7 +213,12 @@ namespace ScriptLinkStandard.Helpers
             }
             return rowObject;
         }
-
+        /// <summary>
+        /// Sets the FieldValue of a <see cref="FieldObject"/>.
+        /// </summary>
+        /// <param name="fieldObject"></param>
+        /// <param name="fieldValue"></param>
+        /// <returns></returns>
         public static IFieldObject SetFieldValue(IFieldObject fieldObject, string fieldValue)
         {
             if (fieldObject == null)

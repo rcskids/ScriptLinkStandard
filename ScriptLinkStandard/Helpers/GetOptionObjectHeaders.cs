@@ -5,6 +5,11 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Returns a List of the <see cref="IOptionObject"/> properties and values.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
         public static List<string> GetOptionObjectHeaders(IOptionObject optionObject)
         {
             if (optionObject == null)
@@ -23,6 +28,11 @@ namespace ScriptLinkStandard.Helpers
             };
             return headers;
         }
+        /// <summary>
+        /// Returns a List of the <see cref="IOptionObject2"/> properties and values.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
         public static List<string> GetOptionObjectHeaders(IOptionObject2 optionObject)
         {
             if (optionObject == null)
@@ -44,6 +54,11 @@ namespace ScriptLinkStandard.Helpers
             };
             return headers;
         }
+        /// <summary>
+        /// Returns a List of the <see cref="IOptionObject2015"/> properties and values.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
         public static List<string> GetOptionObjectHeaders(IOptionObject2015 optionObject)
         {
             if (optionObject == null)

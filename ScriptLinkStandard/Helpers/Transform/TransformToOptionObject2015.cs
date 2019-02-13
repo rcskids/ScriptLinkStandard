@@ -1,7 +1,5 @@
-﻿using Newtonsoft.Json;
-using ScriptLinkStandard.Interfaces;
+﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +7,11 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Transforms an <see cref="IOptionObject"/> to <see cref="IOptionObject2015"/>.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
         public static IOptionObject2015 TransformToOptionObject2015(IOptionObject optionObject)
         {
             if (optionObject == null)
@@ -30,6 +33,11 @@ namespace ScriptLinkStandard.Helpers
             };
             return optionObject2015;
         }
+        /// <summary>
+        /// Transforms an <see cref="IOptionObject2"/> to <see cref="IOptionObject2015"/>.
+        /// </summary>
+        /// <param name="optionObject2"></param>
+        /// <returns></returns>
         public static IOptionObject2015 TransformToOptionObject2015(IOptionObject2 optionObject2)
         {
             if (optionObject2 == null)
@@ -54,7 +62,11 @@ namespace ScriptLinkStandard.Helpers
             };
             return optionObject2015;
         }
-
+        /// <summary>
+        /// Transforms a serialized string to <see cref="IOptionObject2015"/>.
+        /// </summary>
+        /// <param name="serializedString"></param>
+        /// <returns></returns>
         public static IOptionObject2015 TransformToOptionObject2015(string serializedString)
         {
             if (serializedString == null || serializedString == "")

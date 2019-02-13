@@ -7,7 +7,7 @@ namespace ScriptLinkStandard.Helpers
     public partial class ScriptLinkHelpers
     {
         /// <summary>
-        /// Used to create the returning optionObject.
+        /// Used to create the <see cref="IOptionObject"/> for return to myAvatar.
         /// </summary>
         /// <param name="optionObject"></param>
         /// <param name="errorCode"></param>
@@ -19,6 +19,13 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return GetReturnOptionObject(optionObject.ToOptionObject2015(), 0, "").ToOptionObject();
         }
+        /// <summary>
+        /// Used to create the <see cref="IOptionObject"/> for return to myAvatar using provide Error Code and Error Message.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="errorCode"></param>
+        /// <param name="errorMessage"></param>
+        /// <returns></returns>
         public static IOptionObject GetReturnOptionObject(IOptionObject optionObject, double errorCode, string errorMessage)
         {
             if (optionObject == null)
@@ -27,12 +34,24 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Error Code is not valid.");
             return GetReturnOptionObject(optionObject.ToOptionObject2015(), errorCode, errorMessage).ToOptionObject();
         }
+        /// <summary>
+        /// Used to create the <see cref="IOptionObject2"/> for return to myAvatar.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
         public static IOptionObject2 GetReturnOptionObject(IOptionObject2 optionObject)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return GetReturnOptionObject(optionObject, 0, "");
         }
+        /// <summary>
+        /// Used to create the <see cref="IOptionObject2"/> for return to myAvatar using provide Error Code and Error Message.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="errorCode"></param>
+        /// <param name="errorMessage"></param>
+        /// <returns></returns>
         public static IOptionObject2 GetReturnOptionObject(IOptionObject2 optionObject, double errorCode, string errorMessage)
         {
             if (optionObject == null)
@@ -41,13 +60,24 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Error Code is not valid.");
             return GetReturnOptionObject(optionObject.ToOptionObject2015(), errorCode, errorMessage).ToOptionObject2();
         }
-
+        /// <summary>
+        /// Used to create the <see cref="IOptionObject2015"/> for return to myAvatar.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
         public static IOptionObject2015 GetReturnOptionObject(IOptionObject2015 optionObject)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return GetReturnOptionObject(optionObject, 0, "");
         }
+        /// <summary>
+        /// Used to create the <see cref="IOptionObject2015"/> for return to myAvatar using provide Error Code and Error Message.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="errorCode"></param>
+        /// <param name="errorMessage"></param>
+        /// <returns></returns>
         public static IOptionObject2015 GetReturnOptionObject(IOptionObject2015 optionObject, double errorCode, string errorMessage)
         {
             if (optionObject == null)
@@ -59,6 +89,7 @@ namespace ScriptLinkStandard.Helpers
             return returnOptionObject;
         }
 
+        #region HelperMethods
         private static IOptionObject2015 RemoveUneditedRows(IOptionObject2015 optionObject)
         {
             if (optionObject == null)
@@ -146,5 +177,6 @@ namespace ScriptLinkStandard.Helpers
             returnOptionObject.ErrorMesg = errorMessage;
             return returnOptionObject;
         }
+        #endregion
     }
 }

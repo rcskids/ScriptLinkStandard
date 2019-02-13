@@ -8,6 +8,12 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Returns <see cref="IOptionObject"/> as an HTML string with or without HTML headers.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="includeHtmlHeaders"></param>
+        /// <returns></returns>
         public static string TransformToHtmlString(IOptionObject optionObject, bool includeHtmlHeaders)
         {
             if (optionObject == null)
@@ -48,6 +54,12 @@ namespace ScriptLinkStandard.Helpers
             html += includeHtmlHeaders ? GetHtmlFooter() : "";
             return html;
         }
+        /// <summary>
+        /// Returns <see cref="IOptionObject2"/> as an HTML string with or without HTML headers.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="includeHtmlHeaders"></param>
+        /// <returns></returns>
         public static string TransformToHtmlString(IOptionObject2 optionObject, bool includeHtmlHeaders)
         {
             if (optionObject == null)
@@ -88,6 +100,12 @@ namespace ScriptLinkStandard.Helpers
             html += includeHtmlHeaders ? GetHtmlFooter() : "";
             return html;
         }
+        /// <summary>
+        /// Returns <see cref="IOptionObject2015"/> as an HTML string with or without HTML headers.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="includeHtmlHeaders"></param>
+        /// <returns></returns>
         public static string TransformToHtmlString(IOptionObject2015 optionObject, bool includeHtmlHeaders)
         {
             if (optionObject == null)
@@ -128,12 +146,23 @@ namespace ScriptLinkStandard.Helpers
             html += includeHtmlHeaders ? GetHtmlFooter() : "";
             return html;
         }
+        /// <summary>
+        /// Returns <see cref="IFormObject"/> as an HTML string without HTML headers.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <returns></returns>
         public static string TransformToHtmlString(IFormObject formObject)
         {
             if (formObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "formObject");
             return TransformToHtmlString(formObject, false);
         }
+        /// <summary>
+        /// Returns <see cref="IFormObject"/> as an HTML string with or without HTML headers.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="includeHtmlHeaders"></param>
+        /// <returns></returns>
         public static string TransformToHtmlString(IFormObject formObject, bool includeHtmlHeaders)
         {
             if (formObject == null)
@@ -172,12 +201,23 @@ namespace ScriptLinkStandard.Helpers
             html += includeHtmlHeaders ? GetHtmlFooter() : "";
             return html;
         }
+        /// <summary>
+        /// Returns <see cref="IRowObject"/> as an HTML string without HTML headers.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <returns></returns>
         public static string TransformToHtmlString(IRowObject rowObject)
         {
             if (rowObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
             return TransformToHtmlString(rowObject, false);
         }
+        /// <summary>
+        /// Returns <see cref="IRowObject"/> as an HTML string with or without HTML headers.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <param name="includeHtmlHeaders"></param>
+        /// <returns></returns>
         public static string TransformToHtmlString(IRowObject rowObject, bool includeHtmlHeaders)
         {
             if (rowObject == null)
@@ -200,12 +240,23 @@ namespace ScriptLinkStandard.Helpers
             html += includeHtmlHeaders ? GetHtmlFooter() : "";
             return html;
         }
+        /// <summary>
+        /// Returns <see cref="IFieldObject"/> as an HTML string without HTML headers.
+        /// </summary>
+        /// <param name="fieldObject"></param>
+        /// <returns></returns>
         public static string TransformToHtmlString(IFieldObject fieldObject)
         {
             if (fieldObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "fieldObject");
             return TransformToHtmlString(fieldObject, false);
         }
+        /// <summary>
+        /// Returns <see cref="IFieldObject"/> as an HTML string with or without HTML headers.
+        /// </summary>
+        /// <param name="fieldObject"></param>
+        /// <param name="includeHtmlHeaders"></param>
+        /// <returns></returns>
         public static string TransformToHtmlString(IFieldObject fieldObject, bool includeHtmlHeaders)
         {
             if (fieldObject == null)
@@ -218,6 +269,7 @@ namespace ScriptLinkStandard.Helpers
             return html;
         }
 
+        #region HelperMethods
         private static string GetHtmlForObject(object rawObject, HtmlOutputType htmlOutputType)
         {
             if (rawObject == null) { return ""; }
@@ -333,5 +385,6 @@ namespace ScriptLinkStandard.Helpers
             UnorderedList,
             OrderedList
         }
+        #endregion
     }
 }

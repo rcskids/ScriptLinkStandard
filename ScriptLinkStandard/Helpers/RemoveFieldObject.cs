@@ -5,6 +5,12 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Removes a <see cref="IFieldObject"/> from a <see cref="IRowObject"/>.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <param name="fieldObject"></param>
+        /// <returns></returns>
         public static IRowObject RemoveFieldObject(IRowObject rowObject, IFieldObject fieldObject)
         {
             if (rowObject == null)
@@ -14,7 +20,12 @@ namespace ScriptLinkStandard.Helpers
             rowObject.Fields.Remove((FieldObject)fieldObject);
             return (RowObject)rowObject;
         }
-
+        /// <summary>
+        /// Removes a <see cref="IFieldObject"/> from a <see cref="IRowObject"/> by FieldNumber.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static IRowObject RemoveFieldObject(IRowObject rowObject, string fieldNumber)
         {
             if (rowObject == null)

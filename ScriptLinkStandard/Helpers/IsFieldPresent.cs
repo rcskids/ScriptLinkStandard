@@ -5,6 +5,12 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IOptionObject"/> is present by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldPresent(IOptionObject optionObject, string fieldNumber)
         {
             if (optionObject == null)
@@ -13,6 +19,12 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return IsFieldPresent(optionObject.ToOptionObject2015(), fieldNumber);
         }
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IOptionObject2"/> is present by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldPresent(IOptionObject2 optionObject, string fieldNumber)
         {
             if (optionObject == null)
@@ -21,6 +33,12 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return IsFieldPresent(optionObject.ToOptionObject2015(), fieldNumber);
         }
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IOptionObject2015"/> is present by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldPresent(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
@@ -38,7 +56,12 @@ namespace ScriptLinkStandard.Helpers
             }
             return false;
         }
-
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IFormObject"/> is present by FieldNumber.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldPresent(IFormObject formObject, string fieldNumber)
         {
             if (formObject == null)
@@ -49,7 +72,12 @@ namespace ScriptLinkStandard.Helpers
                 return false;
             return IsFieldPresent(formObject.CurrentRow, fieldNumber);
         }
-
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IRowObject"/> is present by FieldNumber.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldPresent(IRowObject rowObject, string fieldNumber)
         {
             if (rowObject == null)

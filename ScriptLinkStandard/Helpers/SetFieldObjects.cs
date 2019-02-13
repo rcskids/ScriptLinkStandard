@@ -7,18 +7,39 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldObjects"></param>
+        /// <returns></returns>
         public static IOptionObject SetFieldObjects(IOptionObject optionObject, string fieldAction, List<FieldObject> fieldObjects)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldObjects).ToOptionObject();
         }
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumbers"></param>
+        /// <returns></returns>
         public static IOptionObject SetFieldObjects(IOptionObject optionObject, string fieldAction, List<string> fieldNumbers)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject();
         }
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static IOptionObject SetFieldObjects(IOptionObject optionObject, string fieldAction, string fieldNumber)
         {
             if (optionObject == null)
@@ -26,18 +47,39 @@ namespace ScriptLinkStandard.Helpers
             List<string> fieldNumbers = new List<string> { fieldNumber };
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject();
         }
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject2"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldObjects"></param>
+        /// <returns></returns>
         public static IOptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, List<FieldObject> fieldObjects)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldObjects).ToOptionObject2();
         }
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject2"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumbers"></param>
+        /// <returns></returns>
         public static IOptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, List<string> fieldNumbers)
         {
             if (optionObject == null)
                 throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject2();
         }
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject2"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static IOptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, string fieldNumber)
         {
             if (optionObject == null)
@@ -45,7 +87,13 @@ namespace ScriptLinkStandard.Helpers
             List<string> fieldNumbers = new List<string> { fieldNumber };
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject2();
         }
-
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject2015"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldObjects"></param>
+        /// <returns></returns>
         public static IOptionObject2015 SetFieldObjects(IOptionObject2015 optionObject, string fieldAction, List<FieldObject> fieldObjects)
         {
             if (optionObject == null)
@@ -53,6 +101,13 @@ namespace ScriptLinkStandard.Helpers
             List<string> fieldNumbers = GetFieldNumbersToSet(fieldObjects);
             return SetFieldObjects(optionObject, fieldAction, fieldNumbers);
         }
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject2015"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="optionObject2015"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumbers"></param>
+        /// <returns></returns>
         public static IOptionObject2015 SetFieldObjects(IOptionObject2015 optionObject2015, string fieldAction, List<string> fieldNumbers)
         {
             if (optionObject2015 == null)
@@ -91,6 +146,13 @@ namespace ScriptLinkStandard.Helpers
 
             return optionObject2015;
         }
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject2015"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static IOptionObject2015 SetFieldObjects(IOptionObject2015 optionObject, string fieldAction, string fieldNumber)
         {
             if (optionObject == null)
@@ -98,7 +160,13 @@ namespace ScriptLinkStandard.Helpers
             List<string> fieldNumbers = new List<string> { fieldNumber };
             return SetFieldObjects(optionObject, fieldAction, fieldNumbers);
         }
-
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IFormObject"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumbers"></param>
+        /// <returns></returns>
         public static IFormObject SetFieldObjects(IFormObject formObject, string fieldAction, List<string> fieldNumbers)
         {
             if (formObject == null)
@@ -130,6 +198,13 @@ namespace ScriptLinkStandard.Helpers
             }
             return formObject;
         }
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IFormObject"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static IFormObject SetFieldObjects(IFormObject formObject, string fieldAction, string fieldNumber)
         {
             if (formObject == null)
@@ -137,7 +212,13 @@ namespace ScriptLinkStandard.Helpers
             List<string> fieldNumbers = new List<string> { fieldNumber };
             return SetFieldObjects(formObject, fieldAction, fieldNumbers);
         }
-
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IRowObject"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumbers"></param>
+        /// <returns></returns>
         public static IRowObject SetFieldObjects(IRowObject rowObject, string fieldAction, List<string> fieldNumbers)
         {
             if (rowObject == null)
@@ -197,6 +278,13 @@ namespace ScriptLinkStandard.Helpers
             }
             return rowObject;
         }
+        /// <summary>
+        /// Sets <see cref="FieldObject"/> in an <see cref="IRowObject"/> according to specified FieldAction.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <param name="fieldAction"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static IRowObject SetFieldObjects(IRowObject rowObject, string fieldAction, string fieldNumber)
         {
             if (rowObject == null)
@@ -205,6 +293,7 @@ namespace ScriptLinkStandard.Helpers
             return SetFieldObjects(rowObject, fieldAction, fieldNumbers);
         }
 
+        #region HelperMethods
         private static List<string> GetFieldNumbersToSet(List<FieldObject> fieldObjects)
         {
             if (fieldObjects == null || fieldObjects.Count == 0)
@@ -216,5 +305,6 @@ namespace ScriptLinkStandard.Helpers
             }
             return fieldNumbers;
         }
+        #endregion
     }
 }

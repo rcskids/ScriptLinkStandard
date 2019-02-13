@@ -1,11 +1,16 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
-using System;
 
 namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IOptionObject"/> is enabled by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldEnabled(IOptionObject optionObject, string fieldNumber)
         {
             if (optionObject == null)
@@ -14,6 +19,12 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return IsFieldEnabled(optionObject.ToOptionObject2015(), fieldNumber);
         }
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IOptionObject2"/> is enabled by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldEnabled(IOptionObject2 optionObject, string fieldNumber)
         {
             if (optionObject == null)
@@ -22,6 +33,12 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return IsFieldEnabled(optionObject.ToOptionObject2015(), fieldNumber);
         }
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IOptionObject2015"/> is enabled by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldEnabled(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
@@ -37,7 +54,12 @@ namespace ScriptLinkStandard.Helpers
             }
             throw new System.ArgumentException("The OptionObject does not contain the FieldObject " + fieldNumber + ".");
         }
-
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IFormObject"/> is enabled by FieldNumber.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldEnabled(IFormObject formObject, string fieldNumber)
         {
             if (formObject == null)
@@ -48,7 +70,12 @@ namespace ScriptLinkStandard.Helpers
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
             return IsFieldEnabled(formObject.CurrentRow, fieldNumber);
         }
-
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> in the <see cref="IRowObject"/> is enabled by FieldNumber.
+        /// </summary>
+        /// <param name="rowObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static bool IsFieldEnabled(IRowObject rowObject, string fieldNumber)
         {
             if (rowObject == null)
@@ -64,7 +91,11 @@ namespace ScriptLinkStandard.Helpers
             }
             throw new System.ArgumentException("The FieldObject with FieldNumber " + fieldNumber + " does not exist in this RowObject.");
         }
-
+        /// <summary>
+        /// Returns whether the <see cref="IFieldObject"/> is enabled.
+        /// </summary>
+        /// <param name="fieldObject"></param>
+        /// <returns></returns>
         public static bool IsFieldEnabled(IFieldObject fieldObject)
         {
             if (fieldObject == null)

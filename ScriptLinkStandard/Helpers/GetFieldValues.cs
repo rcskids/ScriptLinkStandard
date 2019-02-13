@@ -6,19 +6,36 @@ namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
+        /// <summary>
+        /// Returns a list of FieldValues of a specified <see cref="IFieldObject"/> in the <see cref="IOptionObject"/> by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static List<string> GetFieldValues(IOptionObject optionObject, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return GetFieldValues(optionObject.ToOptionObject2015(), fieldNumber);
         }
+        /// <summary>
+        /// Returns a list of FieldValues of a specified <see cref="IFieldObject"/> in the <see cref="IOptionObject2"/> by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static List<string> GetFieldValues(IOptionObject2 optionObject, string fieldNumber)
         {
             if (optionObject == null)
                 throw new ArgumentException("Parameter cannot be null", "optionObject");
             return GetFieldValues(optionObject.ToOptionObject2015(), fieldNumber);
         }
-
+        /// <summary>
+        /// Returns a list of FieldValues of a specified <see cref="IFieldObject"/> in the <see cref="IOptionObject2015"/> by FieldNumber.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static List<string> GetFieldValues(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
@@ -34,7 +51,12 @@ namespace ScriptLinkStandard.Helpers
             }
             return new List<string>();
         }
-
+        /// <summary>
+        /// Returns a list of FieldValues of a specified <see cref="IFieldObject"/> in the <see cref="IFormObject"/> by FieldNumber.
+        /// </summary>
+        /// <param name="formObject"></param>
+        /// <param name="fieldNumber"></param>
+        /// <returns></returns>
         public static List<string> GetFieldValues(IFormObject formObject, string fieldNumber)
         {
             if (formObject == null)
