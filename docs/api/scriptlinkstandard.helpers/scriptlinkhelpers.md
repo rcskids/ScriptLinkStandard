@@ -1,8 +1,12 @@
-
+---
+theme: cayman
+layout: default
+title: ScriptLinkHelpers Class
+---
 
 # ScriptLinkHelpers
 
-Namespace: ScriptLinkStandard.Helpers
+Namespace: [ScriptLinkStandard.Helpers](./)
 
 Assemblies: ScriptLinkStandard.dll
 
@@ -17,7 +21,7 @@ public partial class ScriptLinkHelpers
 The following code samples demonstrate using the ScriptLinkHelpers class.
 
 ### IsValidErrorCode
-There is a limited set of error codes that are valid of ruse with ScriptLink.
+There is a limited set of error codes that are valid for use with ScriptLink.
 ```c#
 double errorCode = 3;
 if (ScriptLinkHelpers.IsValidErrorCode(errorCode))
@@ -27,7 +31,7 @@ if (ScriptLinkHelpers.IsValidErrorCode(errorCode))
 ```
 
 ### IsValidRowAction
-There is a limited set of error codes that are valid of ruse with ScriptLink.
+There is a limited set of error codes that are valid for use with ScriptLink.
 ```c#
 string rowAction = "EDIT";
 if (ScriptLinkHelpers.IsValidRowAction(rowAction))
@@ -37,7 +41,7 @@ if (ScriptLinkHelpers.IsValidRowAction(rowAction))
 ```
 
 ### IsValidUrl
-There is a limited set of error codes that are valid of ruse with ScriptLink.
+There is a limited set of error codes that are valid for use with ScriptLink.
 ```c#
 double errorCode = 5;
 string url = "http://www.rcskids.org";
@@ -54,16 +58,16 @@ The following methods are exclusively available using the ScriptLinkHelpers clas
 
 | Method | Description |
 | - | - |
-| GetOptionObjectHeaders(IOptionObject) | |
-| GetOptionObjectHeaders(IOptionObject2) | |
-| GetOptionObjectHeaders(IOptionObject2015) | |
-| IsValidErrorCode(double) | |
-| IsValidErrorCode(string) | |
-| IsValidRowAction(string) | |
-| IsValidUrl(string) | |
-| SafeGetInt(string) | |
-| SplitDelimitedParameters(string) | |
-| SplitDelimitedParameters(string, char) | |
+| GetOptionObjectHeaders(IOptionObject) | Returns a List<string> of the OptionObject properties and values. |
+| GetOptionObjectHeaders(IOptionObject2) | Returns a List<string> of the OptionObject2 properties and values. |
+| GetOptionObjectHeaders(IOptionObject2015) | Returns a List<string> of the OptionObject2015 properties and values. |
+| IsValidErrorCode(double) | Returns whether a double value is a valid ScriptLink error code. |
+| IsValidErrorCode(string) | Returns whether a string value can be converted to a valid ScriptLink error code. |
+| IsValidRowAction(string) | Returns whether a string value is a valid ScriptLink Row Action. |
+| IsValidUrl(string) | Returns whether a string is a valid URL for use with error code 5. |
+| SafeGetInt(string) | Converts a string to an int. Returns 0 if not able to convert string. |
+| SplitDelimitedParameters(string) | Returns a string array of values from a comma-delimited string. |
+| SplitDelimitedParameters(string, char) | Returns a string array of values from a string using specified delimiter. |
 
 The following methods are also available as methods on the various objects.
 
@@ -255,6 +259,18 @@ The following methods are also available as methods on the various objects.
 | SetUnlockedFields(IFormObject, string) | formObject.SetUnlockedFields(string) |
 | SetUnlockedFields(IRowObject, List<string>) | rowObject.SetUnlockedFields(List<string>) |
 | SetUnlockedFields(IRowObject, string) | rowObject.SetUnlockedFields(string) |
+| TransformToHtmlString(IOptionObject) | optionObject.ToHtmlString() |
+| TransformToHtmlString(IOptionObject, bool) | optionObject.ToHtmlString(bool) |
+| TransformToHtmlString(IOptionObject2) | optionObject.ToHtmlString() |
+| TransformToHtmlString(IOptionObject2, bool) | optionObject.ToHtmlString(bool) |
+| TransformToHtmlString(IOptionObject2015) | optionObject.ToHtmlString() |
+| TransformToHtmlString(IOptionObject2015, bool) | optionObject.ToHtmlString(bool) |
+| TransformToHtmlString(IFormObject) | formObject.ToHtmlString() |
+| TransformToHtmlString(IFormObject, bool) | formObject.ToHtmlString(bool) |
+| TransformToHtmlString(IRowObject) | rowObject.ToHtmlString() |
+| TransformToHtmlString(IRowObject, bool) | rowObject.ToHtmlString(bool) |
+| TransformToHtmlString(IFieldObject) | fieldObject.ToHtmlString() |
+| TransformToHtmlString(IFieldObject, bool) | fieldObject.ToHtmlString(bool) |
 
 ## See also
 
