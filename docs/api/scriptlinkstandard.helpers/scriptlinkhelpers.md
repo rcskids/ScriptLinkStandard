@@ -6,7 +6,7 @@ title: ScriptLinkHelpers Class
 
 # ScriptLinkHelpers
 
-Namespace: ScriptLinkStandard.Helpers
+Namespace: [ScriptLinkStandard.Helpers](./)
 
 Assemblies: ScriptLinkStandard.dll
 
@@ -58,16 +58,16 @@ The following methods are exclusively available using the ScriptLinkHelpers clas
 
 | Method | Description |
 | - | - |
-| GetOptionObjectHeaders(IOptionObject) | |
-| GetOptionObjectHeaders(IOptionObject2) | |
-| GetOptionObjectHeaders(IOptionObject2015) | |
-| IsValidErrorCode(double) | |
-| IsValidErrorCode(string) | |
-| IsValidRowAction(string) | |
-| IsValidUrl(string) | |
-| SafeGetInt(string) | |
-| SplitDelimitedParameters(string) | |
-| SplitDelimitedParameters(string, char) | |
+| GetOptionObjectHeaders(IOptionObject) | Returns a List<string> of the OptionObject properties and values. |
+| GetOptionObjectHeaders(IOptionObject2) | Returns a List<string> of the OptionObject2 properties and values. |
+| GetOptionObjectHeaders(IOptionObject2015) | Returns a List<string> of the OptionObject2015 properties and values. |
+| IsValidErrorCode(double) | Returns whether a double value is a valid ScriptLink error code. |
+| IsValidErrorCode(string) | Returns whether a string value can be converted to a valid ScriptLink error code. |
+| IsValidRowAction(string) | Returns whether a string value is a valid ScriptLink Row Action. |
+| IsValidUrl(string) | Returns whether a string is a valid URL for use with error code 5. |
+| SafeGetInt(string) | Converts a string to an int. Returns 0 if not able to convert string. |
+| SplitDelimitedParameters(string) | Returns a string array of values from a comma-delimited string. |
+| SplitDelimitedParameters(string, char) | Returns a string array of values from a string using specified delimiter. |
 
 The following methods are also available as methods on the various objects.
 
