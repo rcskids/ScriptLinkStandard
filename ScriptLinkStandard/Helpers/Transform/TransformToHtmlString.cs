@@ -9,6 +9,17 @@ namespace ScriptLinkStandard.Helpers
     public partial class ScriptLinkHelpers
     {
         /// <summary>
+        /// Returns <see cref="IOptionObject"/> as an HTML string without HTML headers.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
+        public static string TransformToHtmlString(IOptionObject optionObject)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "formObject");
+            return TransformToHtmlString(optionObject, false);
+        }
+        /// <summary>
         /// Returns <see cref="IOptionObject"/> as an HTML string with or without HTML headers.
         /// </summary>
         /// <param name="optionObject"></param>
@@ -55,6 +66,17 @@ namespace ScriptLinkStandard.Helpers
             return html;
         }
         /// <summary>
+        /// Returns <see cref="IOptionObject2"/> as an HTML string without HTML headers.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
+        public static string TransformToHtmlString(IOptionObject2 optionObject)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "formObject");
+            return TransformToHtmlString(optionObject, false);
+        }
+        /// <summary>
         /// Returns <see cref="IOptionObject2"/> as an HTML string with or without HTML headers.
         /// </summary>
         /// <param name="optionObject"></param>
@@ -99,6 +121,17 @@ namespace ScriptLinkStandard.Helpers
             }
             html += includeHtmlHeaders ? GetHtmlFooter() : "";
             return html;
+        }
+        /// <summary>
+        /// Returns <see cref="IOptionObject2015"/> as an HTML string without HTML headers.
+        /// </summary>
+        /// <param name="optionObject"></param>
+        /// <returns></returns>
+        public static string TransformToHtmlString(IOptionObject2015 optionObject)
+        {
+            if (optionObject == null)
+                throw new System.ArgumentException("Parameter cannot be null.", "formObject");
+            return TransformToHtmlString(optionObject, false);
         }
         /// <summary>
         /// Returns <see cref="IOptionObject2015"/> as an HTML string with or without HTML headers.
