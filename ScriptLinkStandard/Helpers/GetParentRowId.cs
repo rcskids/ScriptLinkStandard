@@ -13,7 +13,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetParentRowId(IOptionObject optionObject, string formId)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new System.NullReferenceException("Parameter 'optionObject' cannot be null.");
             return GetParentRowId(optionObject.ToOptionObject2015(), formId);
         }
         /// <summary>
@@ -25,7 +25,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetParentRowId(IOptionObject2 optionObject, string formId)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new System.NullReferenceException("Parameter 'optionObject' cannot be null.");
             return GetParentRowId(optionObject.ToOptionObject2015(), formId);
         }
         /// <summary>
@@ -37,7 +37,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetParentRowId(IOptionObject2015 optionObject, string formId)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new System.NullReferenceException("Parameter 'optionObject' cannot be null.");
             if (formId == null || formId == "")
                 throw new System.ArgumentException("Parameter cannot be null or blank.", "formId");
             if (optionObject.Forms == null)
@@ -59,7 +59,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetParentRowId(IFormObject formObject)
         {
             if (formObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
+                throw new System.NullReferenceException("Parameter 'formObject' cannot be null.");
             if (formObject.CurrentRow == null)
                 throw new System.ArgumentException("The FormObject does not contain a CurrentRow.");
             return formObject.CurrentRow.ParentRowId;

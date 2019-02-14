@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ScriptLinkStandard.Objects;
+using System;
 using System.Collections.Generic;
 
 namespace ScriptLinkStandard.Tests.ObjectsTests
@@ -226,6 +227,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("OptionObject")]
+        [ExpectedException(typeof(ArgumentException))]
         public void OptionObject_GetFieldValue_MI_AreNotEqual()
         {
             var expected = "Value";

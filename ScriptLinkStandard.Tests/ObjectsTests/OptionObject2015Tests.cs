@@ -227,6 +227,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("OptionObject2015")]
+        [ExpectedException(typeof(ArgumentException))]
         public void OptionObject2015_GetFieldValue_MI_AreNotEqual()
         {
             var expected = "Value";
