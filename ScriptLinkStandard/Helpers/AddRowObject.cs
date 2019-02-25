@@ -1,5 +1,6 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 
 namespace ScriptLinkStandard.Helpers
 {
@@ -137,8 +138,12 @@ namespace ScriptLinkStandard.Helpers
         #region HelperMethods
         private static string GetNextRowId(IFormObject formObject)
         {
-            int maximumNumberOfMultipleIterationRows = 15;
-            for (int i = 1; i < maximumNumberOfMultipleIterationRows; i++)
+            if (formObject == null)
+                throw new ArgumentNullException("Parameter cannot be null.", "formObject");
+            int maximumNumberOfMultipleIterationRows = 9999;
+            if (formObject.CurrentRow != null && formObject.OtherRows.Count + 1 >= maximumNumberOfMultipleIterationRows)
+                throw new ArgumentOutOfRangeException("FormObject has maximum number of rows (" + (formObject.OtherRows.Count + 1) + ").");
+            for (int i = 1; i <= maximumNumberOfMultipleIterationRows; i++)
             {
                 string tempRowId = formObject.FormId + "||" + i.ToString();
                 if (formObject.CurrentRow == null)
@@ -147,7 +152,7 @@ namespace ScriptLinkStandard.Helpers
                     && !formObject.OtherRows.Exists(r => r.RowId == tempRowId))
                     return tempRowId;
             }
-            return formObject.FormId + "||99";
+            throw new ArgumentException("Could not determine next available RowId in this FormObject.");    // This should never be thrown.
         }
         #endregion
     }
