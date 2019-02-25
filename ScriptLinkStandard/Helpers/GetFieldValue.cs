@@ -16,7 +16,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IOptionObject optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                throw new NullReferenceException("Parameter 'optionObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2015(), fieldNumber);
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IOptionObject optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
-                throw new NullReferenceException("Parameter 'optionObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber);
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IOptionObject2 optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                throw new NullReferenceException("Parameter 'optionObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2015(), fieldNumber);
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IOptionObject2 optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
-                throw new NullReferenceException("Parameter 'optionObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetFieldValue(optionObject.ToOptionObject2015(), formId, rowId, fieldNumber);
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                throw new NullReferenceException("Parameter 'optionObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             foreach (var form in optionObject.Forms)
             {
                 if (form.IsFieldPresent(fieldNumber))
@@ -87,7 +87,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IOptionObject2015 optionObject, string formId, string rowId, string fieldNumber)
         {
             if (optionObject == null)
-                throw new NullReferenceException("Parameter 'optionObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             foreach (var form in optionObject.Forms)
             {
                 if (form.FormId == formId)
@@ -104,7 +104,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IFormObject formObject, string fieldNumber)
         {
             if (formObject == null)
-                throw new NullReferenceException("Parameter 'formObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "formObject");
             return GetFieldValue(formObject, formObject.CurrentRow.RowId, fieldNumber);
         }
         /// <summary>
@@ -117,7 +117,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IFormObject formObject, string rowId, string fieldNumber)
         {
             if (formObject == null)
-                throw new NullReferenceException("Parameter 'formObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "formObject");
             if (formObject.CurrentRow.RowId == rowId)
                 return ScriptLinkHelpers.GetFieldValue(formObject.CurrentRow, fieldNumber);
             foreach (RowObject rowObject in formObject.OtherRows)
@@ -136,7 +136,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IRowObject rowObject, string fieldNumber)
         {
             if (rowObject == null)
-                throw new NullReferenceException("Parameter 'rowObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "rowObject");
             foreach (FieldObject field in rowObject.Fields)
             {
                 if (field.FieldNumber == fieldNumber)
@@ -152,7 +152,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetFieldValue(IFieldObject fieldObject)
         {
             if (fieldObject == null)
-                throw new NullReferenceException("Parameter 'fieldObject' cannot be null");
+                throw new ArgumentNullException("Parameter cannot be null", "fieldObject");
             return fieldObject.FieldValue;
         }
     }

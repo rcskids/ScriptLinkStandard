@@ -150,7 +150,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldValueHelperOptionObjectNullReturnsError()
         {
             OptionObject optionObject = null;
@@ -304,7 +304,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldValueHelperOptionObject2NullReturnsError()
         {
             OptionObject2 optionObject = null;
@@ -458,7 +458,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldValueHelperOptionObject2015NullReturnsError()
         {
             OptionObject2015 optionObject = null;
@@ -600,7 +600,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldValueHelperFormObjectNullReturnsError()
         {
             FormObject formObject = null;
@@ -716,7 +716,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldValueHelperRowObjectNullReturnsError()
         {
             RowObject rowObject = null;
@@ -782,7 +782,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetFieldValueHelperFieldObjectNullReturnsError()
         {
             FieldObject fieldObject = null;

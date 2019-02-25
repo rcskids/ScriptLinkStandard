@@ -15,9 +15,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject DeleteRowObject(IOptionObject optionObject, IRowObject rowObject)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (rowObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "rowObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
             return DeleteRowObject(optionObject.ToOptionObject2015(), rowObject).ToOptionObject();
         }
         /// <summary>
@@ -29,9 +29,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject DeleteRowObject(IOptionObject optionObject, string rowId)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (rowId == null || rowId == "")
-                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "rowId");
             return DeleteRowObject(optionObject.ToOptionObject2015(), rowId).ToOptionObject();
         }
         /// <summary>
@@ -43,9 +43,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2 DeleteRowObject(IOptionObject2 optionObject, IRowObject rowObject)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (rowObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "rowObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
             return DeleteRowObject(optionObject.ToOptionObject2015(), rowObject).ToOptionObject2();
         }
         /// <summary>
@@ -57,9 +57,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2 DeleteRowObject(IOptionObject2 optionObject, string rowId)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (rowId == null || rowId == "")
-                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "rowId");
             return DeleteRowObject(optionObject.ToOptionObject2015(), rowId).ToOptionObject2();
         }
         /// <summary>
@@ -71,9 +71,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2015 DeleteRowObject(IOptionObject2015 optionObject, IRowObject rowObject)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (rowObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "rowObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
             return DeleteRowObject(optionObject, rowObject.RowId);
         }
         /// <summary>
@@ -85,11 +85,11 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2015 DeleteRowObject(IOptionObject2015 optionObject, string rowId)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (rowId == null || rowId == "")
-                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "rowId");
             if (optionObject.Forms == null || optionObject.Forms.Count == 0)
-                throw new ArgumentException("There are no FormObjects in this OptionObject.");
+                throw new NullReferenceException("There are no FormObjects in this OptionObject.");
             for (int i = 0; i < optionObject.Forms.Count; i++)
             {
                 if (IsRowPresent(optionObject.Forms[i], rowId))
@@ -109,9 +109,9 @@ namespace ScriptLinkStandard.Helpers
         public static IFormObject DeleteRowObject(IFormObject formObject, IRowObject rowObject)
         {
             if (formObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "formObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "formObject");
             if (rowObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "rowObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
             return DeleteRowObject(formObject, rowObject.RowId);
         }
         /// <summary>
@@ -123,11 +123,11 @@ namespace ScriptLinkStandard.Helpers
         public static IFormObject DeleteRowObject(IFormObject formObject, string rowId)
         {
             if (formObject == null)
-                throw new ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (rowId == null || rowId == "")
-                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "rowId");
             if (formObject.CurrentRow == null)
-                throw new ArgumentException("The FormObject is missing a CurrentRow.");
+                throw new NullReferenceException("The FormObject is missing a CurrentRow.");
             if (formObject.CurrentRow.RowId == rowId)
             {
                 formObject.CurrentRow.RowAction = "DELETE";

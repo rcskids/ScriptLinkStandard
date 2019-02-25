@@ -14,7 +14,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetCurrentRowId(IOptionObject optionObject, string formId)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetCurrentRowId(optionObject.ToOptionObject2(), formId);
         }
         /// <summary>
@@ -26,7 +26,7 @@ namespace ScriptLinkStandard.Helpers
         public static string GetCurrentRowId(IOptionObject2 optionObject, string formId)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetCurrentRowId(optionObject.ToOptionObject2015(), formId);
         }
         /// <summary>
@@ -38,11 +38,11 @@ namespace ScriptLinkStandard.Helpers
         public static string GetCurrentRowId(IOptionObject2015 optionObject, string formId)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (formId == null || formId == "")
-                throw new System.ArgumentException("Parameter cannot be null or blank.", "formId");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "formId");
             if (optionObject.Forms == null)
-                throw new System.ArgumentException("The OptionObject does not contain any Forms.");
+                throw new NullReferenceException("The OptionObject does not contain any Forms.");
             foreach (var formObject in optionObject.Forms)
             {
                 if (formObject.FormId == formId)
@@ -50,7 +50,7 @@ namespace ScriptLinkStandard.Helpers
                     return GetCurrentRowId(formObject);
                 }
             }
-            throw new System.ArgumentException("The FormObject with FormId " + formId + " does not exist in this OptionObject.");
+            throw new ArgumentException("The FormObject with FormId " + formId + " does not exist in this OptionObject.");
         }
         /// <summary>
         /// Gets the CurrentRow.RowId of the <see cref="IFormObject"/>.
@@ -60,9 +60,9 @@ namespace ScriptLinkStandard.Helpers
         public static string GetCurrentRowId(IFormObject formObject)
         {
             if (formObject == null)
-                throw new ArgumentException("Parameter cannot be null", "formObject");
+                throw new ArgumentNullException("Parameter cannot be null", "formObject");
             if (formObject.CurrentRow == null)
-                throw new System.ArgumentException("The FormObject does not contain a CurrentRow.");
+                throw new NullReferenceException("The FormObject does not contain a CurrentRow.");
             return formObject.CurrentRow.RowId;
         }
     }

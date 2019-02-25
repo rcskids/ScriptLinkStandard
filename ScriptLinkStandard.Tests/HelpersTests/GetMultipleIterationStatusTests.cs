@@ -150,7 +150,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetMultipleIterationStatusHelperOptionObjectNullReturnsError()
         {
             OptionObject optionObject = null;
@@ -300,7 +300,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetMultipleIterationStatusHelperOptionObject2NullReturnsError()
         {
             OptionObject2 optionObject = null;
@@ -450,7 +450,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetMultipleIterationStatusHelperOptionObject2015NullReturnsError()
         {
             OptionObject2015 optionObject = null;

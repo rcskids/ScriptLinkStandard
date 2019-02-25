@@ -1,5 +1,6 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 
 namespace ScriptLinkStandard.Helpers
 {
@@ -14,9 +15,9 @@ namespace ScriptLinkStandard.Helpers
         public static IRowObject RemoveFieldObject(IRowObject rowObject, IFieldObject fieldObject)
         {
             if (rowObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
             if (fieldObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "fieldObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "fieldObject");
             rowObject.Fields.Remove((FieldObject)fieldObject);
             return (RowObject)rowObject;
         }
@@ -29,12 +30,12 @@ namespace ScriptLinkStandard.Helpers
         public static IRowObject RemoveFieldObject(IRowObject rowObject, string fieldNumber)
         {
             if (rowObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
+                throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
             if (fieldNumber == null || fieldNumber == "")
-                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "fieldNumber");
             FieldObject fieldObject = rowObject.Fields.Find(f => f.FieldNumber == fieldNumber);
             if (fieldObject == null)
-                throw new System.ArgumentException("The RowObject does not contain this FieldObject.", "fieldNumber");
+                throw new NullReferenceException("The RowObject does not contain this FieldObject.");
             return RemoveFieldObject(rowObject, fieldObject);
         }
     }

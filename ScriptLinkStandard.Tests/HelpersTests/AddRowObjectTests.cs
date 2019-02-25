@@ -10,7 +10,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
     {
         [TestMethod]
         [TestCategory("AddRowObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddRowObject_ToFormObject_NullFormObject()
         {
             RowObject rowObject = new RowObject();
@@ -21,7 +21,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddRowObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddRowObject_ToFormObject_NullRowObject()
         {
             RowObject rowObject = null;
@@ -148,7 +148,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddRowObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddRowObject_ToOptionObject_NullFormId()
         {
             string formId = null;
@@ -167,7 +167,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddRowObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddRowObject_ToOptionObject2_NullFormId()
         {
             string formId = null;
@@ -186,7 +186,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddRowObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddRowObject_ToOptionObject2015_NullFormId()
         {
             string formId = null;
@@ -205,7 +205,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddRowObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void AddRowObject_ToOptionObject_FormIdNotPresent()
         {
             string formId = "2";
@@ -224,7 +224,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddRowObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void AddRowObject_ToOptionObject2_FormIdNotPresent()
         {
             string formId = "2";
@@ -243,7 +243,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddRowObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void AddRowObject_ToOptionObject2015_FormIdNotPresent()
         {
             string formId = "2";

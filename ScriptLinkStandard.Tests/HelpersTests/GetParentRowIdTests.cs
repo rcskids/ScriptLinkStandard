@@ -163,7 +163,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void GetParentRowIdHelperOptionObjectNoCurrentRowReturnsError()
         {
             FormObject formObject = new FormObject()
@@ -348,7 +348,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void GetParentRowIdHelperOptionObject2NoCurrentRowReturnsError()
         {
             FormObject formObject = new FormObject()
@@ -534,7 +534,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void GetParentRowIdHelperOptionObject2015NoCurrentRowReturnsError()
         {
             FormObject formObject = new FormObject()
@@ -566,7 +566,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetParentRowIdHelperNullReturnsExpected()
         {
             OptionObject optionObject = null;
@@ -575,7 +575,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetParentRowIdHelperNull2ReturnsExpected()
         {
             OptionObject2 optionObject = null;
@@ -584,7 +584,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetParentRowIdHelperNull2015ReturnsExpected()
         {
             OptionObject2015 optionObject = null;

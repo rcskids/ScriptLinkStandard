@@ -15,9 +15,9 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsRowPresent(IOptionObject optionObject, string rowId)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (rowId == null || rowId == "")
-                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "rowId");
             return IsRowPresent(optionObject.ToOptionObject2015(), rowId);
         }
         /// <summary>
@@ -29,9 +29,9 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsRowPresent(IOptionObject2 optionObject, string rowId)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (rowId == null || rowId == "")
-                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "rowId");
             return IsRowPresent(optionObject.ToOptionObject2015(), rowId);
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsRowPresent(IOptionObject2015 optionObject, string rowId)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (rowId == null || rowId == "")
-                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "rowId");
             if (optionObject.Forms == null || optionObject.Forms.Count == 0)
-                throw new ArgumentException("The OptionObject does not contain any FormObjects.");
+                throw new NullReferenceException("The OptionObject does not contain any FormObjects.");
             foreach (FormObject formObject in optionObject.Forms)
             {
                 if (IsRowPresent(formObject, rowId))
@@ -64,11 +64,11 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsRowPresent(IFormObject formObject, string rowId)
         {
             if (formObject == null)
-                throw new ArgumentException("Parameter cannot be null", "formObject");
+                throw new ArgumentNullException("Parameter cannot be null", "formObject");
             if (rowId == null || rowId == "")
-                throw new ArgumentException("Parameter cannot be null or blank.", "rowId");
+                throw new ArgumentNullException("Parameter cannot be null or blank.", "rowId");
             if (formObject.CurrentRow == null)
-                throw new ArgumentException("The FormObject does not contain a CurrentRow.");
+                throw new NullReferenceException("The FormObject does not contain a CurrentRow.");
             if (formObject.CurrentRow.RowId == rowId)
                 return true;
             if (formObject.MultipleIteration)

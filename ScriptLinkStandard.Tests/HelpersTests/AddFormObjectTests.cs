@@ -10,7 +10,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
     {
         [TestMethod]
         [TestCategory("AddFormObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFormObject_ToOptionObject_NullOptionObject()
         {
             FormObject formObject = new FormObject()
@@ -24,7 +24,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
         [TestMethod]
         [TestCategory("AddFormObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFormObject_ToOptionObject2_NullOptionObject()
         {
             FormObject formObject = new FormObject()
@@ -38,7 +38,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
         [TestMethod]
         [TestCategory("AddFormObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFormObject_ToOptionObject2015_NullOptionObject()
         {
             FormObject formObject = new FormObject()
@@ -53,7 +53,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddFormObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFormObject_ToOptionObject_NullFormObject()
         {
             OptionObject optionObject = new OptionObject();
@@ -62,7 +62,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
         [TestMethod]
         [TestCategory("AddFormObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFormObject_ToOptionObject2_NullFormObject()
         {
             OptionObject2 optionObject = new OptionObject2();
@@ -71,7 +71,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
         [TestMethod]
         [TestCategory("AddFormObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFormObject_ToOptionObject2015_NullFormObject()
         {
             OptionObject2015 optionObject = new OptionObject2015();

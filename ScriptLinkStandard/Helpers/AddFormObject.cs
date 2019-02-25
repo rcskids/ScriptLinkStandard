@@ -15,9 +15,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject AddFormObject(IOptionObject optionObject, IFormObject formObject)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (formObject == null)
-                throw new ArgumentException("Parameter cannot be null", "formObject");
+                throw new ArgumentNullException("Parameter cannot be null", "formObject");
             return AddFormObject(optionObject.ToOptionObject2015(), formObject).ToOptionObject();
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject AddFormObject(IOptionObject optionObject, string formId, bool multipleIteration)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return AddFormObject(optionObject.ToOptionObject2015(), formId, multipleIteration).ToOptionObject();
         }
         /// <summary>
@@ -42,9 +42,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2 AddFormObject(IOptionObject2 optionObject, IFormObject formObject)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (formObject == null)
-                throw new ArgumentException("Parameter cannot be null", "formObject");
+                throw new ArgumentNullException("Parameter cannot be null", "formObject");
             return AddFormObject(optionObject.ToOptionObject2015(), formObject).ToOptionObject2();
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2 AddFormObject(IOptionObject2 optionObject, string formId, bool multipleIteration)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return AddFormObject(optionObject.ToOptionObject2015(), formId, multipleIteration).ToOptionObject2();
         }
         /// <summary>
@@ -69,9 +69,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2015 AddFormObject(IOptionObject2015 optionObject, IFormObject formObject)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (formObject == null)
-                throw new ArgumentException("Parameter cannot be null", "formObject");
+                throw new ArgumentNullException("Parameter cannot be null", "formObject");
             if (optionObject.Forms.Count == 0 && formObject.MultipleIteration)
                 throw new ArgumentException("The first FormObject cannot be a Multiple Iteration form.");
             if (optionObject.Forms.Contains((FormObject)formObject) || optionObject.Forms.Exists(f => f.FormId == formObject.FormId))
@@ -89,7 +89,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2015 AddFormObject(IOptionObject2015 optionObject, string formId, bool multipleIteration)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             FormObject formObject = new FormObject
             {
                 FormId = formId,

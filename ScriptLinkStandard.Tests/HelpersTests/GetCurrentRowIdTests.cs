@@ -10,7 +10,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
     {
         [TestMethod]
         [TestCategory("GetCurrentRowId")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetCurrentRowId_FromFormObject_NullFormObject()
         {
             string expected = "1||1";
@@ -21,7 +21,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("GetCurrentRowId")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void GetCurrentRowId_FromFormObject_NoCurrentRow()
         {
             string expected = "1||1";
@@ -48,7 +48,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("GetCurrentRowId")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetCurrentRowId_FromOptionObject_NullOptionObject()
         {
             string expected = "1||1";
@@ -58,7 +58,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
         [TestMethod]
         [TestCategory("GetCurrentRowId")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetCurrentRowId_FromOptionObject2_NullOptionObject()
         {
             string expected = "1||1";
@@ -68,7 +68,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
         [TestMethod]
         [TestCategory("GetCurrentRowId")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetCurrentRowId_FromOptionObject2015_NullOptionObject()
         {
             string expected = "1||1";

@@ -14,9 +14,9 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsFieldEnabled(IOptionObject optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new System.ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (fieldNumber == null || fieldNumber == "")
-                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+                throw new System.ArgumentNullException("Parameter cannot be null or blank.", "fieldNumber");
             return IsFieldEnabled(optionObject.ToOptionObject2015(), fieldNumber);
         }
         /// <summary>
@@ -28,9 +28,9 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsFieldEnabled(IOptionObject2 optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new System.ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (fieldNumber == null || fieldNumber == "")
-                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+                throw new System.ArgumentNullException("Parameter cannot be null or blank.", "fieldNumber");
             return IsFieldEnabled(optionObject.ToOptionObject2015(), fieldNumber);
         }
         /// <summary>
@@ -42,11 +42,11 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsFieldEnabled(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new System.ArgumentNullException("Parameter cannot be null.", "optionObject");
             if (optionObject.Forms == null)
-                throw new System.ArgumentException("The OptionObject does not contain any Forms.");
+                throw new System.NullReferenceException("The OptionObject does not contain any Forms.");
             if (fieldNumber == null || fieldNumber == "")
-                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+                throw new System.ArgumentNullException("Parameter cannot be null or blank.", "fieldNumber");
             foreach (var form in optionObject.Forms)
             {
                 if (IsFieldPresent(form, fieldNumber))
@@ -63,11 +63,11 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsFieldEnabled(IFormObject formObject, string fieldNumber)
         {
             if (formObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "formObject");
+                throw new System.ArgumentNullException("Parameter cannot be null.", "formObject");
             if (formObject.CurrentRow == null)
-                throw new System.ArgumentException("The FormObject does not contain a CurrentRow.");
+                throw new System.NullReferenceException("The FormObject does not contain a CurrentRow.");
             if (fieldNumber == null || fieldNumber == "")
-                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+                throw new System.ArgumentNullException("Parameter cannot be null or blank.", "fieldNumber");
             return IsFieldEnabled(formObject.CurrentRow, fieldNumber);
         }
         /// <summary>
@@ -79,11 +79,11 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsFieldEnabled(IRowObject rowObject, string fieldNumber)
         {
             if (rowObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "rowObject");
+                throw new System.ArgumentNullException("Parameter cannot be null.", "rowObject");
             if (rowObject.Fields == null)
-                throw new System.ArgumentException("The RowObject does not contain any FieldObjects.");
+                throw new System.NullReferenceException("The RowObject does not contain any FieldObjects.");
             if (fieldNumber == null || fieldNumber == "")
-                throw new System.ArgumentException("Parameter cannot be null or blank.", "fieldNumber");
+                throw new System.ArgumentNullException("Parameter cannot be null or blank.", "fieldNumber");
             foreach (FieldObject field in rowObject.Fields)
             {
                 if (field.FieldNumber == fieldNumber)
@@ -99,7 +99,7 @@ namespace ScriptLinkStandard.Helpers
         public static bool IsFieldEnabled(IFieldObject fieldObject)
         {
             if (fieldObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "fieldObject");
+                throw new System.ArgumentNullException("Parameter cannot be null.", "fieldObject");
             return fieldObject.Enabled == "1" ? true : false;
         }
     }

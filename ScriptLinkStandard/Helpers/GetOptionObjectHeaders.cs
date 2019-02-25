@@ -1,4 +1,5 @@
 ﻿using ScriptLinkStandard.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace ScriptLinkStandard.Helpers
@@ -13,7 +14,7 @@ namespace ScriptLinkStandard.Helpers
         public static List<string> GetOptionObjectHeaders(IOptionObject optionObject)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             List<string> headers = new List<string>
             {
                 "Entity ID: " + optionObject.EntityID,
@@ -36,7 +37,7 @@ namespace ScriptLinkStandard.Helpers
         public static List<string> GetOptionObjectHeaders(IOptionObject2 optionObject)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             List<string> headers = new List<string>
             {
                 "Entity ID: " + optionObject.EntityID,
@@ -62,7 +63,7 @@ namespace ScriptLinkStandard.Helpers
         public static List<string> GetOptionObjectHeaders(IOptionObject2015 optionObject)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             List<string> headers = new List<string>
             {
                 "Entity ID: " + optionObject.EntityID,

@@ -10,7 +10,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
     {
         [TestMethod]
         [TestCategory("AddFieldObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFieldObject_ToRowObject_NullRowObject()
         {
             FieldObject fieldObject = new FieldObject()
@@ -28,7 +28,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddFieldObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFieldObject_ToRowObject_NullFieldObject()
         {
             RowObject rowObject = new RowObject();
@@ -113,7 +113,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddFieldObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFieldObject_ToRowObject_NullFieldNumber()
         {
             string expectedNumber = null;
@@ -126,7 +126,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("AddFieldObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddFieldObject_ToRowObject_BlankFieldNumber()
         {
             string expectedNumber = "";

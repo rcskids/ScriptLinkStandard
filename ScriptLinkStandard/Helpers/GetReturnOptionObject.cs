@@ -1,5 +1,6 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 using System.Collections.Generic;
 
 namespace ScriptLinkStandard.Helpers
@@ -16,7 +17,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject GetReturnOptionObject(IOptionObject optionObject)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetReturnOptionObject(optionObject.ToOptionObject2015(), 0, "").ToOptionObject();
         }
         /// <summary>
@@ -29,9 +30,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject GetReturnOptionObject(IOptionObject optionObject, double errorCode, string errorMessage)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (!IsValidErrorCode(errorCode))
-                throw new System.ArgumentException("Error Code is not valid.");
+                throw new ArgumentException("Error Code is not valid.");
             return GetReturnOptionObject(optionObject.ToOptionObject2015(), errorCode, errorMessage).ToOptionObject();
         }
         /// <summary>
@@ -42,7 +43,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2 GetReturnOptionObject(IOptionObject2 optionObject)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetReturnOptionObject(optionObject, 0, "");
         }
         /// <summary>
@@ -55,9 +56,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2 GetReturnOptionObject(IOptionObject2 optionObject, double errorCode, string errorMessage)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (!IsValidErrorCode(errorCode))
-                throw new System.ArgumentException("Error Code is not valid.");
+                throw new ArgumentException("Error Code is not valid.");
             return GetReturnOptionObject(optionObject.ToOptionObject2015(), errorCode, errorMessage).ToOptionObject2();
         }
         /// <summary>
@@ -68,7 +69,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2015 GetReturnOptionObject(IOptionObject2015 optionObject)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetReturnOptionObject(optionObject, 0, "");
         }
         /// <summary>
@@ -81,9 +82,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2015 GetReturnOptionObject(IOptionObject2015 optionObject, double errorCode, string errorMessage)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (!IsValidErrorCode(errorCode))
-                throw new System.ArgumentException("Error Code is not valid.");
+                throw new ArgumentException("Error Code is not valid.");
             IOptionObject2015 returnOptionObject = RemoveUneditedRows(optionObject);
             returnOptionObject = SetErrorCodeAndMessage(returnOptionObject, errorCode, errorMessage);
             return returnOptionObject;
@@ -93,7 +94,7 @@ namespace ScriptLinkStandard.Helpers
         private static IOptionObject2015 RemoveUneditedRows(IOptionObject2015 optionObject)
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
 
             List<FormObject> formsToRemove = new List<FormObject>();
             foreach (var formObject in optionObject.Forms)
@@ -102,7 +103,7 @@ namespace ScriptLinkStandard.Helpers
                 if (formObject.CurrentRow != null &&
                     (formObject.CurrentRow.RowAction == null ||
                     formObject.CurrentRow.RowAction == "" ||
-                    !ScriptLinkHelpers.IsValidRowAction(formObject.CurrentRow.RowAction)))
+                    !IsValidRowAction(formObject.CurrentRow.RowAction)))
                 {
                     formObject.CurrentRow = null;
                 }
@@ -126,7 +127,7 @@ namespace ScriptLinkStandard.Helpers
                 {
                     if (rowObject.RowAction == null ||
                         rowObject.RowAction == "" ||
-                        !ScriptLinkHelpers.IsValidRowAction(rowObject.RowAction))
+                        !IsValidRowAction(rowObject.RowAction))
                     {
                         rowsToRemove.Add(rowObject);
                     }
@@ -168,9 +169,9 @@ namespace ScriptLinkStandard.Helpers
         private static IOptionObject2015 SetErrorCodeAndMessage(IOptionObject2015 optionObject, double errorCode = 0, string errorMessage = "")
         {
             if (optionObject == null)
-                throw new System.ArgumentException("Parameter cannot be null.", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (!IsValidErrorCode(errorCode))
-                throw new System.ArgumentException("Error Code is not valid.");
+                throw new ArgumentException("Error Code is not valid.");
             OptionObject2015 returnOptionObject = new OptionObject2015();
             returnOptionObject = (OptionObject2015)optionObject;
             returnOptionObject.ErrorCode = errorCode;

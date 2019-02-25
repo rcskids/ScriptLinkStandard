@@ -15,7 +15,7 @@ namespace ScriptLinkStandard.Helpers
         public static List<string> GetFieldValues(IOptionObject optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetFieldValues(optionObject.ToOptionObject2015(), fieldNumber);
         }
         /// <summary>
@@ -27,7 +27,7 @@ namespace ScriptLinkStandard.Helpers
         public static List<string> GetFieldValues(IOptionObject2 optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return GetFieldValues(optionObject.ToOptionObject2015(), fieldNumber);
         }
         /// <summary>
@@ -39,9 +39,9 @@ namespace ScriptLinkStandard.Helpers
         public static List<string> GetFieldValues(IOptionObject2015 optionObject, string fieldNumber)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (optionObject.Forms == null || optionObject.Forms.Count == 0)
-                throw new ArgumentException("There are no FormObjects in this OptionObject", "optionObject");
+                throw new NullReferenceException("There are no FormObjects in this OptionObject");
             foreach (var form in optionObject.Forms)
             {
                 if (ScriptLinkHelpers.IsFieldPresent(form, fieldNumber))
@@ -60,9 +60,9 @@ namespace ScriptLinkStandard.Helpers
         public static List<string> GetFieldValues(IFormObject formObject, string fieldNumber)
         {
             if (formObject == null)
-                throw new ArgumentException("Parameter cannot be null", "formObject");
+                throw new ArgumentNullException("Parameter cannot be null", "formObject");
             if (formObject.CurrentRow == null)
-                throw new ArgumentException("The FormObject does not have a CurrentRow.", "formObject");
+                throw new NullReferenceException("The FormObject does not have a CurrentRow.");
             List<string> values = new List<string>();
             if (formObject.MultipleIteration == false && ScriptLinkHelpers.IsFieldPresent(formObject, fieldNumber))
             {

@@ -14,7 +14,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject DisableAllFieldObjects(IOptionObject optionObject)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject.ToOptionObject2015()).ToOptionObject();
         }
         /// <summary>
@@ -26,7 +26,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject DisableAllFieldObjects(IOptionObject optionObject, List<string> excludedFields)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject.ToOptionObject2015(), excludedFields).ToOptionObject();
         }
         /// <summary>
@@ -37,7 +37,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2 DisableAllFieldObjects(IOptionObject2 optionObject)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject.ToOptionObject2015()).ToOptionObject2();
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2 DisableAllFieldObjects(IOptionObject2 optionObject, List<string> excludedFields)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject.ToOptionObject2015(), excludedFields).ToOptionObject2();
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2015 DisableAllFieldObjects(IOptionObject2015 optionObject)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             return DisableAllFieldObjects(optionObject, new List<string>());
         }
         /// <summary>
@@ -72,9 +72,9 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject2015 DisableAllFieldObjects(IOptionObject2015 optionObject, List<string> excludedFields)
         {
             if (optionObject == null)
-                throw new ArgumentException("Parameter cannot be null", "optionObject");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (optionObject.Forms.Count == 0)
-                throw new ArgumentException("There are no Forms.");
+                throw new NullReferenceException("There are no Forms.");
             for (int i = 0; i < optionObject.Forms.Count; i++)
             {
                 if (optionObject.Forms[i].CurrentRow != null)

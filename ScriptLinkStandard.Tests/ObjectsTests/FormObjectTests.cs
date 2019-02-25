@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ScriptLinkStandard.Objects;
+using System;
 using System.Collections.Generic;
 
 namespace ScriptLinkStandard.Tests.ObjectsTests
@@ -70,7 +71,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void FormObject_AddRowObject_NoMI_RowObject_Exception()
         {
             RowObject rowObject1 = new RowObject
@@ -170,7 +171,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void FormObject_GetCurrentRowId_IsError()
         {
             FormObject formObject = new FormObject();
@@ -194,7 +195,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void FormObject_GetParentRowId_IsError()
         {
             FormObject formObject = new FormObject();
@@ -440,7 +441,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void FormObject_IsFieldRequired_NotPresent_IsFalse()
         {
             FieldObject fieldObject = new FieldObject
@@ -535,7 +536,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void FormObject_SetFieldValue_MI_Error()
         {
             FieldObject fieldObject1 = new FieldObject
@@ -589,7 +590,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void FormObject_Constructor_1Parameter_Error()
         {
             string formId = "";
@@ -615,7 +616,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void FormObject_Constructor_2Parameter_Error()
         {
             string formId = "";
@@ -643,7 +644,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void FormObject_Constructor_3Parameter_Error()
         {
             string formId = "";
@@ -677,7 +678,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
 
         [TestMethod]
         [TestCategory("FormObject")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void FormObject_Constructor_4Parameter_Error()
         {
             string formId = "";
