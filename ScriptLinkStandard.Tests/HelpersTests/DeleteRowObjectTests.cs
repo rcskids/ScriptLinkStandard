@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Objects;
 
 namespace ScriptLinkStandard.Tests.HelpersTests
@@ -758,6 +759,86 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
             Assert.IsTrue(formObject.IsRowPresent(rowObject2.RowId));
             Assert.IsTrue(formObject.IsRowMarkedForDeletion(rowObject2.RowId));
+        }
+
+        [TestMethod]
+        [TestCategory("DeleteRowObject")]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void DeleteRowObject_FromOptionObject_Null()
+        {
+            OptionObject optionObject = null;
+            optionObject.DeleteRowObject("1||1");
+            Assert.IsFalse(optionObject.IsFieldPresent("1||1"));
+        }
+
+        [TestMethod]
+        [TestCategory("DeleteRowObject")]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void DeleteRowObject_FromOptionObject2_Null()
+        {
+            OptionObject2 optionObject = null;
+            optionObject.DeleteRowObject("1||1");
+            Assert.IsFalse(optionObject.IsFieldPresent("1||1"));
+        }
+
+        [TestMethod]
+        [TestCategory("DeleteRowObject")]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void DeleteRowObject_FromOptionObject2015_Null()
+        {
+            OptionObject2015 optionObject = null;
+            optionObject.DeleteRowObject("1||1");
+            Assert.IsFalse(optionObject.IsFieldPresent("1||1"));
+        }
+
+        [TestMethod]
+        [TestCategory("DeleteRowObject")]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void DeleteRowObject_FromFormObject_Null()
+        {
+            FormObject formObject = null;
+            formObject.DeleteRowObject("1||1");
+            Assert.IsFalse(formObject.IsFieldPresent("1||1"));
+        }
+
+        [TestMethod]
+        [TestCategory("DeleteRowObject")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DeleteRowObject_Helper_FromOptionObject_Null()
+        {
+            OptionObject optionObject = null;
+            ScriptLinkHelpers.DeleteRowObject(optionObject, "1||1");
+            Assert.IsFalse(optionObject.IsFieldPresent("1||1"));
+        }
+
+        [TestMethod]
+        [TestCategory("DeleteRowObject")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DeleteRowObject_Helper_FromOptionObject2_Null()
+        {
+            OptionObject2 optionObject = null;
+            ScriptLinkHelpers.DeleteRowObject(optionObject, "1||1");
+            Assert.IsFalse(optionObject.IsFieldPresent("1||1"));
+        }
+
+        [TestMethod]
+        [TestCategory("DeleteRowObject")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DeleteRowObject_Helper_FromOptionObject2015_Null()
+        {
+            OptionObject2015 optionObject = null;
+            ScriptLinkHelpers.DeleteRowObject(optionObject, "1||1");
+            Assert.IsFalse(optionObject.IsFieldPresent("1||1"));
+        }
+
+        [TestMethod]
+        [TestCategory("DeleteRowObject")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DeleteRowObject_Helper_FromFormObject_Null()
+        {
+            FormObject formObject = null;
+            ScriptLinkHelpers.DeleteRowObject(formObject, "1||1");
+            Assert.IsFalse(formObject.IsFieldPresent("1||1"));
         }
     }
 }

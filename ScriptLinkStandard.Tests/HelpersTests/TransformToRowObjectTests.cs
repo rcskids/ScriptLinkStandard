@@ -10,7 +10,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
     {
         [TestMethod]
         [TestCategory("RowObject")]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void RowObjectFromJson_NullString()
         {
             string json = null;
