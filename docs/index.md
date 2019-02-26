@@ -19,7 +19,7 @@ ScriptLinkStandard is compatible with projects based on .NET Framework 4.6.1 and
 ### NuGet
 
 1. Right-click on the solution and select Manage NuGet Packages for Solution...
-2. Enter ScriptLinkStandard in the search box. (Check Include prerelease to check to get the latest prelease version.)
+2. Enter ScriptLinkStandard in the search box. (Check Include prerelease to check to get the latest prerelease version.)
 3. Select ScriptLinkStandard from the search results.
 4. Check the boxes next to each of your projects (Web and Unit Test) and select Install.
 5. Once installed you may close the NuGet - Solution page or search for additional packages.
