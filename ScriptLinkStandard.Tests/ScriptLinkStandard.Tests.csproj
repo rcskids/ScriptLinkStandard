@@ -83,6 +83,7 @@
     <Compile Include="HelpersTests\GetFieldValueTests.cs" />
     <Compile Include="HelpersTests\GetMultipleIterationStatusTests.cs" />
     <Compile Include="HelpersTests\GetParentRowIdTests.cs" />
+    <Compile Include="HelpersTests\GetNextAvailableRowIdTests.cs" />
     <Compile Include="ObjectsTests\FieldObjectTests.cs" />
     <Compile Include="ObjectsTests\FormObjectTests.cs" />
     <Compile Include="ObjectsTests\OptionObject2Tests.cs" />

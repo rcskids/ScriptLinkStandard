@@ -273,6 +273,12 @@ namespace ScriptLinkStandard.Objects
         public List<string> GetFieldValues(string fieldNumber) => ScriptLinkHelpers.GetFieldValues(this, fieldNumber);
 
         /// <summary>
+        /// Returns the next available RowId of the <see cref="FormObject"/>.
+        /// </summary>
+        /// <returns></returns>
+        public string GetNextAvailableRowId() => ScriptLinkHelpers.GetNextAvailableRowId(this);
+
+        /// <summary>
         /// Returns the ParentRowId of the <see cref="CurrentRow"/>.
         /// </summary>
         /// <returns></returns>

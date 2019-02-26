@@ -19,6 +19,7 @@ namespace ScriptLinkStandard.Interfaces
         string GetFieldValue(string fieldNumber);
         string GetFieldValue(string rowId, string fieldNumber);
         List<string> GetFieldValues(string fieldNumber);
+        string GetNextAvailableRowId();
         string GetParentRowId();
         bool IsFieldEnabled(string fieldNumber);
         bool IsFieldLocked(string fieldNumber);

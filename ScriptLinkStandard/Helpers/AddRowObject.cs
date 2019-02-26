@@ -89,13 +89,13 @@ namespace ScriptLinkStandard.Helpers
 
             if (formObject.CurrentRow == null)
             {
-                rowObject.RowId = GetNextRowId(formObject);
+                rowObject.RowId = formObject.GetNextAvailableRowId();
                 formObject.CurrentRow = (RowObject)rowObject;
             }
             else
             {
                 if (rowObject.RowId == null || rowObject.RowId == "")
-                    rowObject.RowId = GetNextRowId(formObject);
+                    rowObject.RowId = formObject.GetNextAvailableRowId();
                 formObject.OtherRows.Add((RowObject)rowObject);
             }
             return formObject;
@@ -133,27 +133,5 @@ namespace ScriptLinkStandard.Helpers
             };
             return AddRowObject(formObject, rowObject);
         }
-
-
-        #region HelperMethods
-        private static string GetNextRowId(IFormObject formObject)
-        {
-            if (formObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "formObject");
-            int maximumNumberOfMultipleIterationRows = 9999;
-            if (formObject.CurrentRow != null && formObject.OtherRows.Count + 1 >= maximumNumberOfMultipleIterationRows)
-                throw new ArgumentOutOfRangeException("FormObject has maximum number of rows (" + (formObject.OtherRows.Count + 1) + ").");
-            for (int i = 1; i <= maximumNumberOfMultipleIterationRows; i++)
-            {
-                string tempRowId = formObject.FormId + "||" + i.ToString();
-                if (formObject.CurrentRow == null)
-                    return tempRowId;
-                if (formObject.CurrentRow.RowId != tempRowId
-                    && !formObject.OtherRows.Exists(r => r.RowId == tempRowId))
-                    return tempRowId;
-            }
-            throw new ArgumentException("Could not determine next available RowId in this FormObject.");    // This should never be thrown.
-        }
-        #endregion
     }
 }
