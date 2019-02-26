@@ -2,6 +2,7 @@
 using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 using System.Collections.Generic;
 
 namespace ScriptLinkStandard.Tests.HelpersTests
@@ -292,6 +293,66 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             Assert.IsFalse(returnOptionObject.IsFieldEnabled("3"));
             Assert.IsTrue(returnOptionObject.IsFieldEnabled("4"));
             Assert.IsFalse(returnOptionObject.IsFieldEnabled("5"));
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void DisableAllFieldObjects_OptionObject_Null()
+        {
+            OptionObject optionObject = null;
+            optionObject.DisableAllFieldObjects();
+            Assert.IsTrue(optionObject.IsFieldEnabled("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void DisableAllFieldObjects_OptionObject2_Null()
+        {
+            OptionObject2 optionObject = null;
+            optionObject.DisableAllFieldObjects();
+            Assert.IsTrue(optionObject.IsFieldEnabled("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void DisableAllFieldObjects_OptionObject2015_Null()
+        {
+            OptionObject2015 optionObject = null;
+            optionObject.DisableAllFieldObjects();
+            Assert.IsTrue(optionObject.IsFieldEnabled("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DisableAllFieldObjects_Helpers_OptionObject_Null()
+        {
+            OptionObject optionObject = null;
+            ScriptLinkHelpers.DisableAllFieldObjects(optionObject);
+            Assert.IsTrue(optionObject.IsFieldEnabled("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DisableAllFieldObjects_Helpers_OptionObject2_Null()
+        {
+            OptionObject2 optionObject = null;
+            ScriptLinkHelpers.DisableAllFieldObjects(optionObject);
+            Assert.IsTrue(optionObject.IsFieldEnabled("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DisableAllFieldObjects_Helpers_OptionObject2015_Null()
+        {
+            OptionObject2015 optionObject = null;
+            ScriptLinkHelpers.DisableAllFieldObjects(optionObject);
+            Assert.IsTrue(optionObject.IsFieldEnabled("123"));
         }
     }
 }

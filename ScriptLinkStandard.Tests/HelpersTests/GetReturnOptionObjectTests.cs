@@ -2,6 +2,7 @@
 using ScriptLinkStandard.Helpers;
 using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 
 namespace ScriptLinkStandard.Tests.HelpersTests
 {
@@ -153,7 +154,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("ScriptLinkHelpers")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void GetReturnOptionObject_ErrorCode_6_Error()
         {
             int expected = 6;
@@ -163,12 +164,42 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("ScriptLinkHelpers")]
-        [ExpectedException(typeof(System.ArgumentException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void GetReturnOptionObject_ErrorCode_Negative1_Error()
         {
             int expected = -1;
             IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(optionObject, expected, "test");
             Assert.AreNotEqual(expected, returnOptionObject.ErrorCode);
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetReturnOptionObject_OptionObject_Null()
+        {
+            OptionObject nullOptionObject = null;
+            IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(nullOptionObject);
+            Assert.AreNotEqual("3", returnOptionObject.ErrorCode);
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetReturnOptionObject_OptionObject2_Null()
+        {
+            OptionObject2 nullOptionObject = null;
+            IOptionObject2 returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(nullOptionObject);
+            Assert.AreNotEqual("3", returnOptionObject.ErrorCode);
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetReturnOptionObject_OptionObject2015_Null()
+        {
+            OptionObject2015 nullOptionObject = null;
+            IOptionObject2015 returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(nullOptionObject);
+            Assert.AreNotEqual("3", returnOptionObject.ErrorCode);
         }
     }
 }
