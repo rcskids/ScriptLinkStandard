@@ -16,7 +16,7 @@ namespace ScriptLinkStandard.Helpers
         public static string SerializeObject<T>(T objectToSerialize)
         {
             if (objectToSerialize == null)
-                throw new ArgumentException("Parameter cannot be null", "objectToSerialize");
+                throw new ArgumentNullException("Parameter cannot be null", "objectToSerialize");
 
             try { return SerializeObjectToXmlString<T>(objectToSerialize); }
             catch { /* Could not serialize as XML */ }
@@ -34,7 +34,7 @@ namespace ScriptLinkStandard.Helpers
         public static string SerializeObjectToJsonString<T>(T objectToSerialize)
         {
             if (objectToSerialize == null)
-                throw new ArgumentException("Parameter cannot be null", "objectToSerialize");
+                throw new ArgumentNullException("Parameter cannot be null", "objectToSerialize");
 
             try
             {
@@ -54,7 +54,7 @@ namespace ScriptLinkStandard.Helpers
         public static string SerializeObjectToXmlString<T>(T objectToSerialize)
         {
             if (objectToSerialize == null)
-                throw new ArgumentException("Parameter cannot be null", "objectToSerialize");
+                throw new ArgumentNullException("Parameter cannot be null", "objectToSerialize");
 
             try
             {

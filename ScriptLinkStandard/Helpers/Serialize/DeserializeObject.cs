@@ -16,7 +16,7 @@ namespace ScriptLinkStandard.Helpers
         public static T DeserializeObject<T>(string serializedString) where T : new()
         {
             if (string.IsNullOrEmpty(serializedString))
-                throw new ArgumentException("Parameter cannot be empty or null", "serializedString");
+                throw new ArgumentNullException("Parameter cannot be empty or null", "serializedString");
 
             try { return DeserializeObjectFromXmlString<T>(serializedString); }
             catch { /* Not valid XML or doesn't match the object specification */ }
@@ -34,7 +34,7 @@ namespace ScriptLinkStandard.Helpers
         public static T DeserializeObjectFromJsonString<T>(string json)
         {
             if (string.IsNullOrEmpty(json))
-                throw new ArgumentException("Parameter cannot be empty or null", "json");
+                throw new ArgumentNullException("Parameter cannot be empty or null", "json");
 
             try
             {
@@ -54,7 +54,7 @@ namespace ScriptLinkStandard.Helpers
         public static T DeserializeObjectFromXmlString<T>(string xml)
         {
             if (string.IsNullOrEmpty(xml))
-                throw new ArgumentException("Parameter cannot be empty or null", "xml");
+                throw new ArgumentNullException("Parameter cannot be empty or null", "xml");
 
             try
             {

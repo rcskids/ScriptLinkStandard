@@ -1,5 +1,6 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,14 +16,14 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject TransformToOptionObject(IOptionObject2 optionObject2)
         {
             if (optionObject2 == null)
-                throw new System.ArgumentException("Parameter cannot be null", "optionObject2");
-            if (!ScriptLinkHelpers.IsValidErrorCode(optionObject2.ErrorCode))
-                throw new System.ArgumentException("Error Code is invalid.");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject2");
+            if (!IsValidErrorCode(optionObject2.ErrorCode))
+                throw new ArgumentException("Error Code is invalid.");
             var optionObject = new OptionObject
             {
                 EntityID = optionObject2.EntityID,
                 EpisodeNumber = optionObject2.EpisodeNumber,
-                ErrorCode = (double)optionObject2.ErrorCode,
+                ErrorCode = optionObject2.ErrorCode,
                 ErrorMesg = optionObject2.ErrorMesg,
                 Facility = optionObject2.Facility,
                 OptionId = optionObject2.OptionId,
@@ -41,14 +42,14 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject TransformToOptionObject(IOptionObject2015 optionObject2015)
         {
             if (optionObject2015 == null)
-                throw new System.ArgumentException("Parameter cannot be null", "optionObject2015");
-            if (!ScriptLinkHelpers.IsValidErrorCode(optionObject2015.ErrorCode))
-                throw new System.ArgumentException("Error Code is invalid.");
+                throw new ArgumentNullException("Parameter cannot be null", "optionObject2015");
+            if (!IsValidErrorCode(optionObject2015.ErrorCode))
+                throw new ArgumentException("Error Code is invalid.");
             var optionObject = new OptionObject
             {
                 EntityID = optionObject2015.EntityID,
                 EpisodeNumber = optionObject2015.EpisodeNumber,
-                ErrorCode = (double)optionObject2015.ErrorCode,
+                ErrorCode = optionObject2015.ErrorCode,
                 ErrorMesg = optionObject2015.ErrorMesg,
                 Facility = optionObject2015.Facility,
                 OptionId = optionObject2015.OptionId,
@@ -67,14 +68,14 @@ namespace ScriptLinkStandard.Helpers
         public static IOptionObject TransformToOptionObject(string serializedString)
         {
             if (serializedString == null || serializedString == "")
-                throw new System.ArgumentException("Parameter cannot be empty or null", "serializedString");
+                throw new ArgumentNullException("Parameter cannot be empty or null", "serializedString");
             try
             {
                 return DeserializeObject<OptionObject>(serializedString);
             }
             catch
             {
-                throw new System.ArgumentException("Serialized string is not in a compatible format.", "serializedString");
+                throw new ArgumentException("Serialized string is not in a compatible format.", "serializedString");
             }
         }
     }

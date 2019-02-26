@@ -1,5 +1,6 @@
 ﻿using ScriptLinkStandard.Interfaces;
 using ScriptLinkStandard.Objects;
+using System;
 
 namespace ScriptLinkStandard.Helpers
 {
@@ -13,14 +14,14 @@ namespace ScriptLinkStandard.Helpers
         public static IRowObject TransformToRowObject(string serializedString)
         {
             if (serializedString == null || serializedString == "")
-                throw new System.ArgumentException("Parameter cannot be empty or null", "serializedString");
+                throw new ArgumentNullException("Parameter cannot be empty or null", "serializedString");
             try
             {
                 return DeserializeObject<RowObject>(serializedString);
             }
             catch
             {
-                throw new System.ArgumentException("Serialized string is not in a compatible format.", "serializedString");
+                throw new ArgumentException("Serialized string is not in a compatible format.", "serializedString");
             }
         }
     }
