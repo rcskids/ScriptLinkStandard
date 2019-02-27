@@ -21,22 +21,25 @@ namespace ScriptLinkStandard.Interfaces
         List<string> GetFieldValues(string fieldNumber);
         string GetNextAvailableRowId();
         string GetParentRowId();
+
         bool IsFieldEnabled(string fieldNumber);
         bool IsFieldLocked(string fieldNumber);
         bool IsFieldPresent(string fieldNumber);
         bool IsFieldRequired(string fieldNumber);
+
+        void SetDisabledField(string fieldNumber);
         void SetDisabledFields(List<string> fieldNumbers);
-        void SetDisabledFields(string fieldNumber);
         void SetFieldValue(string fieldNumber, string fieldValue);
         void SetFieldValue(string rowId, string fieldNumber, string fieldValue);
+        void SetLockedField(string fieldNumber);
         void SetLockedFields(List<string> fieldNumbers);
-        void SetLockedFields(string fieldNumber);
+        void SetOptionalField(string fieldNumber);
         void SetOptionalFields(List<string> fieldNumbers);
-        void SetOptionalFields(string fieldNumber);
+        void SetRequiredField(string fieldNumber);
         void SetRequiredFields(List<string> fieldNumbers);
-        void SetRequiredFields(string fieldNumber);
+        void SetUnlockedField(string fieldNumber);
         void SetUnlockedFields(List<string> fieldNumbers);
-        void SetUnlockedFields(string fieldNumber);
+
         string ToHtmlString(bool includeHtmlHeaders);
     }
 }

@@ -32,19 +32,6 @@ namespace ScriptLinkStandard.Helpers
             return SetFieldObjects(optionObject, "LOCKED", fieldNumbers);
         }
         /// <summary>
-        /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject"/> as locked by FieldNumber.
-        /// </summary>
-        /// <param name="optionObject"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IOptionObject SetLockedFields(IOptionObject optionObject, string fieldNumber)
-        {
-            if (optionObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject, "LOCKED", fieldNumbers);
-        }
-        /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2"/> as locked.
         /// </summary>
         /// <param name="optionObject"></param>
@@ -66,19 +53,6 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "LOCKED", fieldNumbers);
-        }
-        /// <summary>
-        /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2"/> as locked by FieldNumber.
-        /// </summary>
-        /// <param name="optionObject"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IOptionObject2 SetLockedFields(IOptionObject2 optionObject, string fieldNumber)
-        {
-            if (optionObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
             return SetFieldObjects(optionObject, "LOCKED", fieldNumbers);
         }
         /// <summary>
@@ -106,19 +80,6 @@ namespace ScriptLinkStandard.Helpers
             return SetFieldObjects(optionObject2, "LOCKED", fieldNumbers);
         }
         /// <summary>
-        /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2015"/> as locked by FieldNumber.
-        /// </summary>
-        /// <param name="optionObject"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IOptionObject2015 SetLockedFields(IOptionObject2015 optionObject, string fieldNumber)
-        {
-            if (optionObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject, "LOCKED", fieldNumbers);
-        }
-        /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IFormObject"/> as locked by FieldNumbers.
         /// </summary>
         /// <param name="formObject"></param>
@@ -131,19 +92,6 @@ namespace ScriptLinkStandard.Helpers
             return SetFieldObjects(formObject, "LOCKED", fieldNumbers);
         }
         /// <summary>
-        /// Sets the <see cref="IFieldObject"/> in a <see cref="IFormObject"/> as locked by FieldNumber.
-        /// </summary>
-        /// <param name="formObject"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IFormObject SetLockedFields(IFormObject formObject, string fieldNumber)
-        {
-            if (formObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "formObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(formObject, "LOCKED", fieldNumbers);
-        }
-        /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IRowObject"/> as locked by FieldNumbers.
         /// </summary>
         /// <param name="rowObject"></param>
@@ -153,19 +101,6 @@ namespace ScriptLinkStandard.Helpers
         {
             if (rowObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
-            return SetFieldObjects(rowObject, "LOCKED", fieldNumbers);
-        }
-        /// <summary>
-        /// Sets the <see cref="IFieldObject"/> in a <see cref="IRowObject"/> as locked by FieldNumber.
-        /// </summary>
-        /// <param name="rowObject"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IRowObject SetLockedFields(IRowObject rowObject, string fieldNumber)
-        {
-            if (rowObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
             return SetFieldObjects(rowObject, "LOCKED", fieldNumbers);
         }
     }

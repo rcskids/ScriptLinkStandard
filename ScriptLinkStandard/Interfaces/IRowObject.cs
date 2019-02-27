@@ -15,13 +15,16 @@ namespace ScriptLinkStandard.Interfaces
         void AddFieldObject(string fieldNumber, string fieldValue, string enabledValue, string lockedValue, string requiredValue);
         void AddFieldObject(string fieldNumber, string fieldValue, bool enabled, bool locked, bool required);
         string GetFieldValue(string fieldNumber);
+
         bool IsFieldEnabled(string fieldNumber);
         bool IsFieldLocked(string fieldNumber);
         bool IsFieldPresent(string fieldNumber);
         bool IsFieldRequired(string fieldNumber);
+
         void RemoveFieldObject(FieldObject fieldObject);
         void RemoveFieldObject(string fieldNumber);
         void RemoveUnmodifiedFieldObjects();
+
         void SetDisabledField(string fieldNumber);
         void SetDisabledFields(List<string> fieldNumbers);
         void SetFieldValue(string fieldNumber, string fieldValue);
@@ -33,6 +36,7 @@ namespace ScriptLinkStandard.Interfaces
         void SetRequiredFields(List<string> fieldNumbers);
         void SetUnlockedField(string fieldNumber);
         void SetUnlockedFields(List<string> fieldNumbers);
+
         string ToHtmlString(bool includeHtmlHeaders);
     }
 }

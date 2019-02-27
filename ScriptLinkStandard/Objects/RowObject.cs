@@ -331,7 +331,7 @@ namespace ScriptLinkStandard.Objects
         /// Sets the specified field as disabled and unrequires if required.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetDisabledField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetDisabledFields(this, fieldNumber).Fields;
+        public void SetDisabledField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetDisabledField(this, fieldNumber).Fields;
 
         /// <summary>
         /// Sets the specified fields as disabled and unrequires if required.
@@ -351,7 +351,7 @@ namespace ScriptLinkStandard.Objects
         /// Sets the specified field as disabled and unrequires if required.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetLockedField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetLockedFields(this, fieldNumber).Fields;
+        public void SetLockedField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetLockedField(this, fieldNumber).Fields;
 
         /// <summary>
         /// Sets the specified fields as disabled and unrequires if required.
@@ -363,7 +363,7 @@ namespace ScriptLinkStandard.Objects
         /// Sets the specified field as disabled and unrequires if required.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetOptionalField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetOptionalFields(this, fieldNumber).Fields;
+        public void SetOptionalField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetOptionalField(this, fieldNumber).Fields;
 
         /// <summary>
         /// Sets the specified fields as disabled and unrequires if required.
@@ -375,7 +375,7 @@ namespace ScriptLinkStandard.Objects
         /// Sets the specified field as disabled and unrequires if required.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetRequiredField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetRequiredFields(this, fieldNumber).Fields;
+        public void SetRequiredField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetRequiredField(this, fieldNumber).Fields;
 
         /// <summary>
         /// Sets the specified fields as disabled and unrequires if required.
@@ -387,7 +387,7 @@ namespace ScriptLinkStandard.Objects
         /// Sets the specified field as disabled and unrequires if required.
         /// </summary>
         /// <param name="fieldNumber"></param>
-        public void SetUnlockedField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetUnlockedFields(this, fieldNumber).Fields;
+        public void SetUnlockedField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetUnlockedField(this, fieldNumber).Fields;
 
         /// <summary>
         /// Sets the specified fields as disabled and unrequires if required.

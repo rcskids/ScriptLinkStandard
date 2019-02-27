@@ -84,6 +84,14 @@
     <Compile Include="HelpersTests\GetMultipleIterationStatusTests.cs" />
     <Compile Include="HelpersTests\GetParentRowIdTests.cs" />
     <Compile Include="HelpersTests\GetNextAvailableRowIdTests.cs" />
+    <Compile Include="HelpersTests\IsFieldEnabledTests.cs" />
+    <Compile Include="HelpersTests\IsFieldLockedTests.cs" />
+    <Compile Include="HelpersTests\IsFieldRequiredTests.cs" />
+    <Compile Include="HelpersTests\IsFormPresentTests.cs" />
+    <Compile Include="HelpersTests\IsRowMarkedForDeletionTests.cs" />
+    <Compile Include="HelpersTests\RemoveFieldObjectTests.cs" />
+    <Compile Include="HelpersTests\SetDisabledFieldsTests.cs" />
+    <Compile Include="HelpersTests\SetDisabledFieldTests.cs" />
     <Compile Include="ObjectsTests\FieldObjectTests.cs" />
     <Compile Include="ObjectsTests\FormObjectTests.cs" />
     <Compile Include="ObjectsTests\OptionObject2Tests.cs" />

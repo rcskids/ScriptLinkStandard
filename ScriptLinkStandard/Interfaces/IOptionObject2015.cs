@@ -45,18 +45,23 @@ namespace ScriptLinkStandard.Interfaces
         bool IsRowMarkedForDeletion(string rowId);
         bool IsRowPresent(string rowId);
 
+        void SetDisabledField(string fieldNumber);
+        void SetDisabledFields(List<FieldObject> fieldObjects);
         void SetDisabledFields(List<string> fieldNumbers);
-        void SetDisabledFields(string fieldNumber);
         void SetFieldValue(string fieldNumber, string fieldValue);
         void SetFieldValue(string formId, string rowId, string fieldNumber, string fieldValue);
+        void SetLockedField(string fieldNumber);
+        void SetLockedFields(List<FieldObject> fieldObjects);
         void SetLockedFields(List<string> fieldNumbers);
-        void SetLockedFields(string fieldNumber);
+        void SetOptionalField(string fieldNumber);
+        void SetOptionalFields(List<FieldObject> fieldObjects);
         void SetOptionalFields(List<string> fieldNumbers);
-        void SetOptionalFields(string fieldNumber);
+        void SetRequiredField(string fieldNumber);
+        void SetRequiredFields(List<FieldObject> fieldObjects);
         void SetRequiredFields(List<string> fieldNumbers);
-        void SetRequiredFields(string fieldNumber);
+        void SetUnlockedField(string fieldNumber);
+        void SetUnlockedFields(List<FieldObject> fieldObjects);
         void SetUnlockedFields(List<string> fieldNumbers);
-        void SetUnlockedFields(string fieldNumber);
 
         string ToHtmlString(bool includeHtmlHeaders);
         OptionObject ToOptionObject();
