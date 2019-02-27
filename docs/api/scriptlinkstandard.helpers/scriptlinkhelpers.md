@@ -125,6 +125,7 @@ The following methods are also available as methods on the various objects.
 | GetMultipleIterationStatus(IOptionObject2, string) | optionObject.GetMultipleIterationStatus(string) |
 | GetMultipleIterationStatus(IOptionObject2015, string) | optionObject.GetMultipleIterationStatus(string) |
 | GetMultipleIterationStatus(IFormObject) | formObject.GetMultipleIterationStatus() |
+| GetNextAvailableRowId(IFormObject, string) | formObject.GetNextAvailableRowId(string) |
 | GetParentRowId(IOptionObject, string) | optionObject.GetParentRowId(string) |
 | GetParentRowId(IOptionObject2, string) | optionObject.GetParentRowId(string) |
 | GetParentRowId(IOptionObject2015, string) | optionObject.GetParentRowId(string) |

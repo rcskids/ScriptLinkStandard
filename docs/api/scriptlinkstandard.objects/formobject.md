@@ -87,6 +87,7 @@ public void GetMyFieldValue_Returns_Y()
 | GetFieldValue(string) | Returns the FieldValue of a [FieldObject](./fieldobject.md) in a FormObject by FieldNumber. |
 | GetFieldValue(string, string) | Returns the FieldValue of a [FieldObject](./fieldobject.md) in a FormObject by RowId and FieldNumber. |
 | GetFieldValues(string) | Returns a List<string> of FieldValues in a FormObject by FieldNumber. |
+| GetNextAvailableRowId() | Returns the next available RowId for the FormObject. |
 | GetParentRowId() | Returns the ParentRowId of the FormObject.CurrentRow. |
 | IsFieldEnabled(string) | Returns whether a [FieldObject](./fieldobject.md) in a FormObject is enabled by FieldNumber. |
 | IsFieldLocked(string) | Returns whether a [FieldObject](./fieldobject.md) in a FormObject is locked by FieldNumber. |
