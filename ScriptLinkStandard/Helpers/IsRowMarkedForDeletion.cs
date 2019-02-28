@@ -70,9 +70,9 @@ namespace ScriptLinkStandard.Helpers
             if (formObject.CurrentRow == null)
                 throw new NullReferenceException("The FormObject does not contain a CurrentRow.");
             if (formObject.CurrentRow.RowId == rowId)
-                return formObject.CurrentRow.RowAction == "DELETE";
+                return formObject.CurrentRow.RowAction == RowAction.Delete;
             if (formObject.MultipleIteration)
-                return formObject.OtherRows.Exists(r => r.RowId == rowId && r.RowAction == "DELETE");
+                return formObject.OtherRows.Exists(r => r.RowId == rowId && r.RowAction == RowAction.Delete);
             return false;
         }
     }

@@ -17,7 +17,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "OPTIONAL", fieldObjects);
+            return SetFieldObjects(optionObject, FieldAction.Optional, fieldObjects);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject"/> as optional by FieldNumbers.
@@ -29,7 +29,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "OPTIONAL", fieldNumbers);
+            return SetFieldObjects(optionObject, FieldAction.Optional, fieldNumbers);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2"/> as optional.
@@ -41,7 +41,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "OPTIONAL", fieldObjects);
+            return SetFieldObjects(optionObject, FieldAction.Optional, fieldObjects);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2"/> as optional by FieldNumbers.
@@ -53,7 +53,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "OPTIONAL", fieldNumbers);
+            return SetFieldObjects(optionObject, FieldAction.Optional, fieldNumbers);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2015"/> as optional.
@@ -65,7 +65,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "OPTIONAL", fieldObjects);
+            return SetFieldObjects(optionObject, FieldAction.Optional, fieldObjects);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2015"/> as optional by FieldNumbers.
@@ -77,7 +77,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "OPTIONAL", fieldNumbers);
+            return SetFieldObjects(optionObject, FieldAction.Optional, fieldNumbers);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IFormObject"/> as optional by FieldNumbers.
@@ -89,7 +89,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (formObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "formObject");
-            return SetFieldObjects(formObject, "OPTIONAL", fieldNumbers);
+            return SetFieldObjects(formObject, FieldAction.Optional, fieldNumbers);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IRowObject"/> as optional by FieldNumbers.
@@ -101,7 +101,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (rowObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
-            return SetFieldObjects(rowObject, "OPTIONAL", fieldNumbers);
+            return SetFieldObjects(rowObject, FieldAction.Optional, fieldNumbers);
         }
     }
 }

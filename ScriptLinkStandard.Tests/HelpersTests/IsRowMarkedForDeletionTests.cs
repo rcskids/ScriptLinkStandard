@@ -13,7 +13,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             string rowId = "1||1";
             FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(new RowObject(rowId, rowId, "DELETE"));
+            formObject.AddRowObject(new RowObject(rowId, rowId, RowAction.Delete));
             OptionObject optionObject = new OptionObject();
             optionObject.AddFormObject(formObject);
             Assert.IsTrue(optionObject.IsRowMarkedForDeletion(rowId));
@@ -37,7 +37,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             FormObject formObject1 = new FormObject("1");
             formObject1.AddRowObject(new RowObject());
             FormObject formObject2 = new FormObject("2");
-            formObject2.AddRowObject(new RowObject(rowId, rowId, "DELETE"));
+            formObject2.AddRowObject(new RowObject(rowId, rowId, RowAction.Delete));
             OptionObject optionObject = new OptionObject();
             optionObject.AddFormObject(formObject1);
             optionObject.AddFormObject(formObject2);
@@ -93,7 +93,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             string rowId = "1||1";
             FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(new RowObject(rowId, rowId, "DELETE"));
+            formObject.AddRowObject(new RowObject(rowId, rowId, RowAction.Delete));
             OptionObject2 optionObject = new OptionObject2();
             optionObject.AddFormObject(formObject);
             Assert.IsTrue(optionObject.IsRowMarkedForDeletion(rowId));
@@ -117,7 +117,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             FormObject formObject1 = new FormObject("1");
             formObject1.AddRowObject(new RowObject());
             FormObject formObject2 = new FormObject("2");
-            formObject2.AddRowObject(new RowObject(rowId, rowId, "DELETE"));
+            formObject2.AddRowObject(new RowObject(rowId, rowId, RowAction.Delete));
             OptionObject2 optionObject = new OptionObject2();
             optionObject.AddFormObject(formObject1);
             optionObject.AddFormObject(formObject2);
@@ -173,7 +173,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             string rowId = "1||1";
             FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(new RowObject(rowId, rowId, "DELETE"));
+            formObject.AddRowObject(new RowObject(rowId, rowId, RowAction.Delete));
             OptionObject2015 optionObject = new OptionObject2015();
             optionObject.AddFormObject(formObject);
             Assert.IsTrue(optionObject.IsRowMarkedForDeletion(rowId));
@@ -197,7 +197,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             FormObject formObject1 = new FormObject("1");
             formObject1.AddRowObject(new RowObject());
             FormObject formObject2 = new FormObject("2");
-            formObject2.AddRowObject(new RowObject(rowId, rowId, "DELETE"));
+            formObject2.AddRowObject(new RowObject(rowId, rowId, RowAction.Delete));
             OptionObject2015 optionObject = new OptionObject2015();
             optionObject.AddFormObject(formObject1);
             optionObject.AddFormObject(formObject2);
@@ -253,7 +253,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             string rowId = "1||1";
             FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(new RowObject(rowId, rowId, "DELETE"));
+            formObject.AddRowObject(new RowObject(rowId, rowId, RowAction.Delete));
             Assert.IsTrue(formObject.IsRowMarkedForDeletion(rowId));
         }
 

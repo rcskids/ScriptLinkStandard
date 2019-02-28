@@ -92,12 +92,24 @@
     <Compile Include="HelpersTests\RemoveFieldObjectTests.cs" />
     <Compile Include="HelpersTests\SetDisabledFieldsTests.cs" />
     <Compile Include="HelpersTests\SetDisabledFieldTests.cs" />
+    <Compile Include="HelpersTests\SetLockedFieldTests.cs" />
+    <Compile Include="HelpersTests\SetOptionalFieldTests.cs" />
+    <Compile Include="HelpersTests\SetRequiredFieldTests.cs" />
+    <Compile Include="HelpersTests\SetUnlockedFieldTests.cs" />
+    <Compile Include="HelpersTests\SetUnlockedFieldsTests.cs" />
+    <Compile Include="HelpersTests\SetLockedFieldsTests.cs" />
+    <Compile Include="HelpersTests\SetOptionalFieldsTests.cs" />
+    <Compile Include="HelpersTests\SetRequiredFieldsTests.cs" />
+    <Compile Include="HelpersTests\SetFieldObjectTests.cs" />
+    <Compile Include="HelpersTests\SetFieldObjectsTests.cs" />
     <Compile Include="ObjectsTests\FieldObjectTests.cs" />
     <Compile Include="ObjectsTests\FormObjectTests.cs" />
     <Compile Include="ObjectsTests\OptionObject2Tests.cs" />
     <Compile Include="ObjectsTests\OptionObjectTests.cs" />
     <Compile Include="ObjectsTests\RowObjectTests.cs" />
     <Compile Include="ObjectsTests\OptionObject2015Tests.cs" />
+    <Compile Include="ObjectsTests\RowActionTests.cs" />
+    <Compile Include="ObjectsTests\FieldActionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

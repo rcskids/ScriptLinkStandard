@@ -107,7 +107,7 @@ namespace ScriptLinkStandard.Helpers
                 {
                     formObject.CurrentRow = null;
                 }
-                else if (formObject.CurrentRow != null && formObject.CurrentRow.RowAction == "EDIT")
+                else if (formObject.CurrentRow != null && formObject.CurrentRow.RowAction == RowAction.Edit)
                 {
                     List<FieldObject> fieldsToRemove = new List<FieldObject>();
                     foreach (FieldObject fieldObject in formObject.CurrentRow.Fields)
@@ -131,7 +131,7 @@ namespace ScriptLinkStandard.Helpers
                     {
                         rowsToRemove.Add(rowObject);
                     }
-                    else if (rowObject.RowAction == "EDIT")
+                    else if (rowObject.RowAction == RowAction.Edit)
                     {
                         List<FieldObject> fieldsToRemove = new List<FieldObject>();
                         foreach (FieldObject fieldObject in rowObject.Fields)

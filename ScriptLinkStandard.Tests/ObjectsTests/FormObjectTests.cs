@@ -132,7 +132,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
             formObject.AddRowObject("1||1", "");
             Assert.AreEqual("1||1", formObject.CurrentRow.RowId);
             Assert.AreEqual("", formObject.CurrentRow.ParentRowId);
-            Assert.AreEqual("ADD", formObject.CurrentRow.RowAction);
+            Assert.AreEqual(RowAction.Add, formObject.CurrentRow.RowAction);
         }
 
         [TestMethod]

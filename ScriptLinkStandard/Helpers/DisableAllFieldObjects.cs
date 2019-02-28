@@ -1,4 +1,5 @@
 ﻿using ScriptLinkStandard.Interfaces;
+using ScriptLinkStandard.Objects;
 using System;
 using System.Collections.Generic;
 
@@ -84,7 +85,7 @@ namespace ScriptLinkStandard.Helpers
                         if (!excludedFields.Contains(optionObject.Forms[i].CurrentRow.Fields[j].FieldNumber))
                             optionObject.Forms[i].CurrentRow.Fields[j].SetAsDisabled();
                     }
-                    optionObject.Forms[i].CurrentRow.RowAction = "EDIT";
+                    optionObject.Forms[i].CurrentRow.RowAction = RowAction.Edit;
                 }
                 for (int k = 0; k < optionObject.Forms[i].OtherRows.Count; k++)
                 {
@@ -93,7 +94,7 @@ namespace ScriptLinkStandard.Helpers
                         if (!excludedFields.Contains(optionObject.Forms[i].OtherRows[k].Fields[l].FieldNumber))
                             optionObject.Forms[i].OtherRows[k].Fields[l].SetAsDisabled();
                     }
-                    optionObject.Forms[i].OtherRows[k].RowAction = "EDIT";
+                    optionObject.Forms[i].OtherRows[k].RowAction = RowAction.Edit;
                 }
             }
             return optionObject;

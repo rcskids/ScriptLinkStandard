@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ScriptLinkStandard.Helpers;
 
 namespace ScriptLinkStandard.Tests.HelpersTests

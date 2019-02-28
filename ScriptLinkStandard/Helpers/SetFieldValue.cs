@@ -208,7 +208,7 @@ namespace ScriptLinkStandard.Helpers
                 if (rowObject.Fields[i].FieldNumber == fieldNumber)
                 {
                     rowObject.Fields[i] = (FieldObject)SetFieldValue(rowObject.Fields[i], fieldValue);
-                    rowObject.RowAction = "EDIT";
+                    rowObject.RowAction = RowAction.Edit;
                     break;
                 }
             }

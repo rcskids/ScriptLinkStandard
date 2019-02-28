@@ -130,7 +130,7 @@ namespace ScriptLinkStandard.Helpers
                 throw new NullReferenceException("The FormObject is missing a CurrentRow.");
             if (formObject.CurrentRow.RowId == rowId)
             {
-                formObject.CurrentRow.RowAction = "DELETE";
+                formObject.CurrentRow.RowAction = RowAction.Delete;
                 return formObject;
             }
             if (formObject.MultipleIteration)
@@ -139,7 +139,7 @@ namespace ScriptLinkStandard.Helpers
                 {
                     if (rowObject.RowId == rowId)
                     {
-                        rowObject.RowAction = "DELETE";
+                        rowObject.RowAction = RowAction.Delete;
                         return formObject;
                     }
                 }

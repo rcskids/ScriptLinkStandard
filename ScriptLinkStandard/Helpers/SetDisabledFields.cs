@@ -17,7 +17,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "DISABLED", fieldObjects);
+            return SetFieldObjects(optionObject, FieldAction.Disable, fieldObjects);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject"/> as disabled by FieldNumbers.
@@ -29,7 +29,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "DISABLED", fieldNumbers);
+            return SetFieldObjects(optionObject, FieldAction.Disable, fieldNumbers);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2"/> as disabled.
@@ -41,7 +41,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "DISABLED", fieldObjects);
+            return SetFieldObjects(optionObject, FieldAction.Disable, fieldObjects);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2"/> as disabled by FieldNumbers.
@@ -53,7 +53,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "DISABLED", fieldNumbers);
+            return SetFieldObjects(optionObject, FieldAction.Disable, fieldNumbers);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2015"/> as disabled.
@@ -65,7 +65,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject, "DISABLED", fieldObjects);
+            return SetFieldObjects(optionObject, FieldAction.Disable, fieldObjects);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2015"/> as disabled by FieldNumbers.
@@ -77,7 +77,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject2");
-            return SetFieldObjects(optionObject, "DISABLED", fieldNumbers);
+            return SetFieldObjects(optionObject, FieldAction.Disable, fieldNumbers);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IFormObject"/> as disabled by FieldNumbers.
@@ -89,7 +89,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (formObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "formObject");
-            return SetFieldObjects(formObject, "DISABLED", fieldNumbers);
+            return SetFieldObjects(formObject, FieldAction.Disable, fieldNumbers);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IRowObject"/> as disabled by FieldNumbers.
@@ -101,7 +101,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (rowObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
-            return SetFieldObjects(rowObject, "DISABLED", fieldNumbers);
+            return SetFieldObjects(rowObject, FieldAction.Disable, fieldNumbers);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using ScriptLinkStandard.Interfaces;
+using ScriptLinkStandard.Objects;
 using System;
-using System.Collections.Generic;
 
 namespace ScriptLinkStandard.Helpers
 {
@@ -16,8 +16,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject, "UNLOCKED", fieldNumbers);
+            return SetFieldObject(optionObject, FieldAction.Unlock, fieldNumber);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2"/> as unlocked by FieldNumber.
@@ -29,8 +28,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject, "UNLOCKED", fieldNumbers);
+            return SetFieldObject(optionObject, FieldAction.Unlock, fieldNumber);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2015"/> as unlocked by FieldNumber.
@@ -42,8 +40,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject, "UNLOCKED", fieldNumbers);
+            return SetFieldObject(optionObject, FieldAction.Unlock, fieldNumber);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IFormObject"/> as unlocked by FieldNumber.
@@ -55,8 +52,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (formObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "formObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(formObject, "UNLOCKED", fieldNumbers);
+            return SetFieldObject(formObject, FieldAction.Unlock, fieldNumber);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IRowObject"/> as unlocked by FieldNumber.
@@ -68,8 +64,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (rowObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(rowObject, "UNLOCKED", fieldNumbers);
+            return SetFieldObject(rowObject, FieldAction.Unlock, fieldNumber);
         }
     }
 }

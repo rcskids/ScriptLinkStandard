@@ -1,6 +1,6 @@
 ﻿using ScriptLinkStandard.Interfaces;
+using ScriptLinkStandard.Objects;
 using System;
-using System.Collections.Generic;
 
 namespace ScriptLinkStandard.Helpers
 {
@@ -16,8 +16,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject, "DISABLED", fieldNumbers);
+            return SetFieldObject(optionObject, FieldAction.Disable, fieldNumber);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2"/> as disabled by FieldNumber.
@@ -29,8 +28,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject, "DISABLED", fieldNumbers);
+            return SetFieldObject(optionObject, FieldAction.Disable, fieldNumber);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IOptionObject2015"/> as disabled by FieldNumber.
@@ -42,8 +40,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject2");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject, "DISABLED", fieldNumbers);
+            return SetFieldObject(optionObject, FieldAction.Disable, fieldNumber);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IFormObject"/> as disabled by FieldNumber.
@@ -55,8 +52,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (formObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "formObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(formObject, "DISABLED", fieldNumbers);
+            return SetFieldObject(formObject, FieldAction.Disable, fieldNumber);
         }
         /// <summary>
         /// Sets the <see cref="IFieldObject"/> in a <see cref="IRowObject"/> as disabled by FieldNumber.
@@ -68,8 +64,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (rowObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(rowObject, "DISABLED", fieldNumbers);
+            return SetFieldObject(rowObject, FieldAction.Disable, fieldNumber);
         }
     }
 }

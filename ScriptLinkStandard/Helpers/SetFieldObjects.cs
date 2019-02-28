@@ -34,20 +34,6 @@ namespace ScriptLinkStandard.Helpers
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject();
         }
         /// <summary>
-        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject"/> according to specified FieldAction.
-        /// </summary>
-        /// <param name="optionObject"></param>
-        /// <param name="fieldAction"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IOptionObject SetFieldObjects(IOptionObject optionObject, string fieldAction, string fieldNumber)
-        {
-            if (optionObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject();
-        }
-        /// <summary>
         /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject2"/> according to specified FieldAction.
         /// </summary>
         /// <param name="optionObject"></param>
@@ -71,20 +57,6 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject2();
-        }
-        /// <summary>
-        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject2"/> according to specified FieldAction.
-        /// </summary>
-        /// <param name="optionObject"></param>
-        /// <param name="fieldAction"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IOptionObject2 SetFieldObjects(IOptionObject2 optionObject, string fieldAction, string fieldNumber)
-        {
-            if (optionObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
             return SetFieldObjects(optionObject.ToOptionObject2015(), fieldAction, fieldNumbers).ToOptionObject2();
         }
         /// <summary>
@@ -142,23 +114,9 @@ namespace ScriptLinkStandard.Helpers
                 }
             }
             if (formErrors == optionObject2015.Forms.Count)
-                throw new ArgumentException("None of the identified FieldsObjects were able to be disabled in " + optionObject2015.Forms.Count.ToString() + " FormObjects");
+                throw new ArgumentException("None of the identified FieldsObjects were able to be set in " + optionObject2015.Forms.Count.ToString() + " FormObjects");
 
             return optionObject2015;
-        }
-        /// <summary>
-        /// Sets <see cref="FieldObject"/> in an <see cref="IOptionObject2015"/> according to specified FieldAction.
-        /// </summary>
-        /// <param name="optionObject"></param>
-        /// <param name="fieldAction"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IOptionObject2015 SetFieldObjects(IOptionObject2015 optionObject, string fieldAction, string fieldNumber)
-        {
-            if (optionObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "optionObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(optionObject, fieldAction, fieldNumbers);
         }
         /// <summary>
         /// Sets <see cref="FieldObject"/> in an <see cref="IFormObject"/> according to specified FieldAction.
@@ -199,20 +157,6 @@ namespace ScriptLinkStandard.Helpers
             return formObject;
         }
         /// <summary>
-        /// Sets <see cref="FieldObject"/> in an <see cref="IFormObject"/> according to specified FieldAction.
-        /// </summary>
-        /// <param name="formObject"></param>
-        /// <param name="fieldAction"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IFormObject SetFieldObjects(IFormObject formObject, string fieldAction, string fieldNumber)
-        {
-            if (formObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "formObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(formObject, fieldAction, fieldNumbers);
-        }
-        /// <summary>
         /// Sets <see cref="FieldObject"/> in an <see cref="IRowObject"/> according to specified FieldAction.
         /// </summary>
         /// <param name="rowObject"></param>
@@ -224,7 +168,7 @@ namespace ScriptLinkStandard.Helpers
             if (rowObject == null)
                 throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
             if (fieldAction == null || fieldAction == "")
-                throw new NullReferenceException("No FieldAction has been identified.");
+                throw new ArgumentNullException("No FieldAction has been identified.");
             if (fieldNumbers == null || fieldNumbers.Count == 0)
                 throw new ArgumentNullException("Parameter cannot be null or empty.", "fieldNumbers");
 
@@ -243,33 +187,33 @@ namespace ScriptLinkStandard.Helpers
                 {
                     switch (fieldAction)
                     {
-                        case "DISABLED":
+                        case FieldAction.Disable:
                             fieldObject.SetAsDisabled();
-                            rowObject.RowAction = "EDIT";
+                            rowObject.RowAction = RowAction.Edit;
                             break;
-                        case "ENABLED":
+                        case FieldAction.Enable:
                             fieldObject.SetAsEnabled();
-                            rowObject.RowAction = "EDIT";
+                            rowObject.RowAction = RowAction.Edit;
                             break;
-                        case "LOCKED":
+                        case FieldAction.Lock:
                             fieldObject.SetAsLocked();
-                            rowObject.RowAction = "EDIT";
+                            rowObject.RowAction = RowAction.Edit;
                             break;
-                        case "MODIFIED":
+                        case FieldAction.Modify:
                             fieldObject.SetAsModified();
-                            rowObject.RowAction = "EDIT";
+                            rowObject.RowAction = RowAction.Edit;
                             break;
-                        case "OPTIONAL":
+                        case FieldAction.Optional:
                             fieldObject.SetAsOptional();
-                            rowObject.RowAction = "EDIT";
+                            rowObject.RowAction = RowAction.Edit;
                             break;
-                        case "REQUIRED":
+                        case FieldAction.Require:
                             fieldObject.SetAsRequired();
-                            rowObject.RowAction = "EDIT";
+                            rowObject.RowAction = RowAction.Edit;
                             break;
-                        case "UNLOCKED":
+                        case FieldAction.Unlock:
                             fieldObject.SetAsUnlocked();
-                            rowObject.RowAction = "EDIT";
+                            rowObject.RowAction = RowAction.Edit;
                             break;
                         default:
                             break;
@@ -277,20 +221,6 @@ namespace ScriptLinkStandard.Helpers
                 }
             }
             return rowObject;
-        }
-        /// <summary>
-        /// Sets <see cref="FieldObject"/> in an <see cref="IRowObject"/> according to specified FieldAction.
-        /// </summary>
-        /// <param name="rowObject"></param>
-        /// <param name="fieldAction"></param>
-        /// <param name="fieldNumber"></param>
-        /// <returns></returns>
-        public static IRowObject SetFieldObjects(IRowObject rowObject, string fieldAction, string fieldNumber)
-        {
-            if (rowObject == null)
-                throw new ArgumentNullException("Parameter cannot be null.", "rowObject");
-            List<string> fieldNumbers = new List<string> { fieldNumber };
-            return SetFieldObjects(rowObject, fieldAction, fieldNumbers);
         }
 
         #region HelperMethods

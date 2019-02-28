@@ -111,7 +111,7 @@ namespace ScriptLinkStandard.Helpers
         {
             if (formObject == null)
                 throw new System.ArgumentNullException("Parameter cannot be null.", "formObject");
-            return AddRowObject(formObject, rowId, parentRowId, "ADD");
+            return AddRowObject(formObject, rowId, parentRowId, RowAction.Add);
         }
         /// <summary>
         /// Adds a <see cref="RowObject"/> to a provided <see cref="IFormObject"/> using provided RowId, ParentRowId, and RowAction.

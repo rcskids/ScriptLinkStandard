@@ -1,4 +1,6 @@
-﻿namespace ScriptLinkStandard.Helpers
+﻿using ScriptLinkStandard.Objects;
+
+namespace ScriptLinkStandard.Helpers
 {
     public partial class ScriptLinkHelpers
     {
@@ -9,10 +11,10 @@
         /// <returns></returns>
         public static bool IsValidRowAction(string rowAction)
         {
-            if (rowAction == "" ||
-                rowAction == "ADD" ||
-                rowAction == "DELETE" ||
-                rowAction == "EDIT")
+            if (rowAction == RowAction.Add ||
+                rowAction == RowAction.Delete ||
+                rowAction == RowAction.Edit ||
+                rowAction == RowAction.None)
                 return true;
             return false;
         }

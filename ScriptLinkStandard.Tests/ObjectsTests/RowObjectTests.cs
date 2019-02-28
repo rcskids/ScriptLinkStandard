@@ -539,7 +539,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
         {
             string rowId = "1||1";
             string parentRowId = "2||1";
-            string rowAction = "DELETE";
+            string rowAction = RowAction.Delete;
             RowObject rowObject = new RowObject(rowId, parentRowId, rowAction);
             Assert.AreEqual(rowId, rowObject.RowId);
             Assert.AreEqual(parentRowId, rowObject.ParentRowId);
@@ -648,7 +648,7 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
         {
             string rowId = "1||1";
             string parentRowId = "2||1";
-            string rowAction = "DELETE";
+            string rowAction = RowAction.Delete;
             FieldObject fieldObject1 = new FieldObject("123.45");
             FieldObject fieldObject2 = new FieldObject("123.46");
             List<FieldObject> fieldObjects = new List<FieldObject>
