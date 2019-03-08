@@ -101,18 +101,18 @@ To use OptionObject2015 you will need RADplus 2016 Update 17 installed in myAvat
 | IsFormPresent(string)                         | Returns whether the [FormObject](./formobject.md) in the OptionObject2015 is present by FormId.            |
 | IsRowMarkedForDeletion(string)                | Returns whether the [RowObject](./rowobject.md) in the OptionObject2015 is marked for deletion by RowId.            |
 | IsRowPresent(string)                          | Returns whether the [RowObject](./rowobject.md) in the OptionObject2015 is present by RowId.            |
+| SetDisabledField(string)                     | Sets the specified [FieldObject](./fieldobject.md) as disabled in the OptionObject2015 by FieldNumber.            |
 | SetDisabledFields(List<string>)               | Sets the specified [FieldObjects](./fieldobject.md) as disabled in the OptionObject2015 by FieldNumber.            |
-| SetDisabledFields(string)                     | Sets the specified [FieldObject](./fieldobject.md) as disabled in the OptionObject2015 by FieldNumber.            |
 | SetFieldValue(string, string)                 | Sets a FieldValue by FieldNumber in the OptionObject2015.            |
 | SetFieldValue(string, string, string, string) | Sets a FieldValue by FormId, RowId, and FieldNumber in the OptionObject2015.            |
+| SetLockedField(string)                       | Sets the specified [FieldObject](./fieldobject.md) as locked in the OptionObject2015 by FieldNumber.            |
 | SetLockedFields(List<string>)                 | Sets the specified [FieldObjects](./fieldobject.md) as locked in the OptionObject2015 by FieldNumber.            |
-| SetLockedFields(string)                       | Sets the specified [FieldObject](./fieldobject.md) as locked in the OptionObject2015 by FieldNumber.            |
+| SetOptionalField(string)                     | Sets the specified [FieldObject](./fieldobject.md) as optional (enabled, not required) in the OptionObject2015 by FieldNumber.            |
 | SetOptionalFields(List<string>)               | Sets the specified [FieldObjects](./fieldobject.md) as optional (enabled, not required) in the OptionObject2015 by FieldNumber.            |
-| SetOptionalFields(string)                     | Sets the specified [FieldObject](./fieldobject.md) as optional (enabled, not required) in the OptionObject2015 by FieldNumber.            |
+| SetRequiredField(string)                     | Sets the specified [FieldObject](./fieldobject.md) as required in the OptionObject2015 by FieldNumber.            |
 | SetRequiredFields(List<string>)               | Sets the specified [FieldObjects](./fieldobject.md) as required in the OptionObject2015 by FieldNumber.            |
-| SetRequiredFields(string)                     | Sets the specified [FieldObject](./fieldobject.md) as required in the OptionObject2015 by FieldNumber.            |
+| SetUnlockedField(string)                     | Sets the specified [FieldObject](./fieldobject.md) as unlocked in the OptionObject2015 by FieldNumber.            |
 | SetUnlockedFields(List<string>)               | Sets the specified [FieldObjects](./fieldobject.md) as unlocked in the OptionObject2015 by FieldNumber.            |
-| SetUnlockedFields(string)                     | Sets the specified [FieldObject](./fieldobject.md) as unlocked in the OptionObject2015 by FieldNumber.            |
 | ToHtmlString(bool)                            | Returns the OptionObject2015 as an HTML string. The `<html>`, `<head>`, and `<body>` tags can be included if desired.            |
 | ToJson()                                        | Returns the OptionObject2015 as a JSON string.           |
 | ToOptionObject()                                | Returns a copy of the OptionObject2015 as an OptionObject.            |
