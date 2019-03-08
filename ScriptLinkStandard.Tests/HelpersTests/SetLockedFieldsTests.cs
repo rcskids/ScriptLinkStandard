@@ -10,61 +10,6 @@ namespace ScriptLinkStandard.Tests.HelpersTests
     public class SetLockedFieldsTests
     {
         [TestMethod]
-        public void SetLockedFields_OptionObject_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject optionObject = new OptionObject();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetLockedFields(fieldObjects);
-            Assert.IsTrue(optionObject.IsFieldLocked(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
-        public void SetLockedFields_OptionObject_Null_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject optionObject = null;
-            optionObject.SetLockedFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldLocked(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void SetLockedFields_OptionObject_ListFieldObjects_Null()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = null;
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject optionObject = new OptionObject();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetLockedFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldLocked(fieldNumber));
-        }
-
-        [TestMethod]
         public void SetLockedFields_OptionObject_ListFieldNumbers()
         {
             string fieldNumber = "123";
@@ -230,61 +175,6 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        public void SetLockedFields_OptionObject2_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2 optionObject = new OptionObject2();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetLockedFields(fieldObjects);
-            Assert.IsTrue(optionObject.IsFieldLocked(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
-        public void SetLockedFields_OptionObject2_Null_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2 optionObject = null;
-            optionObject.SetLockedFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldLocked(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void SetLockedFields_OptionObject2_ListFieldObjects_Null()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = null;
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2 optionObject = new OptionObject2();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetLockedFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldLocked(fieldNumber));
-        }
-
-        [TestMethod]
         public void SetLockedFields_OptionObject2_ListFieldNumbers()
         {
             string fieldNumber = "123";
@@ -446,61 +336,6 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             OptionObject2 optionObject = new OptionObject2();
             optionObject.AddFormObject(formObject);
             ScriptLinkHelpers.SetLockedFields(optionObject, fieldNumbers);
-            Assert.IsFalse(optionObject.IsFieldLocked(fieldNumber));
-        }
-
-        [TestMethod]
-        public void SetLockedFields_OptionObject2015_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2015 optionObject = new OptionObject2015();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetLockedFields(fieldObjects);
-            Assert.IsTrue(optionObject.IsFieldLocked(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
-        public void SetLockedFields_OptionObject2015_Null_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2015 optionObject = null;
-            optionObject.SetLockedFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldLocked(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void SetLockedFields_OptionObject2015_ListFieldObjects_Null()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = null;
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2015 optionObject = new OptionObject2015();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetLockedFields(fieldObjects);
             Assert.IsFalse(optionObject.IsFieldLocked(fieldNumber));
         }
 

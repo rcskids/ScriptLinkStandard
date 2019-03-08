@@ -43,21 +43,16 @@ namespace ScriptLinkStandard.Interfaces
         bool IsRowPresent(string rowId);
 
         void SetDisabledField(string fieldNumber);
-        void SetDisabledFields(List<FieldObject> fieldObjects);
         void SetDisabledFields(List<string> fieldNumbers);
         void SetFieldValue(string fieldNumber, string fieldValue);
         void SetFieldValue(string formId, string rowId, string fieldNumber, string fieldValue);
         void SetLockedField(string fieldNumber);
-        void SetLockedFields(List<FieldObject> fieldObjects);
         void SetLockedFields(List<string> fieldNumbers);
         void SetOptionalField(string fieldNumber);
-        void SetOptionalFields(List<FieldObject> fieldObjects);
         void SetOptionalFields(List<string> fieldNumbers);
         void SetRequiredField(string fieldNumber);
-        void SetRequiredFields(List<FieldObject> fieldObjects);
         void SetRequiredFields(List<string> fieldNumbers);
         void SetUnlockedField(string fieldNumber);
-        void SetUnlockedFields(List<FieldObject> fieldObjects);
         void SetUnlockedFields(List<string> fieldNumbers);
 
         string ToHtmlString(bool includeHtmlHeaders);
@@ -65,5 +60,6 @@ namespace ScriptLinkStandard.Interfaces
         OptionObject2015 ToOptionObject2015();
         OptionObject2 ToReturnOptionObject();
         OptionObject2 ToReturnOptionObject(int errorCode, string errorMessage);
+        string ToXml();
     }
 }

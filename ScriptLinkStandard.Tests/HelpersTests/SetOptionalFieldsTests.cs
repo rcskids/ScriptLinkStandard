@@ -10,64 +10,6 @@ namespace ScriptLinkStandard.Tests.HelpersTests
     public class SetOptionalFieldsTests
     {
         [TestMethod]
-        public void SetOptionalFields_OptionObject_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject optionObject = new OptionObject();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetOptionalFields(fieldObjects);
-            Assert.IsTrue(optionObject.IsFieldEnabled(fieldNumber));
-            Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
-        public void SetOptionalFields_OptionObject_Null_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject optionObject = null;
-            optionObject.SetOptionalFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldEnabled(fieldNumber));
-            Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void SetOptionalFields_OptionObject_ListFieldObjects_Null()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = null;
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject optionObject = new OptionObject();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetOptionalFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldEnabled(fieldNumber));
-            Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
-        }
-
-        [TestMethod]
         public void SetOptionalFields_OptionObject_ListFieldNumbers()
         {
             string fieldNumber = "123";
@@ -242,64 +184,6 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         }
 
         [TestMethod]
-        public void SetOptionalFields_OptionObject2_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2 optionObject = new OptionObject2();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetOptionalFields(fieldObjects);
-            Assert.IsTrue(optionObject.IsFieldEnabled(fieldNumber));
-            Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
-        public void SetOptionalFields_OptionObject2_Null_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2 optionObject = null;
-            optionObject.SetOptionalFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldEnabled(fieldNumber));
-            Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void SetOptionalFields_OptionObject2_ListFieldObjects_Null()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = null;
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2 optionObject = new OptionObject2();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetOptionalFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldEnabled(fieldNumber));
-            Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
-        }
-
-        [TestMethod]
         public void SetOptionalFields_OptionObject2_ListFieldNumbers()
         {
             string fieldNumber = "123";
@@ -469,64 +353,6 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             OptionObject2 optionObject = new OptionObject2();
             optionObject.AddFormObject(formObject);
             ScriptLinkHelpers.SetOptionalFields(optionObject, fieldNumbers);
-            Assert.IsFalse(optionObject.IsFieldEnabled(fieldNumber));
-            Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
-        }
-
-        [TestMethod]
-        public void SetOptionalFields_OptionObject2015_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2015 optionObject = new OptionObject2015();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetOptionalFields(fieldObjects);
-            Assert.IsTrue(optionObject.IsFieldEnabled(fieldNumber));
-            Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
-        public void SetOptionalFields_OptionObject2015_Null_ListFieldObjects()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = new List<FieldObject>()
-            {
-                fieldObject
-            };
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2015 optionObject = null;
-            optionObject.SetOptionalFields(fieldObjects);
-            Assert.IsFalse(optionObject.IsFieldEnabled(fieldNumber));
-            Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void SetOptionalFields_OptionObject2015_ListFieldObjects_Null()
-        {
-            string fieldNumber = "123";
-            FieldObject fieldObject = new FieldObject(fieldNumber);
-            List<FieldObject> fieldObjects = null;
-            RowObject rowObject = new RowObject();
-            rowObject.AddFieldObject(fieldObject);
-            FormObject formObject = new FormObject("1");
-            formObject.AddRowObject(rowObject);
-            OptionObject2015 optionObject = new OptionObject2015();
-            optionObject.AddFormObject(formObject);
-            optionObject.SetOptionalFields(fieldObjects);
             Assert.IsFalse(optionObject.IsFieldEnabled(fieldNumber));
             Assert.IsFalse(optionObject.IsFieldRequired(fieldNumber));
         }
