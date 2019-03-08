@@ -66,6 +66,19 @@ The following methods are exclusively available using the ScriptLinkHelpers clas
 | IsValidRowAction(string) | Returns whether a string value is a valid ScriptLink Row Action. |
 | IsValidUrl(string) | Returns whether a string is a valid URL for use with error code 5. |
 | SafeGetInt(string) | Converts a string to an int. Returns 0 if not able to convert string. |
+| SetFieldObject(IOptionObject, string, string) | Sets a FieldObject based on specified FieldAction by FieldNumber. |
+| SetFieldObject(IOptionObject2, string, string) | Sets a FieldObject based on specified FieldAction by FieldNumber. |
+| SetFieldObject(IOptionObject2015, string, string) | Sets a FieldObject based on specified FieldAction by FieldNumber. |
+| SetFieldObject(IFormObject, string, string) | Sets a FieldObject based on specified FieldAction by FieldNumber. |
+| SetFieldObject(IRowObject, string, string) | Sets a FieldObject based on specified FieldAction by FieldNumber. |
+| SetFieldObjects(IOptionObject, string, List<FieldObject>) | Sets FieldObjects based on specified FieldAction by List of FieldObjects. |
+| SetFieldObjects(IOptionObject, string, List<string>) | Sets FieldObjects based on specified FieldAction by List of FieldNumbers. |
+| SetFieldObjects(IOptionObject2, string, List<FieldObject>) | Sets FieldObjects based on specified FieldAction by List of FieldObjects. |
+| SetFieldObjects(IOptionObject2, string, List<string>) | Sets FieldObjects based on specified FieldAction by List of FieldNumbers. |
+| SetFieldObjects(IOptionObject2015, string, List<FieldObject>) | Sets FieldObjects based on specified FieldAction by List of FieldObjects. |
+| SetFieldObjects(IOptionObject2015, string, List<string>) | Sets FieldObjects based on specified FieldAction by List of FieldNumbers. |
+| SetFieldObjects(IFormObject, string, List<string>) | Sets FieldObjects based on specified FieldAction by List of FieldNumbers. |
+| SetFieldObjects(IRowObject, string, List<string>) | Sets FieldObjects based on specified FieldAction by List of FieldNumbers. |
 | SplitDelimitedParameters(string) | Returns a string array of values from a comma-delimited string. |
 | SplitDelimitedParameters(string, char) | Returns a string array of values from a string using specified delimiter. |
 
@@ -172,32 +185,19 @@ The following methods are also available as methods on the various objects.
 | IsRowPresent(IFormObject, string) | formObject.IsRowPresent(string) |
 | RemoveFieldObject(IRowObject, IFieldObject) | rowObject.RemoveFieldObject(IFieldObject) |
 | RemoveFieldObject(IRowObject, string) | rowObject.RemoveFieldObject(IFieldObject) |
+| SetDisabledField(IOptionObject, string) | optionObject.SetDisabledField(string) |
+| SetDisabledField(IOptionObject2, string) | optionObject.SetDisabledField(string) |
+| SetDisabledField(IOptionObject2015, string) | optionObject.SetDisabledField(string) |
+| SetDisabledField(IFormObject, string) | formObject.SetDisabledField(string) |
+| SetDisabledField(IRowObject, string) | rowObject.SetDisabledField(string) |
 | SetDisabledFields(IOptionObject, List<FieldObject>) | optionObject.SetDisabledFields(List<FieldObject>) |
 | SetDisabledFields(IOptionObject, List<string>) | optionObject.SetDisabledFields(List<string>) |
-| SetDisabledFields(IOptionObject, string) | optionObject.SetDisabledFields(string) |
 | SetDisabledFields(IOptionObject2, List<FieldObject>) | optionObject.SetDisabledFields(List<FieldObject>) |
 | SetDisabledFields(IOptionObject2, List<string>) | optionObject.SetDisabledFields(List<string>) |
-| SetDisabledFields(IOptionObject2, string) | optionObject.SetDisabledFields(string) |
 | SetDisabledFields(IOptionObject2015, List<FieldObject>) | optionObject.SetDisabledFields(List<FieldObject>) |
 | SetDisabledFields(IOptionObject2015, List<string>) | optionObject.SetDisabledFields(List<string>) |
-| SetDisabledFields(IOptionObject2015, string) | optionObject.SetDisabledFields(string) |
 | SetDisabledFields(IFormObject, List<string>) | formObject.SetDisabledFields(List<string>) |
-| SetDisabledFields(IFormObject, string) | formObject.SetDisabledFields(string) |
 | SetDisabledFields(IRowObject, List<string>) | rowObject.SetDisabledFields(List<string>) |
-| SetDisabledFields(IRowObject, string) | rowObject.SetDisabledFields(string) |
-| SetFieldObjects(IOptionObject, string, List<FieldObject>) | optionObject.SetFieldObjects(string, List<FieldObject>) |
-| SetFieldObjects(IOptionObject, string, List<string>) | optionObject.SetFieldObjects(string, List<string>) |
-| SetFieldObjects(IOptionObject, string, string) | optionObject.SetFieldObjects(string, string) |
-| SetFieldObjects(IOptionObject2, string, List<FieldObject>) | optionObject.SetFieldObjects(string, List<FieldObject>) |
-| SetFieldObjects(IOptionObject2, string, List<string>) | optionObject.SetFieldObjects(string, List<string>) |
-| SetFieldObjects(IOptionObject2, string, string) | optionObject.SetFieldObjects(string, string) |
-| SetFieldObjects(IOptionObject2015, string, List<FieldObject>) | optionObject.SetFieldObjects(string, List<FieldObject>) |
-| SetFieldObjects(IOptionObject2015, string, List<string>) | optionObject.SetFieldObjects(string, List<string>) |
-| SetFieldObjects(IOptionObject2015, string, string) | optionObject.SetFieldObjects(string, string) |
-| SetFieldObjects(IFormObject, string, List<string>) | formObject.SetFieldObjects(string, List<string>) |
-| SetFieldObjects(IFormObject, string, string) | formObject.SetFieldObjects(string, string) |
-| SetFieldObjects(IRowObject, string, List<string>) | rowObject.SetFieldObjects(string, List<string>) |
-| SetFieldObjects(IRowObject, string, string) | rowObject.SetFieldObjects(string, string) |
 | SetFieldValue(IOptionObject, string, string) | optionObject.SetFieldValue(string, string) |
 | SetFieldValue(IOptionObject, string, string, string, string) | optionObject.SetFieldValue(string, string, string, string) |
 | SetFieldValue(IOptionObject2, string, string) | optionObject.SetFieldValue(string, string) |
@@ -208,58 +208,58 @@ The following methods are also available as methods on the various objects.
 | SetFieldValue(IFormObject, string, string, string) | formObject.SetFieldValue(string, string, string) |
 | SetFieldValue(IRowObject, string, string) | rowObject.SetFieldValue(string, string) |
 | SetFieldValue(IFieldObject, string) | fieldObject.SetFieldValue(string) |
+| SetLockedField(IOptionObject, string) | optionObject.SetLockedField(string) |
+| SetLockedField(IOptionObject2, string) | optionObject.SetLockedField(string) |
+| SetLockedField(IOptionObject2015, string) | optionObject.SetLockedField(string) |
+| SetLockedField(IFormObject, string) | formObject.SetLockedField(string) |
+| SetLockedField(IRowObject, string) | rowObject.SetLockedField(string) |
 | SetLockedFields(IOptionObject, List<FieldObject>) | optionObject.SetLockedFields(List<FieldObject>) |
 | SetLockedFields(IOptionObject, List<string>) | optionObject.SetLockedFields(List<string>) |
-| SetLockedFields(IOptionObject, string) | optionObject.SetLockedFields(string) |
 | SetLockedFields(IOptionObject2, List<FieldObject>) | optionObject.SetLockedFields(List<FieldObject>) |
 | SetLockedFields(IOptionObject2, List<string>) | optionObject.SetLockedFields(List<string>) |
-| SetLockedFields(IOptionObject2, string) | optionObject.SetLockedFields(string) |
 | SetLockedFields(IOptionObject2015, List<FieldObject>) | optionObject.SetLockedFields(List<FieldObject>) |
 | SetLockedFields(IOptionObject2015, List<string>) | optionObject.SetLockedFields(List<string>) |
-| SetLockedFields(IOptionObject2015, string) | optionObject.SetLockedFields(string) |
 | SetLockedFields(IFormObject, List<string>) | formObject.SetLockedFields(List<string>) |
-| SetLockedFields(IFormObject, string) | formObject.SetLockedFields(string) |
 | SetLockedFields(IRowObject, List<string>) | rowObject.SetLockedFields(List<string>) |
-| SetLockedFields(IRowObject, string) | rowObject.SetLockedFields(string) |
+| SetOptionalField(IOptionObject, string) | optionObject.SetOptionalField(string) |
+| SetOptionalField(IOptionObject2, string) | optionObject.SetOptionalField(string) |
+| SetOptionalField(IOptionObject2015, string) | optionObject.SetOptionalField(string) |
+| SetOptionalField(IFormObject, string) | formObject.SetOptionalField(string) |
+| SetOptionalField(IRowObject, string) | rowObject.SetOptionalField(string) |
 | SetOptionalFields(IOptionObject, List<FieldObject>) | optionObject.SetOptionalFields(List<FieldObject>) |
 | SetOptionalFields(IOptionObject, List<string>) | optionObject.SetOptionalFields(List<string>) |
-| SetOptionalFields(IOptionObject, string) | optionObject.SetOptionalFields(string) |
 | SetOptionalFields(IOptionObject2, List<FieldObject>) | optionObject.SetOptionalFields(List<FieldObject>) |
 | SetOptionalFields(IOptionObject2, List<string>) | optionObject.SetOptionalFields(List<string>) |
-| SetOptionalFields(IOptionObject2, string) | optionObject.SetOptionalFields(string) |
 | SetOptionalFields(IOptionObject2015, List<FieldObject>) | optionObject.SetOptionalFields(List<FieldObject>) |
 | SetOptionalFields(IOptionObject2015, List<string>) | optionObject.SetOptionalFields(List<string>) |
-| SetOptionalFields(IOptionObject2015, string) | optionObject.SetOptionalFields(string) |
 | SetOptionalFields(IFormObject, List<string>) | formObject.SetOptionalFields(List<string>) |
-| SetOptionalFields(IFormObject, string) | formObject.SetOptionalFields(string) |
 | SetOptionalFields(IRowObject, List<string>) | rowObject.SetOptionalFields(List<string>) |
-| SetOptionalFields(IRowObject, string) | rowObject.SetOptionalFields(string) |
+| SetRequiredField(IOptionObject, string) | optionObject.SetRequiredField(string) |
+| SetRequiredField(IOptionObject2, string) | optionObject.SetRequiredField(string) |
+| SetRequiredField(IOptionObject2015, string) | optionObject.SetRequiredField(string) |
+| SetRequiredField(IFormObject, string) | formObject.SetRequiredField(string) |
+| SetRequiredField(IRowObject, string) | rowObject.SetRequiredField(string) |
 | SetRequiredFields(IOptionObject, List<FieldObject>) | optionObject.SetRequiredFields(List<FieldObject>) |
 | SetRequiredFields(IOptionObject, List<string>) | optionObject.SetRequiredFields(List<string>) |
-| SetRequiredFields(IOptionObject, string) | optionObject.SetRequiredFields(string) |
 | SetRequiredFields(IOptionObject2, List<FieldObject>) | optionObject.SetRequiredFields(List<FieldObject>) |
 | SetRequiredFields(IOptionObject2, List<string>) | optionObject.SetRequiredFields(List<string>) |
-| SetRequiredFields(IOptionObject2, string) | optionObject.SetRequiredFields(string) |
 | SetRequiredFields(IOptionObject2015, List<FieldObject>) | optionObject.SetRequiredFields(List<FieldObject>) |
 | SetRequiredFields(IOptionObject2015, List<string>) | optionObject.SetRequiredFields(List<string>) |
-| SetRequiredFields(IOptionObject2015, string) | optionObject.SetRequiredFields(string) |
 | SetRequiredFields(IFormObject, List<string>) | formObject.SetRequiredFields(List<string>) |
-| SetRequiredFields(IFormObject, string) | formObject.SetRequiredFields(string) |
 | SetRequiredFields(IRowObject, List<string>) | rowObject.SetRequiredFields(List<string>) |
-| SetRequiredFields(IRowObject, string) | rowObject.SetRequiredFields(string) |
+| SetUnlockedField(IOptionObject, string) | optionObject.SetUnlockedField(string) |
+| SetUnlockedField(IOptionObject2, string) | optionObject.SetUnlockedField(string) |
+| SetUnlockedField(IOptionObject2015, string) | optionObject.SetUnlockedField(string) |
+| SetUnlockedField(IFormObject, string) | formObject.SetUnlockedField(string) |
+| SetUnlockedField(IRowObject, string) | rowObject.SetUnlockedField(string) |
 | SetUnlockedFields(IOptionObject, List<FieldObject>) | optionObject.SetUnlockedFields(List<FieldObject>) |
 | SetUnlockedFields(IOptionObject, List<string>) | optionObject.SetUnlockedFields(List<string>) |
-| SetUnlockedFields(IOptionObject, string) | optionObject.SetUnlockedFields(string) |
 | SetUnlockedFields(IOptionObject2, List<FieldObject>) | optionObject.SetUnlockedFields(List<FieldObject>) |
 | SetUnlockedFields(IOptionObject2, List<string>) | optionObject.SetUnlockedFields(List<string>) |
-| SetUnlockedFields(IOptionObject2, string) | optionObject.SetUnlockedFields(string) |
 | SetUnlockedFields(IOptionObject2015, List<FieldObject>) | optionObject.SetUnlockedFields(List<FieldObject>) |
 | SetUnlockedFields(IOptionObject2015, List<string>) | optionObject.SetUnlockedFields(List<string>) |
-| SetUnlockedFields(IOptionObject2015, string) | optionObject.SetUnlockedFields(string) |
 | SetUnlockedFields(IFormObject, List<string>) | formObject.SetUnlockedFields(List<string>) |
-| SetUnlockedFields(IFormObject, string) | formObject.SetUnlockedFields(string) |
 | SetUnlockedFields(IRowObject, List<string>) | rowObject.SetUnlockedFields(List<string>) |
-| SetUnlockedFields(IRowObject, string) | rowObject.SetUnlockedFields(string) |
 | TransformToHtmlString(IOptionObject) | optionObject.ToHtmlString() |
 | TransformToHtmlString(IOptionObject, bool) | optionObject.ToHtmlString(bool) |
 | TransformToHtmlString(IOptionObject2) | optionObject.ToHtmlString() |

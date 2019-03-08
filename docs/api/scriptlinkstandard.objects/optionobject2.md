@@ -100,18 +100,18 @@ OptionObject2 is a subsequent definition of the OptionObject for use with myAvat
 | IsFormPresent(string)                         | Returns whether the FormObject in the OptionObject2 is present by FormId.            |
 | IsRowMarkedForDeletion(string)                | Returns whether the RowObject in the OptionObject2 is marked for deletion by RowId.            |
 | IsRowPresent(string)                          | Returns whether the RowObject in the OptionObject2 is present by RowId.            |
+| SetDisabledField(string)                     | Sets the specified FieldObject as disabled in the OptionObject2 by FieldNumber.            |
 | SetDisabledFields(List<string>)               | Sets the specified FieldObjects as disabled in the OptionObject2 by FieldNumber.            |
-| SetDisabledFields(string)                     | Sets the specified FieldObject as disabled in the OptionObject2 by FieldNumber.            |
 | SetFieldValue(string, string)                 | Sets a FieldValue by FieldNumber in the OptionObject2.            |
 | SetFieldValue(string, string, string, string) | Sets a FieldValue by FormId, RowId, and FieldNumber in the OptionObject2.            |
+| SetLockedField(string)                       | Sets the specified FieldObject as locked in the OptionObject2 by FieldNumber.            |
 | SetLockedFields(List<string>)                 | Sets the specified FieldObjects as locked in the OptionObject2 by FieldNumber.            |
-| SetLockedFields(string)                       | Sets the specified FieldObject as locked in the OptionObject2 by FieldNumber.            |
+| SetOptionalField(string)                     | Sets the specified FieldObject as optional (enabled, not required) in the OptionObject2 by FieldNumber.            |
 | SetOptionalFields(List<string>)               | Sets the specified FieldObjects as optional (enabled, not required) in the OptionObject2 by FieldNumber.            |
-| SetOptionalFields(string)                     | Sets the specified FieldObject as optional (enabled, not required) in the OptionObject2 by FieldNumber.            |
+| SetRequiredField(string)                     | Sets the specified FieldObject as required in the OptionObject2 by FieldNumber.            |
 | SetRequiredFields(List<string>)               | Sets the specified FieldObjects as required in the OptionObject2 by FieldNumber.            |
-| SetRequiredFields(string)                     | Sets the specified FieldObject as required in the OptionObject2 by FieldNumber.            |
+| SetUnlockedField(string)                     | Sets the specified FieldObject as unlocked in the OptionObject2 by FieldNumber.            |
 | SetUnlockedFields(List<string>)               | Sets the specified FieldObjects as unlocked in the OptionObject2 by FieldNumber.            |
-| SetUnlockedFields(string)                     | Sets the specified FieldObject as unlocked in the OptionObject2 by FieldNumber.            |
 | ToHtmlString(bool)                            | Returns the OptionObject2 as an HTML string. The `<html>`, `<head>`, and `<body>` tags can be included if desired.            |
 | ToJson                                        | Returns the OptionObject2 as a JSON string.           |
 | ToOptionObject                                | Returns a copy of the OptionObject2 as an OptionObject.            |
