@@ -70,3 +70,7 @@ Although most of the [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/script
 #### ScriptLinkStandard.Interfaces
 
 The [ScriptLinkStandard.Interfaces](./api/scriptlinkstandard.interfaces) namespace is helpful when you want use a Test-Driven Development process or create your own custom objects that work with the [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md) class.
+
+### Other Examples
+
+* [Testing ScriptLink APIs with SoapUI](testing-scriptlink-api-with-soapui.md)
