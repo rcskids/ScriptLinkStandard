@@ -50,6 +50,13 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("ScriptLinkHelpers")]
+        public void IsValidErrorCode_Integer_6_IsTrue()
+        {
+            Assert.IsTrue(ScriptLinkHelpers.IsValidErrorCode(6));
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
         public void IsValidErrorCode_Integer_10_IsFalse()
         {
             Assert.IsFalse(ScriptLinkHelpers.IsValidErrorCode(10));

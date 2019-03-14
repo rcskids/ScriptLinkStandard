@@ -47,7 +47,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         {
             OptionObject modifiedOptionObject = new OptionObject
             {
-                ErrorCode = 6
+                ErrorCode = 7
             };
             OptionObject2 transformedOptionObject = modifiedOptionObject.ToOptionObject2();
             Assert.AreEqual(modifiedOptionObject.ErrorCode, transformedOptionObject.ErrorCode);

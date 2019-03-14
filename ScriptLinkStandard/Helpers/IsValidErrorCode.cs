@@ -22,7 +22,7 @@
         /// <returns></returns>
         public static bool IsValidErrorCode(double errorCode)
         {
-            if (errorCode >= 0 && errorCode <= 5)
+            if (errorCode >= 0 && errorCode <= 6)
             {
                 return true;
             }

@@ -154,10 +154,19 @@ namespace ScriptLinkStandard.Tests.HelpersTests
 
         [TestMethod]
         [TestCategory("ScriptLinkHelpers")]
-        [ExpectedException(typeof(ArgumentException))]
-        public void GetReturnOptionObject_ErrorCode_6_Error()
+        public void GetReturnOptionObject_ErrorCode_6_AreEqual()
         {
             int expected = 6;
+            IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(optionObject, expected, "test");
+            Assert.AreEqual(expected, returnOptionObject.ErrorCode);
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(ArgumentException))]
+        public void GetReturnOptionObject_ErrorCode_7_Error()
+        {
+            int expected = 7;
             IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(optionObject, expected, "test");
             Assert.AreNotEqual(expected, returnOptionObject.ErrorCode);
         }
