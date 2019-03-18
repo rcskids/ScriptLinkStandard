@@ -31,8 +31,6 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null", "optionObject");
-            if (!IsValidErrorCode(errorCode))
-                throw new ArgumentException("Error Code is not valid.");
             return GetReturnOptionObject(optionObject.ToOptionObject2015(), errorCode, errorMessage).ToOptionObject();
         }
         /// <summary>
@@ -57,8 +55,6 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null", "optionObject");
-            if (!IsValidErrorCode(errorCode))
-                throw new ArgumentException("Error Code is not valid.");
             return GetReturnOptionObject(optionObject.ToOptionObject2015(), errorCode, errorMessage).ToOptionObject2();
         }
         /// <summary>
@@ -83,8 +79,6 @@ namespace ScriptLinkStandard.Helpers
         {
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null", "optionObject");
-            if (!IsValidErrorCode(errorCode))
-                throw new ArgumentException("Error Code is not valid.");
             IOptionObject2015 returnOptionObject = RemoveUneditedRows(optionObject);
             returnOptionObject = SetErrorCodeAndMessage(returnOptionObject, errorCode, errorMessage);
             return returnOptionObject;
@@ -172,6 +166,10 @@ namespace ScriptLinkStandard.Helpers
                 throw new ArgumentNullException("Parameter cannot be null", "optionObject");
             if (!IsValidErrorCode(errorCode))
                 throw new ArgumentException("Error Code is not valid.");
+            if (errorCode == ErrorCode.OpenUrl && !IsValidUrl(errorMessage))
+                throw new ArgumentException("Error Message is not a valid URL string.");
+            if (errorCode == ErrorCode.OpenForm && !IsValidOpenFormString(errorMessage))
+                throw new ArgumentException("Error Message is not a valid OpenForm string.");
             OptionObject2015 returnOptionObject = new OptionObject2015();
             returnOptionObject = (OptionObject2015)optionObject;
             returnOptionObject.ErrorCode = errorCode;

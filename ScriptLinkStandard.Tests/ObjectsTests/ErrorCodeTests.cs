@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ScriptLinkStandard.Objects;
 
 namespace ScriptLinkStandard.Tests.ObjectsTests
@@ -7,6 +6,13 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
     [TestClass]
     public class ErrorCodeTests
     {
+        [TestMethod]
+        public void ErrorCode_Error_Returns_0()
+        {
+            int expected = 0;
+            Assert.AreEqual(expected, ErrorCode.None);
+        }
+
         [TestMethod]
         public void ErrorCode_Error_Returns_1()
         {

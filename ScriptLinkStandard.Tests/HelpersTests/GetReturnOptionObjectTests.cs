@@ -148,6 +148,16 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void GetReturnOptionObject_ErrorCode_5_AreEqual()
         {
             int expected = 5;
+            IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(optionObject, expected, "http://www.rcskids.org");
+            Assert.AreEqual(expected, returnOptionObject.ErrorCode);
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(ArgumentException))]
+        public void GetReturnOptionObject_ErrorCode_5_InvalidURL()
+        {
+            int expected = 5;
             IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(optionObject, expected, "test");
             Assert.AreEqual(expected, returnOptionObject.ErrorCode);
         }
@@ -155,6 +165,16 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         [TestMethod]
         [TestCategory("ScriptLinkHelpers")]
         public void GetReturnOptionObject_ErrorCode_6_AreEqual()
+        {
+            int expected = 6;
+            IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(optionObject, expected, "[PM]GUISYS560");
+            Assert.AreEqual(expected, returnOptionObject.ErrorCode);
+        }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        [ExpectedException(typeof(ArgumentException))]
+        public void GetReturnOptionObject_ErrorCode_6_InvalidOpenFormString()
         {
             int expected = 6;
             IOptionObject returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(optionObject, expected, "test");

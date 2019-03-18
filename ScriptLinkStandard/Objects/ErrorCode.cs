@@ -3,6 +3,10 @@
     public static class ErrorCode
     {
         /// <summary>
+        /// Returns no message. Equivalent of success.
+        /// </summary>
+        public const int None = 0;
+        /// <summary>
         /// Returns provided message with an Ok button. Stops script processing.
         /// </summary>
         public const int Error = 1;
