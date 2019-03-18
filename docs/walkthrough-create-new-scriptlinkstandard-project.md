@@ -72,7 +72,7 @@ public class ScriptLinkController : System.Web.Services.WebService
     [WebMethod]
     public OptionObject2015 RunScript(OptionObject2015 optionObject2015, string parameters)
     {
-        return optionObject2015.ToReturnOptionObject(3, "Hello, World!");
+        return optionObject2015.ToReturnOptionObject(ErrorCode.Info, "Hello, World!");
     }
 }
 ```
@@ -86,11 +86,3 @@ public class ScriptLinkController : System.Web.Services.WebService
   2. Select GetVersion to view documentation on the GetVersion method.
     1. Select Invoke to see the version number you set returned.
   3. Select RunScript to view documentation on the RunScript method.
-
-## Create Hello World Script
-
-To be written.
-
-## Add Unit Test
-
-To be written.
