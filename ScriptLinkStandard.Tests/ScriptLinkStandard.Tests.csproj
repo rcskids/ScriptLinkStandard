@@ -110,6 +110,7 @@
     <Compile Include="ObjectsTests\OptionObject2015Tests.cs" />
     <Compile Include="ObjectsTests\RowActionTests.cs" />
     <Compile Include="ObjectsTests\FieldActionTests.cs" />
+    <Compile Include="ObjectsTests\ErrorCodeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
