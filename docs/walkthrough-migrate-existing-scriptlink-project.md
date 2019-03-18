@@ -179,7 +179,7 @@ When using ScriptLinkStandard, the returnOptionObject can be created directly fr
                 case "SetValueBasedOnAnotherValueAndThrowError":
                     return SetValueBasedOnAnotherValueAndThrowError(optionObject2);
                 default:
-                    return optionObject2.ToReturnOptionObject(3,"No script was found with this name.");
+                    return optionObject2.ToReturnOptionObject(ErrorCode.Info,"No script was found with this name.");
             }
         }
 ```
@@ -196,8 +196,8 @@ Here's the refactored private method.
             if (optionObject2.GetFieldValue("15") != "6")
             {
                 optionObject2.SetFieldValue("15", "6");
-                return optionObject2.ToReturnOptionObject(3, "The FieldValue must be 6.");
+                return optionObject2.ToReturnOptionObject(ErrorCode.Info, "The FieldValue must be 6.");
             }
-            return optionObject2.ToReturnOptionObject(3, "You have chosen wisely.");
+            return optionObject2.ToReturnOptionObject(ErrorCode.Info, "You have chosen wisely.");
         }
 ```
