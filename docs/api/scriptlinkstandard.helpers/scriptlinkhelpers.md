@@ -30,6 +30,16 @@ if (ScriptLinkHelpers.IsValidErrorCode(errorCode))
 }
 ```
 
+### IsValidOpenFormString
+There is a specific format that the OpenForm string must be in to be used with ScriptLink.
+```c#
+string errorMessage = '[PM]PATIENT500|Open Financial Eligibility?|123456|1';
+if (ScriptLinkHelpers.IsValidOpenFormString(errorMessage))
+{
+  optionObject.ErrorMesg = errorMessage;
+}
+```
+
 ### IsValidRowAction
 There is a limited set of error codes that are valid for use with ScriptLink.
 ```c#
@@ -63,6 +73,7 @@ The following methods are exclusively available using the ScriptLinkHelpers clas
 | GetOptionObjectHeaders(IOptionObject2015) | Returns a List<string> of the OptionObject2015 properties and values. |
 | IsValidErrorCode(double) | Returns whether a double value is a valid ScriptLink error code. |
 | IsValidErrorCode(string) | Returns whether a string value can be converted to a valid ScriptLink error code. |
+| IsValidOpenFormString(string) | Returns whether a string is a valid OpenForm string for use with error code 6. |
 | IsValidRowAction(string) | Returns whether a string value is a valid ScriptLink Row Action. |
 | IsValidUrl(string) | Returns whether a string is a valid URL for use with error code 5. |
 | SafeGetInt(string) | Converts a string to an int. Returns 0 if not able to convert string. |
