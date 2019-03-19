@@ -22,3 +22,11 @@ It is recommended that you use the [OptionObject2015](optionobject2015.md) class
       * Fields: List<[FieldObject](fieldobject.md)>
 
 [OptionObject2015](optionobject2015.md), [OptionObject2](optionobject2.md), and [OptionObject](optionobject.md) have a same fundamental structure though there are differences in root level properties.
+
+## Helper Objects
+
+The ScriptLinkStandard.Objects namespace also includes some static classes that help you write valid code.
+
+* [ErrorCode](errorcode.md) provides valid ErrorCode options for use with return [OptionObjects](optionobject2015.md).
+* [FieldAction](fieldaction.md) provides valid FieldAction options for manipulating [FieldObjects](fieldobject.md) with ScriptLinkHelpers.
+* [RowAction](rowaction.md) provides valid RowAction options for use with [RowObjects](rowobject.md).

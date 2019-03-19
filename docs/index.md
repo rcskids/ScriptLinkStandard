@@ -61,6 +61,7 @@ The [ScriptLinkStandard.Objects](./api/scriptlinkstandard.objects) namespace inc
 Although most of the [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md) are accessible as method on the various objects, some use cases would need leverage the [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md) class directly. Here are some common examples:
 
 * [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidErrorCode()
+* [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidOpenFormString()
 * [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidRowAction()
 * [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).IsValidUrl()
 * [ScriptLinkHelpers](./api/scriptlinkstandard.helpers/scriptlinkhelpers.md).SafeGetInt()
