@@ -13,10 +13,8 @@ namespace ScriptLinkStandard.Helpers
         {
             if (openFormString == null || openFormString == "")
                 return false;
-            string pattern = @"^((\s*)\[(PM|CWS|MSO)\][A-Z]+[0-9]+)((\s*)&(\s*)\[(PM|CWS|MSO)\][A-Z]+[0-9]+)*((\s*)\|(\s*)([^\|\t\n\r])*)?((\s*)\|(\s*)\d+)?((\s*)\|(\s*)([1-9][0-9]*)+|(\s*)\|(\s*))?$";
-            if (Regex.IsMatch(openFormString, pattern))
-                return true;
-            return false;
+            Regex regex = new Regex(@"^((\s*)\[(PM|CWS|MSO)\][A-Z]+[0-9]+)((\s*)&(\s*)\[(PM|CWS|MSO)\][A-Z]+[0-9]+)*((\s*)\|(\s*)([^\|\t\n\r])*)?((\s*)\|(\s*)\d+)?((\s*)\|(\s*)([1-9][0-9]*)+|(\s*)\|(\s*))?$");
+            return regex.IsMatch(openFormString);
         }
     }
 }

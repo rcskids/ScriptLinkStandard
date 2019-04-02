@@ -10,9 +10,7 @@
         public static bool IsValidErrorCode(string errorCode)
         {
             if (int.TryParse(errorCode, out int convertedErrorCode))
-            {
                 return IsValidErrorCode(convertedErrorCode);
-            }
             return false;
         }
         /// <summary>
@@ -23,9 +21,7 @@
         public static bool IsValidErrorCode(double errorCode)
         {
             if (errorCode >= 0 && errorCode <= 6)
-            {
                 return true;
-            }
             return false;
         }
     }

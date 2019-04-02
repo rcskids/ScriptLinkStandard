@@ -10,7 +10,6 @@
         public static string[] SplitDelimitedParameter(string delimitedParameter)
         {
             string[] splitString = SplitDelimitedParameter(delimitedParameter, ',');
-
             return splitString;
         }
         /// <summary>
@@ -21,8 +20,8 @@
         /// <returns></returns>
         public static string[] SplitDelimitedParameter(string delimitedParameter, char delimiter)
         {
-            string[] tempString = delimitedParameter.Split(delimiter);
-            return tempString;
+            string[] splitString = delimitedParameter.Split(delimiter);
+            return splitString;
         }
     }
 }

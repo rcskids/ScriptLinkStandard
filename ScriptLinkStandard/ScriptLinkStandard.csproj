@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/rcskids/ScriptLinkStandard</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/rcskids/ScriptLinkStandard/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <Authors>Scott Olson Jr, Luis Quicano</Authors>
     <Company>Rebekah Children's Services</Company>
     <Description>A class library for Netsmart myAvatar ScriptLink API development.</Description>
@@ -15,6 +15,7 @@
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
     <AssemblyOriginatorKeyFile>ScriptLinkStandard.snk</AssemblyOriginatorKeyFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

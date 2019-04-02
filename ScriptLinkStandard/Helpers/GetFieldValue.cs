@@ -119,11 +119,11 @@ namespace ScriptLinkStandard.Helpers
             if (formObject == null)
                 throw new ArgumentNullException("Parameter cannot be null", "formObject");
             if (formObject.CurrentRow.RowId == rowId)
-                return ScriptLinkHelpers.GetFieldValue(formObject.CurrentRow, fieldNumber);
+                return GetFieldValue(formObject.CurrentRow, fieldNumber);
             foreach (RowObject rowObject in formObject.OtherRows)
             {
                 if (rowObject.RowId == rowId)
-                    return ScriptLinkHelpers.GetFieldValue(rowObject, fieldNumber);
+                    return GetFieldValue(rowObject, fieldNumber);
             }
             throw new ArgumentException("FieldObject (" + fieldNumber + ") could not be found.");
         }

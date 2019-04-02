@@ -171,8 +171,7 @@ namespace ScriptLinkStandard.Helpers
                 throw new ArgumentException("Error Message is not a valid URL string.");
             if (errorCode == ErrorCode.OpenForm && !IsValidOpenFormString(errorMessage))
                 throw new ArgumentException("Error Message is not a valid OpenForm string.");
-            OptionObject2015 returnOptionObject = new OptionObject2015();
-            returnOptionObject = (OptionObject2015)optionObject;
+            OptionObject2015 returnOptionObject = (OptionObject2015)optionObject;
             returnOptionObject.ErrorCode = errorCode;
             returnOptionObject.ErrorMesg = errorMessage;
             return returnOptionObject;

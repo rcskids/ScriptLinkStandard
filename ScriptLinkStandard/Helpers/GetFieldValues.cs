@@ -44,7 +44,7 @@ namespace ScriptLinkStandard.Helpers
                 throw new NullReferenceException("There are no FormObjects in this OptionObject");
             foreach (var form in optionObject.Forms)
             {
-                if (ScriptLinkHelpers.IsFieldPresent(form, fieldNumber))
+                if (IsFieldPresent(form, fieldNumber))
                 {
                     return GetFieldValues(form, fieldNumber);
                 }
@@ -64,12 +64,12 @@ namespace ScriptLinkStandard.Helpers
             if (formObject.CurrentRow == null)
                 throw new NullReferenceException("The FormObject does not have a CurrentRow.");
             List<string> values = new List<string>();
-            if (formObject.MultipleIteration == false && ScriptLinkHelpers.IsFieldPresent(formObject, fieldNumber))
+            if (formObject.MultipleIteration == false && IsFieldPresent(formObject, fieldNumber))
             {
                 values.Add(GetFieldValue(formObject.CurrentRow, fieldNumber));
                 return values;
             }
-            else if(formObject.MultipleIteration == true && ScriptLinkHelpers.IsFieldPresent(formObject, fieldNumber))
+            else if(formObject.MultipleIteration == true && IsFieldPresent(formObject, fieldNumber))
             {
                 values.Add(GetFieldValue(formObject.CurrentRow, fieldNumber));
                 foreach (var row in formObject.OtherRows)
