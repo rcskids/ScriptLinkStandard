@@ -79,6 +79,7 @@ public void GetMyFieldValue_Returns_Y()
 
 | Method        | Description |
 |:----------------|:------------|
+| Clone() | Creates a copy of the FieldObject. |
 | GetFieldValue() | Returns the FieldValue of a FieldObject. |
 | IsEnabled() | Returns whether the FieldObject is enabled. |
 | IsLocked() | Returns whether the FieldObject is locked. |
@@ -93,7 +94,7 @@ public void GetMyFieldValue_Returns_Y()
 | SetFieldValue(string) | Sets the FieldValue of a FieldObject and marks the FieldObject as modified. |
 | ToHtmlString(bool) | Returns the FieldObject as an HTML string. The `<html>`, `<head>`, and `<body>` tags can be included if desired. |
 | ToJson() | Returns the FieldObject as a JSON string. |
-| ToXml() | Returns the OptionObject2015 as an XML string. |
+| ToXml() | Returns the FieldObject as an XML string. |
 
 ## Explicit Interface Implementations
 
