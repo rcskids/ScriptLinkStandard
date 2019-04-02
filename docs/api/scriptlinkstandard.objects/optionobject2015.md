@@ -83,7 +83,7 @@ To use OptionObject2015 you will need RADplus 2016 Update 17 installed in myAvat
 | AddFormObject([FormObject](./formobject.md))                     | Adds a [FormObject](./formobject.md) to the OptionObject2015.            |
 | AddFormObject(string, bool)                   | Creates a [FormObject](./formobject.md) with specified FormId and adds to the OptionObject2015. The second parameter specifies whether the [FormObject](./formobject.md) should be flagged as a Multiple Iteration form. |
 | AddRowObject(string, [RowObject](./rowobject.md))               | Adds a [RowObject](./rowobject.md) to the [FormObject](./formobject.md) with the specified FormId. |
-| Clone                                         | Creates a shallow copy of the OptionObject2015.            |
+| Clone                                         | Creates a deep copy of the OptionObject2015.            |
 | DeleteRowObject([RowObject](./rowobject.md))                    | Removes the [RowObject](./rowobject.md) from the OptionObject2015.            |
 | DeleteRowObject(string)                       | Removes a [RowObject](./rowobject.md) from the OptionObject2015 by specified RowId.            |
 | DisableAllFieldObjects()                        | Sets all [FieldObjects](./fieldobject.md) in the OptionObject2015 to disabled.            |
