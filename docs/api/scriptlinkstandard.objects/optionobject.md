@@ -79,7 +79,7 @@ OptionObject is the original definition of the OptionObject for use with myAvata
 | AddFormObject(FormObject)                     | Adds a FormObject to the OptionObject.            |
 | AddFormObject(string, bool)                   | Creates a FormObject with specified FormId and adds to the OptionObject. The second parameter specifies whether the FormObject should be flagged as a Multiple Iteration form. |
 | AddRowObject(string, RowObject)               | Adds a RowObject to the FormObject with the specified FormId. |
-| Clone                                         | Creates a shallow copy of the OptionObject.            |
+| Clone                                         | Creates a deep copy of the OptionObject.            |
 | DeleteRowObject(RowObject)                    | Removes the RowObject from the OptionObject.            |
 | DeleteRowObject(string)                       | Removes a RowObject from the OptionObject by specified RowId.            |
 | DisableAllFieldObjects                        | Sets all FieldObjects in the OptionObject to disabled.            |
