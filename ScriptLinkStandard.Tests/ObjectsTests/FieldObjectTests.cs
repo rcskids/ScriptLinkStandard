@@ -479,5 +479,26 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
             Assert.AreEqual("1", fieldObject.Lock);
             Assert.AreEqual("1", fieldObject.Required);
         }
+
+        [TestMethod]
+        public void FieldObject_Clone_AreEqual()
+        {
+            FieldObject fieldObject = new FieldObject("123", "Test");
+
+            FieldObject cloneObject = fieldObject.Clone();
+
+            Assert.AreEqual(fieldObject, cloneObject);
+        }
+
+        [TestMethod]
+        public void FieldObject_Clone_AreNotEqual()
+        {
+            FieldObject fieldObject = new FieldObject("123", "Test");
+            FieldObject cloneObject = fieldObject.Clone();
+
+            fieldObject.SetFieldValue("Modified");
+
+            Assert.AreNotEqual(fieldObject, cloneObject);
+        }
     }
 }

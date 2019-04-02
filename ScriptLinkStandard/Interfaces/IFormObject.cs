@@ -13,6 +13,9 @@ namespace ScriptLinkStandard.Interfaces
         void AddRowObject(RowObject rowObject);
         void AddRowObject(string rowId, string parentRowId);
         void AddRowObject(string rowId, string parentRowId, string rowAction);
+
+        FormObject Clone();
+
         void DeleteRowObject(RowObject rowObject);
         void DeleteRowObject(string rowId);
         string GetCurrentRowId();
@@ -41,5 +44,6 @@ namespace ScriptLinkStandard.Interfaces
         void SetUnlockedFields(List<string> fieldNumbers);
 
         string ToHtmlString(bool includeHtmlHeaders);
+        string ToJson();
     }
 }

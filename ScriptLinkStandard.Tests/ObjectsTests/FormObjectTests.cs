@@ -695,5 +695,43 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
             Assert.AreEqual(multipleIteration, formObject.MultipleIteration);
             Assert.AreEqual(otherRows.Count, formObject.OtherRows.Count);
         }
+
+        [TestMethod]
+        public void FormObject_Clone_AreEqual()
+        {
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                new FieldObject("123", "Test")
+            };
+            RowObject rowObject = new RowObject("1||1", fieldObjects);
+            FormObject formObject = new FormObject("1", rowObject);
+
+            FormObject cloneObject = formObject.Clone();
+
+            Assert.AreEqual(formObject, cloneObject);
+            Assert.IsTrue(formObject.IsFieldPresent("123"));
+            Assert.IsTrue(cloneObject.IsFieldPresent("123"));
+        }
+
+        [TestMethod]
+        public void FormObject_Clone_AreNotEqual()
+        {
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                new FieldObject("123", "Test")
+            };
+            RowObject rowObject = new RowObject("1||1", fieldObjects);
+            FormObject formObject = new FormObject("1", rowObject);
+
+            FormObject cloneObject = formObject.Clone();
+            formObject.DeleteRowObject(rowObject);
+
+            Assert.AreNotEqual(formObject.ToJson(), cloneObject.ToJson());
+            Assert.AreNotEqual(formObject, cloneObject);
+            Assert.IsTrue(formObject.IsFieldPresent("123"));
+            Assert.IsTrue(formObject.IsRowMarkedForDeletion("1||1"));
+            Assert.IsTrue(cloneObject.IsFieldPresent("123"));
+            Assert.IsFalse(cloneObject.IsRowMarkedForDeletion("1||1"));
+        }
     }
 }

@@ -103,6 +103,7 @@
     <Compile Include="HelpersTests\SetFieldObjectTests.cs" />
     <Compile Include="HelpersTests\SetFieldObjectsTests.cs" />
     <Compile Include="HelpersTests\IsValidOpenFormStringTests.cs" />
+    <Compile Include="HelpersTests\CloneTests.cs" />
     <Compile Include="ObjectsTests\FieldObjectTests.cs" />
     <Compile Include="ObjectsTests\FormObjectTests.cs" />
     <Compile Include="ObjectsTests\OptionObject2Tests.cs" />

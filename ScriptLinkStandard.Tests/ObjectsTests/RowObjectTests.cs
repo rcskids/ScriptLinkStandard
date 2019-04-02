@@ -684,5 +684,40 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
             Assert.AreEqual(rowAction, rowObject.RowAction);
             Assert.AreEqual(0, rowObject.Fields.Count);
         }
+
+        [TestMethod]
+        public void RowObject_Clone_AreEqual()
+        {
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                new FieldObject("123", "Test")
+            };
+            RowObject rowObject = new RowObject("1||1", fieldObjects);
+
+            RowObject cloneObject = rowObject.Clone();
+
+            Assert.AreEqual(rowObject.ToJson(), cloneObject.ToJson());
+            Assert.AreEqual(rowObject, cloneObject);
+            Assert.IsTrue(rowObject.IsFieldPresent("123"));
+            Assert.IsTrue(cloneObject.IsFieldPresent("123"));
+        }
+
+        [TestMethod]
+        public void RowObject_Clone_AreNotEqual()
+        {
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                new FieldObject("123", "Test")
+            };
+            RowObject rowObject = new RowObject("1||1", fieldObjects);
+
+            RowObject cloneObject = rowObject.Clone();
+            rowObject.RemoveFieldObject("123");
+
+            Assert.AreNotEqual(rowObject.ToJson(), cloneObject.ToJson());
+            Assert.AreNotEqual(rowObject, cloneObject);
+            Assert.IsFalse(rowObject.IsFieldPresent("123"));
+            Assert.IsTrue(cloneObject.IsFieldPresent("123"));
+        }
     }
 }

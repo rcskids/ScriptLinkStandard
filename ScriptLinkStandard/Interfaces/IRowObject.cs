@@ -14,6 +14,9 @@ namespace ScriptLinkStandard.Interfaces
         void AddFieldObject(string fieldNumber, string fieldValue);
         void AddFieldObject(string fieldNumber, string fieldValue, string enabledValue, string lockedValue, string requiredValue);
         void AddFieldObject(string fieldNumber, string fieldValue, bool enabled, bool locked, bool required);
+
+        RowObject Clone();
+
         string GetFieldValue(string fieldNumber);
 
         bool IsFieldEnabled(string fieldNumber);
@@ -38,5 +41,6 @@ namespace ScriptLinkStandard.Interfaces
         void SetUnlockedFields(List<string> fieldNumbers);
 
         string ToHtmlString(bool includeHtmlHeaders);
+        string ToJson();
     }
 }

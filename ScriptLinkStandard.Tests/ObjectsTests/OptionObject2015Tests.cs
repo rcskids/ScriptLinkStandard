@@ -540,5 +540,45 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
             Assert.AreEqual(systemCode, optionObject.SystemCode);
             Assert.AreEqual(formCount, optionObject.Forms.Count);
         }
+
+        [TestMethod]
+        [TestCategory("OptionObject2015")]
+        public void OptionObject2015_Clone_AreEqual()
+        {
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                new FieldObject("123", "Test")
+            };
+            RowObject rowObject = new RowObject("1||1", fieldObjects);
+            FormObject formObject = new FormObject("1", rowObject);
+            OptionObject2015 optionObject = new OptionObject2015("USER00", "userId", "000111", "1", "123456", 1, "UAT", "AVPM", "AVPM", "SERVER", "TOKEN");
+            optionObject.AddFormObject(formObject);
+
+            OptionObject2015 cloneOptionObject = optionObject.Clone();
+
+            Assert.AreEqual(optionObject, cloneOptionObject);
+            Assert.IsTrue(optionObject.IsFieldPresent("123"));
+            Assert.IsTrue(cloneOptionObject.IsFieldPresent("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject2015")]
+        public void OptionObject2015_ReturnOptionObject_AreNotEqual()
+        {
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                new FieldObject("123", "Test")
+            };
+            RowObject rowObject = new RowObject("1||1", fieldObjects);
+            FormObject formObject = new FormObject("1", rowObject);
+            OptionObject2015 optionObject = new OptionObject2015("USER00", "userId", "000111", "1", "123456", 1, "UAT", "AVPM", "AVPM", "SERVER", "TOKEN");
+            optionObject.AddFormObject(formObject);
+
+            OptionObject2015 returnOptionObject = optionObject.ToReturnOptionObject();
+
+            Assert.AreNotEqual(optionObject, returnOptionObject);
+            Assert.IsTrue(optionObject.IsFieldPresent("123"));
+            Assert.IsFalse(returnOptionObject.IsFieldPresent("123"));
+        }
     }
 }

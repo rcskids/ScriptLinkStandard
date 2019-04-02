@@ -279,6 +279,12 @@ namespace ScriptLinkStandard.Objects
         public void AddFieldObject(string fieldNumber, string fieldValue, bool enabled, bool locked, bool required) => this.Fields = ScriptLinkHelpers.AddFieldObject(this, fieldNumber, fieldValue, enabled, locked, required).Fields;
 
         /// <summary>
+        /// Returns a deep copy of the <see cref="RowObject"/>.
+        /// </summary>
+        /// <returns></returns>
+        public RowObject Clone() => (RowObject)ScriptLinkHelpers.Clone(this);
+
+        /// <summary>
         /// Returns the value of a <see cref="FieldObject"/> in a <see cref="RowObject"/> 
         /// </summary>
         /// <param name="fieldNumber"></param>

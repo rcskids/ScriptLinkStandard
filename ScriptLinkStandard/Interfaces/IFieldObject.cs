@@ -10,6 +10,7 @@ namespace ScriptLinkStandard.Interfaces
         string Lock { get; set; }
         string Required { get; set; }
 
+        FieldObject Clone();
         string GetFieldValue();
         bool IsEnabled();
         bool IsLocked();
@@ -25,5 +26,6 @@ namespace ScriptLinkStandard.Interfaces
         void SetFieldValue(string fieldValue);
         
         string ToHtmlString(bool includeHtmlHeaders);
+        string ToJson();
     }
 }

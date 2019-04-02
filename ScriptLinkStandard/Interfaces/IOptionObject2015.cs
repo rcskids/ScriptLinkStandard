@@ -59,6 +59,7 @@ namespace ScriptLinkStandard.Interfaces
         void SetUnlockedFields(List<string> fieldNumbers);
 
         string ToHtmlString(bool includeHtmlHeaders);
+        string ToJson();
         OptionObject ToOptionObject();
         OptionObject2 ToOptionObject2();
         OptionObject2015 ToReturnOptionObject();

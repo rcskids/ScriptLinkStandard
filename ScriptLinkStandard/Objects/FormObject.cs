@@ -223,6 +223,13 @@ namespace ScriptLinkStandard.Objects
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
+
+        /// <summary>
+        /// Returns a deep copy of the <see cref="FormObject"/>.
+        /// </summary>
+        /// <returns></returns>
+        public FormObject Clone() => (FormObject)ScriptLinkHelpers.Clone(this);
+
         /// <summary>
         /// Marks a <see cref="RowObject"/> for deletion.
         /// </summary>

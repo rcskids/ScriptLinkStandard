@@ -264,11 +264,7 @@ namespace ScriptLinkStandard.Objects
         /// Clones the <see cref="OptionObject"/>.
         /// </summary>
         /// <returns></returns>
-        public OptionObject Clone() =>
-            // Shallow Copy
-            // https://msdn.microsoft.com/en-us/library/system.object.memberwiseclone(v=vs.110).aspx
-            // https://docs.microsoft.com/en-us/dotnet/api/system.object.memberwiseclone?view=netframework-4.7.1#System_Object_MemberwiseClone
-            (OptionObject)this.MemberwiseClone();
+        public OptionObject Clone() => (OptionObject)ScriptLinkHelpers.Clone(this);
 
         /// <summary>
         /// Marks a <see cref="RowObject"/> for deletion.

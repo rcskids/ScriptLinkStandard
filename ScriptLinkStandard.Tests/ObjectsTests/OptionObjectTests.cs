@@ -522,5 +522,45 @@ namespace ScriptLinkStandard.Tests.ObjectsTests
             Assert.AreEqual(systemCode, optionObject.SystemCode);
             Assert.AreEqual(formCount, optionObject.Forms.Count);
         }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        public void OptionObject_Clone_AreEqual()
+        {
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                new FieldObject("123", "Test")
+            };
+            RowObject rowObject = new RowObject("1||1", fieldObjects);
+            FormObject formObject = new FormObject("1", rowObject);
+            OptionObject optionObject = new OptionObject("USER00", "userId", "000111", "1", "123456", 1, "UAT");
+            optionObject.AddFormObject(formObject);
+
+            OptionObject cloneOptionObject = optionObject.Clone();
+
+            Assert.AreEqual(optionObject, cloneOptionObject);
+            Assert.IsTrue(optionObject.IsFieldPresent("123"));
+            Assert.IsTrue(cloneOptionObject.IsFieldPresent("123"));
+        }
+
+        [TestMethod]
+        [TestCategory("OptionObject")]
+        public void OptionObject_ReturnOptionObject_AreNotEqual()
+        {
+            List<FieldObject> fieldObjects = new List<FieldObject>
+            {
+                new FieldObject("123", "Test")
+            };
+            RowObject rowObject = new RowObject("1||1", fieldObjects);
+            FormObject formObject = new FormObject("1", rowObject);
+            OptionObject optionObject = new OptionObject("USER00", "userId", "000111", "1", "123456", 1, "UAT");
+            optionObject.AddFormObject(formObject);
+
+            OptionObject returnOptionObject = optionObject.ToReturnOptionObject();
+
+            Assert.AreNotEqual(optionObject, returnOptionObject);
+            Assert.IsTrue(optionObject.IsFieldPresent("123"));
+            Assert.IsFalse(returnOptionObject.IsFieldPresent("123"));
+        }
     }
 }

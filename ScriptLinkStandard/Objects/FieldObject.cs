@@ -199,6 +199,12 @@ namespace ScriptLinkStandard.Objects
         //
 
         /// <summary>
+        /// Returns a copy of the <see cref="FieldObject"/>.
+        /// </summary>
+        /// <returns></returns>
+        public FieldObject Clone() => (FieldObject)ScriptLinkHelpers.Clone(this);
+
+        /// <summary>
         /// Returns the <see cref="FieldValue"/> of a <see cref="FieldObject"/>
         /// </summary>
         /// <returns></returns>
