@@ -82,7 +82,7 @@ OptionObject2 is a subsequent definition of the OptionObject for use with myAvat
 | AddFormObject(FormObject)                     | Adds a FormObject to the OptionObject2.            |
 | AddFormObject(string, bool)                   | Creates a FormObject with specified FormId and adds to the OptionObject2. The second parameter specifies whether the FormObject should be flagged as a Multiple Iteration form. |
 | AddRowObject(string, RowObject)               | Adds a RowObject to the FormObject with the specified FormId. |
-| Clone                                         | Creates a shallow copy of the OptionObject2.            |
+| Clone                                         | Creates a deep copy of the OptionObject2.            |
 | DeleteRowObject(RowObject)                    | Removes the RowObject from the OptionObject2.            |
 | DeleteRowObject(string)                       | Removes a RowObject from the OptionObject2 by specified RowId.            |
 | DisableAllFieldObjects                        | Sets all FieldObjects in the OptionObject2 to disabled.            |

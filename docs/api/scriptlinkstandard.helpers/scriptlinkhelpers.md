@@ -113,6 +113,12 @@ The following methods are also available as methods on the various objects.
 | AddRowObject(IFormObject, IRowObject) | formObject.AddRowObject(IRowObject) |
 | AddRowObject(IFormObject, string, string) | formObject.AddRowObject(string, string) |
 | AddRowObject(IFormObject, string, string, string) | formObject.AddRowObject(string, string) |
+| Clone(IOptionObject) | optionObject.Clone() |
+| Clone(IOptionObject2) | optionObject.Clone() |
+| Clone(IOptionObject2015) | optionObject.Clone() |
+| Clone(IFormObject) | formObject.Clone() |
+| Clone(IRowObject) | rowObject.Clone() |
+| Clone(IFieldObject) | fieldObject.Clone() |
 | DeleteRowObject(IOptionObject, IRowObject) | optionObject.DeleteRowObject(IRowObject) |
 | DeleteRowObject(IOptionObject, string) | optionObject.DeleteRowObject(string) |
 | DeleteRowObject(IOptionObject2, IRowObject) | optionObject.DeleteRowObject(IRowObject) |

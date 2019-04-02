@@ -81,6 +81,7 @@ public void GetMyFieldValue_Returns_Y()
 | AddRowObject([RowObject](./rowobject.md)) | Adds a [RowObject](./rowobject.md) to a the FormObject. |
 | AddRowObject(string, string) | Adds a [RowObject](./rowobject.md) to a FormObject using supplied RowId and ParentRowId. |
 | AddRowObject(string, string, string) | Adds a [RowObject](./rowobject.md) to a FormObject using supplied RowId and ParentRowId and setting the RowAction. |
+| Clone() | Creates a copy of the FormObject. |
 | DeleteRowObject([RowObject](./rowobject.md)) | Removes a [RowObject](./rowobject.md) from a FormObject. |
 | DeleteRowObject(string) | Removes a [RowObject](./rowobject.md) from a FormObject by RowId. |
 | GetCurrentRowId() | Returns the ID of the [RowObject](./rowobject.md) in the CurrentRow of a FormObject. |

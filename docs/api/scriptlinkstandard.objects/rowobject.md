@@ -82,6 +82,7 @@ public void GetMyFieldValue_Returns_Y()
 | AddFieldObject(string, string) | Adds a [FieldObject](./fieldobject.md) to a RowObject using supplied FieldNumber and FieldValue. |
 | AddFieldObject(string, string, string, string, string) | Adds a [FieldObject](./fieldobject.md) to a RowObject using supplied FieldNumber and FieldValue and setting the Enabled, Locked, and Required values (e.g., `Y` or `N`). |
 | AddFieldObject(string, string, bool, bool, bool) | Adds a [FieldObject](./fieldobject.md) to a RowObject using supplied FieldNumber and FieldValue and setting the Enabled, Locked, and Required values. |
+| Clone() | Creates a copy of the RowObject. |
 | GetFieldValue(string) | Returns the FieldValue of a [FieldObject](./fieldobject.md) in a RowObject by FieldNumber. |
 | IsFieldEnabled(string) | Returns whether a [FieldObject](./fieldobject.md) in a RowObject is enabled by FieldNumber. |
 | IsFieldLocked(string) | Returns whether a [FieldObject](./fieldobject.md) in a RowObject is locked by FieldNumber. |
