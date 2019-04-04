@@ -41,12 +41,11 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             optionObject.AddFormObject(formObject);
 
             OptionObject cloneOptionObject = (OptionObject)ScriptLinkHelpers.Clone(optionObject);
-            OptionObject returnObject = (OptionObject)ScriptLinkHelpers.GetReturnOptionObject(optionObject);
+            optionObject.SetFieldValue("123", "Modified");
 
-            Assert.AreNotEqual(returnObject, cloneOptionObject);
+            Assert.AreNotEqual(optionObject, cloneOptionObject);
             Assert.IsTrue(optionObject.IsFieldPresent("123"));
             Assert.IsTrue(cloneOptionObject.IsFieldPresent("123"));
-            Assert.IsFalse(returnObject.IsFieldPresent("123"));
         }
 
         [TestMethod]
@@ -81,12 +80,11 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             optionObject.AddFormObject(formObject);
 
             OptionObject2 cloneOptionObject = (OptionObject2)ScriptLinkHelpers.Clone(optionObject);
-            OptionObject2 returnObject = (OptionObject2)ScriptLinkHelpers.GetReturnOptionObject(optionObject);
+            optionObject.SetFieldValue("123", "Modified");
 
-            Assert.AreNotEqual(returnObject, cloneOptionObject);
+            Assert.AreNotEqual(optionObject, cloneOptionObject);
             Assert.IsTrue(optionObject.IsFieldPresent("123"));
             Assert.IsTrue(cloneOptionObject.IsFieldPresent("123"));
-            Assert.IsFalse(returnObject.IsFieldPresent("123"));
         }
 
         [TestMethod]
@@ -121,12 +119,11 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             optionObject.AddFormObject(formObject);
 
             OptionObject2015 cloneOptionObject = (OptionObject2015)ScriptLinkHelpers.Clone(optionObject);
-            OptionObject2015 returnObject = (OptionObject2015)ScriptLinkHelpers.GetReturnOptionObject(optionObject);
+            optionObject.SetFieldValue("123", "Modified");
 
-            Assert.AreNotEqual(returnObject, cloneOptionObject);
+            Assert.AreNotEqual(optionObject, cloneOptionObject);
             Assert.IsTrue(optionObject.IsFieldPresent("123"));
             Assert.IsTrue(cloneOptionObject.IsFieldPresent("123"));
-            Assert.IsFalse(returnObject.IsFieldPresent("123"));
         }
 
         [TestMethod]

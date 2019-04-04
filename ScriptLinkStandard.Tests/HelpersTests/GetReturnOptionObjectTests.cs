@@ -230,5 +230,29 @@ namespace ScriptLinkStandard.Tests.HelpersTests
             IOptionObject2015 returnOptionObject = ScriptLinkHelpers.GetReturnOptionObject(nullOptionObject);
             Assert.AreNotEqual("3", returnOptionObject.ErrorCode);
         }
+
+        [TestMethod]
+        [TestCategory("ScriptLinkHelpers")]
+        public void GetReturnOptionObject_ReturnsEditedRow()
+        {
+            OptionObject2015 expected = new OptionObject2015("CWSPN22003", "unittestuser", "", "1", "", 0, "UAT", "AVCWS", "AVCWS", "SERVER", "TOKEN");
+
+            FieldObject fieldObject1 = new FieldObject("51003", "");
+            FieldObject fieldObject2 = new FieldObject("7051.4", "");
+            FieldObject fieldObject3 = new FieldObject("7051.2", "");
+            FieldObject fieldObject4 = new FieldObject("7051.3", "");
+            RowObject rowObject = new RowObject("22003||1");
+            rowObject.AddFieldObject(fieldObject1);
+            rowObject.AddFieldObject(fieldObject2);
+            rowObject.AddFieldObject(fieldObject3);
+            rowObject.AddFieldObject(fieldObject4);
+            FormObject indForm = new FormObject("22003", rowObject, false);
+            expected.AddFormObject(indForm);
+
+            expected.SetFieldValue("51003", "Modified");
+            OptionObject2015 actual = expected.ToReturnOptionObject();
+
+            Assert.IsTrue(actual.IsFieldPresent("51003"));
+        }
     }
 }

@@ -90,9 +90,8 @@ namespace ScriptLinkStandard.Helpers
             if (optionObject == null)
                 throw new ArgumentNullException("Parameter cannot be null", "optionObject");
 
-            OptionObject2015 returnOptionObject = optionObject.Clone();
             List<FormObject> formsToRemove = new List<FormObject>();
-            foreach (var formObject in returnOptionObject.Forms)
+            foreach (var formObject in optionObject.Forms)
             {
                 // CurrentRow
                 if (formObject.CurrentRow != null &&
@@ -155,10 +154,10 @@ namespace ScriptLinkStandard.Helpers
             }
             foreach (var formObject in formsToRemove)
             {
-                returnOptionObject.Forms.Remove(formObject);
+                optionObject.Forms.Remove(formObject);
             }
 
-            return returnOptionObject;
+            return optionObject;
         }
 
         private static IOptionObject2015 SetErrorCodeAndMessage(IOptionObject2015 optionObject, double errorCode = 0, string errorMessage = "")
