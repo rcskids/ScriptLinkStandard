@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body>
-    <a id="skip-to-content" href="#content">Skip to the content.</a>
+    <!--<a id="skip-to-content" href="#content">Skip to the content.</a>-->
 
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
@@ -28,7 +28,7 @@
       {% if site.github.is_project_page %}
         <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
       {% endif %}
-      <a href="https://www.nuget.org/packages/ScriptLinkStandard/" target="_blank">View on NuGet</a>
+      <a href="https://www.nuget.org/packages/ScriptLinkStandard/" class="btn" target="_blank">View on NuGet</a>
       {% if site.show_downloads %}
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
