@@ -6,7 +6,7 @@ title: IOptionObject2 Interface
 
 # IOptionObject2 Interface
 
-Namespace: ScriptLinkStandard.Interfaces
+Namespace: [ScriptLinkStandard.Interfaces](./)
 
 Assemblies: ScriptLinkStandard.dll
 
