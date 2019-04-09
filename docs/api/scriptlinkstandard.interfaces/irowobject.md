@@ -6,7 +6,7 @@ title: IRowObject Interface
 
 # IRowObject Interface
 
-Namespace: ScriptLinkStandard.Interfaces
+Namespace: [ScriptLinkStandard.Interfaces](./)
 
 Assemblies: ScriptLinkStandard.dll
 
