@@ -16,7 +16,7 @@ Defines the web service contract for use with myAvatar ScriptLink. Provides meth
 public class OptionObject2015 : IEquatable<OptionObject2015>, IOptionObject2015
 ```
 
-Implements [IEquatable&lt;T&gt;](https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=netstandard-1.1), [IOptionObject2015](/docs/api/scriptlinkstandard.interfaces/ioptionobject2015.md)
+Implements [IEquatable&lt;T&gt;](https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=netstandard-1.1), [IOptionObject2015](/ScriptLinkStandard/api/scriptlinkstandard.interfaces/ioptionobject2015.md)
 
 ## Examples
 
