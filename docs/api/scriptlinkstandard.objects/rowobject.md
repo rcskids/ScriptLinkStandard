@@ -16,7 +16,7 @@ Defines the RowObject used with the [OptionObject2015](./optionobject2015.md), [
 public class RowObject : IEquatable<RowObject>, IRowObject
 ```
 
-Implements [IEquatable&lt;T&gt;](https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=netstandard-1.1), [IRowObject](/docs/api/scriptlinkstandard.interfaces/irowobject.md)
+Implements [IEquatable&lt;T&gt;](https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=netstandard-1.1), [IRowObject](/ScriptLinkStandard/api/scriptlinkstandard.interfaces/irowobject.md)
 
 ## Examples
 

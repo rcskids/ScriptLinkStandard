@@ -1,7 +1,8 @@
 ---
 theme: cayman
 layout: default
-title: ScriptLinkStandard Documentation
+title: ScriptLinkStandard Compatibility
+description: Compatible with .NET 4.6.1 or later
 ---
 
 # Compatibility

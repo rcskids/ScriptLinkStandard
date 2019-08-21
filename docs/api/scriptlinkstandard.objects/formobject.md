@@ -16,7 +16,7 @@ Defines the FormObject used with the [OptionObject2015](./optionobject2015.md), 
 public class FormObject : IEquatable<FormObject>, IFormObject
 ```
 
-Implements [IEquatable&lt;T&gt;](https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=netstandard-1.1), [IFormObject](/docs/api/scriptlinkstandard.interfaces/iformobject.md)
+Implements [IEquatable&lt;T&gt;](https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=netstandard-1.1), [IFormObject](/ScriptLinkStandard/api/scriptlinkstandard.interfaces/iformobject.md)
 
 ## Examples
 

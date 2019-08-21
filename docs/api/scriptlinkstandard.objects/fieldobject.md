@@ -16,7 +16,7 @@ Defines the FieldObject used with the [OptionObject2015](./optionobject2015.md),
 public class FieldObject : IEquatable<FieldObject>, IFieldObject
 ```
 
-Implements [IEquatable&lt;T&gt;](https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=netstandard-1.1), [IFieldObject](/docs/api/scriptlinkstandard.interfaces/ifieldobject.md)
+Implements [IEquatable&lt;T&gt;](https://docs.microsoft.com/en-us/dotnet/api/system.iequatable-1?view=netstandard-1.1), [IFieldObject](/ScriptLinkStandard/api/scriptlinkstandard.interfaces/ifieldobject.md)
 
 ## Examples
 

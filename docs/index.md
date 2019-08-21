@@ -1,7 +1,7 @@
 ---
 theme: cayman
 layout: default
-title: ScriptLinkStandard Documentation
+title: ScriptLinkStandard
 ---
 
 # Introduction

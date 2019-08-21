@@ -6,7 +6,7 @@ title: IScriptLink Interface
 
 # IScriptLink Interface
 
-Namespace: ScriptLinkStandard.Interfaces
+Namespace: [ScriptLinkStandard.Interfaces](./)
 
 Assemblies: ScriptLinkStandard.dll
 
