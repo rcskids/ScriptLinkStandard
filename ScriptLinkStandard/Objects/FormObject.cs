@@ -343,6 +343,7 @@ namespace ScriptLinkStandard.Objects
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
+
         /// <summary>
         /// Sets the specified fields as disabled and unrequires if required.
         /// </summary>
@@ -353,6 +354,29 @@ namespace ScriptLinkStandard.Objects
             this.CurrentRow = tempFormObject.CurrentRow;
             this.OtherRows = tempFormObject.OtherRows;
         }
+
+        /// <summary>
+        /// Sets the specified field as enabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetEnabledField(string fieldNumber)
+        {
+            IFormObject tempFormObject = ScriptLinkHelpers.SetEnabledField(this, fieldNumber);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+
+        /// <summary>
+        /// Sets the specified fields as enabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetEnabledFields(List<string> fieldNumbers)
+        {
+            IFormObject tempFormObject = ScriptLinkHelpers.SetEnabledFields(this, fieldNumbers);
+            this.CurrentRow = tempFormObject.CurrentRow;
+            this.OtherRows = tempFormObject.OtherRows;
+        }
+
         /// <summary>
         /// Sets the value of a <see cref="FieldObject"/> in the <see cref="CurrentRow"/> of a <see cref="FormObject"/>.
         /// </summary>
