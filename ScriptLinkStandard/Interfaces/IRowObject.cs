@@ -31,7 +31,8 @@ namespace ScriptLinkStandard.Interfaces
         void SetDisabledField(string fieldNumber);
         void SetDisabledFields(List<string> fieldNumbers);
         void SetEnabledField(string fieldNumber);
-        void SetEnabledFields(List<string> fieldNumbers); void SetFieldValue(string fieldNumber, string fieldValue);
+        void SetEnabledFields(List<string> fieldNumbers);
+        void SetFieldValue(string fieldNumber, string fieldValue);
         void SetLockedField(string fieldNumber);
         void SetLockedFields(List<string> fieldNumbers);
         void SetOptionalField(string fieldNumber);
