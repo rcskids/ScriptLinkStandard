@@ -346,6 +346,18 @@ namespace ScriptLinkStandard.Objects
         public void SetDisabledFields(List<string> fieldNumbers) => this.Fields = ScriptLinkHelpers.SetDisabledFields(this, fieldNumbers).Fields;
 
         /// <summary>
+        /// Sets the specified field as enabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetEnabledField(string fieldNumber) => this.Fields = ScriptLinkHelpers.SetEnabledField(this, fieldNumber).Fields;
+
+        /// <summary>
+        /// Sets the specified fields as enabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetEnabledFields(List<string> fieldNumbers) => this.Fields = ScriptLinkHelpers.SetEnabledFields(this, fieldNumbers).Fields;
+
+        /// <summary>
         /// Sets the value of a <see cref="FieldObject"/> in the <see cref="RowObject"/>.
         /// </summary>
         /// <param name="fieldNumber"></param>

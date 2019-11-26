@@ -423,6 +423,18 @@ namespace ScriptLinkStandard.Objects
         public void SetDisabledFields(List<string> fieldNumbers) => this.Forms = ScriptLinkHelpers.SetDisabledFields(this, fieldNumbers).Forms;
 
         /// <summary>
+        /// Sets the specified field as enabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumber"></param>
+        public void SetEnabledField(string fieldNumber) => this.Forms = ScriptLinkHelpers.SetEnabledField(this, fieldNumber).Forms;
+
+        /// <summary>
+        /// Sets the specified fields as enabled and unrequires if required.
+        /// </summary>
+        /// <param name="fieldNumbers"></param>
+        public void SetEnabledFields(List<string> fieldNumbers) => this.Forms = ScriptLinkHelpers.SetEnabledFields(this, fieldNumbers).Forms;
+
+        /// <summary>
         /// Sets the FieldValue of a <see cref="FieldObject"/> in the <see cref="OptionObject"/> on the first form CurrentRow.
         /// </summary>
         /// <param name="fieldNumber"></param>

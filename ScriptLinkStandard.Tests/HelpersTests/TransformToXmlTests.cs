@@ -12,7 +12,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void OptionObjectTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<OptionObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<OptionObject xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
                             + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
                             + "  <Forms />" + Environment.NewLine
@@ -25,7 +25,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void OptionObjectHelperTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<OptionObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<OptionObject xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
                             + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
                             + "  <Forms />" + Environment.NewLine
@@ -38,7 +38,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void OptionObject2TransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<OptionObject2 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<OptionObject2 xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
                             + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
                             + "  <Forms />" + Environment.NewLine
@@ -51,7 +51,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void OptionObject2HelperTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<OptionObject2 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<OptionObject2 xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
                             + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
                             + "  <Forms />" + Environment.NewLine
@@ -64,7 +64,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void OptionObject2015TransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<OptionObject2015 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<OptionObject2015 xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
                             + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
                             + "  <Forms />" + Environment.NewLine
@@ -77,7 +77,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void OptionObject2015HelperTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<OptionObject2015 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<OptionObject2015 xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <EpisodeNumber>0</EpisodeNumber>" + Environment.NewLine
                             + "  <ErrorCode>0</ErrorCode>" + Environment.NewLine
                             + "  <Forms />" + Environment.NewLine
@@ -90,7 +90,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void FormObjectTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<FormObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<FormObject xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <MultipleIteration>false</MultipleIteration>" + Environment.NewLine
                             + "  <OtherRows />" + Environment.NewLine
                             + "</FormObject>";
@@ -102,7 +102,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void FormObjectHelperTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<FormObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<FormObject xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <MultipleIteration>false</MultipleIteration>" + Environment.NewLine
                             + "  <OtherRows />" + Environment.NewLine
                             + "</FormObject>";
@@ -114,7 +114,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void RowObjectTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<RowObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<RowObject xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <Fields />" + Environment.NewLine
                             + "</RowObject>";
             Assert.AreEqual(expected, new RowObject().ToXml());
@@ -125,7 +125,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void RowObjectHelperTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<RowObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<RowObject xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <Fields />" + Environment.NewLine
                             + "</RowObject>";
             Assert.AreEqual(expected, ScriptLinkHelpers.TransformToXml(new RowObject()));
@@ -136,7 +136,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void FieldObjectTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<FieldObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<FieldObject xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <Enabled>0</Enabled>" + Environment.NewLine
                             + "  <FieldNumber />" + Environment.NewLine
                             + "  <FieldValue />" + Environment.NewLine
@@ -151,7 +151,7 @@ namespace ScriptLinkStandard.Tests.HelpersTests
         public void FieldObjectHelperTransformToXmlIsString()
         {
             string expected = "<?xml version=\"1.0\" encoding=\"utf-16\"?>" + Environment.NewLine
-                            + "<FieldObject xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" + Environment.NewLine
+                            + "<FieldObject xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" + Environment.NewLine
                             + "  <Enabled>0</Enabled>" + Environment.NewLine
                             + "  <FieldNumber />" + Environment.NewLine
                             + "  <FieldValue />" + Environment.NewLine
